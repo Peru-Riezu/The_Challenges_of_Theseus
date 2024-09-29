@@ -8,6 +8,7 @@ COPY	create_all_users.bash /root/create_all_users.bash
 RUN		bash /root/create_all_users.bash
 
 COPY	basque/home/ /home/
+RUN     'for dir in /home/*; do user=$(basename $dir); sudo chown -R $user:$user $dir; done'
 
 COPY	basque/user_monitoring_scripts/ /root/basque/user_monitoring_scripts/
 COPY	basque/launch_monitors.bash /root/basque/launch_monitors.bash
