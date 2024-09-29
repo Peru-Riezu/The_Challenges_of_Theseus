@@ -1,0 +1,10 @@
+man man
+man cat
+man ls
+man mkdir
+cat *
+cat < in > out
+cat in > out
+https://www.gnu.org/software/bash/manual/bash.html
+https://www.gnu.org/software/bash/manual/bash.html#Redirections
+https://www.gnu.org/software/bash/manual/bash.html#Pattern-Matching
