@@ -1,5 +1,5 @@
 all: 
-	docker build -t The_Challenges_of_Theseus_container .
+	docker build -t the_challenges_of_theseus_container .
 
 update:
 	git pull
