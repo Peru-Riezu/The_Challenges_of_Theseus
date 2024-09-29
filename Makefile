@@ -1,5 +1,8 @@
 all: 
-	docker build -t ginkana .
+	docker build -t The_Challenges_of_Theseus_container .
+
+update:
+	git pull
 
 set_up:
 	-rm /etc/ssh/sshd_config

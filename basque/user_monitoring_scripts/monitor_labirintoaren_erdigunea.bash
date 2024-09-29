@@ -1,4 +1,4 @@
-PARENT_DIR="/home/ginkana"            # Parent directory to watch
+PARENT_DIR="/home/labirintoaren_erdigunea"            # Parent directory to watch
 TARGET_DIR="sarraila"                 # Directory that the student will create
 KEY_FILE="giltza"                     # The file to watch for inside TARGET_DIR
 EXPECTED_CONTENT="cat fitxategi barruan zaude

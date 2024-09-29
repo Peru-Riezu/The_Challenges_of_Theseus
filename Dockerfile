@@ -1,9 +1,9 @@
 FROM debian:latest
 
-RUN apt update && apt upgrade && apt install sudo vim nano man gosu -y
-RUN apt clean -y
-RUN useradd -m ginkana
-RUN echo 'ginkana:piraten_bizitza_oberena_da' | chpasswd
-RUN chsh -s /bin/bash ginkana
-COPY ginkana/ /home/ginkana/
-COPY root/ /root/
+RUN		apt update && apt upgrade && apt install sudo vim nano man gosu -y
+RUN		apt clean -y
+COPY	basque/create_users.bash /root/basque/create_users.bash
+RUN		bash /root/basque/create_users.bash
+COPY	basque/users_homes/* /home/
+COPY	basque/launch_monitors.bash /root/basque/launch_monitors.bash
+COPY	launch_all_monitors.bash /root/launch_all_monitors.bash
