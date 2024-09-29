@@ -1,1 +1,1 @@
-bash basque/create_users.bash
+bash /root/basque/create_users.bash

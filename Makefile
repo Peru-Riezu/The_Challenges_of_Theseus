@@ -1,5 +1,7 @@
 all: 
 	docker build -t the_challenges_of_theseus_container .
+	bash ./create_all_users_local.bash
+	service ssh restart 
 
 update:
 	git pull
@@ -9,7 +11,6 @@ set_up:
 	-rm /etc/ssh/launch_container.bash
 	-ln -s $$(pwd)/sshd_files/sshd_config /etc/ssh/sshd_config
 	-ln -s $$(pwd)/sshd_files/launch_container.bash /etc/ssh/launch_container.bash
-	-service ssh restart 
 	-apt install docker* -y
 
 clean:
