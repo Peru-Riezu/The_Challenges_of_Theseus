@@ -20,10 +20,9 @@ while true; do
 					"erabili beharko dituzu" >> /home/labirintoaren_erdigunea/sarraila/haria
 				cat /home/labirintoaren_erdigunea/sarraila/haria > /dev/tty
 				tput civis > /dev/tty
-				pkill -SIGUSR1 bash
 				read -n1 < /dev/tty
-				sleep 0.1
 				tput cnorm > /dev/tty
+				pkill -SIGUSR1 bash
 				exit 0
 			fi
 		fi
