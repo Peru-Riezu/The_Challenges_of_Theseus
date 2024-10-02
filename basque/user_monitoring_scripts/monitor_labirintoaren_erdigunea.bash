@@ -22,6 +22,7 @@ while true; do
 				tput civis > /dev/tty
 				read -n1 < /dev/tty
 				pkill -SIGUSR1 bash
+				pkill -SIGUSR2 bash
 				exit 0
 			fi
 		fi
