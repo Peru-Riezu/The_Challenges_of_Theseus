@@ -10,7 +10,11 @@ while true; do
 		if [[ -f "$PARENT_DIR/$TARGET_DIR/$KEY_FILE" ]]; then
 			FILE_CONTENT=$(cat "$PARENT_DIR/$TARGET_DIR/$KEY_FILE")
 			if [[ "$FILE_CONTENT" == "$EXPECTED_CONTENT" ]]; then
+				stty sane
+				sleep 0.1
 				tput clear
+				stty sane
+				sleep 0.1
 				printf "\n\n\n\n\n\n\n\n\n\n\n\n%s\n%s\n$COLOR_GREEN%s$COLOR_RESET\n%s\n$COLOR_GREEN%s$COLOR_RESET\n%s" \
 					"Azmakizun hau gainditu duzu" \
 					"hurrengo erronkara nahi baldinba duzu jarraitu" \
@@ -20,7 +24,11 @@ while true; do
 					"erabili beharko dituzu" | tee /home/labirintoaren_erdigunea/sarraila/haria
 				printf "\n\n\n\n\n\n\n\n\n\n\n\n"
 				read -n1
+				stty sane
+				sleep 0.1
 				tput clear
+				stty sane
+				sleep 0.1
 				exit 0
 			fi
 		fi
