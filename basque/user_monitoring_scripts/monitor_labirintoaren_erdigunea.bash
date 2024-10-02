@@ -10,7 +10,7 @@ while true; do
 		if [[ -f "$PARENT_DIR/$TARGET_DIR/$KEY_FILE" ]]; then
 			FILE_CONTENT=$(cat "$PARENT_DIR/$TARGET_DIR/$KEY_FILE")
 			if [[ "$FILE_CONTENT" == "$EXPECTED_CONTENT" ]]; then
-				clear
+				clear && \
 				printf "\n\n\n\n\n\n\n\n\n\n\n\n%s\n%s\n$COLOR_GREEN%s$COLOR_RESET\n%s\n$COLOR_GREEN%s$COLOR_RESET\n%s" \
 					"Azmakizun hau gainditu duzu" \
 					"hurrengo erronkara nahi baldinba duzu jarraitu" \
