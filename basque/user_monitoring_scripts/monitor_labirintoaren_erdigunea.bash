@@ -9,12 +9,13 @@ while true; do
       FILE_CONTENT=$(cat "$PARENT_DIR/$TARGET_DIR/$KEY_FILE")
       if [[ "$FILE_CONTENT" == "$EXPECTED_CONTENT" ]]; then
 		clear
-        printf "\n\n\n\n\n\n\n\n\n\n\n\n\n\033[32m Zorionak!! Azmakizun hau gainditu duzu\n" \
-			"hurrengo erronkara nahi baduzu jarraitu\n" \
-			"erabiltzailea: irakurri\n" \
+		printf "\n\n\n\n\n\n\n\n\n\n\n\n\n%s%s%s%s%s%s\n\n\n\n\n\n\n\n\n\n\n\n\n" \
+			"Azmakizun hau gainditu duzu\n" \
+			"hurrengo erronkara nahi baldinba duzu jarraitu\n" \
+			"\033[32merabiltzailea: irakurri\033[0m\n" \
 			"eta\n" \
-			"pasahitza: beti\n" \
-			"erabili beharko dituzu\033[0m\n\n\n\n\n\n\n\n\n\n\n\n\n" | tee /home/labirintoaren_erdigunea/sarraila/haria
+			"\033[32pasahitza: beti\033[0m\n" \
+			"erabili beharko dituzu\n" | tee /home/labirintoaren_erdigunea/sarraila/haria
 		read -n1
 		exit 0
       fi
