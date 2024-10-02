@@ -13,18 +13,18 @@ while true; do
 			FILE_CONTENT=$(cat "$PARENT_DIR/$TARGET_DIR/$KEY_FILE")
 			if [[ "$FILE_CONTENT" == "$EXPECTED_CONTENT" ]]; then
 				tput clear > /dev/tty
-				printf "\n\n\n\n\n\n\n\n\n\n\n\n" > /home/labirintoaren_erdigunea/sarraila/haria
-				printf "%s\n%s\n$COLOR_GREEN%s$COLOR_RESET\n%s\n$COLOR_GREEN%s$COLOR_RESET\n%s" \
+				printf "%s\n%s\n$COLOR_GREEN%s$COLOR_RESET\n%s\n$COLOR_GREEN%s$COLOR_RESET\n%s\n" \
 					"Azmakizun hau gainditu duzu" \
 					"hurrengo erronkara nahi baldinba duzu jarraitu" \
 					"erabiltzailea: irakurri" \
 					"eta" \
 					"pasahitza: beti" \
 					"erabili beharko dituzu" >> /home/labirintoaren_erdigunea/sarraila/haria
-				printf "\n\n\n\n\n\n\n\n\n\n\n\n" >> /home/labirintoaren_erdigunea/sarraila/haria
 				cat /home/labirintoaren_erdigunea/sarraila/haria > /dev/tty
 				printf "$HIDE_CURSOR" > /dev/tty
 				read -n1 < /dev/tty
+				tput clear > /dev/tty
+				echo > /dev/tty
 				printf "$SHOW_CURSOR" > /dev/tty
 				exit 0
 			fi
