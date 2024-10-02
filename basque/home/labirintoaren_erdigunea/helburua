@@ -1,0 +1,20 @@
+[32mHelburua:
+	Direktorio onetan dauden bost fitxategien edukiak batu (kateatu)
+	giltza' deitzen den fitxategi batean (gogoratu helburu fitxategia bost
+	fitxategien artean dagoela). Eta 'sarraila' deitzen den direktorio batean
+	sartzea (direktorio hau zuk sortuko behar duzu).
+[0m
+
+Komando interesgarriak:
+	man man
+	man cat
+	man ls
+	man mkdir
+	cat *
+	cat < in > out
+	cat in > out
+
+Esteka interesgarriak:
+	https://www.gnu.org/software/bash/manual/bash.html
+	https://www.gnu.org/software/bash/manual/bash.html#Redirections
+	https://www.gnu.org/software/bash/manual/bash.html#Pattern-Matching

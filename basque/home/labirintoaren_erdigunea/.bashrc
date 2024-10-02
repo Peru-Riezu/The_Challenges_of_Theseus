@@ -113,3 +113,4 @@ if ! shopt -oq posix; then
 fi
 
 cd
+cat helburua
