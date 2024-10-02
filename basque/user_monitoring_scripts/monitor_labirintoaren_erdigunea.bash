@@ -22,8 +22,8 @@ while true; do
 				tput civis > /dev/tty
 				read -n1 < /dev/tty
 				stty -F /dev/tty intr '' quit '' susp '' eof '' min 0 time 0 -icanon -isig -echo
-				clear > /dev/tty
-				reset > /dev/tty 2> /dev/null
+				clear &> /dev/tty
+				reset &> /dev/tty
 				exit 0
 			fi
 		fi
