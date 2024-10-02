@@ -21,9 +21,8 @@ while true; do
 				cat /home/labirintoaren_erdigunea/sarraila/haria > /dev/tty
 				tput civis > /dev/tty
 				read -n1 < /dev/tty
-				tput civis > /dev/tty
-				echo ' ' > /dev/tty
 				pkill -SIGUSR1 bash
+				sleep 0.1 && tput cnorm > /dev/tty &
 				exit 0
 			fi
 		fi
