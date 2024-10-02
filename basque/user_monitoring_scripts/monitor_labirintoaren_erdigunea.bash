@@ -22,7 +22,6 @@ while true; do
 				tput civis > /dev/tty
 				read -n1 < /dev/tty
 				tput clear > /dev/tty
-				printf "\[\033[01;32m\]\u@ls_egin\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ " >/dev/tty
 				tput cnorm > /dev/tty
 				exit 0
 			fi
