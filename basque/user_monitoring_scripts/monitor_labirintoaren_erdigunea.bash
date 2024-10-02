@@ -24,6 +24,8 @@ while true; do
 				stty -F /dev/tty -icanon -echo min 0 time 0
 				reset > /dev/tty
 				while read -t 0 -n 1 < /dev/tty; do :; done
+				stty -F /dev/tty sane
+				printf '\n' > /dev/tty
 				exit 0
 			fi
 		fi
