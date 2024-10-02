@@ -22,8 +22,8 @@ while true; do
 				tput civis > /dev/tty
 				pkill -SIGUSR1 bash
 				read -n1 < /dev/tty
+				sleep 0.1
 				tput cnorm > /dev/tty
-				echo -e "\f" &> /dev/pts/0
 				exit 0
 			fi
 		fi
