@@ -21,9 +21,9 @@ while true; do
 				cat /home/labirintoaren_erdigunea/sarraila/haria > /dev/tty
 				tput civis > /dev/tty
 				read -n1 < /dev/tty
-				tput cnorm > /dev/tty
-				stty sane -F /dev/tty
-				tput clear > /dev/tty
+				stty -F /dev/tty -icanon -echo min 0 time 0
+				reset > /dev/tty
+				while read -t 0 -n 1 < /dev/tty; do :; done
 				exit 0
 			fi
 		fi
