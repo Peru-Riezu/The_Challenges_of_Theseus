@@ -4,8 +4,6 @@ KEY_FILE="giltza"                     # The file to watch for inside TARGET_DIR
 EXPECTED_CONTENT=$(cat /home/labirintoaren_erdigunea/*)     # Replace with the expected content
 COLOR_GREEN="\033[32m"
 COLOR_RESET="\033[0m"
-HIDE_CURSOR="\033[?25l"
-SHOW_CURSOR="\033[?25h"
 
 while true; do
 	if [[ -d "$PARENT_DIR/$TARGET_DIR" ]]; then
@@ -14,18 +12,18 @@ while true; do
 			if [[ "$FILE_CONTENT" == "$EXPECTED_CONTENT" ]]; then
 				tput clear > /dev/tty
 				printf "%s\n%s\n$COLOR_GREEN%s$COLOR_RESET\n%s\n$COLOR_GREEN%s$COLOR_RESET\n%s\n" \
-					"Azmakizun hau gainditu duzu" \
+					"Asmakizun hau gainditu duzu" \
 					"hurrengo erronkara nahi baldinba duzu jarraitu" \
 					"erabiltzailea: irakurri" \
 					"eta" \
 					"pasahitza: beti" \
 					"erabili beharko dituzu" >> /home/labirintoaren_erdigunea/sarraila/haria
 				cat /home/labirintoaren_erdigunea/sarraila/haria > /dev/tty
-				printf "$HIDE_CURSOR" > /dev/tty
+				tput civis > /dev/tty
 				read -n1 < /dev/tty
+				tput cnorm > /dev/tty
+				stty sane -F /dev/tty
 				tput clear > /dev/tty
-				echo > /dev/tty
-				printf "$SHOW_CURSOR" > /dev/tty
 				exit 0
 			fi
 		fi
