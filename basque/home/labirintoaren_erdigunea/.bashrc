@@ -113,5 +113,5 @@ if ! shopt -oq posix; then
 fi
 
 cd
-trap 'clear' SIGUSR1
+trap 'clear && tput cnorm' SIGUSR1
 cat helburua
