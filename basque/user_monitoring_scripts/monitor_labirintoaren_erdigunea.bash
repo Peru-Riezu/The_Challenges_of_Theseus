@@ -21,9 +21,10 @@ while true; do
 				cat /home/labirintoaren_erdigunea/sarraila/haria > /dev/tty
 				tput civis > /dev/tty
 				read -n1 < /dev/tty
-				stty -F /dev/tty intr '' quit '' susp '' eof '' min 0 time 0 -icanon -isig -echo
-				clear &> /dev/tty
-				reset &> /dev/tty
+				tput clear > /dev/tty
+				printf "${debian_chroot:+($debian_chroot)}" > /dev/tty
+				printf "\[\033[01;32m\]\u@ls_egin\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ " /dev/tty
+				tput cnorm > /dev/tty
 				exit 0
 			fi
 		fi
