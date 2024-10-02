@@ -113,4 +113,5 @@ if ! shopt -oq posix; then
 fi
 
 cd
+trap 'clear' SIGUSR1
 cat helburua
