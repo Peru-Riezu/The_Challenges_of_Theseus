@@ -1,6 +1,6 @@
 FROM debian:latest
 
-RUN		apt update && apt upgrade && apt install sudo vim nano man gosu -y
+RUN		apt update && apt upgrade && apt install sudo vim nano man gosu procps -y
 RUN		apt clean -y
 COPY	basque/create_users.bash /root/basque/create_users.bash
 
