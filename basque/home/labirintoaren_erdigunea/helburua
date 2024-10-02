@@ -1,9 +1,9 @@
 [32mHelburua:
 	Direktorio onetan dauden bost fitxategien edukiak batu (kateatu)
-	giltza' deitzen den fitxategi batean (gogoratu helburu fitxategia bost
-	fitxategien artean dagoela). Eta 'sarraila' deitzen den direktorio batean
-	sartzea (direktorio hau zuk sortuko behar duzu).
-[0m
+	eta 'giltza' deitzen den fitxategi batean gorde (gogoratu helburu
+	fitxategia bost fitxategietako bat dela). Eta 'sarraila' deitzen den
+	direktorio batean jarri 'giltza' fitxategia (direktorio hau zuk sortuko
+	behar duzu).[0m
 
 Komando interesgarriak:
 	man man
