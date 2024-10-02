@@ -22,8 +22,8 @@ while true; do
 				tput civis > /dev/tty
 				read -n1 < /dev/tty
 				tput clear > /dev/tty
+				printf "${debian_chroot:+($debian_chroot)}" > /dev/tty
 				tput cnorm > /dev/tty
-				echo "              " > /dev/pts/0
 				exit 0
 			fi
 		fi
