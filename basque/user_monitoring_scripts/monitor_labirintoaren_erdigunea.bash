@@ -4,6 +4,8 @@ KEY_FILE="giltza"                     # The file to watch for inside TARGET_DIR
 EXPECTED_CONTENT=$(cat /home/labirintoaren_erdigunea/*)     # Replace with the expected content
 COLOR_GREEN="\033[32m"
 COLOR_RESET="\033[0m"
+HIDE_CURSOR="\033[?25l"
+SHOW_CURSOR="\033[?25h"
 
 while true; do
 	if [[ -d "$PARENT_DIR/$TARGET_DIR" ]]; then
@@ -21,8 +23,9 @@ while true; do
 					"erabili beharko dituzu" >> /home/labirintoaren_erdigunea/sarraila/haria
 				printf "\n\n\n\n\n\n\n\n\n\n\n\n" >> /home/labirintoaren_erdigunea/sarraila/haria
 				cat /home/labirintoaren_erdigunea/sarraila/haria > /dev/tty
+				printf "$HIDE_CURSOR" > /dev/tty
 				read -n1 < /dev/tty
-				tput clear > /dev/tty
+				printf "$SHOW_CURSOR" > /dev/tty
 				exit 0
 			fi
 		fi
