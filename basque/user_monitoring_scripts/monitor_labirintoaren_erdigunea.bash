@@ -14,7 +14,7 @@ while true; do
 			"erabiltzailea: irakurri\n" \
 			"eta\n" \
 			"pasahitza: beti\n" \
-			"erabili beharko dituzu\033[0m\n\n\n\n\n\n\n\n\n\n\n\n\n" | tee /home/labirintoaren_erdigunea/sarraila/haria"
+			"erabili beharko dituzu\033[0m\n\n\n\n\n\n\n\n\n\n\n\n\n" | tee /home/labirintoaren_erdigunea/sarraila/haria
 		read -n1
 		exit 0
       fi
