@@ -3,8 +3,9 @@ FROM debian:latest
 RUN		apt update && apt upgrade && apt install sudo vim nano man gosu procps -y
 RUN		apt clean -y
 
-RUN		echo "trap 'tput clear; tput cnorm' SIGUSR1" >> /etc/profile
-RUN		echo "trap 'tput clear; tput cnorm' SIGUSR1" >> /etc/bash.bashrc
+RUN		echo "trap 'tput clear; tput cnorm; cd; mv sarraila_irekia; mv helburua heburu_lortua' SIGUSR1" >> /etc/profile
+RUN		echo "trap 'tput clear; tput cnorm; cd; mv sarraila_irekia; mv helburua heburu_lortua' SIGUSR1" \
+			>> /etc/bash.bashrc
 
 COPY	basque/create_users.bash /root/basque/create_users.bash
 

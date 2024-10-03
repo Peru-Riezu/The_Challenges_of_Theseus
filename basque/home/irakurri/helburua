@@ -1,0 +1,29 @@
+"
+kalang kalang giltzatakoak
+bilatzen egon da atearen ondoan
+begiratzen begiratzen
+baina ikusi ezin du
+giltz gorri txikia dela
+sarraila onen lagun
+"
+
+[32mHelburua:
+	'Sarraila' direktorioan, 'giltz_gorri_txikia' ez diren fitxategi eta
+	direktorio guztiak ezabatu.[0m
+
+Komando interesgarriak:
+	man rm
+	ls !(giltz_gorri_txikia)
+	rm *
+	rm -i
+	rm -r
+	rm -f
+	rm -fffffffffffffffffff
+	rm -r -f
+	rm -rf --
+	man unlink
+
+Esteka interesgarriak:
+	http://www.gnu.org/software/coreutils/faq/coreutils-faq.html#I-have-a-file-_0027_002df_0027-and-it-affects-rm_002e
+	https://www.gnu.org/software/bash/manual/html_node/Filename-Expansion.html
+	https://www.gnu.org/software/bash/manual/bash.html#Pattern-Matching
