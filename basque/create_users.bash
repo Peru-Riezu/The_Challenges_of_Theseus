@@ -2,6 +2,7 @@ declare -A users
 
 users["labirintoaren_erdigunea"]="piraten_bizitza_oberena_da"
 users["irakurri"]="beti"
+users["eskuliburu"]="osoa"
 
 groupadd labirinto_gela
 

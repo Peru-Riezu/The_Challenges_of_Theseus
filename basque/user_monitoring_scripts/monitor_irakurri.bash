@@ -10,13 +10,13 @@ while true; do
 		if [[ ${#files[@]} -eq 1 ]]; then
 			tput clear
 			tput civis
-			printf "%s\n%s\n%s\n%s\n\n$COLOR_GREEN%s\n%s$COLOR_RESET\n\n" \
+			printf "%s\n%s\n%s\n%s\n\n$COLOR_GREEN%s\n%s$COLOR_RESET\n" \
 				"oh ene heroi ausarta, heroien artetik" \
-				"bihotzez jakin egin dut, lehen ikusi nizunetik" \
-				"adimenean lehiatu zenezakezula sortzailearekin" \
-				"laberinto hau memperatuko duzu, zure adimenarekin" \
-				"erabiltzailea: irakurri" \
-				"pasahitza: beti" > /home/irakurri/sarraila/haria
+				"bihotzez jakin dut, lehen ikusi nizunetik" \
+				"adimenean lehiatu dezakezula sortzailearekin" \
+				"labirinto hau menperatuko duzu, erraz errazik" \
+				"erabiltzailea: eskuliburu" \
+				"pasahitza: osoa" > /home/irakurri/sarraila/haria
 			cat /home/irakurri/sarraila/haria
 			read -n1
 			pkill -SIGUSR1 bash
