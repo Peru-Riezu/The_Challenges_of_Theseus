@@ -120,8 +120,8 @@ Subsystem	sftp	/usr/lib/openssh/sftp-server
 #	ForceCommand cvs server
 ClientAliveInterval 120
 
-Match User labirintoaren_erdigunea
+Match User Match User *,!root,!*admin
   PasswordAuthentication yes
-  ForceCommand bash /etc/ssh/launch_container.bash
   AllowTcpForwarding no
   X11Forwarding no
+  ForceCommand bash /etc/ssh/launch_container.bash
