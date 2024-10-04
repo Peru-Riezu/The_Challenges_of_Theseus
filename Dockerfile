@@ -10,9 +10,10 @@ RUN echo \
 COPY	basque/create_users.bash /root/basque/create_users.bash
 
 COPY	create_all_users.bash /root/create_all_users.bash
-RUN		bash /root/create_all_users.bash
+RUN		chmod 700 /usr/bin/dash /bin/dash
 
 COPY	basque/home/ /home/
+RUN     for dir in /home/*; do sudo chown -R $(basename $dir):$(basename $dir) $dir; done
 RUN     for dir in /home/*; do sudo chown -R $(basename $dir):$(basename $dir) $dir; done
 
 COPY	basque/user_monitoring_scripts/ /root/basque/user_monitoring_scripts/
