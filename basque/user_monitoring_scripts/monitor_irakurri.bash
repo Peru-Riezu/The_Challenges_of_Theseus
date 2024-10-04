@@ -10,12 +10,11 @@ while true; do
 		if [[ ${#files[@]} -eq 1 ]]; then
 			tput clear
 			tput civis
-			printf "%s\n%s\n%s\n%s\%s\n\n$COLOR_GREEN%s\n%s$COLOR_RESET\n\n" \
-				"oh ene heroi ausarta" \
-				"ikusi zintudanetik dakit" \
-				"sortzailea bezain adimentsua zarela" \
-				"laberinto honetatik egingo duzu ihes" \
-				"berak egin zuen bezala" \
+			printf "%s\n%s\n%s\n%s\n\n$COLOR_GREEN%s\n%s$COLOR_RESET\n\n" \
+				"oh ene heroi ausarta, heroien artetik" \
+				"bihotzez jakin egin dut, lehen ikusi nizunetik" \
+				"adimenean lehiatu zenezakezula sortzailearekin" \
+				"laberinto hau memperatuko duzu, zure adimenarekin" \
 				"erabiltzailea: irakurri" \
 				"pasahitza: beti" > /home/irakurri/sarraila/haria
 			cat /home/irakurri/sarraila/haria
