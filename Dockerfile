@@ -4,10 +4,7 @@ RUN	apt update && apt upgrade && apt install sudo vim nano man gosu procps -y
 RUN	apt clean -y
 
 RUN echo \
-     "trap 'cd; mv sarraila sarraila_irekia; mv helburua heburu_lortua; cd sarraila_irekia; clear; tput cnorm; ' SIGUSR1" \
-     >> /etc/profile
-RUN echo \
-     "trap 'cd; mv sarraila sarraila_irekia; mv helburua heburu_lortua; cd sarraila_irekia; clear; tput cnorm; ' SIGUSR1" \
+     "trap 'mv ~/sarraila ~/ate_irekia; mv ~/helburua ~/heburu_lortua; clear; tput cnorm; ' SIGUSR1" \
      >> /etc/bash.bashrc
 
 COPY	basque/create_users.bash /root/basque/create_users.bash

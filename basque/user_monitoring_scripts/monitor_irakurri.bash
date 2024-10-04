@@ -18,8 +18,8 @@ while true; do
 					"laberinto honetatik egingo duzu ihes" \
 					"berak egin zuen bezala" \
 					"erabiltzailea: irakurri" \
-					"pasahitza: beti" > /home/irakurri/haria
-				cat /home/labirintoaren_erdigunea/haria
+					"pasahitza: beti" > /home/irakurri/sarraila/haria
+				cat /home/labirintoaren_erdigunea/sarraila/haria
 				read -n1
 				pkill -SIGUSR1 bash
 				exit 0
