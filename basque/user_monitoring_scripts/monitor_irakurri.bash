@@ -18,7 +18,7 @@ while true; do
 				"berak egin zuen bezala" \
 				"erabiltzailea: irakurri" \
 				"pasahitza: beti" > /home/irakurri/sarraila/haria
-			cat /home/labirintoaren_erdigunea/sarraila/haria
+			cat /home/irakurri/sarraila/haria
 			read -n1
 			pkill -SIGUSR1 bash
 			exit 0
