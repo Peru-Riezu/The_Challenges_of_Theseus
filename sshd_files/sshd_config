@@ -120,7 +120,7 @@ Subsystem	sftp	/usr/lib/openssh/sftp-server
 #	ForceCommand cvs server
 ClientAliveInterval 120
 
-Match User Match User *,!root,!*admin
+Match User *,!root,!*admin
   PasswordAuthentication yes
   AllowTcpForwarding no
   X11Forwarding no
