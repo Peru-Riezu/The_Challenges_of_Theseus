@@ -8,6 +8,8 @@ while true; do
 	if [[ -f "$PARENT_DIR/$TARGET_DIR/$KEY_FILE" ]]; then
 		files=($(ls -A $PARENT_DIR/$TARGET_DIR))
 		if [[ ${#files[@]} -eq 1 ]]; then
+			old_stty=$(stty -g < /dev/tty)
+			stty -F /dev/tty -isig -icanon -ixoff -echo min 0 time 0
 			tput clear
 			tput civis
 			printf "%s\n%s\n%s\n%s\n\n$COLOR_GREEN%s\n%s$COLOR_RESET\n" \
@@ -18,8 +20,10 @@ while true; do
 				"erabiltzailea: eskuliburu" \
 				"pasahitza: osoa" > /home/irakurri/sarraila/haria
 			cat /home/irakurri/sarraila/haria
+			stty "$old_stty" < /dev/tty
+			stty sane -F /dev/tty
 			read -n1
-			pkill -SIGUSR1 bash
+			pkill -G labirinto_gela -SIGUSR1 bash
 			exit 0
 		fi
 	fi
