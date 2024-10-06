@@ -10,8 +10,7 @@ while true; do
 		FILE_CONTENT=$(cat "$PARENT_DIR/$TARGET_DIR/$KEY_FILE")
 		if [[ "$FILE_CONTENT" == "$EXPECTED_CONTENT" ]]; then
 			old_stty=$(stty -F /dev/tty -g)
-			stty -F /dev/tty -isig -icanon -ixoff -echo min 1 time 0
-			exec 0</dev/null
+			stty -F /dev/tty igncr -isig -icanon -ixoff -echo
 			tput clear > /dev/tty
 			tput civis > /dev/tty
 			printf "%s\n%s\n$COLOR_GREEN%s$COLOR_RESET\n%s\n$COLOR_GREEN%s$COLOR_RESET\n%s\n" \
@@ -22,11 +21,8 @@ while true; do
 				"pasahitza: beti" \
 				"erabili beharko dituzu" > /home/labirintoaren_erdigunea/sarraila/haria
 			cat /home/labirintoaren_erdigunea/sarraila/haria
-			sleep 5
-			echo sleep ended > /dev/tty
-			exec 0</dev/tty
-			read -n1 < /dev/tty
 			stty -F /dev/tty "$old_stty"
+			read -n1 < /dev/tty
 			users_in_group=$(getent group labirinto_gela | awk -F: '{print $4}')
 			IFS=',' read -ra users <<< "$users_in_group"
 			for user in "${users[@]}"; do
