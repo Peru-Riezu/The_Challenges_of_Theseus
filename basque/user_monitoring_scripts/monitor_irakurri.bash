@@ -25,12 +25,10 @@ while true; do
 			read -n1 < /dev/tty
 			tput cnorm
 			users_in_group=$(getent group labirinto_gela | awk -F: '{print $4}')
-			if [[ -n "$users_in_group" ]]; then
-				IFS=',' read -ra users <<< "$users_in_group"
-				for user in "${users[@]}"; do
-					pkill -SIGUSR1 -u "$user" bash
-				done
-			fi
+			IFS=',' read -ra users <<< "$users_in_group"
+			for user in "${users[@]}"; do
+				pkill -SIGUSR1 -u "$user" bash
+			done
 			exit 0
 		fi
 	fi
