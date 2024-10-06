@@ -24,6 +24,7 @@ while true; do
 			stty "$old_stty" < /dev/tty
 			stty sane -F /dev/tty
 			read -n1
+			tput cnorm
 			pkill -G labirinto_gela -SIGUSR1 bash
 			exit 0
 		fi
