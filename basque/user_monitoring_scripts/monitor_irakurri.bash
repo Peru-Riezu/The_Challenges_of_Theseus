@@ -21,7 +21,8 @@ while true; do
 				"erabiltzailea: eskuliburu" \
 				"pasahitza: osoa" > /home/irakurri/sarraila/haria
 			cat /home/irakurri/sarraila/haria
-			stty -F /dev/tty sane
+			stty -F /dev/tty sane &> /dev/null
+			tput civis > /dev/tty
 			read -n1
 			pkill -SIGUSR1 bash
 			tput cnorm > /dev/tty
