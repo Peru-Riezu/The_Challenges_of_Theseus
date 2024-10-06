@@ -6,6 +6,7 @@ COLOR_GREEN="\033[32m"
 COLOR_RESET="\033[0m"
 
 trap '' SIGUSR1
+trap '' SIGUSR2
 
 while true; do
 	if [[ -f "$PARENT_DIR/$TARGET_DIR/$KEY_FILE" ]]; then
@@ -22,11 +23,9 @@ while true; do
 				"erabiltzailea: madarikatua" \
 				"pasahitza: gogoko_ditut_eskuliburuak" > /home/eskuliburu/sarraila/haria
 			cat /home/eskuliburu/sarraila/haria
-			stty -F /dev/tty sane &> /dev/null
-			tput civis > /dev/tty
+			pkill -SIGUSR2 bash
 			read -n1
 			pkill -SIGUSR1 bash
-			tput cnorm > /dev/tty
 			exit 0
 		fi
 	fi
