@@ -11,7 +11,6 @@ while true; do
 	if [[ -f "$PARENT_DIR/$TARGET_DIR/$KEY_FILE" ]]; then
 		FILE_CONTENT=$(cat "$PARENT_DIR/$TARGET_DIR/$KEY_FILE")
 		if [[ "$FILE_CONTENT" == "$EXPECTED_CONTENT" ]]; then
-			old_stty=$(stty -F /dev/tty -g)
 			stty -F /dev/tty igncr -isig -icanon -ixoff -echo
 			tput clear > /dev/tty
 			tput civis > /dev/tty
@@ -23,8 +22,8 @@ while true; do
 				"pasahitza: beti" \
 				"erabili beharko dituzu" > /home/labirintoaren_erdigunea/sarraila/haria
 			cat /home/labirintoaren_erdigunea/sarraila/haria
-			stty -F /dev/tty "$old_stty"
-			read -n1 < /dev/tty
+			stty -F /dev/tty sane
+			read -n1
 			pkill -SIGUSR1 bash
 			tput cnorm > /dev/tty
 			exit 0

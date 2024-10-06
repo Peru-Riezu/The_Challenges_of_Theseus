@@ -10,7 +10,6 @@ while true; do
 	if [[ -f "$PARENT_DIR/$TARGET_DIR/$KEY_FILE" ]]; then
 		files=($(ls -A $PARENT_DIR/$TARGET_DIR))
 		if [[ ${#files[@]} -eq 1 ]]; then
-			old_stty=$(stty -g < /dev/tty)
 			stty -F /dev/tty igncr -isig -icanon -ixoff -echo
 			tput civis > /dev/tty
 			tput clear > /dev/tty
@@ -22,8 +21,8 @@ while true; do
 				"erabiltzailea: eskuliburu" \
 				"pasahitza: osoa" > /home/irakurri/sarraila/haria
 			cat /home/irakurri/sarraila/haria
-			stty -F /dev/tty "$old_stty"
-			read -n1 < /dev/tty
+			stty -F /dev/tty sane
+			read -n1
 			pkill -SIGUSR1 bash
 			tput cnorm > /dev/tty
 			exit 0

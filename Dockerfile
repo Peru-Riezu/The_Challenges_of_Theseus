@@ -5,7 +5,7 @@ RUN	apt clean -y
 
 RUN yes root | passwd
 RUN echo "shopt -s extglob" >> /etc/bash.bashrc
-RUN	echo "trap 'cd; mv sarraila ate_irekia; mv helburua heburu_lortua; clear; tput cnorm; ' SIGUSR1" \
+RUN	echo "trap 'cd; mv sarraila ate_irekia; mv helburua heburu_lortua; clear' SIGUSR1" \
 		>> /etc/bash.bashrc
 
 COPY	basque/create_users.bash /root/basque/create_users.bash
