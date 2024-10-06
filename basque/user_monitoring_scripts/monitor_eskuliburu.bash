@@ -9,7 +9,7 @@ while true; do
 	if [[ -f "$PARENT_DIR/$TARGET_DIR/$KEY_FILE" ]]; then
 		FILE_CONTENT=$(cat "$PARENT_DIR/$TARGET_DIR/$KEY_FILE")
 		if [[ "$FILE_CONTENT" == "$EXPECTED_CONTENT" ]]; then
-			old_stty=$(stty -g < /dev/tty)
+			old_stty=$(stty -F /dev/tty -g)
 			stty -F /dev/tty -isig -icanon -ixoff -echo min 0 time 0
 			tput clear
 			tput civis
@@ -21,8 +21,7 @@ while true; do
 				"erabiltzailea: madarikatua" \
 				"pasahitza: gogoko_ditut_eskuliburuak" > /home/eskuliburu/sarraila/haria
 			cat /home/eskuliburu/sarraila/haria
-			stty "$old_stty" < /dev/tty
-			stty sane -F /dev/tty
+			stty -F /dev/tty $old_stty
 			read -n1
 			tput cnorm
 			pkill -G labirinto_gela -SIGUSR1 bash

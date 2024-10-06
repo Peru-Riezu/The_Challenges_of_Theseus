@@ -20,8 +20,7 @@ while true; do
 				"erabiltzailea: eskuliburu" \
 				"pasahitza: osoa" > /home/irakurri/sarraila/haria
 			cat /home/irakurri/sarraila/haria
-			stty "$old_stty" < /dev/tty
-			stty sane -F /dev/tty
+			stty -F /dev/tty $old_stty
 			read -n1
 			tput cnorm
 			pkill -G labirinto_gela -SIGUSR1 bash
