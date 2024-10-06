@@ -23,7 +23,7 @@ while true; do
 				"erabiltzailea: madarikatua" \
 				"pasahitza: gogoko_ditut_eskuliburuak" > /home/eskuliburu/sarraila/haria
 			cat /home/eskuliburu/sarraila/haria
-			pkill -SIGUSR2 bash
+			stty -F /dev/tty sane &> /dev/null
 			read -n1
 			pkill -SIGUSR1 bash
 			exit 0
