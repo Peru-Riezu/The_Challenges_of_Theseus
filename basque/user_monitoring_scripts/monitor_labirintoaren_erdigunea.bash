@@ -11,8 +11,8 @@ while true; do
 		if [[ "$FILE_CONTENT" == "$EXPECTED_CONTENT" ]]; then
 			old_stty=$(stty -F /dev/tty -g)
 			stty -F /dev/tty -isig -icanon -ixoff -echo min 0 time 0
-			tput civis > /dev/tty
 			tput clear > /dev/tty
+			tput civis > /dev/tty
 			printf "%s\n%s\n$COLOR_GREEN%s$COLOR_RESET\n%s\n$COLOR_GREEN%s$COLOR_RESET\n%s\n" \
 				"Asmakizun hau gainditu duzu" \
 				"hurrengo erronkara nahi baldinba duzu jarraitu" \
@@ -22,14 +22,13 @@ while true; do
 				"erabili beharko dituzu" > /home/labirintoaren_erdigunea/sarraila/haria
 			cat /home/labirintoaren_erdigunea/sarraila/haria
 			stty -F /dev/tty "$old_stty"
-			tput civis > /dev/tty
-			read -n1
-			tput cnorm
+			read -n1 < /dev/tty
 			users_in_group=$(getent group labirinto_gela | awk -F: '{print $4}')
 			IFS=',' read -ra users <<< "$users_in_group"
 			for user in "${users[@]}"; do
 				pkill -SIGUSR1 -u "$user" bash
 			done
+			tput cnorm > /dev/tty
 			exit 0
 		fi
 	fi

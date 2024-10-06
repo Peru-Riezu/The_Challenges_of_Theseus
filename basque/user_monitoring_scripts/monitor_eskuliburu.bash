@@ -22,14 +22,13 @@ while true; do
 				"pasahitza: gogoko_ditut_eskuliburuak" > /home/eskuliburu/sarraila/haria
 			cat /home/eskuliburu/sarraila/haria
 			stty -F /dev/tty "$old_stty"
-			tput civis > /dev/tty
-			read -n1
-			tput cnorm
+			read -n1 < /dev/tty
 			users_in_group=$(getent group labirinto_gela | awk -F: '{print $4}')
 			IFS=',' read -ra users <<< "$users_in_group"
 			for user in "${users[@]}"; do
 				pkill -SIGUSR1 -u "$user" bash
 			done
+			tput cnorm > /dev/tty
 			exit 0
 		fi
 	fi
