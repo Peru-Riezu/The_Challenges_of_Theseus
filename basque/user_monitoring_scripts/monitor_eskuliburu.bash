@@ -5,12 +5,14 @@ EXPECTED_CONTENT=$("find . -size +0 | grep "giltza" | sort | xargs cat")
 COLOR_GREEN="\033[32m"
 COLOR_RESET="\033[0m"
 
+trap '' SIGUSR1
+
 while true; do
 	if [[ -f "$PARENT_DIR/$TARGET_DIR/$KEY_FILE" ]]; then
 		FILE_CONTENT=$(cat "$PARENT_DIR/$TARGET_DIR/$KEY_FILE")
 		if [[ "$FILE_CONTENT" == "$EXPECTED_CONTENT" ]]; then
 			old_stty=$(stty -F /dev/tty -g)
-			stty -F /dev/tty -isig -icanon -ixoff -echo min 0 time 0
+			stty -F /dev/tty igncr -isig -icanon -ixoff -echo
 			tput civis > /dev/tty
 			tput clear > /dev/tty
 			printf "%s\n%s\n%s\n%s\n\n$COLOR_GREEN%s\n%s$COLOR_RESET\n" \
@@ -23,11 +25,7 @@ while true; do
 			cat /home/eskuliburu/sarraila/haria
 			stty -F /dev/tty "$old_stty"
 			read -n1 < /dev/tty
-			users_in_group=$(getent group labirinto_gela | awk -F: '{print $4}')
-			IFS=',' read -ra users <<< "$users_in_group"
-			for user in "${users[@]}"; do
-				pkill -SIGUSR1 -u "$user" bash
-			done
+			pkill -SIGUSR1 bash
 			tput cnorm > /dev/tty
 			exit 0
 		fi

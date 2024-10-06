@@ -5,6 +5,8 @@ EXPECTED_CONTENT=$(cat /home/labirintoaren_erdigunea/*)     # Replace with the e
 COLOR_GREEN="\033[32m"
 COLOR_RESET="\033[0m"
 
+trap '' SIGUSR1
+
 while true; do
 	if [[ -f "$PARENT_DIR/$TARGET_DIR/$KEY_FILE" ]]; then
 		FILE_CONTENT=$(cat "$PARENT_DIR/$TARGET_DIR/$KEY_FILE")
@@ -23,11 +25,7 @@ while true; do
 			cat /home/labirintoaren_erdigunea/sarraila/haria
 			stty -F /dev/tty "$old_stty"
 			read -n1 < /dev/tty
-			users_in_group=$(getent group labirinto_gela | awk -F: '{print $4}')
-			IFS=',' read -ra users <<< "$users_in_group"
-			for user in "${users[@]}"; do
-				pkill -SIGUSR1 -u "$user" bash
-			done
+			pkill -SIGUSR1 bash
 			tput cnorm > /dev/tty
 			exit 0
 		fi
