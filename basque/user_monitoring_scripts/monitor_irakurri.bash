@@ -22,9 +22,15 @@ while true; do
 			cat /home/irakurri/sarraila/haria
 			stty -F /dev/tty "$old_stty"
 			tput civis
-			read -n1
+			read -n1 < /dev/tty
 			tput cnorm
-			pkill -SIGUSR1 -G labirinto_gela bash
+			users_in_group=$(getent group labirinto_gela | awk -F: '{print $4}')
+			if [[ -n "$users_in_group" ]]; then
+				IFS=',' read -ra users <<< "$users_in_group"
+				for user in "${users[@]}"; do
+					pkill -SIGUSR1 -u "$user" bash
+				done
+			fi
 			exit 0
 		fi
 	fi
