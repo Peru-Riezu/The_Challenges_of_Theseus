@@ -21,9 +21,10 @@ while true; do
 				"pasahitza: osoa" > /home/irakurri/sarraila/haria
 			cat /home/irakurri/sarraila/haria
 			stty -F /dev/tty "$old_stty"
+			tput civis
 			read -n1
 			tput cnorm
-			pkill -s SIGUSR1 -G labirinto_gela bash
+			pkill -SIGUSR1 -G labirinto_gela bash
 			exit 0
 		fi
 	fi

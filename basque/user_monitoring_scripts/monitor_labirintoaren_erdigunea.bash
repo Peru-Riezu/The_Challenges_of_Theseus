@@ -22,9 +22,10 @@ while true; do
 				"erabili beharko dituzu" > /home/labirintoaren_erdigunea/sarraila/haria
 			cat /home/labirintoaren_erdigunea/sarraila/haria
 			stty -F /dev/tty "$old_stty"
+			tput civis
 			read -n1
 			tput cnorm
-			pkill -s SIGUSR1 -G labirinto_gela bash
+			pkill -SIGUSR1 -G labirinto_gela bash
 			exit 0
 		fi
 	fi
