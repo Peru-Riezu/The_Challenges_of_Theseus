@@ -9,10 +9,10 @@ while true; do
 	if [[ -f "$PARENT_DIR/$TARGET_DIR/$KEY_FILE" ]]; then
 		FILE_CONTENT=$(cat "$PARENT_DIR/$TARGET_DIR/$KEY_FILE")
 		if [[ "$FILE_CONTENT" == "$EXPECTED_CONTENT" ]]; then
+			tput civis
 			old_stty=$(stty -F /dev/tty -g)
 			stty -F /dev/tty -isig -icanon -ixoff -echo min 0 time 0
 			tput clear
-			tput civis
 			printf "%s\n%s\n$COLOR_GREEN%s$COLOR_RESET\n%s\n$COLOR_GREEN%s$COLOR_RESET\n%s\n" \
 				"Asmakizun hau gainditu duzu" \
 				"hurrengo erronkara nahi baldinba duzu jarraitu" \
@@ -21,10 +21,10 @@ while true; do
 				"pasahitza: beti" \
 				"erabili beharko dituzu" > /home/labirintoaren_erdigunea/sarraila/haria
 			cat /home/labirintoaren_erdigunea/sarraila/haria
-			stty -F /dev/tty $old_stty
+			stty -F /dev/tty "$old_stty"
 			read -n1
 			tput cnorm
-			pkill -G labirinto_gela -SIGUSR1 bash
+			pkill -s SIGUSR1 -G labirinto_gela bash
 			exit 0
 		fi
 	fi

@@ -9,10 +9,10 @@ while true; do
 	if [[ -f "$PARENT_DIR/$TARGET_DIR/$KEY_FILE" ]]; then
 		FILE_CONTENT=$(cat "$PARENT_DIR/$TARGET_DIR/$KEY_FILE")
 		if [[ "$FILE_CONTENT" == "$EXPECTED_CONTENT" ]]; then
+			tput civis
 			old_stty=$(stty -F /dev/tty -g)
 			stty -F /dev/tty -isig -icanon -ixoff -echo min 0 time 0
 			tput clear
-			tput civis
 			printf "%s\n%s\n%s\n%s\n\n$COLOR_GREEN%s\n%s$COLOR_RESET\n" \
 				"ene seme maitea, maitatu baldinba dezaket nik" \
 				"hartu hegal hauek eta etorri nirekin;" \
@@ -21,10 +21,10 @@ while true; do
 				"erabiltzailea: madarikatua" \
 				"pasahitza: gogoko_ditut_eskuliburuak" > /home/eskuliburu/sarraila/haria
 			cat /home/eskuliburu/sarraila/haria
-			stty -F /dev/tty $old_stty
+			stty -F /dev/tty "$old_stty"
 			read -n1
 			tput cnorm
-			pkill -G labirinto_gela -SIGUSR1 bash
+			pkill -s SIGUSR1 -G labirinto_gela bash
 			exit 0
 		fi
 	fi
