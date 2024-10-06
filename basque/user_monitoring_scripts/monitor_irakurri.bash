@@ -8,7 +8,6 @@ while true; do
 	if [[ -f "$PARENT_DIR/$TARGET_DIR/$KEY_FILE" ]]; then
 		files=($(ls -A $PARENT_DIR/$TARGET_DIR))
 		if [[ ${#files[@]} -eq 1 ]]; then
-			stty raw < /dev/null
 			tput clear
 			tput civis
 			printf "%s\n%s\n%s\n%s\n\n$COLOR_GREEN%s\n%s$COLOR_RESET\n" \
@@ -19,7 +18,6 @@ while true; do
 				"erabiltzailea: eskuliburu" \
 				"pasahitza: osoa" > /home/irakurri/sarraila/haria
 			cat /home/irakurri/sarraila/haria
-			stty sane
 			read -n1
 			pkill -SIGUSR1 bash
 			exit 0
