@@ -1,7 +1,10 @@
+tar -xvzf /home/eskuliburu/zaborra.tar.gz /home/eskuliburu/zaborra
+rm /home/eskuliburu/zaborra.tar.gz
+
 PARENT_DIR="/home/eskuliburu"                               # Parent directory to watch
 TARGET_DIR="sarraila"                                       # Directory that the student will create
 KEY_FILE="giltza"                                           # The file to watch for inside TARGET_DIR
-EXPECTED_CONTENT=$(find $PARENT_DIR/zaborra -size +0 | grep "giltza" | sort | xargs cat 2> /dev/null)
+EXPECTED_CONTENT=$(find $PARENT_DIR/zaborra -size +0 | grep "giltz" | sort | xargs cat 2> /dev/null)
 COLOR_GREEN="\033[32m"
 COLOR_RESET="\033[0m"
 
