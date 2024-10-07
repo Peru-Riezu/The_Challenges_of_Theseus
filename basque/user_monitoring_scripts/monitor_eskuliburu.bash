@@ -1,7 +1,7 @@
 PARENT_DIR="/home/labirintoaren_erdigunea"                  # Parent directory to watch
 TARGET_DIR="sarraila"                                       # Directory that the student will create
 KEY_FILE="giltza"                                           # The file to watch for inside TARGET_DIR
-EXPECTED_CONTENT=$(find . -size +0 | grep "giltza" | sort | xargs cat)
+EXPECTED_CONTENT=$(find $PARENT_DIR/$TARGET_DIR -size +0 | grep "giltza" | sort | xargs cat 2> /dev/null)
 COLOR_GREEN="\033[32m"
 COLOR_RESET="\033[0m"
 
