@@ -1,4 +1,4 @@
-debian:systemd
+FROM	debian:systemd
 
 RUN	apt update && apt upgrade && apt install sudo vim nano man emacs gosu procps -y
 RUN	apt clean -y
