@@ -1,5 +1,5 @@
-tar -xvzf /home/eskuliburu/zaborra.tar.gz /home/eskuliburu/zaborra
-rm /home/eskuliburu/zaborra.tar.gz
+tar -xzf /home/eskuliburu/zaborra.tar.gz /home/eskuliburu/zaborra
+#rm /home/eskuliburu/zaborra.tar.gz
 
 PARENT_DIR="/home/eskuliburu"                               # Parent directory to watch
 TARGET_DIR="sarraila"                                       # Directory that the student will create
