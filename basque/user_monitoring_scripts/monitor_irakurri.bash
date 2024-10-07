@@ -9,7 +9,7 @@ trap '' SIGUSR2
 
 while true; do
 	if [[ -f "$PARENT_DIR/$TARGET_DIR/$KEY_FILE" ]]; then
-		files=($(ls -A $PARENT_DIR/$TARGET_DIR))
+		files=$(ls -A $PARENT_DIR/$TARGET_DIR)
 		if [[ ${#files[@]} -eq 1 ]]; then
 			stty -F /dev/tty igncr -isig -icanon -ixoff -echo
 			tput civis > /dev/tty
