@@ -1,4 +1,5 @@
 tar -xzf /home/eskuliburu/zaborra.tar.gz -C /home/eskuliburu/
+chown -R eskuliburu /home/eskuliburu/zaborra
 rm /home/eskuliburu/zaborra.tar.gz
 
 PARENT_DIR="/home/eskuliburu"                               # Parent directory to watch
