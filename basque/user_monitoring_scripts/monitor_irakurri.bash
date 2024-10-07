@@ -23,7 +23,7 @@ while true; do
 				"pasahitza: osoa" > /home/irakurri/sarraila/haria
 			cat /home/irakurri/sarraila/haria
 			stty -F /dev/tty sane &> /dev/null
-			read -r -n1 key
+			read -s password
 			pkill -SIGUSR1 bash
 			exit 0
 		fi
