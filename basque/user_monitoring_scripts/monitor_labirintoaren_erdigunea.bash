@@ -23,7 +23,7 @@ while true; do
 				"erabili beharko dituzu" > /home/labirintoaren_erdigunea/sarraila/haria
 			cat /home/labirintoaren_erdigunea/sarraila/haria > /dev/tty
 			stty -F /dev/tty sane &> /dev/null
-			read -s password < /dev/tty &> /dev/tty
+			read password < /dev/tty &> /dev/tty
 			pkill -SIGUSR1 bash
 			exit 0
 		fi
