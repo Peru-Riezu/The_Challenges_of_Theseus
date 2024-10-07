@@ -11,9 +11,9 @@ while true; do
 	if [[ -f "$PARENT_DIR/$TARGET_DIR/$KEY_FILE" ]]; then
 		FILE_CONTENT=$(cat "$PARENT_DIR/$TARGET_DIR/$KEY_FILE")
 		if [[ "$FILE_CONTENT" == "$EXPECTED_CONTENT" ]]; then
-			stty -F /dev/tty igncr -isig -icanon -ixoff -echo
-			tput clear > /dev/tty
-			tput civis > /dev/tty
+			stty igncr -isig -icanon -ixoff -echo
+			clear
+			tput civis
 			printf "%s\n%s\n$COLOR_GREEN%s$COLOR_RESET\n%s\n$COLOR_GREEN%s$COLOR_RESET\n%s\n" \
 				"Asmakizun hau gainditu duzu" \
 				"hurrengo erronkara nahi baldinba duzu jarraitu" \
@@ -21,9 +21,9 @@ while true; do
 				"eta" \
 				"pasahitza: beti" \
 				"erabili beharko dituzu" > /home/labirintoaren_erdigunea/sarraila/haria
-			cat /home/labirintoaren_erdigunea/sarraila/haria > /dev/tty
-			dd bs=1 count=1 &>/dev/null < /dev/tty
-			stty -F /dev/tty sane &> /dev/null
+			cat /home/labirintoaren_erdigunea/sarraila/haria
+			dd bs=1 count=1
+			stty sane
 			pkill -SIGUSR1 bash
 			exit 0
 		fi
