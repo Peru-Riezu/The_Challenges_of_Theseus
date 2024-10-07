@@ -1,5 +1,4 @@
-mkdir /home/eskuliburu/zaborra
-tar -xzf /home/eskuliburu/zaborra.tar.gz -C /home/eskuliburu/zaborra
+tar -xzf /home/eskuliburu/zaborra.tar.gz -C /home/eskuliburu/
 rm /home/eskuliburu/zaborra.tar.gz
 
 PARENT_DIR="/home/eskuliburu"                               # Parent directory to watch
