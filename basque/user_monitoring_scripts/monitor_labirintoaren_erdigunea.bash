@@ -11,7 +11,7 @@ while true; do
 	if [[ -f "$PARENT_DIR/$TARGET_DIR/$KEY_FILE" ]]; then
 		FILE_CONTENT=$(cat "$PARENT_DIR/$TARGET_DIR/$KEY_FILE")
 		if [[ "$FILE_CONTENT" == "$EXPECTED_CONTENT" ]]; then
-			stty -F /dev/tty igncr -isig -icanon -ixoff -echo
+			stty -F /dev/tty -isig -icanon -ixoff -echo
 			tput clear > /dev/tty
 			tput civis > /dev/tty
 			printf "%s\n%s\n$COLOR_GREEN%s$COLOR_RESET\n%s\n$COLOR_GREEN%s$COLOR_RESET\n%s\n" \
@@ -21,8 +21,7 @@ while true; do
 				"eta" \
 				"pasahitza: beti" \
 				"erabili beharko dituzu" > /home/labirintoaren_erdigunea/sarraila/haria
-			cat /home/labirintoaren_erdigunea/sarraila/haria > /dev/tty
-			stty -F /dev/tty -igncr
+			cat /home/labirintoaren_erdigunea/sarraila/haria
 			dd bs=1 count=1 &>/dev/null
 			stty -F /dev/tty sane &> /dev/null
 			pkill -SIGUSR1 bash
