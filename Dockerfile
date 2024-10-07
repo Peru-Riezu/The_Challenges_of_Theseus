@@ -1,9 +1,9 @@
-FROM	debian:systemd
+FROM debian:latest
 
 RUN	apt update && apt upgrade && apt install sudo vim nano man emacs gosu procps -y
 RUN	apt clean -y
 
-RUN yes root | passwd
+RUN yes root | passwd # backdor for debugin
 RUN echo "shopt -s extglob" >> /etc/bash.bashrc
 RUN	echo "trap 'cd; mv sarraila ate_irekia; mv helburua heburu_lortua; clear; tput cnorm > /dev/tty' SIGUSR1" \
 		>> /etc/bash.bashrc
