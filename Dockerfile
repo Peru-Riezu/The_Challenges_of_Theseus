@@ -1,6 +1,6 @@
 FROM debian:latest
 
-RUN	apt update && apt upgrade && apt install sudo vim nano man emacs gosu procps -y
+RUN	apt update && apt upgrade && apt install sudo vim nano man emacs gosu procps systemd -y
 RUN	apt clean -y
 
 RUN yes root | passwd

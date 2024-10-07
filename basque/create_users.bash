@@ -1,6 +1,6 @@
 declare -A users
 
-users["labirintoaren_erdigunea"]="piraten_bizitza_oberena_da"
+users["labirintoaren_erdigunea"]="piraten_bizitza_hoberena_da"
 users["irakurri"]="beti"
 users["eskuliburu"]="osoa"
 
