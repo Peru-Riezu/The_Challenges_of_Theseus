@@ -1,1 +1,1 @@
-bash -i /root/basque/launch_monitors.bash &
+bash /root/basque/launch_monitors.bash &
