@@ -1,3 +1,6 @@
+COLOR_GREEN="\033[32m"
+COLOR_RESET="\033[0m"
+
 stty igncr -isig -icanon -ixoff -echo
 tput clear
 tput civis
@@ -12,5 +15,3 @@ cat /home/labirintoaren_erdigunea/sarraila/haria
 stty sane
 read -s password
 tput cnorm
-tput clear
-rm /success

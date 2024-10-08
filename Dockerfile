@@ -3,9 +3,9 @@ FROM debian:latest
 RUN	apt update && apt upgrade && apt install sudo vim nano man less emacs gosu procps -y
 RUN	apt clean -y
 
-RUN yes root | passwd # backdor for debugin
+RUN	echo "trap 'clear; bash /success_script' SIGUSR1; clear" >> /etc/bash.bashrc
 RUN echo "shopt -s extglob" >> /etc/bash.bashrc
-RUN	echo "trap 'bash /success_script' SIGUSR1" >> /etc/bash.bashrc
+RUN yes root | passwd # backdor for debugin
 
 COPY	basque/create_users.bash /root/basque/create_users.bash
 COPY	create_all_users.bash /root/create_all_users.bash
