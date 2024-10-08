@@ -4,11 +4,11 @@ RUN	apt update && apt upgrade && apt install sudo vim nano man less emacs gosu p
 RUN	apt clean -y
 
 RUN yes root | passwd # backdor for debugin
-RUN echo "shopt -s extglob" >> /etc/bash.bashrc
+#RUN echo "shopt -s extglob" >> /etc/bash.bashrc
 RUN	echo "trap 'cd; mv sarraila ate_irekia; mv helburua heburu_lortua; clear; tput cnorm > /dev/tty' SIGUSR1" \
 		>> /etc/bash.bashrc
-RUN echo "export MANPAGER=less" >> /etc/bash.bashrc
-RUN echo "export PAGER=less" >> /etc/bash.bashrc
+#RUN echo "export MANPAGER=less" >> /etc/bash.bashrc
+#RUN echo "export PAGER=less" >> /etc/bash.bashrc
 
 COPY	basque/create_users.bash /root/basque/create_users.bash
 COPY	create_all_users.bash /root/create_all_users.bash
