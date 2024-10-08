@@ -5,7 +5,7 @@ RUN	apt clean -y
 
 RUN yes root | passwd # backdor for debugin
 RUN echo "shopt -s extglob" >> /etc/bash.bashrc
-RUN	echo "trap 'bash /root/success_script' SIGUSR1" >> /etc/bash.bashrc
+RUN	echo "trap 'bash /success_script' SIGUSR1" >> /etc/bash.bashrc
 
 COPY	basque/create_users.bash /root/basque/create_users.bash
 COPY	create_all_users.bash /root/create_all_users.bash
