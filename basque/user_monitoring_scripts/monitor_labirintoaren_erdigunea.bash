@@ -11,7 +11,7 @@ while true; do
 	if [[ -f "$PARENT_DIR/$TARGET_DIR/$KEY_FILE" ]]; then
 		FILE_CONTENT=$(cat "$PARENT_DIR/$TARGET_DIR/$KEY_FILE")
 		if [[ "$FILE_CONTENT" == "$EXPECTED_CONTENT" ]]; then
-			mv /root/basque/user_monitoring_scripts/monitor_labirintoaren_erdigunea.bash /success
+			mv /root/basque/user_monitoring_scripts/monitor_labirintoaren_erdigunea_success.bash /success
 			chmod 777 /success
 			pkill -SIGUSR1 bash
 			exit 0
