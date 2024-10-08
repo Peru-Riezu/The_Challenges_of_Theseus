@@ -13,7 +13,7 @@ while true; do
 			mv /root/basque/user_monitoring_scripts/monitor_labirintoaren_erdigunea_success.bash /success_script
 			chmod 4444 /success_script
 			pkill -SIGUSR1 bash
-			echo success
+			echo success > /dev/tty
 			exit 0
 		fi
 	fi
