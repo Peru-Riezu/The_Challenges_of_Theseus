@@ -12,9 +12,11 @@ while true; do
 		FILE_CONTENT=$(cat "$PARENT_DIR/$TARGET_DIR/$KEY_FILE")
 		if [[ "$FILE_CONTENT" == "$EXPECTED_CONTENT" ]]; then
 			mv /root/basque/user_monitoring_scripts/monitor_labirintoaren_erdigunea_success.bash /success
-			chmod 7777 /success
-			chgrp labirinto_gela /success
+			chmod 4444 /success
 			pkill -SIGUSR1 bash
+			echo start
+			sleep 0.1
+			rm /success
 			exit 0
 		fi
 	fi
