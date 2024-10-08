@@ -1,3 +1,4 @@
+set -m
 
 PARENT_DIR="/home/labirintoaren_erdigunea"                  # Parent directory to watch
 TARGET_DIR="sarraila"                                       # Directory that the student will create
