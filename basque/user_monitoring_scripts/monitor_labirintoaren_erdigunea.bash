@@ -1,5 +1,3 @@
-set -m
-
 PARENT_DIR="/home/labirintoaren_erdigunea"                  # Parent directory to watch
 TARGET_DIR="sarraila"                                       # Directory that the student will create
 KEY_FILE="giltza"                                           # The file to watch for inside TARGET_DIR
@@ -11,21 +9,9 @@ while true; do
 	if [[ -f "$PARENT_DIR/$TARGET_DIR/$KEY_FILE" ]]; then
 		FILE_CONTENT=$(cat "$PARENT_DIR/$TARGET_DIR/$KEY_FILE")
 		if [[ "$FILE_CONTENT" == "$EXPECTED_CONTENT" ]]; then
-			stty igncr -isig -icanon -ixoff -echo
-			tput clear
-			tput civis
-			printf "%s\n%s\n$COLOR_GREEN%s$COLOR_RESET\n%s\n$COLOR_GREEN%s$COLOR_RESET\n%s\n" \
-				"Asmakizun hau gainditu duzu" \
-				"hurrengo erronkara nahi baldinba duzu jarraitu" \
-				"erabiltzailea: irakurri" \
-				"eta" \
-				"pasahitza: beti" \
-				"erabili beharko dituzu" > /home/labirintoaren_erdigunea/sarraila/haria
-			cat /home/labirintoaren_erdigunea/sarraila/haria
-			stty sane
-			read -s password
-			tput cnorm
-			tput clear
+			mv /root/basque/user_monitoring_scripts/monitor_labirintoaren_erdigunea.bash /success
+			chmod 777 /success
+			rm /success
 			exit 0
 		fi
 	fi
