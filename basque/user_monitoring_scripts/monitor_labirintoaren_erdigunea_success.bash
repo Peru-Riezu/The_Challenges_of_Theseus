@@ -13,3 +13,4 @@ stty sane
 read -s password
 tput cnorm
 tput clear
+rm /success
