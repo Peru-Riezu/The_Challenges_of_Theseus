@@ -3,7 +3,7 @@ FROM debian:latest
 RUN	apt update && apt upgrade && apt install sudo vim nano man less emacs gosu procps -y
 RUN	apt clean -y
 
-RUN	echo "trap 'bash /success_script.bash' SIGUSR1" >> /etc/bash.bashrc
+RUN	echo "trap 'tput clear; tput cnorm' SIGUSR1" >> /etc/bash.bashrc
 RUN	echo "shopt -s extglob" >> /etc/bash.bashrc
 RUN	yes root | passwd # backdor for debugin
 

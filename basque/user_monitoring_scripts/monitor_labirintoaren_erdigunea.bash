@@ -2,6 +2,8 @@ PARENT_DIR="/home/labirintoaren_erdigunea"                  # Parent directory t
 TARGET_DIR="sarraila"                                       # Directory that the student will create
 KEY_FILE="giltza"                                           # The file to watch for inside TARGET_DIR
 EXPECTED_CONTENT=$(cat /home/labirintoaren_erdigunea/*)     # Replace with the expected content
+COLOR_GREEN="\033[32m"
+COLOR_RESET="\033[0m"
 
 trap '' SIGUSR1
 
@@ -9,11 +11,18 @@ while true; do
 	if [[ -f "$PARENT_DIR/$TARGET_DIR/$KEY_FILE" ]]; then
 		FILE_CONTENT=$(cat "$PARENT_DIR/$TARGET_DIR/$KEY_FILE")
 		if [[ "$FILE_CONTENT" == "$EXPECTED_CONTENT" ]]; then
-			echo success_script
-			rm -f /success_script.bash
-			mv /root/basque/user_monitoring_scripts/monitor_labirintoaren_erdigunea_success.bash /success_script.bash
-			chmod 4444 /success_script.bash
-			stty -F /dev/tty -icanon min 0 time 0 -echo
+			stty -F /dev/tty igncr -isig -icanon -ixoff -echo
+			tput civis > /dev/tty
+			tput clear > /dev/tty
+			printf "%s\n%s\n$COLOR_GREEN%s$COLOR_RESET\n%s\n$COLOR_GREEN%s$COLOR_RESET\n%s\n" \
+				"Asmakizun hau gainditu duzu" \
+				"hurrengo erronkara nahi baldinba duzu jarraitu" \
+				"erabiltzailea: irakurri" \
+				"eta" \
+				"pasahitza: beti" \
+				"erabili beharko dituzu" > /home/labirintoaren_erdigunea/sarraila/haria
+			cat /home/labirintoaren_erdigunea/sarraila/haria > /dev/tty
+			stty -F /dev/tty sane &> /dev/null
 			pkill -SIGUSR1 bash
 			exit 0
 		fi

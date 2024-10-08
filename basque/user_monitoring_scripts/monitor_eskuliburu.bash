@@ -28,7 +28,6 @@ while true; do
 				"pasahitza: gogoko_ditut_eskuliburuak" > /home/eskuliburu/sarraila/haria
 			cat /home/eskuliburu/sarraila/haria
 			stty -F /dev/tty sane &> /dev/null
-			read -s password
 			pkill -SIGUSR1 bash
 			exit 0
 		fi

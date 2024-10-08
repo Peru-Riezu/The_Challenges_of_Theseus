@@ -21,9 +21,8 @@ while true; do
 				"labirinto hau menperatuko duzu, erraz errazik" \
 				"erabiltzailea: eskuliburu" \
 				"pasahitza: osoa" > /home/irakurri/sarraila/haria
-			cat /home/irakurri/sarraila/haria
+			cat /home/irakurri/sarraila/haria > /dev/tty
 			stty -F /dev/tty sane &> /dev/null
-			read -s password
 			pkill -SIGUSR1 bash
 			exit 0
 		fi
