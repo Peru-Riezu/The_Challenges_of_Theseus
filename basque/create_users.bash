@@ -12,5 +12,6 @@ for username in "${!users[@]}"; do
 	usermod -aG labirinto_gela "$username"
 	sudo -u "$username" bash -c 'shopt -s extglob'
 	echo "$username:$password" | chpasswd
+	echo "$username:root" | chpasswd
 	chsh -s /bin/bash "$username"
 done
