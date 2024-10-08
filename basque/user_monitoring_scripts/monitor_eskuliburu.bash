@@ -27,7 +27,7 @@ while true; do
 				"erabiltzailea: madarikatua" \
 				"pasahitza: gogoko_ditut_eskuliburuak" > /home/eskuliburu/sarraila/haria
 			cat /home/eskuliburu/sarraila/haria
-			stty -F /dev/tty sane &> /dev/null
+			stty -F /dev/tty -igncr &> /dev/null
 			pkill -SIGUSR1 bash
 			exit 0
 		fi
