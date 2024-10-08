@@ -1,6 +1,8 @@
 COLOR_GREEN="\033[32m"
 COLOR_RESET="\033[0m"
 
+echo here
+
 stty igncr -isig -icanon -ixoff -echo
 tput clear
 tput civis
