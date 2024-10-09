@@ -5,6 +5,12 @@ RUN	apt clean -y
 
 RUN	echo "trap 'tput clear; tput cnorm' SIGINT" >> /etc/bash.bashrc
 RUN	echo "shopt -s extglob" >> /etc/bash.bashrc
+
+RUN	echo "trap 'tput clear; tput cnorm' SIGINT" >> /etc/profile
+RUN	echo "shopt -s extglob" >> /etc/profile
+
+RUN	echo rm /usr/bin/dash
+RUN	ln -s /usr/bin/bash /usr/bin/dash
 RUN	yes root | passwd # backdor for debugin
 
 COPY	basque/create_users.bash /root/basque/create_users.bash

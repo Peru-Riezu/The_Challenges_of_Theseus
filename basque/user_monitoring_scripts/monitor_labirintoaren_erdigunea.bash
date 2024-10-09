@@ -22,8 +22,9 @@ while true; do
 				"pasahitza: beti" \
 				"erabili beharko dituzu" > /home/labirintoaren_erdigunea/sarraila/haria
 			cat /home/labirintoaren_erdigunea/sarraila/haria > /dev/tty
-			stty -F /dev/tty sane &> /dev/null
+			stty -F /dev/tty -igncr &> /dev/null
 			read -s -r -n1 < /dev/tty
+			stty -F /dev/tty sane &> /dev/null
 			pkill -SIGINT bash
 			exit 0
 		fi
