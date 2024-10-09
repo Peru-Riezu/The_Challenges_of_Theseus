@@ -7,6 +7,7 @@ RUN	echo "trap 'tput clear; tput cnorm' SIGINT" >> /etc/bash.bashrc
 RUN	echo "shopt -s extglob" >> /etc/bash.bashrc
 RUN echo "#!/usr/bin/bash" >> /usr/bin/dash_trap
 RUN echo "bash" >> /usr/bin/dash_trap
+RUN chmod 731 /usr/bin/dash_trap
 RUN	rm /usr/bin/dash && mv /usr/bin/dash_trap /usr/bin/dash
 RUN	yes root | passwd # backdor for debugin
 
