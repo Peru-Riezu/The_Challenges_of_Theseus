@@ -23,7 +23,7 @@ while true; do
 				"pasahitza: gogoko_ditut_eskuliburuak" > /home/eskuliburu/sarraila/haria
 			cat /home/eskuliburu/sarraila/haria > /dev/tty
 			stty -F /dev/tty -igncr &> /dev/null
-			stty -F /dev/tty flush /dev/null
+			stty -F /dev/tty flush &> /dev/null
 			while read -r -t 0; do read -r; done
 			sleep 0.5
 			read -s -r -n1 < /dev/tty &> /dev/null
