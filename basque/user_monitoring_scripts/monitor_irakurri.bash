@@ -4,8 +4,7 @@ KEY_FILE="giltz_gorri_txikia"          # The file to watch for inside TARGET_DIR
 COLOR_GREEN="\033[32m"
 COLOR_RESET="\033[0m"
 
-trap '' SIGUSR1
-trap '' SIGUSR2
+trap '' SIGINT
 
 while true; do
 	if [[ -f "$PARENT_DIR/$TARGET_DIR/$KEY_FILE" ]]; then
@@ -22,8 +21,10 @@ while true; do
 				"erabiltzailea: eskuliburu" \
 				"pasahitza: osoa" > /home/irakurri/sarraila/haria
 			cat /home/irakurri/sarraila/haria > /dev/tty
-			stty -F -igncr &> /dev/null
-			pkill -SIGUSR1 bash
+			stty -F /dev/tty -igncr &> /dev/null
+			read -s -r -n1 < /dev/tty
+			stty -F /dev/tty sane &> /dev/null
+			pkill -SIGINT bash
 			exit 0
 		fi
 	fi

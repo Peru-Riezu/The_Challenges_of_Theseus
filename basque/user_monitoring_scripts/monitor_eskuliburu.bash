@@ -1,6 +1,6 @@
 tar -xzf /home/eskuliburu/zaborra.tar.gz -C /home/eskuliburu/
+rm -f /home/eskuliburu/zaborra.tar.gz
 chown -R eskuliburu /home/eskuliburu/zaborra
-rm /home/eskuliburu/zaborra.tar.gz
 
 PARENT_DIR="/home/eskuliburu"                               # Parent directory to watch
 TARGET_DIR="sarraila"                                       # Directory that the student will create
@@ -9,8 +9,7 @@ EXPECTED_CONTENT=$(find $PARENT_DIR/zaborra -size +0 | grep "giltz" | sort | xar
 COLOR_GREEN="\033[32m"
 COLOR_RESET="\033[0m"
 
-trap '' SIGUSR1
-trap '' SIGUSR2
+trap '' SIGINT
 
 while true; do
 	if [[ -f "$PARENT_DIR/$TARGET_DIR/$KEY_FILE" ]]; then
@@ -26,9 +25,11 @@ while true; do
 				"ez baduzu nahi zerutik erortzen hil" \
 				"erabiltzailea: madarikatua" \
 				"pasahitza: gogoko_ditut_eskuliburuak" > /home/eskuliburu/sarraila/haria
-			cat /home/eskuliburu/sarraila/haria
+			cat /home/eskuliburu/sarraila/haria > /dev/tty
 			stty -F /dev/tty -igncr &> /dev/null
-			pkill -SIGUSR1 bash
+			read -s -r -n1 < /dev/tty
+			stty -F /dev/tty sane &> /dev/null
+			pkill -SIGINT bash
 			exit 0
 		fi
 	fi

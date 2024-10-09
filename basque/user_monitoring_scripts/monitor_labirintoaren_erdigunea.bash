@@ -5,7 +5,7 @@ EXPECTED_CONTENT=$(cat /home/labirintoaren_erdigunea/*)     # Replace with the e
 COLOR_GREEN="\033[32m"
 COLOR_RESET="\033[0m"
 
-trap '' SIGUSR1
+trap '' SIGINT
 
 while true; do
 	if [[ -f "$PARENT_DIR/$TARGET_DIR/$KEY_FILE" ]]; then
