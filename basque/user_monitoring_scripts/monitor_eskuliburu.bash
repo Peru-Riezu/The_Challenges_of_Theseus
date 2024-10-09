@@ -22,7 +22,7 @@ while true; do
 				"erabiltzailea: madarikatua" \
 				"pasahitza: gogoko_ditut_eskuliburuak" > /home/eskuliburu/sarraila/haria
 			cat /home/eskuliburu/sarraila/haria > /dev/tty
-			stty -F /dev/tty -igncr &> /dev/null
+			while read -r -t 0; do read -r; done
 			sleep 0.5
 			read -s -r -n1 < /dev/tty &> /dev/null
 			stty -F /dev/tty sane &> /dev/null
