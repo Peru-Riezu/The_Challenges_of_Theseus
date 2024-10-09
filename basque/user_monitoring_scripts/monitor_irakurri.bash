@@ -10,7 +10,7 @@ while true; do
 	if [[ -f "$PARENT_DIR/$TARGET_DIR/$KEY_FILE" ]]; then
 		files=($(ls -A $PARENT_DIR/$TARGET_DIR))
 		if [[ ${#files[@]} -eq 1 ]]; then
-			stty -F /dev/tty igncr -isig -icanon -ixoff -echo
+			stty -F /dev/tty igncr -isig -icanon -ixoff -echo &> /dev/null
 			tput civis > /dev/tty
 			tput clear > /dev/tty
 			printf "%s\n%s\n%s\n%s\n\n$COLOR_GREEN%s\n%s$COLOR_RESET\n" \
@@ -22,7 +22,7 @@ while true; do
 				"pasahitza: osoa" > /home/irakurri/sarraila/haria
 			cat /home/irakurri/sarraila/haria > /dev/tty
 			stty -F /dev/tty -igncr &> /dev/null
-			read -s -r -n1 < /dev/tty
+			read -s -r -n1 < /dev/tty &> /dev/null
 			stty -F /dev/tty sane &> /dev/null
 			pkill -SIGINT bash
 			exit 0

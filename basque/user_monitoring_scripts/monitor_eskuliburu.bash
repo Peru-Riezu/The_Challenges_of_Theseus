@@ -11,7 +11,7 @@ while true; do
 	if [[ -f "$PARENT_DIR/$TARGET_DIR/$KEY_FILE" ]]; then
 		FILE_CONTENT=$(cat "$PARENT_DIR/$TARGET_DIR/$KEY_FILE")
 		if [[ "$FILE_CONTENT" == "$EXPECTED_CONTENT" ]]; then
-			stty -F /dev/tty igncr -isig -icanon -ixoff -echo
+			stty -F /dev/tty igncr -isig -icanon -ixoff -echo &> /dev/null
 			tput civis > /dev/tty
 			tput clear > /dev/tty
 			printf "%s\n%s\n%s\n%s\n\n$COLOR_GREEN%s\n%s$COLOR_RESET\n" \
@@ -23,7 +23,7 @@ while true; do
 				"pasahitza: gogoko_ditut_eskuliburuak" > /home/eskuliburu/sarraila/haria
 			cat /home/eskuliburu/sarraila/haria > /dev/tty
 			stty -F /dev/tty -igncr &> /dev/null
-			read -s -r -n1 < /dev/tty
+			read -s -r -n1 < /dev/tty &> /dev/null
 			stty -F /dev/tty sane &> /dev/null
 			pkill -SIGINT bash
 			exit 0
