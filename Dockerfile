@@ -7,8 +7,10 @@ RUN	echo "trap 'tput clear; tput cnorm' SIGINT" >> /etc/bash.bashrc
 RUN	echo "shopt -s extglob" >> /etc/bash.bashrc
 
 COPY	basque/create_users.bash /root/basque/create_users.bash
+COPY	basque/compilation_time_tasks.bash /root/basque/compilation_time_tasks.bash
 COPY	create_all_users.bash /root/create_all_users.bash
 RUN		bash /root/create_all_users.bash
+RUN		bash /root/basque/compilation_time_tasks.bash
 
 COPY	basque/home/ /home/
 RUN		for dir in /home/*; do sudo chown -R $(basename $dir):$(basename $dir) $dir; done

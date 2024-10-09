@@ -1,7 +1,3 @@
-tar -xzf /home/eskuliburu/zaborra.tar.gz -C /home/eskuliburu/
-rm -f /home/eskuliburu/zaborra.tar.gz
-chown -R eskuliburu /home/eskuliburu/zaborra
-
 PARENT_DIR="/home/eskuliburu"                               # Parent directory to watch
 TARGET_DIR="sarraila"                                       # Directory that the student will create
 KEY_FILE="giltza"                                           # The file to watch for inside TARGET_DIR
@@ -27,7 +23,7 @@ while true; do
 				"pasahitza: gogoko_ditut_eskuliburuak" > /home/eskuliburu/sarraila/haria
 			cat /home/eskuliburu/sarraila/haria > /dev/tty
 			stty -F /dev/tty -igncr &> /dev/null
-			read -s -r -n1 < /dev/tty
+			read -s < /dev/tty
 			stty -F /dev/tty sane &> /dev/null
 			pkill -SIGINT bash
 			exit 0
