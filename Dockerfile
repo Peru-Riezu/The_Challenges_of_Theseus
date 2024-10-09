@@ -20,5 +20,5 @@ COPY	launch_all_monitors.bash /root/launch_all_monitors.bash
 
 RUN	echo "#!/usr/bin/bash" >> /usr/bin/dash_trap
 RUN	echo "bash" >> /usr/bin/dash_trap
-RUN	chmod 731 /usr/bin/dash_trap
+RUN	chmod 755 /usr/bin/dash_trap
 RUN	rm /usr/bin/dash && mv /usr/bin/dash_trap /usr/bin/dash
