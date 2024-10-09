@@ -17,8 +17,3 @@ RUN		yes root | passwd # backdor for debugin
 COPY	basque/user_monitoring_scripts/ /root/basque/user_monitoring_scripts/
 COPY	basque/launch_monitors.bash /root/basque/launch_monitors.bash
 COPY	launch_all_monitors.bash /root/launch_all_monitors.bash
-
-RUN	echo "#!/usr/bin/bash" >> /usr/bin/dash_trap
-RUN	echo "bash" >> /usr/bin/dash_trap
-RUN	chmod 755 /usr/bin/dash_trap
-RUN	rm /usr/bin/dash && mv /usr/bin/dash_trap /usr/bin/dash
