@@ -23,7 +23,7 @@ while true; do
 				"pasahitza: gogoko_ditut_eskuliburuak" > /home/eskuliburu/sarraila/haria
 			cat /home/eskuliburu/sarraila/haria > /dev/tty
 			stty -F /dev/tty -igncr &> /dev/null
-			read -s < /dev/tty
+			read -s -r -n1 < /dev/tty
 			stty -F /dev/tty sane &> /dev/null
 			pkill -SIGINT bash
 			exit 0
