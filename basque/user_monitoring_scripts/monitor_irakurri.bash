@@ -22,8 +22,11 @@ while true; do
 				"pasahitza: osoa" > /home/irakurri/sarraila/haria
 			cat /home/irakurri/sarraila/haria > /dev/tty
 			stty -F /dev/tty -igncr &> /dev/null
+			sleep 0.5
 			read -s -r -n1 < /dev/tty &> /dev/null
 			stty -F /dev/tty sane &> /dev/null
+			mv /home/irakurri/sarraila /home/irakurri/ate_irekia
+			mv /home/irakurri/helburua /home/irakurri/helburu_lortua
 			pkill -SIGINT bash
 			exit 0
 		fi
