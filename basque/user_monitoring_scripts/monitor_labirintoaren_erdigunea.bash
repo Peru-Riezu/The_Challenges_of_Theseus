@@ -12,7 +12,7 @@ while true; do
 		FILE_CONTENT=$(cat "$PARENT_DIR/$TARGET_DIR/$KEY_FILE")
 		if [[ "$FILE_CONTENT" == "$EXPECTED_CONTENT" ]]; then
 			cat /root/basque/user_monitoring_scripts/labirintoaren_erdigunea_handle_success.bash > /handle_sigint.bash
-			exec 42 >/root/lock
+			exec 42>/root/lock
 			flock 42
 			exec 200>/user_shell_files/lock
 			flock 200
