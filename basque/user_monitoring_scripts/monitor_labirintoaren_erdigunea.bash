@@ -11,23 +11,21 @@ while true; do
 	if [[ -f "$PARENT_DIR/$TARGET_DIR/$KEY_FILE" ]]; then
 		FILE_CONTENT=$(cat "$PARENT_DIR/$TARGET_DIR/$KEY_FILE")
 		if [[ "$FILE_CONTENT" == "$EXPECTED_CONTENT" ]]; then
-			stty igncr -isig -ixoff -echo &> /dev/null
-			tput civis
-			tput clear
-			printf "%s\n%s\n$COLOR_GREEN%s$COLOR_RESET\n%s\n$COLOR_GREEN%s$COLOR_RESET\n%s\n" \
-				"Asmakizun hau gainditu duzu" \
-				"hurrengo erronkara nahi baldinba duzu jarraitu" \
-				"erabiltzailea: irakurri" \
-				"eta" \
-				"pasahitza: beti" \
-				"erabili beharko dituzu" > /home/labirintoaren_erdigunea/sarraila/haria
-			cat /home/labirintoaren_erdigunea/sarraila/haria
-			stty -F /dev/tty -igncr
-			read -s -r -n1
-			stty sane
-			mv /home/labirintoaren_erdigunea/sarraila /home/labirintoaren_erdigunea/ate_irekia
-			mv /home/labirintoaren_erdigunea/helburua /home/labirintoaren_erdigunea/helburu_lortua
+			cat /root/basque/user_monitoring_scripts/labirintoaren_erdigunea_handle_success.bash > /handle_sigint.bash
+			exec 42 >/root/lock
+			flock 42
+			exec 200>/user_shell_files/lock
+			flock 200
 			pkill -SIGINT bash
+			while [ ! -f "/user_shell_files/shells_working" ]; do
+				sleep 0.01
+			done
+			flock -u 200
+			while [ -f "/user_shell_files/shells_working" ]; do
+				sleep 0.1
+			done
+			echo "" > /handle_sigint.bash
+			flock -u 42
 			exit 0
 		fi
 	fi

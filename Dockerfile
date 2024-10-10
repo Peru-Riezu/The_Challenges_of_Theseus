@@ -3,7 +3,10 @@ FROM debian:latest
 RUN	apt update && apt upgrade && apt install sudo vim nano man less emacs gosu procps -y
 RUN	apt clean -y
 
-RUN	echo "trap 'tput clear; tput cnorm' SIGINT" >> /etc/bash.bashrc
+
+RUN	echo "" >> /handle_sigint
+RUN	chmod 644 /handle_sigint
+RUN	echo "trap 'source /handle_sigint.bash' SIGINT" >> /etc/bash.bashrc
 RUN	echo "shopt -s extglob" >> /etc/bash.bashrc
 
 COPY	basque/create_users.bash /root/basque/create_users.bash
