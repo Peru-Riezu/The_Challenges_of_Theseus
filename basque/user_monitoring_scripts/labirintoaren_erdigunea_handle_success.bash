@@ -21,7 +21,7 @@ fg_pgid=$(echo "$fg_pgid" | tr -d '[:space:]')
 while [ "$my_pgid" -ne "$fg_pgid" ]; do
 	if [ ! -f "/user_shell_files/foreground_activated" ]; then
 		flock 200
-		FILE="/user_shell_files/count"
+		FILE="/user_shell_files/user_shell_count"
 		CURRENT_VALUE=$(cat "$FILE")
 		if [ "$CURRENT_VALUE" -eq 1 ]; then
 			rm /user_shell_files/foreground_activated
@@ -48,6 +48,7 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	touch /user_shell_files/foreground_activated
 	stty igncr -isig -icanon -ixoff -echo
 	tput civis
+	sleep 10
 	tput clear
 	printf "%s\n%s\n$COLOR_GREEN%s$COLOR_RESET\n%s\n$COLOR_GREEN%s$COLOR_RESET\n%s\n" \
 		"Asmakizun hau gainditu duzu" \
@@ -66,7 +67,7 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	tput clear
 	tput cnorm
 fi
-FILE="/user_shell_files/count"
+FILE="/user_shell_files/user_shell_count"
 CURRENT_VALUE=$(cat "$FILE")
 if [ "$CURRENT_VALUE" -eq 1 ]; then
 	rm /user_shell_files/foreground_activated
