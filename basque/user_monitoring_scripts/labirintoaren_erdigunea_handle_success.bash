@@ -52,7 +52,6 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	touch /user_shell_files/foreground_activated
 	stty igncr -isig -icanon -ixoff -echo
 	tput civis
-	sleep 10
 	tput clear
 	printf "%s\n%s\n$COLOR_GREEN%s$COLOR_RESET\n%s\n$COLOR_GREEN%s$COLOR_RESET\n%s\n" \
 		"Asmakizun hau gainditu duzu" \
