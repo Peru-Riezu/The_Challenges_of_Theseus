@@ -50,19 +50,19 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	stty igncr -isig -icanon -ixoff -echo
 	tput civis
 	tput clear
-	printf "%s\n%s\n$COLOR_GREEN%s$COLOR_RESET\n%s\n$COLOR_GREEN%s$COLOR_RESET\n%s\n" \
-		"Asmakizun hau gainditu duzu" \
-		"hurrengo erronkara nahi baldinba duzu jarraitu" \
-		"erabiltzailea: irakurri" \
-		"eta" \
-		"pasahitza: beti" \
-		"erabili beharko dituzu" > /home/labirintoaren_erdigunea/sarraila/haria
-	cat /home/labirintoaren_erdigunea/sarraila/haria
+	printf "%s\n%s\n%s\n%s\n\n$COLOR_GREEN%s\n%s$COLOR_RESET\n" \
+		"oh ene heroi ausarta, heroien artetik" \
+		"bihotzez jakin dut, lehen ikusi nizunetik" \
+		"adimenean lehiatu dezakezula sortzailearekin" \
+		"labirinto hau menperatuko duzu, erraz errazik" \
+		"erabiltzailea: eskuliburu" \
+		"pasahitza: osoa" > /home/irakurri/sarraila/haria
+	cat /home/irakurri/sarraila/haria > /dev/tty
 	stty -igncr
 	read -s -r -n1
 	stty sane
-	mv /home/labirintoaren_erdigunea/sarraila /home/labirintoaren_erdigunea/ate_irekia
-	mv /home/labirintoaren_erdigunea/helburua /home/labirintoaren_erdigunea/helburu_lortua
+	mv /home/irakurri/sarraila /home/irakurri/ate_irekia
+	mv /home/irakurri/helburua /home/irakurri/helburu_lortua
 	cd
 	tput clear
 	tput cnorm
