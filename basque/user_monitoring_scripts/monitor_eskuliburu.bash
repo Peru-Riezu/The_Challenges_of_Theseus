@@ -11,25 +11,21 @@ while true; do
 	if [[ -f "$PARENT_DIR/$TARGET_DIR/$KEY_FILE" ]]; then
 		FILE_CONTENT=$(cat "$PARENT_DIR/$TARGET_DIR/$KEY_FILE")
 		if [[ "$FILE_CONTENT" == "$EXPECTED_CONTENT" ]]; then
-			stty -F /dev/tty igncr -isig -icanon -ixoff -echo &> /dev/null
-			tput civis > /dev/tty
-			tput clear > /dev/tty
-			printf "%s\n%s\n%s\n%s\n\n$COLOR_GREEN%s\n%s$COLOR_RESET\n" \
-				"ene seme maitea, maitatu baldinba dezaket nik" \
-				"hartu hegal hauek eta etorri nirekin;" \
-				"baino ez zaitez hurbildu eguzkira gehiegi" \
-				"ez baduzu nahi zerutik erortzen hil" \
-				"erabiltzailea: madarikatua" \
-				"pasahitza: gogoko_ditut_eskuliburuak" > /home/eskuliburu/sarraila/haria
-			cat /home/eskuliburu/sarraila/haria > /dev/tty
-			stty -F /dev/tty -igncr &> /dev/null
-			stty -F /dev/tty flush &> /dev/null
-			sleep 0.5
-			read -s -r -n1 < /dev/tty &> /dev/null
-			stty -F /dev/tty sane &> /dev/null
-			mv /home/eskuliburu/sarraila /home/eskuliburu/ate_irekia
-			mv /home/eskuliburu/helburua /home/eskuliburu/helburu_lortua
+			cat /root/basque/user_monitoring_scripts/eskuliburu_handle_success.bash > /handle_sigint.bash
+			exec 42>/root/lock
+			flock 42
+			exec 200>/user_shell_files/lock
+			flock 200
 			pkill -SIGINT bash
+			while [ ! -f "/user_shell_files/shells_working" ]; do
+				sleep 0.01
+			done
+			flock -u 200
+			while [ -f "/user_shell_files/shells_working" ]; do
+				sleep 0.1
+			done
+			echo "" > /handle_sigint.bash
+			flock -u 42
 			exit 0
 		fi
 	fi
