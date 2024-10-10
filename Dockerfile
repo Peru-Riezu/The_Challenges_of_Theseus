@@ -4,6 +4,9 @@ RUN	apt update && apt upgrade && apt install sudo vim nano man less emacs gosu p
 RUN	apt clean -y
 
 
+
+RUN	mkdir /user_shell_files/
+RUN	chmod 777 /user_shell_files/
 RUN	echo "" >> /handle_sigint.bash
 RUN	chmod 644 /handle_sigint.bash
 RUN	echo "trap 'source /handle_sigint.bash' SIGINT" >> /etc/bash.bashrc

@@ -77,3 +77,4 @@ else
 	echo "$NEW_VALUE" > "$FILE"
 flock -u 200
 exit 0
+
