@@ -2,8 +2,6 @@ PARENT_DIR="/home/labirintoaren_erdigunea"                  # Parent directory t
 TARGET_DIR="sarraila"                                       # Directory that the student will create
 KEY_FILE="giltza"                                           # The file to watch for inside TARGET_DIR
 EXPECTED_CONTENT=$(cat /home/labirintoaren_erdigunea/*)     # Replace with the expected content
-COLOR_GREEN="\033[32m"
-COLOR_RESET="\033[0m"
 
 trap '' SIGINT
 

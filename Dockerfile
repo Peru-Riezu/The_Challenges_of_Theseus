@@ -7,6 +7,8 @@ RUN	apt clean -y
 
 RUN	mkdir /user_shell_files/
 RUN	chmod 777 /user_shell_files/
+RUN	touch /user_shell_files/lock
+RUN	chmod 777 /user_shell_files/lock
 RUN	echo "" >> /handle_sigint.bash
 RUN	chmod 644 /handle_sigint.bash
 RUN	echo "trap 'source /handle_sigint.bash' SIGINT" >> /etc/bash.bashrc

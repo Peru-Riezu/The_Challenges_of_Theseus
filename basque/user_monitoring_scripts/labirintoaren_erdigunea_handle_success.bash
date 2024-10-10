@@ -1,5 +1,8 @@
 #!/bin/bash
 
+COLOR_GREEN="\033[32m"
+COLOR_RESET="\033[0m"
+
 touch /user_shell_files/shells_working
 
 exec 200>/user_shell_files/lock
@@ -76,6 +79,5 @@ if [ "$CURRENT_VALUE" -eq 1 ]; then
 else
 	NEW_VALUE=$((CURRENT_VALUE - 1))
 	echo "$NEW_VALUE" > "$FILE"
+fi
 flock -u 200
-exit 0
-
