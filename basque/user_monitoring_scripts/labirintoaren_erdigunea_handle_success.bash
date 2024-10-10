@@ -3,6 +3,7 @@
 COLOR_GREEN="\033[32m"
 COLOR_RESET="\033[0m"
 
+echo here
 touch /user_shell_files/shells_working
 
 exec 200>/user_shell_files/lock
