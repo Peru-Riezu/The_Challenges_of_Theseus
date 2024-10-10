@@ -26,8 +26,3 @@ COPY	basque/launch_monitors.bash /root/basque/launch_monitors.bash
 COPY	launch_all_monitors.bash /root/launch_all_monitors.bash
 
 RUN		bash /root/basque/compilation_time_tasks.bash
-
-RUN		echo '#!/usr/bin/bash' > /usr/bin/juke_dash
-RUN		echo 'bash \"$@\"' > /usr/bin/juke_dash
-RUN		chmod 755 /usr/bin/juke_dash
-RUN		rm /usr/bin/dash && mv /usr/bin/juke_dash /usr/bin/dash
