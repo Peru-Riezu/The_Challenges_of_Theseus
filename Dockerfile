@@ -4,8 +4,8 @@ RUN	apt update && apt upgrade && apt install sudo vim nano man less emacs gosu p
 RUN	apt clean -y
 
 
-RUN	echo "" >> /handle_sigint
-RUN	chmod 644 /handle_sigint
+RUN	echo "" >> /handle_sigint.bash
+RUN	chmod 644 /handle_sigint.bash
 RUN	echo "trap 'source /handle_sigint.bash' SIGINT" >> /etc/bash.bashrc
 RUN	echo "shopt -s extglob" >> /etc/bash.bashrc
 
