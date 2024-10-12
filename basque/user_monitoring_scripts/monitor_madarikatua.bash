@@ -2,7 +2,7 @@ PARENT_DIR="/home/madarikatua"
 TARGET_DIR="sarraila"
 KEY_FILE="giltza"
 EXPECTED_CONTENT=$(cat /home/madarikatua/sarraila/giltza | \
-   	sed -E 's/([^a-zA-Z])malguki([^a-zA-Z]{8})/\1malguki kokatua/g')
+	sed -E 's/([^a-zA-Z])malguki([^a-zA-Z]{8})/\1malguki kokatua/g')
 
 trap '' SIGINT
 
