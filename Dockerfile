@@ -1,6 +1,6 @@
 FROM debian:latest
 
-RUN	apt update && apt upgrade && apt install sudo vim nano man less emacs gosu procps ne ed jed -y
+RUN	apt update && apt upgrade && apt install sudo git vim nano man less emacs gosu procps ne ed jed -y
 RUN	apt clean -y
 
 RUN	mkdir /user_shell_files/
