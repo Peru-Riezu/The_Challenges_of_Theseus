@@ -50,15 +50,15 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	stty igncr -isig -icanon -ixoff -echo
 	tput civis
 	tput clear
-	printf "%s\n%s\n$COLOR_GREEN%s$COLOR_RESET\n%s\n$COLOR_GREEN%s$COLOR_RESET\n%s\n" \
-		"Arma berriak beti dira ezezagun"
-		"baino lanarekin bilakatzen dira zure lagun"
-		"arma asko erabiltzea da ohikoa"
-		"bat hautatu eta bilakatu boteretsua"
-		"ez izan etorkizunean armak aldatzeari beldurra"
-		"eta nahi baldin baduzu nire aholkua"
-		"vi da ia beti arma erabilgarriena"
-		"erabiltzailea: git"
+	printf "%s\n%s\n%s\n%s\n%s\n%s\n%s\n$COLOR_GREEN%s\n%s$COLOR_RESET\n" \
+		"Arma berriak beti dira ezezagun" \
+		"baino lanarekin bilakatzen dira zure lagun" \
+		"arma asko erabiltzea da ohikoa" \
+		"bat hautatu eta bilakatu boteretsua" \
+		"ez izan etorkizunean armak aldatzeari beldurra" \
+		"eta nahi baldin baduzu nire aholkua" \
+		"vi da ia beti arma erabilgarriena" \
+		"erabiltzailea: git" \
 		"pasahitza: good" > /home/madarikatua/sarraila/haria
 	cat /home/madarikatua/sarraila/haria
 	stty -igncr
