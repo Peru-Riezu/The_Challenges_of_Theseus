@@ -1,14 +1,16 @@
-PARENT_DIR="/home/irakurri"
+PARENT_DIR="/home/madarikatua"
 TARGET_DIR="sarraila"
-KEY_FILE="giltz_gorri_txikia"
+KEY_FILE="giltza"
+EXPECTED_CONTENT=$(cat /home/madarikatua/sarraila/giltza | \
+   	sed -E 's/([^a-zA-Z])malguki([^a-zA-Z]{8})/\1malguki kokatua/g')
 
 trap '' SIGINT
 
 while true; do
 	if [[ -f "$PARENT_DIR/$TARGET_DIR/$KEY_FILE" ]]; then
-		files=($(ls -A $PARENT_DIR/$TARGET_DIR))
-		if [[ ${#files[@]} -eq 1 ]]; then
-			cat /root/basque/user_monitoring_scripts/irakurri_handle_success.bash > /handle_sigint.bash
+		FILE_CONTENT=$(cat "$PARENT_DIR/$TARGET_DIR/$KEY_FILE")
+		if [[ "$FILE_CONTENT" == "$EXPECTED_CONTENT" ]]; then
+			cat /root/basque/user_monitoring_scripts/madarikatua_handle_success.bash > /handle_sigint.bash
 			exec 42>/root/lock
 			flock 42
 			exec 200>/user_shell_files/lock

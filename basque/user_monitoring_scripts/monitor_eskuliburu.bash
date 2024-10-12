@@ -1,6 +1,6 @@
-PARENT_DIR="/home/eskuliburu"                               # Parent directory to watch
-TARGET_DIR="sarraila"                                       # Directory that the student will create
-KEY_FILE="giltza"                                           # The file to watch for inside TARGET_DIR
+PARENT_DIR="/home/eskuliburu"
+TARGET_DIR="sarraila"
+KEY_FILE="giltza"
 EXPECTED_CONTENT=$(find $PARENT_DIR/zaborra -size +0 | grep "giltz" | sort | xargs cat 2> /dev/null)
 COLOR_GREEN="\033[32m"
 COLOR_RESET="\033[0m"

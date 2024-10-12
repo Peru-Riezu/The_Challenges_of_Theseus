@@ -1,0 +1,26 @@
+"
+mila gudari dira gudan
+nor da hoberena?
+zure aukera da guda hau
+amaitukoduena
+"
+
+[32mHelburua:
+	'sarraila/giltza' fitxategian, 'malguki' hitz guztien ondoren, 'kokatua'
+	hitza jarri, zuriune batekin hitzen hartean, ariketa honetarko hitz bat,
+	karakter ez-alfabetikoz mugatua dagoen karakter alfabetikoen kate bat da.
+	[0m
+
+Komando interesgarriak:
+	set -o vi
+	vim
+	ed
+	sed
+	jed
+	nano
+	emacs
+	ne
+
+Esteka interesgarriak:
+	https://www.gnu.org/software/sed/manual/sed.html
+	https://en.wikipedia.org/wiki/Editor_war

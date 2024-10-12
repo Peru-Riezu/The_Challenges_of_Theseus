@@ -1,7 +1,7 @@
-PARENT_DIR="/home/labirintoaren_erdigunea"                  # Parent directory to watch
-TARGET_DIR="sarraila"                                       # Directory that the student will create
-KEY_FILE="giltza"                                           # The file to watch for inside TARGET_DIR
-EXPECTED_CONTENT=$(cat /home/labirintoaren_erdigunea/*)     # Replace with the expected content
+PARENT_DIR="/home/labirintoaren_erdigunea"
+TARGET_DIR="sarraila"
+KEY_FILE="giltza"
+EXPECTED_CONTENT=$(cat /home/labirintoaren_erdigunea/*)
 
 trap '' SIGINT
 
