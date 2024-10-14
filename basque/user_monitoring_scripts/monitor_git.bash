@@ -11,7 +11,7 @@ trap '' SIGINT
 while true; do
 	if [[ -f "$PARENT_DIR/$TARGET_DIR/$KEY_FILE" ]]; then
 		cat <<< "$ORIGINAL_CONTENT" > /tmp/jatorrizko_giltza
-		patch /tmp/jatorrizko_giltza $PARENT_DIR/$TARGET_DIR/$KEY_FILE
+		patch /tmp/jatorrizko_giltza $PARENT_DIR/$TARGET_DIR/$KEY_FILE &> /dev/null
 		FILE_CONTENT=$(cat "/tmp/jatorrizko_giltza")
 		rm /tmp/jatorrizko_giltza
 		if [[ "$FILE_CONTENT" == "$EXPECTED_CONTENT" ]]; then
