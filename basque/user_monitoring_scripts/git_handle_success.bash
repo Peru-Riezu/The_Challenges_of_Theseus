@@ -51,10 +51,11 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	stty igncr -isig -icanon -ixoff -echo
 	tput civis
 	tput clear
-	printf "%s\n\n$COLOR_GREEN%s\n%s$COLOR_RESET\n" \
+	printf "%s\n%s\n\n$COLOR_GREEN%s\n%s$COLOR_RESET\n" \
 		"asmakizun hau gainditu duzu" \
-		"erabiltzailea: madarikatua" \
-		"pasahitza: gogoko_ditut_eskuliburuak" > /home/git/ate_irekia/haria
+		"hurrengo ariketa preskuntzan dago oraindik" \
+		"erabiltzailea: " \
+		"pasahitza: " > /home/git/ate_irekia/haria
 	cat /home/git/ate_irekia/haria
 	stty -igncr
 	read -s -r -n1
