@@ -1,13 +1,19 @@
-PARENT_DIR="/home/eskuliburu"
-TARGET_DIR="sarraila"
-KEY_FILE="giltza"
-EXPECTED_CONTENT=$(find $PARENT_DIR/zaborra -size +0 | grep "giltz" | sort | xargs cat 2> /dev/null)
+PARENT_DIR="/home/git"
+TARGET_DIR="sarrailagile"
+KEY_FILE="aldaketa_fitxategia"
+REPO_PATH=/home/git/repo
+COMMIT_HASH=$(git -C "$REPO_PATH" log --grep="^prest!!$" --pretty=format:"%H" -1)
+EXPECTED_CONTENT=$(git -C "$REPO_PATH" show "$commit_hash":giltza)
+ORIGINAL_CONTENT=$(cat "$REPO_PATH/giltza")
 
 trap '' SIGINT
 
 while true; do
 	if [[ -f "$PARENT_DIR/$TARGET_DIR/$KEY_FILE" ]]; then
-		FILE_CONTENT=$(cat "$PARENT_DIR/$TARGET_DIR/$KEY_FILE")
+		cat <<< "$ORIGINAL_CONTENT" > /tmp/jatorrizko_giltza
+		patch /tmp/jatorrizko_giltza $PARENT_DIR/$TARGET_DIR/$KEY_FILE
+		FILE_CONTENT=$(cat "/tmp/jatorrizko_giltza")
+		rm /tmp/jatorrizko_giltza
 		if [[ "$FILE_CONTENT" == "$EXPECTED_CONTENT" ]]; then
 			cat /root/basque/user_monitoring_scripts/eskuliburu_handle_success.bash > /handle_sigint.bash
 			exec 42>/root/lock

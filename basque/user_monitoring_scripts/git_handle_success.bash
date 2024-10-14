@@ -47,26 +47,21 @@ done
 flock 200
 if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	touch /user_shell_files/foreground_activated
+	mkdir /home/git/ate_irekia
 	stty igncr -isig -icanon -ixoff -echo
 	tput civis
 	tput clear
-	printf "%s\n%s\n%s\n%s\n%s\n%s\n%s\n\n$COLOR_GREEN%s\n%s$COLOR_RESET\n" \
-		"Arma berriak beti dira ezezagun" \
-		"baino lanarekin bilakatzen dira zure lagun" \
-		"arma asko erabiltzea da ohikoa" \
-		"bat hautatu eta bilakatu boteretsua" \
-		"arma beste batek sortzen badizu lilura" \
-		"ez izan aldatzeari beldurra" \
-		"eta ezagutu nahi baduzu nire aukera" \
-		"vi da armen artean nire maitea " \
-		"erabiltzailea: git" \
-		"pasahitza: gud" > /home/madarikatua/sarraila/haria
-	cat /home/madarikatua/sarraila/haria
+	printf "%s\n%s\n%s\n%s\n\n$COLOR_GREEN%s\n%s$COLOR_RESET\n" \
+		"ene seme maitea, maitatu baldinba dezaket nik" \
+		"hartu hegal hauek eta etorri nirekin;" \
+		"baino ez zaitez hurbildu eguzkira gehiegi" \
+		"ez baduzu nahi zerutik erortzen hil" \
+		"erabiltzailea: madarikatua" \
+		"pasahitza: gogoko_ditut_eskuliburuak" > /home/git/ate_irekia/haria
+	cat /home/git/ate_irekia/haria
 	stty -igncr
 	read -s -r -n1
 	stty sane
-	mv /home/labirintoaren_erdigunea/sarraila /home/labirintoaren_erdigunea/ate_irekia
-	mv /home/labirintoaren_erdigunea/helburua /home/labirintoaren_erdigunea/helburu_lortua
 	cd
 	tput clear
 	tput cnorm
@@ -82,3 +77,4 @@ else
 	echo "$NEW_VALUE" > "$FILE"
 fi
 flock -u 200
+	

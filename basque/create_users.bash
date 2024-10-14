@@ -4,6 +4,7 @@ users["labirintoaren_erdigunea"]="piraten_bizitza_hoberena_da"
 users["irakurri"]="beti"
 users["eskuliburu"]="osoa"
 users["madarikatua"]="gogoko_ditut_eskuliburuak"
+users["git"]="gud"
 
 groupadd labirinto_gela
 
