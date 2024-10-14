@@ -3,7 +3,7 @@ TARGET_DIR="sarrailagile"
 KEY_FILE="aldaketa_fitxategia"
 REPO_PATH=/home/git/repo
 COMMIT_HASH=$(git -C "$REPO_PATH" log --grep="^prest!!$" --pretty=format:"%H" -1)
-EXPECTED_CONTENT=$(git -C "$REPO_PATH" show "$commit_hash":giltza)
+EXPECTED_CONTENT=$(git -C "$REPO_PATH" show "$COMMIT_HASH":giltza)
 ORIGINAL_CONTENT=$(cat "$REPO_PATH/giltza")
 
 trap '' SIGINT
