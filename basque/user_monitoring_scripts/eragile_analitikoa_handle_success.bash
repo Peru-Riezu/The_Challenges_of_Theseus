@@ -54,7 +54,7 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 		"asmakizun hau gainditu duzu" \
 		"hurrengo ariketa preskuntzan dago oraindik" \
 		"erabiltzailea: " \
-		"pasahitza: " > /home/eragile_analitikoa/ate_irekia/haria
+		"pasahitza: " > /home/eragile_analitikoa/sarraila/haria
 	cat /home/eragile_analitikoa/sarraila/haria
 	stty -igncr
 	read -s -r -n1
