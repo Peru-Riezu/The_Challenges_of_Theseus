@@ -47,21 +47,20 @@ done
 flock 200
 if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	touch /user_shell_files/foreground_activated
-	mkdir /home/git/ate_irekia
 	stty igncr -isig -icanon -ixoff -echo
 	tput civis
 	tput clear
 	printf "%s\n%s\n\n$COLOR_GREEN%s\n%s$COLOR_RESET\n" \
 		"asmakizun hau gainditu duzu" \
 		"hurrengo ariketa preskuntzan dago oraindik" \
-		"erabiltzailea: eragile_analitikoa" \
-		"pasahitza: Charles_Babbage" > /home/git/ate_irekia/haria
-	cat /home/git/ate_irekia/haria
+		"erabiltzailea: " \
+		"pasahitza: " > /home/eragile_analitikoa/ate_irekia/haria
+	cat /home/eragile_analitikoa/sarraila/haria
 	stty -igncr
 	read -s -r -n1
-	chown -R git ate_irekia
 	stty sane
-	mv /home/git/helburua /home/git/helburu_lortua
+	mv /home/eragile_analitikoa/sarraila /home/eragile_analitikoa/ate_irekia
+	mv /home/eragile_analitikoa/helburua /home/eragile_analitikoa/helburu_lortua
 	cd
 	tput clear
 	tput cnorm

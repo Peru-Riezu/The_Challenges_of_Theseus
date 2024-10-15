@@ -5,6 +5,7 @@ users["irakurri"]="beti"
 users["eskuliburu"]="osoa"
 users["madarikatua"]="gogoko_ditut_eskuliburuak"
 users["git"]="gud"
+users["eragile_analitikoa"]="Charles_Babbage"
 
 groupadd labirinto_gela
 

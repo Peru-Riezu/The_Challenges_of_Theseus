@@ -7,3 +7,8 @@ rm -f /home/git/repo.tar
 chown -R git /home/git/repo
 
 git config --global --add safe.directory /home/git/repo
+
+tar -xzf /home/eragile_analitikoa/sustraiak.tar.gz -C /home/eragile_analitikoa/
+rm -f /home/eragile_analitikoa/sustraiak.tar.gz
+chown -R eragile_analitikoa /home/eragile_analitikoa/sustraiak/
+find /home/eragile_analitikoa/sustraiak/ -perm 755 | xargs chown 777

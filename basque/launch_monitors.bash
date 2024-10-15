@@ -3,3 +3,4 @@ bash /root/basque/user_monitoring_scripts/monitor_irakurri.bash &
 bash /root/basque/user_monitoring_scripts/monitor_eskuliburu.bash &
 bash /root/basque/user_monitoring_scripts/monitor_madarikatua.bash &
 bash /root/basque/user_monitoring_scripts/monitor_git.bash &
+bash /root/basque/user_monitoring_scripts/monitor_eragile_analitikoa.bash &

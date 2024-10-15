@@ -1,5 +1,5 @@
 [32mHelburua:
-	'diff' komandoa erabiltzen sortu ~/sarrailagile/aldaketa_fitxategia, non,
+	'diff' komandoa erabiltzen sortu '~/sarrailagile/aldaketa_fitxategia', non,
 	'patch ~/repo/giltza ~/sarrailagile/aldaketa_fitxategia' komandoak,
 	'~/repo/giltza' fitxategia 'prest!!' mezua duen commit-a (konponketa)
 	ondoren zeukan eduki berdinekin uzten duela.[0m
