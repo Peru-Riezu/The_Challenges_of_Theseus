@@ -50,11 +50,10 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	stty igncr -isig -icanon -ixoff -echo
 	tput civis
 	tput clear
-	printf "%s\n%s\n\n$COLOR_GREEN%s\n%s$COLOR_RESET\n" \
+	printf "%s\n\n$COLOR_GREEN%s\n%s$COLOR_RESET\n" \
 		"asmakizun hau gainditu duzu" \
-		"hurrengo ariketa preskuntzan dago oraindik" \
-		"erabiltzailea: " \
-		"pasahitza: " > /home/eragile_analitikoa/sarraila/haria
+		"erabiltzailea: Z3" \
+		"pasahitza: Konrad_Zuse" > /home/eragile_analitikoa/sarraila/haria
 	cat /home/eragile_analitikoa/sarraila/haria
 	stty -igncr
 	read -s -r -n1
