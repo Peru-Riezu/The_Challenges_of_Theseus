@@ -1,0 +1,18 @@
+[32mHelburua:
+	Sortu '~/sarraila/giltza' fitxategia, non 'cat -e ~/sarraila/giltza'
+	komandoak,[35m
+Z$
+Z$
+Z
+[32m	irtenarazten duela (outputs).[0m
+
+Komando interesgarriak:
+	man git
+	man diff
+	man patch
+	diff -u
+	git checkout
+	git log
+
+Esteka interesgarriak:
+	https://en.wikipedia.org/wiki/Version_control

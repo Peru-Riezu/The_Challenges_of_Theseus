@@ -6,6 +6,7 @@ users["eskuliburu"]="osoa"
 users["madarikatua"]="gogoko_ditut_eskuliburuak"
 users["git"]="gud"
 users["eragile_analitikoa"]="Charles_Babbage"
+users["Z3"]="Konrad_Zuse"
 
 groupadd labirinto_gela
 
