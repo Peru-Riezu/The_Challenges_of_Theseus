@@ -8,12 +8,10 @@ Z
 	arroses dago adibidean esanahi literala duela adierazteko.[0m
 
 Komando interesgarriak:
-	man git
-	man diff
-	man patch
-	diff -u
-	git checkout
-	git log
+	cat -e
+	echo -n
+	echo -nn
+	echo -nnn
 
 Esteka interesgarriak:
 	https://en.wikipedia.org/wiki/Newline#In_programming_languages
