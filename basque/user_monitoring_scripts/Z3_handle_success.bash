@@ -53,9 +53,9 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	tput clear
 	printf "%s\n%s\n\n$COLOR_GREEN%s\n%s$COLOR_RESET\n" \
 		"asmakizun hau gainditu duzu" \
-		"hurrengo ariketa preskuntzan dago oraindik" \
-		"erabiltzailea: " \
-		"pasahitza: " > /home/Z3/sarraila/haria
+		"hurrengo ariketa preskuntzan ez dago prest oraindik" \
+		"erabiltzailea: Bombe" \
+		"pasahitza: the_Bombe_device_was_not_turing_complete" > /home/Z3/sarraila/haria
 	cat /home/Z3/sarraila/haria
 	stty -igncr
 	read -s -r -n1

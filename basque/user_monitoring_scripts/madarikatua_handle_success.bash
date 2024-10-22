@@ -50,7 +50,7 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	stty igncr -isig -icanon -ixoff -echo
 	tput civis
 	tput clear
-	printf "%s\n%s\n%s\n%s\n%s\n%s\n%s\n\n$COLOR_GREEN%s\n%s$COLOR_RESET\n" \
+	printf "%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n\n$COLOR_GREEN%s\n%s$COLOR_RESET\n" \
 		"Arma berriak beti dira ezezagun" \
 		"baino lanarekin bilakatzen dira zure lagun" \
 		"arma asko erabiltzea da ohikoa" \

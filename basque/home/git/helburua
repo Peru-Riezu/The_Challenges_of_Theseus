@@ -10,6 +10,7 @@ Komando interesgarriak:
 	man patch
 	diff -u
 	git checkout
+	git log
 
 Esteka interesgarriak:
 	https://en.wikipedia.org/wiki/Version_control

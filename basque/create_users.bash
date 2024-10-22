@@ -7,6 +7,7 @@ users["madarikatua"]="gogoko_ditut_eskuliburuak"
 users["git"]="gud"
 users["eragile_analitikoa"]="Charles_Babbage"
 users["Z3"]="Konrad_Zuse"
+users["Bombe"]="the_Bombe_device_was_not_turing_complete"
 
 groupadd labirinto_gela
 

@@ -4,7 +4,8 @@
 Z$
 Z$
 Z
-[32m	irtenarazten duela (outputs).[0m
+[32m	irtenarazten duela (outputs), testua kolore gabea izan behar du,
+	arroses dago adibidean esanahi literala duela adierazteko.[0m
 
 Komando interesgarriak:
 	man git
@@ -15,4 +16,4 @@ Komando interesgarriak:
 	git log
 
 Esteka interesgarriak:
-	https://en.wikipedia.org/wiki/Version_control
+	https://en.wikipedia.org/wiki/Newline#In_programming_languages
