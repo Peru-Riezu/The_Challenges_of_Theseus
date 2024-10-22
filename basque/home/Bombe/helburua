@@ -2,7 +2,7 @@
 	'~/sekretu_kutxa' direktorioan, sortu 'mezu_enkriptatua.bin' fitxategi
 	enkriptatua. Sortu ere '~/sarraila/giltza.pem' giltz pribatua, non
 	'openssl pkeyutl -decrypt -inkey ~/sarraila/giltza.pem -in \
-		 ~/sarraila/mezu_enkriptatua.bin' komandoak, '~/jatorrizko_mezua'
+		 ~/sekretu_kutxa/mezu_enkriptatua.bin' komandoak, '~/jatorrizko_mezua'
 	 fitxategiaren jatorrizko edukiak, irtenarazten duela.
 [0m
 
