@@ -9,9 +9,8 @@ Z
 
 Komando interesgarriak:
 	cat -e
+	echo -e
 	echo -n
-	echo -nn
-	echo -nnn
 
 Esteka interesgarriak:
 	https://en.wikipedia.org/wiki/Newline#In_programming_languages

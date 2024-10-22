@@ -47,7 +47,6 @@ done
 flock 200
 if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	touch /user_shell_files/foreground_activated
-	mkdir /home/git/ate_irekia
 	stty igncr -isig -icanon -ixoff -echo
 	tput civis
 	tput clear

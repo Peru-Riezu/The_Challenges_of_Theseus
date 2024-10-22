@@ -47,7 +47,6 @@ done
 flock 200
 if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	touch /user_shell_files/foreground_activated
-	mkdir /home/git/ate_irekia
 	stty igncr -isig -icanon -ixoff -echo
 	tput civis
 	tput clear
@@ -55,13 +54,13 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 		"asmakizun hau gainditu duzu" \
 		"hurrengo ariketa ez dago prest oraindik" \
 		"erabiltzailea: " \
-		"pasahitza: " > /home/Z3/sarraila/haria
-	cat /home/Z3/sarraila/haria
+		"pasahitza: " > /home/Bombe/sarraila/haria
+	cat /home/Bombe/sarraila/haria
 	stty -igncr
 	read -s -r -n1
 	stty sane
-	mv /home/Z3/sarraila /home/Z3/ate_irekia
-	mv /home/Z3/helburua /home/Z3/helburu_lortua
+	mv /home/Bombe/sarraila /home/Bombe/ate_irekia
+	mv /home/Bombe/helburua /home/Bombe/helburu_lortua
 	cd
 	tput clear
 	tput cnorm
