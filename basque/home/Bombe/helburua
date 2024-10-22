@@ -1,8 +1,8 @@
 [32mHelburua:
 	'~/sekretu_kutxa' direktorioan, sortu 'mezu_enkriptatua.bin' fitxategi
-	enkriptatua. Sortu ere '~/sarraila/giltza.pub' fitxategia, giltz publiko
+	enkriptatua. Sortu ere '~/sarraila/giltza' fitxategia, giltz pribatu
 	bat edukitzen duena, non 'openssl rsautl -decrypt -inkey \
-	~/sarraila/giltza.pub -in ~/sekretu_kutxa/mezu_enkriptatua.bin' komandoak,
+	~/sarraila/giltza -in ~/sekretu_kutxa/mezu_enkriptatua.bin' komandoak,
 	'~/jatorrizko_mezua' fitxategiaren jatorrizko edukiak, irtenarazten duela.
 [0m
 

@@ -9,7 +9,7 @@ trap '' SIGINT
 
 while true; do
 	if [[ -f "$PARENT_DIR/$TARGET_DIR/$KEY_FILE" && -f "$PARENT_DIR/$TARGET_DIR2/$KEY_FILE2" ]]; then
-		FILE_CONTENT=$(openssl rsautl -decrypt -inkey $PARENT_DIR/sarraila/giltza.pub -in $PARENT_DIR/sekretu_kutxa/mezu_enkriptatua.bin)
+		FILE_CONTENT=$(openssl rsautl -decrypt -inkey $PARENT_DIR/sarraila/giltza -in $PARENT_DIR/sekretu_kutxa/mezu_enkriptatua.bin)
 		if [[ "$FILE_CONTENT" == "$EXPECTED_CONTENT" ]]; then
 			cat /root/basque/user_monitoring_scripts/Bombe_handle_success.bash > /handle_sigint.bash
 			exec 42>/root/lock
