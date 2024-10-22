@@ -1,15 +1,18 @@
 [32mHelburua:
 	'~/sekretu_kutxa' direktorioan, sortu 'mezu_enkriptatua.bin' fitxategi
-	enkriptatua. Sortu ere '~/sarraila/giltza' giltz pribatua, non 'openssl \
-		pkeyutl -decrypt -inkey my_rsa_key -in myfile_encrypted.bin' komandoak,
-	'~/jatorrizko_mezua' fitxategiaren jatorrizko edukiak, irtenarazten duela.
+	enkriptatua. Sortu ere '~/sarraila/giltza.pem' giltz pribatua, non
+	'openssl rsautl -decrypt -inkey ~/sarraila/giltza.pem -in
+	~/sekretu_kutxa/mezu_enkriptatua.bin' komandoak, '~/jatorrizko_mezua'
+	fitxategiaren jatorrizko edukiak, irtenarazten duela.
 [0m
 
 Komando interesgarriak:
 	man ssh-keygen
 	man openssl
-	ssh-keygen -t rsa -b 4096 -m PEM -f my_rsa_key
-	openssl pkeyutl -encrypt -inkey my_rsa_key.pub -pubin -in myfile.txt -out myfile_encrypted.bin
+	openssl genrsa -out private_key.pem 4096
+	openssl rsa -in private_key.pem -pubout -out public_key.pem
+	openssl rsautl -encrypt -pubin -inkey public_key.pem -in plaintext_file -out encrypted_file.bin
+	openssl rsautl -decrypt -inkey private_key.pem -in encrypted_file.bin -out decrypted_file
 
 Esteka interesgarriak:
 	https://en.wikipedia.org/wiki/Public-key_cryptography
