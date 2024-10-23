@@ -12,6 +12,7 @@ set_up:
 	-ln -s $$(pwd)/sshd_files/sshd_config /etc/ssh/sshd_config
 	-ln -s $$(pwd)/sshd_files/launch_container.bash /etc/ssh/launch_container.bash
 	-apt install docker* -y
+	-bash rerout_ips.bash
 
 clean:
 	-test -n "$$(docker ps -a -q)" && docker kill $$(docker ps -a -q)

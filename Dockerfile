@@ -1,7 +1,11 @@
 FROM debian:latest
 
-RUN	apt update && apt upgrade && apt install sudo neofetch tree git vim nano man less emacs gosu procps ne ed jed gnupg -y
+RUN	apt update && apt upgrade -y
+RUN	apt install sudo neofetch tree git vim nano man less emacs gosu procps ne ed jed gnupg wget iputils* -y
 RUN	apt clean -y
+
+run echo "" >> /etc/hosts
+run echo "9.0.0.1	Atenaseko-portua.net" >> /etc/hosts
 
 RUN	mkdir /user_shell_files/
 RUN	chmod 777 /user_shell_files/
