@@ -29,5 +29,6 @@ COPY	basque/update_hosts.bash /root/basque/update_hosts.bash
 
 COPY	launch_all_monitors.bash /root/launch_all_monitors.bash
 COPY	launch_all_compilation_time_tasks.bash /root/launch_all_compilation_time_tasks.bash
+COPY	update_all_hosts.bash /root/update_all_hosts.bash
 
 RUN		bash /root/launch_all_compilation_time_tasks.bash
