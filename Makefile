@@ -17,7 +17,7 @@ set_up:
 	-ln -s $$(pwd)/nginx_files/nginx.conf /etc/nginx/nginx.conf
 	-ln -s $$(pwd)/nginx_files/www-data /www-data
 	-service nginx restart
-	-bash rerout_all_ips.bash
+	-bash reroute_all_ips.bash
 
 clean:
 	-test -n "$$(docker ps -a -q)" && docker kill $$(docker ps -a -q)
