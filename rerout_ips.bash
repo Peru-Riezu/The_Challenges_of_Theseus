@@ -2,4 +2,4 @@ grep -q "^net.ipv4.ip_forward = 1$" /etc/sysctl.conf || echo "net.ipv4.ip_forwar
 sudo sysctl -p
 
 iptables -A FORWARD -d 127.0.0.2 -j ACCEPT
-iptables -t nat -A PREROUTING -d 8.8.8.8 -j DNAT --to-destination 127.0.0.2
+iptables -t nat -A PREROUTING -d 9.0.0.1 -j DNAT --to-destination 127.0.0.2

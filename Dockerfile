@@ -4,9 +4,6 @@ RUN	apt update && apt upgrade -y
 RUN	apt install sudo neofetch tree git vim nano man less emacs gosu procps ne ed jed gnupg wget iputils* -y
 RUN	apt clean -y
 
-run echo "" >> /etc/hosts
-run echo "9.0.0.1	atenaseko-portua.net" >> /etc/hosts
-
 RUN	mkdir /user_shell_files/
 RUN	chmod 777 /user_shell_files/
 RUN	touch /user_shell_files/lock
@@ -28,5 +25,5 @@ RUN		yes root | passwd # backdor for debugin
 COPY	basque/user_monitoring_scripts/ /root/basque/user_monitoring_scripts/
 COPY	basque/launch_monitors.bash /root/basque/launch_monitors.bash
 COPY	launch_all_monitors.bash /root/launch_all_monitors.bash
-
 RUN		bash /root/basque/compilation_time_tasks.bash
+

@@ -7,11 +7,16 @@ update:
 	git pull
 
 set_up:
+	-apt install docker* -y
+	-apt install nginx -y
 	-rm /etc/ssh/sshd_config
 	-rm /etc/ssh/launch_container.bash
+	-rm /etc/nginx/nginx.conf
 	-ln -s $$(pwd)/sshd_files/sshd_config /etc/ssh/sshd_config
 	-ln -s $$(pwd)/sshd_files/launch_container.bash /etc/ssh/launch_container.bash
-	-apt install docker* -y
+	-ln -s $$(pwd)/nginx_files/nginx.conf /etc/nginx/nginx.conf
+	-ln -s $$(pwd)/nginx_files/www-data /www-data
+	-service nginx restart
 	-bash rerout_ips.bash
 
 clean:
