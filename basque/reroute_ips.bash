@@ -8,4 +8,6 @@ iptables -t nat -C OUTPUT -d 9.0.0.1 -j DNAT --to-destination 127.0.0.2 2>/dev/n
 iptables -t nat -A OUTPUT -d 9.0.0.1 -j DNAT --to-destination 127.0.0.2
 iptables -t nat -C PREROUTING -s 172.17.0.0/16 -d 9.0.0.1 -j DNAT --to-destination 127.0.0.2 2>/dev/null || \
 iptables -t nat -A PREROUTING -s 172.17.0.0/16 -d 9.0.0.1 -j DNAT --to-destination 127.0.0.2
+iptables -t nat -C DOCKER-USER -d 9.0.0.1 -j DNAT --to-destination 127.0.0.2>/dev/null || \
+iptables -t nat -A DOCKER-USER -d 9.0.0.1 -j DNAT --to-destination 127.0.0.2
 
