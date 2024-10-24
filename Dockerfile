@@ -13,6 +13,8 @@ RUN	chmod 644 /handle_sigint.bash
 RUN	echo "trap 'source /handle_sigint.bash' SIGINT" >> /etc/bash.bashrc
 RUN	echo "shopt -s extglob" >> /etc/bash.bashrc
 
+RUN echo "*               hard    nofile          50" >> /etc/security/limits.conf
+
 COPY	basque/create_users.bash /root/basque/create_users.bash
 COPY	basque/compilation_time_tasks.bash /root/basque/compilation_time_tasks.bash
 COPY	create_all_users.bash /root/create_all_users.bash
