@@ -9,7 +9,6 @@ update:
 set_up:
 	-apt install docker* -y
 	-apt install nginx -y
-	-apt install iptables-persistent
 	-rm /etc/ssh/sshd_config
 	-rm /etc/ssh/launch_container.bash
 	-rm /etc/nginx/nginx.conf
