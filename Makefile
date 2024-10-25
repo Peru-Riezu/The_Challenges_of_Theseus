@@ -20,7 +20,7 @@ set_up:
 	-ln -s $$(pwd)/nginx_files/www-data /www-data
 	-bash ./concat_reroute_ips.bash > /etc/rc.local
 	-chmod +x /etc/rc.local
-	-./etc/rc.local
+	-/etc/rc.local
 	-service nginx restart
 
 clean:
