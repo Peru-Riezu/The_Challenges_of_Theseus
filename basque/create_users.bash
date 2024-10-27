@@ -8,6 +8,7 @@ users["git"]="gud"
 users["eragile_analitikoa"]="Charles_Babbage"
 users["Z3"]="Konrad_Zuse"
 users["Bombe"]="the_Bombe_device_was_not_turing_complete"
+users["Sir_Tim_Berners-Lee"]="www"
 
 groupadd labirinto_gela
 

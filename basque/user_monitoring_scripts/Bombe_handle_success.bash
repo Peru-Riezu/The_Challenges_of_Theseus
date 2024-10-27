@@ -53,8 +53,8 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	printf "%s\n%s\n\n$COLOR_GREEN%s\n%s$COLOR_RESET\n" \
 		"asmakizun hau gainditu duzu" \
 		"hurrengo ariketa ez dago prest oraindik" \
-		"erabiltzailea: " \
-		"pasahitza: " > /home/Bombe/sarraila/haria
+		"erabiltzailea: Sir_Tim_Berners-Lee" \
+		"pasahitza: www" > /home/Bombe/sarraila/haria
 	cat /home/Bombe/sarraila/haria
 	stty -igncr
 	read -s -r -n1
