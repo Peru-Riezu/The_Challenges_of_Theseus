@@ -23,7 +23,7 @@ set_up:
 	-bash ./concat_reroute_ips.bash > /etc/rc.local
 	-chmod +x /etc/rc.local
 	-/etc/rc.local
-	-sudo (crontab -l 2>/dev/null; echo "@reboot /etc/rc.local") | crontab -
+	-(sudo crontab -l 2>/dev/null; echo "@reboot /etc/rc.local") | sudo crontab -
 
 clean:
 	-test -n "$$(docker ps -a -q)" && docker kill $$(docker ps -a -q)
