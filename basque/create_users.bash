@@ -9,6 +9,7 @@ users["eragile_analitikoa"]="Charles_Babbage"
 users["Z3"]="Konrad_Zuse"
 users["Bombe"]="Bombe_gailua_ez_zen_turing_osoa"
 users["Sir_Tim_Berners-Lee"]="www"
+users["IBM_704"]="GM-NAA_I/O"
 
 groupadd labirinto_gela
 
