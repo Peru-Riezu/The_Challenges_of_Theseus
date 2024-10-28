@@ -10,7 +10,7 @@ update:
 	git pull
 
 set_up:
-	-apt install docker* nginx install ssh sudo -y
+	-apt install docker* nginx ssh sudo -y
 	-rm /etc/ssh/sshd_config
 	-rm /etc/ssh/launch_container.bash
 	-rm /etc/nginx/nginx.conf
