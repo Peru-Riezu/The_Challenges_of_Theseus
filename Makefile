@@ -3,8 +3,8 @@ all:
 	bash ./create_all_users_local.bash
 	service ssh restart 
 	service nginx restart
-	bash ./concat_reroute_ips.bash > /etc/rc.local
-	sudo /etc/rc.local
+	bash ./concat_reroute_ips.bash > /root/reroute_all_ips.bash
+	sudo /root/reroute_all_ips.bash
 
 update:
 	git pull
@@ -21,8 +21,8 @@ set_up:
 	-ln -s $$(pwd)/nginx_files/nginx.conf /etc/nginx/nginx.conf
 	-ln -s $$(pwd)/nginx_files/www-data /www-data
 	-bash ./concat_reroute_ips.bash > /root/reroute_all_ips.bash
-	-chmod +x /etc/rc.local
-	-/etc/rc.local
+	-chmod +x /root/reroute_all_ips.bash
+	-/root/reroute_all_ips.bash
 	-sudo crontab -l | grep -Fq '@reboot sleep 2 && sudo bash /root/reroute_all_ips.bash' || \
 		((sudo crontab -l 2>/dev/null; echo '@reboot sleep 2 && sudo bash /root/reroute_all_ips.bash') | sudo crontab -)
 
