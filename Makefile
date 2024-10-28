@@ -20,11 +20,11 @@ set_up:
 	-ln -s $$(pwd)/sshd_files/launch_container.bash /etc/ssh/launch_container.bash
 	-ln -s $$(pwd)/nginx_files/nginx.conf /etc/nginx/nginx.conf
 	-ln -s $$(pwd)/nginx_files/www-data /www-data
-	-bash ./concat_reroute_ips.bash > /etc/rc.local
+	-bash ./concat_reroute_ips.bash > /root/reroute_all_ips.bash
 	-chmod +x /etc/rc.local
 	-/etc/rc.local
-	-sudo crontab -l | grep -Fq '@reboot sleep 2 && sudo bash /etc/rc.local' || \
-		((sudo crontab -l 2>/dev/null; echo '@reboot sleep 2 && sudo bash /etc/rc.local') | sudo crontab -)
+	-sudo crontab -l | grep -Fq '@reboot sleep 2 && sudo bash /root/reroute_all_ips.bash' || \
+		((sudo crontab -l 2>/dev/null; echo '@reboot sleep 2 && sudo bash /root/reroute_all_ips.bash') | sudo crontab -)
 
 clean:
 	-test -n "$$(docker ps -a -q)" && docker kill $$(docker ps -a -q)
