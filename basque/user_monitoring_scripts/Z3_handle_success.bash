@@ -53,7 +53,7 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	printf "%s\n\n$COLOR_GREEN%s\n%s$COLOR_RESET\n" \
 		"asmakizun hau gainditu duzu" \
 		"erabiltzailea: Bombe" \
-		"pasahitza: the_Bombe_device_was_not_turing_complete" > /home/Z3/sarraila/haria
+		"pasahitza: Bombe_gailua_ez_zen_turing_osoa" > /home/Z3/sarraila/haria
 	cat /home/Z3/sarraila/haria
 	stty -igncr
 	read -s -r -n1

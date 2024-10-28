@@ -1,5 +1,7 @@
 [32mHelburua:
-	'http://atenaseko-portua.net/trinkotua' descargatu eta destrinkotatu.
+	'http://atenaseko-portua.net/baliabide' descargatu eta destrinkotu
+	(decompress). Direktorio destrinkotuan fitxategi trinkotu bat dago,
+	destrinkotu eta ~/sarraila/giltza direktoriora mugitu.
 [0m
 
 Komando interesgarriak:
