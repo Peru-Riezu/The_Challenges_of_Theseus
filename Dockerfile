@@ -1,7 +1,7 @@
 FROM debian:latest
 
 RUN	apt update && apt upgrade -y
-RUN	apt install sudo neofetch tree git vim nano man less emacs gosu procps ne ed jed gnupg wget iputils* -y
+RUN	apt install sudo neofetch tree git vim nano man less emacs gosu procps ne ed jed gnupg wget iputils* file -y
 RUN	apt clean -y
 
 RUN	mkdir /user_shell_files/
