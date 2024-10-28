@@ -3,14 +3,14 @@ all:
 	bash ./create_all_users_local.bash
 	service ssh restart 
 	service nginx restart
+	bash ./concat_reroute_ips.bash > /etc/rc.local
+	sudo /etc/rc.local
 
 update:
 	git pull
 
 set_up:
-	-apt install docker* -y
-	-apt install nginx -y
-	-apt install ssh -y
+	-apt install docker* nginx install ssh sudo -y
 	-rm /etc/ssh/sshd_config
 	-rm /etc/ssh/launch_container.bash
 	-rm /etc/nginx/nginx.conf
@@ -23,7 +23,8 @@ set_up:
 	-bash ./concat_reroute_ips.bash > /etc/rc.local
 	-chmod +x /etc/rc.local
 	-/etc/rc.local
-	-(sudo crontab -l 2>/dev/null; echo "@reboot /etc/rc.local") | sudo crontab -
+	-sudo crontab -l | grep -Fq '@reboot sleep 2 && sudo bash /etc/rc.local' || \
+		((sudo crontab -l 2>/dev/null; echo '@reboot sleep 2 && sudo bash /etc/rc.local') | sudo crontab -)
 
 clean:
 	-test -n "$$(docker ps -a -q)" && docker kill $$(docker ps -a -q)
