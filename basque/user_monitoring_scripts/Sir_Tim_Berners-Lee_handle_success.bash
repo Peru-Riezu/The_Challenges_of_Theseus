@@ -50,16 +50,17 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	stty igncr -isig -icanon -ixoff -echo
 	tput civis
 	tput clear
-	printf "%s\n\n$COLOR_GREEN%s\n%s$COLOR_RESET\n" \
+	printf "%s\n%s\n\n$COLOR_GREEN%s\n%s$COLOR_RESET\n" \
 		"asmakizun hau gainditu duzu" \
-		"erabiltzailea: Sir_Tim_Berners-Lee" \
-		"pasahitza: www" > /home/Bombe/sarraila/haria
-	cat /home/Bombe/sarraila/haria
+		"hurrengo ariketa ez dago prest oraindik" \
+		"erabiltzailea: " \
+		"pasahitza: " > /home/Sir_Tim_Berners-Lee/sarraila/haria
+	cat /home/Sir_Tim_Berners-Lee/sarraila/haria
 	stty -igncr
 	read -s -r -n1
 	stty sane
-	mv /home/Bombe/sarraila /home/Bombe/ate_irekia
-	mv /home/Bombe/helburua /home/Bombe/helburu_lortua
+	mv /home/Sir_Tim_Berners-Lee/sarraila /home/Sir_Tim_Berners-Lee/ate_irekia
+	mv /home/Sir_Tim_Berners-Lee/helburua /home/Sir_Tim_Berners-Lee/helburu_lortua
 	cd
 	tput clear
 	tput cnorm
@@ -75,3 +76,4 @@ else
 	echo "$NEW_VALUE" > "$FILE"
 fi
 flock -u 200
+	
