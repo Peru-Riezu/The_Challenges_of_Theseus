@@ -1,3 +1,5 @@
+SHELL = /bin/bash
+
 all: 
 	sudo docker build -t the_challenges_of_theseus_container .
 	sudo bash ./create_all_users_local.bash
@@ -10,8 +12,7 @@ update:
 	git pull
 
 set_up:
-	sudo sh -c "set +e; \
-		apt update; \
+	sudo sh <<< "apt update; \
 		sudo apt install xfsprogs -y; \
 		fallocate -l 20G /var/lib/docker.img; \
 		mkfs.xfs -m crc=1,finobt=1 /var/lib/docker.img; \
