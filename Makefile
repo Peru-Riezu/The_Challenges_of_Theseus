@@ -10,8 +10,8 @@ update:
 	git pull
 
 set_up:
-	su -c "apt update; \
-		apt install docker* nginx ssh sudo iptables -y; \
+	sudo "apt update; \
+		apt install docker* nginx ssh iptables -y; \
 		rm /etc/ssh/sshd_config; \
 		rm /etc/ssh/launch_container.bash; \
 		rm /etc/nginx/nginx.conf; \
@@ -24,7 +24,6 @@ set_up:
 		bash ./concat_reroute_ips.bash > /root/reroute_all_ips.bash; \
 		chmod +x /root/reroute_all_ips.bash; \
 		/root/reroute_all_ips.bash; \
-		crontab -e; \
 		crontab -l | grep -Fq '@reboot sleep 2 && sudo bash /root/reroute_all_ips.bash' || \
 		((sudo crontab -l 2>/dev/null; echo '@reboot sleep 2 && sudo bash /root/reroute_all_ips.bash') | sudo crontab -)"
 
