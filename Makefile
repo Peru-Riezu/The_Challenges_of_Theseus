@@ -10,7 +10,9 @@ update:
 	git pull
 
 set_up:
-	sudo sh -c "apt update; \
+	sudo sh -c "set +e; \
+		apt update; \
+		sudo apt install xfsprogs; \
 		fallocate -l 20G /var/lib/docker.img; \
 		mkfs.xfs -m crc=1,finobt=1 /var/lib/docker.img; \
 		mkdir -p /var/lib/docker; \
