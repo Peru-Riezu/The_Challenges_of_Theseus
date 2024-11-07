@@ -10,7 +10,7 @@ update:
 	git pull
 
 set_up:
-	sudo "apt update; \
+	sudo sh -c "apt update; \
 		apt install docker* nginx ssh iptables -y; \
 		rm /etc/ssh/sshd_config; \
 		rm /etc/ssh/launch_container.bash; \
