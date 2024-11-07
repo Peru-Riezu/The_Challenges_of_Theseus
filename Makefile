@@ -17,8 +17,7 @@ set_up:
 		mkfs.xfs -m crc=1,finobt=1 /var/lib/docker.img; \
 		mkdir -p /var/lib/docker; \
 		mount -o loop,pquota /var/lib/docker.img /var/lib/docker; \
-		grep -q "/var/lib/docker.img" /etc/fstab || \
-			echo "/var/lib/docker.img /var/lib/docker xfs loop,pquota 0 0" | sudo tee -a /etc/fstab > /dev/null; \
+		grep -q "/var/lib/docker.img" /etc/fstab &> /dev/null || echo "/var/lib/docker.img /var/lib/docker xfs loop,pquota 0 0" | sudo tee -a /etc/fstab > /dev/null; \
 		apt install docker* nginx ssh iptables -y; \
 		rm /etc/ssh/sshd_config; \
 		rm /etc/ssh/launch_container.bash; \
