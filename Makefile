@@ -2,11 +2,11 @@ SHELL = /bin/bash
 
 all: 
 	sudo sh -c "docker build -t the_challenges_of_theseus_container .; \
-		sudo bash ./create_all_users_local.bash; \
-		sudo service ssh restart; \
-		sudo service nginx restart; \
-		sudo bash ./concat_reroute_ips.bash > /root/reroute_all_ips.bash; \
-		sudo /root/reroute_all_ips.bash"
+		bash ./create_all_users_local.bash; \
+		service ssh restart; \
+		service nginx restart; \
+		bash ./concat_reroute_ips.bash > /root/reroute_all_ips.bash; \
+		/root/reroute_all_ips.bash"
 
 update:
 	git pull
@@ -33,8 +33,9 @@ set_up:
 		bash ./concat_reroute_ips.bash > /root/reroute_all_ips.bash; \
 		chmod +x /root/reroute_all_ips.bash; \
 		/root/reroute_all_ips.bash; \
-		crontab -l 2>/dev/null | grep -Fq '@reboot sleep 2 && sudo bash /root/reroute_all_ips.bash' || \
-			((crontab -l 2>/dev/null; echo '@reboot sleep 2 && sudo bash /root/reroute_all_ips.bash') \
+		chmod o+x ..; \
+		crontab -l 2>/dev/null | grep -Fq '@reboot sleep 2 && bash /root/reroute_all_ips.bash' || \
+			((crontab -l 2>/dev/null; echo '@reboot sleep 2 && bash /root/reroute_all_ips.bash') \
 				| crontab -)"
 
 clean:
