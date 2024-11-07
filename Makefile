@@ -11,6 +11,12 @@ update:
 
 set_up:
 	sudo sh -c "apt update; \
+		fallocate -l 20G /var/lib/docker.img; \
+		mkfs.xfs -m crc=1,finobt=1 /var/lib/docker.img; \
+		mkdir -p /var/lib/docker; \
+		mount -o loop,pquota /var/lib/docker.img /var/lib/docker; \
+		grep -q "/var/lib/docker.img" /etc/fstab || \
+			echo "/var/lib/docker.img /var/lib/docker xfs loop,pquota 0 0" | sudo tee -a /etc/fstab > /dev/null; \
 		apt install docker* nginx ssh iptables -y; \
 		rm /etc/ssh/sshd_config; \
 		rm /etc/ssh/launch_container.bash; \
@@ -25,7 +31,8 @@ set_up:
 		chmod +x /root/reroute_all_ips.bash; \
 		/root/reroute_all_ips.bash; \
 		crontab -l | grep -Fq '@reboot sleep 2 && sudo bash /root/reroute_all_ips.bash' || \
-		((sudo crontab -l 2>/dev/null; echo '@reboot sleep 2 && sudo bash /root/reroute_all_ips.bash') | sudo crontab -)"
+			((sudo crontab -l 2>/dev/null; echo '@reboot sleep 2 && sudo bash /root/reroute_all_ips.bash') \
+				| sudo crontab -)"
 
 clean:
 	-test -n "$$(docker ps -a -q)" && docker kill $$(docker ps -a -q)
