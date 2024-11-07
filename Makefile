@@ -1,12 +1,12 @@
 SHELL = /bin/bash
 
 all: 
-	sudo docker build -t the_challenges_of_theseus_container .
-	sudo bash ./create_all_users_local.bash
-	sudo service ssh restart 
-	sudo service nginx restart
-	sudo bash ./concat_reroute_ips.bash > /root/reroute_all_ips.bash
-	sudo /root/reroute_all_ips.bash
+	sudo sh -c "docker build -t the_challenges_of_theseus_container .; \
+		sudo bash ./create_all_users_local.bash; \
+		sudo service ssh restart; \
+		sudo service nginx restart; \
+		sudo bash ./concat_reroute_ips.bash > /root/reroute_all_ips.bash; \
+		sudo /root/reroute_all_ips.bash"
 
 update:
 	git pull
