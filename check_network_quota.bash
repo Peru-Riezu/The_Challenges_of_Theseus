@@ -1,8 +1,8 @@
 #!/bin/bash
 #
-/usr/sbin/sysctl restart vnstat
+systemctl restart vnstat
 
-THRESHOLD=$((95 * 1024 * 1024 * 1024))  # 100 GB in bytes
+THRESHOLD=$((95 * 1000 * 1000 * 1000))
 INTERFACE=$(ip -o link show | awk -F': ' '$2 !~ /^(lo|docker)/ {print $2}')
 
 TOTAL_TX_FIELD=$(vnstat --oneline -i $INTERFACE | awk -F ';' '{print $10}')
