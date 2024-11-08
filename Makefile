@@ -32,16 +32,16 @@ set_up:
 		ln -s $$(pwd)/nginx_files/nginx.conf /etc/nginx/nginx.conf; \
 		ln -s $$(pwd)/nginx_files/www-data /www-data; \
 		bash ./concat_reroute_ips.bash > /root/reroute_all_ips.bash; \
-		cp ./network_quota.bash /root/network_quota.bash
+		cp ./network_quota.bash /root/network_quota.bash; \
 		chmod +x /root/reroute_all_ips.bash; \
 		/root/reroute_all_ips.bash; \
 		chmod o+x ..; \
 		crontab -l 2>/dev/null | grep -Fq  '  * *  *   *   *     bash /root/network_quota.bash' || \
 			((crontab -l 2>/dev/null; echo '  * *  *   *   *     bash /root/network_quota.bash') \
-				| crontab -);\
+				| crontab -); \
 		crontab -l 2>/dev/null | grep -Fq  '  0 0  1   *   *     vnstat --force --reset -i ${INTERFACE}' || \
 			((crontab -l 2>/dev/null; echo '  0 0  1   *   *     vnstat --force --reset -i ${INTERFACE}') \
-				| crontab -);\
+				| crontab -); \
 		crontab -l 2>/dev/null | grep -Fq  '@reboot sleep 2 && bash /root/reroute_all_ips.bash' || \
 			((crontab -l 2>/dev/null; echo '@reboot sleep 2 && bash /root/reroute_all_ips.bash') \
 				| crontab -)"
