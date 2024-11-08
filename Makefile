@@ -21,7 +21,7 @@ set_up:
 		mount -o loop,pquota /var/lib/docker.img /var/lib/docker; \
 		grep -q '/var/lib/docker.img' /etc/fstab || \
 			(echo '/var/lib/docker.img /var/lib/docker xfs loop,pquota 0 0' | tee -a /etc/fstab > /dev/null); \
-		apt install docker* nginx ssh iptables vnstat -y; \
+		apt install docker* nginx ssh iptables vnstat cron -y; \
 		rm /etc/ssh/sshd_config; \
 		rm /etc/ssh/launch_container.bash; \
 		rm /etc/nginx/nginx.conf; \
