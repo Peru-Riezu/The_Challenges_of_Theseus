@@ -1,5 +1,4 @@
 SHELL = /bin/bash
-INTERFACE = $(shell ip -o link show | awk -F': ' '$$2 !~ /^(lo|docker)/ {print $$2}')
 
 all: 
 	sudo sh -c "docker build -t the_challenges_of_theseus_container .; \
@@ -21,7 +20,7 @@ set_up:
 		mount -o loop,pquota /var/lib/docker.img /var/lib/docker; \
 		grep -q '/var/lib/docker.img' /etc/fstab || \
 			(echo '/var/lib/docker.img /var/lib/docker xfs loop,pquota 0 0' | tee -a /etc/fstab > /dev/null); \
-		apt install docker* nginx ssh iptables vnstat cron -y; \
+		apt install docker* nginx ssh iptables vnstat cron net-tools -y; \
 		rm /etc/ssh/sshd_config; \
 		rm /etc/ssh/launch_container.bash; \
 		rm /etc/nginx/nginx.conf; \
@@ -32,15 +31,16 @@ set_up:
 		ln -s $$(pwd)/nginx_files/nginx.conf /etc/nginx/nginx.conf; \
 		ln -s $$(pwd)/nginx_files/www-data /www-data; \
 		bash ./concat_reroute_ips.bash > /root/reroute_all_ips.bash; \
-		cp ./network_quota.bash /root/network_quota.bash; \
+		cp ./check_network_quota.bash /root/check_network_quota.bash; \
+		cp ./reset_network_quota.bash /root/reset_network_quota.bash; \
 		chmod +x /root/reroute_all_ips.bash; \
 		/root/reroute_all_ips.bash; \
 		chmod o+x ..; \
-		crontab -l 2>/dev/null | grep -Fq  '  * *  *   *   *     bash /root/network_quota.bash' || \
-			((crontab -l 2>/dev/null; echo '  * *  *   *   *     bash /root/network_quota.bash') \
+		crontab -l 2>/dev/null | grep -Fq  '  * *  *   *   *     bash /root/check_network_quota.bash' || \
+			((crontab -l 2>/dev/null; echo '  * *  *   *   *     bash /root/check_network_quota.bash') \
 				| crontab -); \
-		crontab -l 2>/dev/null | grep -Fq  '  0 0  1   *   *     vnstat --force --reset -i ${INTERFACE}' || \
-			((crontab -l 2>/dev/null; echo '  0 0  1   *   *     vnstat --force --reset -i ${INTERFACE}') \
+		crontab -l 2>/dev/null | grep -Fq  '  0 0  1   *   *     bash /root/reset_network_quota.bash' || \
+			((crontab -l 2>/dev/null; echo '  0 0  1   *   *     bash /root/reset_network_quota.bash') \
 				| crontab -); \
 		crontab -l 2>/dev/null | grep -Fq  '@reboot sleep 2 && bash /root/reroute_all_ips.bash' || \
 			((crontab -l 2>/dev/null; echo '@reboot sleep 2 && bash /root/reroute_all_ips.bash') \
