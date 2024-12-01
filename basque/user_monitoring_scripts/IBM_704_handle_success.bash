@@ -14,7 +14,6 @@ animate_dots()
 	done
 }
 
-
 move_to_suffix()
 {
 	local basename="$1"
@@ -94,13 +93,16 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 		rm /user_shell_files/output
 		move_to_suffix /home/IBM_704/aurkezpen_ontzia/konponketa _ezegokia
 		kill $DOTS_PID
+		flock 201
 		printf "$COLOR_RED%s$COLOR_RESET\n" \
 			"froga (1/5): konponketa ezegokia."
+		flock -u 201
 		stty -igncr
 		read -s -r -n1
 		stty sane
 		tput clear
 		tput cnorm
+		exit 0
 	fi
 
 	sleep 3
