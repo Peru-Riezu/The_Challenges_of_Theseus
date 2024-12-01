@@ -14,6 +14,21 @@ animate_dots()
 	done
 }
 
+
+move_to_suffix()
+{
+	local basename="$1"
+	local suffix="$2"
+	local target="${basename}${suffix}"
+	local n=1
+
+	while [[ -e "$target" ]]; do
+		target="${basename}${suffix}(${n})"
+		((n++))
+	done
+	mv "$basename" "$target"
+}
+
 touch /user_shell_files/shells_working
 
 exec 200>/user_shell_files/lock
@@ -71,13 +86,14 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	animate_dots &
 	DOTS_PID=$!
 
-	/home/IBM_704/aurkezpen_ontzia/konponketa "echo kaixo Ludi" "cat <<< \"agur Ludi\"" > /user_shell_files/output
+	/home/IBM_704/aurkezpen_ontzia/konponketa "echo kaixo Ludi" "cat <<< \"agur Ludi\"" &> /user_shell_files/output
 
-	EXPECTED_CONTENT=$(echo kaixo Ludi; cat <<< "agur Ludi")
+	EXPECTED_CONTENT=$(echo kaixo Ludi ; cat <<< "agur Ludi")
 	if [[ "$FILE_CONTENT" != "$EXPECTED_CONTENT" ]]; then
 		sleep 3
 		rm /user_shell_files/output
-		kill $DOT_PID
+		move_to_suffix(/home/IBM_704/aurkezpen_ontzia/konponketa, _ezegokia)
+		kill $DOTS_PID
 		printf "$COLOR_RED%s$COLOR_RESET\n" \
 			"froga (1/5): konponketa ezegokia."
 		stty -igncr
@@ -89,7 +105,7 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 
 	sleep 3
 	rm /user_shell_files/output
-	kill $DOT_PID
+	kill $DOTS_PID
 
 	printf "%s\n\n$COLOR_GREEN%s\n%s$COLOR_RESET\n" \
 		"asmakizun hau gainditu duzu" \
