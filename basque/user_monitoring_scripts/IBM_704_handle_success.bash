@@ -92,7 +92,7 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	if [[ "$FILE_CONTENT" != "$EXPECTED_CONTENT" ]]; then
 		sleep 3
 		rm /user_shell_files/output
-		move_to_suffix(/home/IBM_704/aurkezpen_ontzia/konponketa, _ezegokia)
+		move_to_suffix /home/IBM_704/aurkezpen_ontzia/konponketa _ezegokia
 		kill $DOTS_PID
 		printf "$COLOR_RED%s$COLOR_RESET\n" \
 			"froga (1/5): konponketa ezegokia."
