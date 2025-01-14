@@ -6,9 +6,7 @@ animate_dots()
 {
 	while true; do
 		for dots in '   ' '.  ' '.. ' '...'; do
-			flock 201
 			echo -ne "\b\b\b$dots"
-			flock -u 201
 			sleep 0.5
 		done
 	done
@@ -31,7 +29,6 @@ move_to_suffix()
 touch /user_shell_files/shells_working
 
 exec 200>/user_shell_files/lock
-exec 201>/user_shell_files/print_lock
 flock 200
 FILE="/user_shell_files/user_shell_count"
 if [ ! -f "$FILE" ]; then
@@ -93,36 +90,33 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 		rm /user_shell_files/output
 		move_to_suffix /home/IBM_704/aurkezpen_ontzia/konponketa _ezegokia
 		kill $DOTS_PID
-		flock 201
 		tput clear
 		printf "$COLOR_RED%s$COLOR_RESET\n" \
 			"froga (1/5): konponketa ezegokia."
-		flock -u 201
 		stty -igncr
 		read -s -r -n1
 		stty sane
 		tput clear
 		tput cnorm
-		return
+	else
+		sleep 3
+		rm /user_shell_files/output
+		kill $DOTS_PID
+
+		printf "%s\n\n$COLOR_GREEN%s\n%s$COLOR_RESET\n" \
+			"asmakizun hau gainditu duzu" \
+			"erabiltzailea: " \
+			"pasahitza: " > /home/Bombe/sarraila/haria
+		cat /home/Bombe/sarraila/haria
+		stty -igncr
+		read -s -r -n1
+		stty sane
+		mv /home/Bombe/sarraila /home/Bombe/ate_irekia
+		mv /home/Bombe/helburua /home/Bombe/helburu_lortua
+		cd
+		tput clear
+		tput cnorm
 	fi
-
-	sleep 3
-	rm /user_shell_files/output
-	kill $DOTS_PID
-
-	printf "%s\n\n$COLOR_GREEN%s\n%s$COLOR_RESET\n" \
-		"asmakizun hau gainditu duzu" \
-		"erabiltzailea: " \
-		"pasahitza: " > /home/Bombe/sarraila/haria
-	cat /home/Bombe/sarraila/haria
-	stty -igncr
-	read -s -r -n1
-	stty sane
-	mv /home/Bombe/sarraila /home/Bombe/ate_irekia
-	mv /home/Bombe/helburua /home/Bombe/helburu_lortua
-	cd
-	tput clear
-	tput cnorm
 fi
 FILE="/user_shell_files/user_shell_count"
 CURRENT_VALUE=$(cat "$FILE")
