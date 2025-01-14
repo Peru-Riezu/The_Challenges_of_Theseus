@@ -28,6 +28,7 @@ RUN		yes root | passwd # backdor for debugin
 COPY	basque/user_monitoring_scripts/ /root/basque/user_monitoring_scripts/
 COPY	basque/launch_monitors.bash /root/basque/launch_monitors.bash
 COPY	basque/update_hosts.bash /root/basque/update_hosts.bash
+COPY	common_functions /root/common_functions
 
 COPY	launch_all_monitors.bash /root/launch_all_monitors.bash
 COPY	launch_all_compilation_time_tasks.bash /root/launch_all_compilation_time_tasks.bash
