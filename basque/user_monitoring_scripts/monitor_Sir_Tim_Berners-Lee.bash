@@ -1,4 +1,4 @@
-source ../../common_functions/monitors_lock.bash
+source /root/common_functions/monitors_lock.bash
 
 PARENT_DIR="/home/Sir_Tim_Berners-Lee"
 TARGET_DIR="sarraila"

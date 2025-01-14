@@ -1,4 +1,4 @@
-source ../../common_functions/monitors_lock.bash
+source /root/common_functions/monitors_lock.bash
 
 PARENT_DIR="/home/IBM_704"
 TARGET_DIR="aurkezpen_ontzia"
