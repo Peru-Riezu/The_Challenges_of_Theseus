@@ -15,9 +15,11 @@ while true; do
 		FILE_CONTENT=$(cat "/tmp/jatorrizko_giltza")
 		rm /tmp/jatorrizko_giltza
 		if [[ "$FILE_CONTENT" == "$EXPECTED_CONTENT" ]]; then
-			cat /root/basque/user_monitoring_scripts/git_handle_success.bash > /handle_sigint.bash
 			exec 42>/root/lock
 			flock 42
+
+			cat /root/basque/user_monitoring_scripts/git_handle_success.bash > /handle_sigint.bash
+
 			exec 200>/user_shell_files/lock
 			flock 200
 			pkill -SIGINT bash

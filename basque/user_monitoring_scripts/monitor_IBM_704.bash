@@ -6,9 +6,11 @@ trap '' SIGINT
 
 while true; do
 	if [[ -f "$PARENT_DIR/$TARGET_DIR/$KEY_FILE" ]]; then
-			cat /root/basque/user_monitoring_scripts/IBM_704_handle_success.bash > /handle_sigint.bash
 			exec 42>/root/lock
 			flock 42
+
+			cat /root/basque/user_monitoring_scripts/IBM_704_handle_success.bash > /handle_sigint.bash
+
 			exec 200>/user_shell_files/lock
 			flock 200
 			pkill -SIGINT bash

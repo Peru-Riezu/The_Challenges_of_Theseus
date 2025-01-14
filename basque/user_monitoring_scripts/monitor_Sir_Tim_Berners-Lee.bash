@@ -9,10 +9,12 @@ while true; do
 	if [[ -f "$PARENT_DIR/$TARGET_DIR/$KEY_FILE" ]]; then
 		FILE_CONTENT=$(cat "$PARENT_DIR/$TARGET_DIR/$KEY_FILE")
 		if [[ "$FILE_CONTENT" == "$EXPECTED_CONTENT" ]]; then
-			cat /root/basque/user_monitoring_scripts/Sir_Tim_Berners-Lee_handle_success.bash > /handle_sigint.bash
 			exec 42>/root/lock
 			flock 42
 			exec 200>/user_shell_files/lock
+
+			cat /root/basque/user_monitoring_scripts/Sir_Tim_Berners-Lee_handle_success.bash > /handle_sigint.bash
+
 			flock 200
 			pkill -SIGINT bash
 			while [ ! -f "/user_shell_files/shells_working" ]; do
