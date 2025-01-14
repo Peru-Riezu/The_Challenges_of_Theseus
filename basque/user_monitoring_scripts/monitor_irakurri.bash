@@ -12,8 +12,8 @@ while true; do
 		if [[ ${#files[@]} -eq 1 ]]; then
 			get_root_lock
 			cat /root/basque/user_monitoring_scripts/irakurri_handle_success.bash > /handle_sigint.bash
-			handle_succes_release_lock_and_exit
-
+			handle_succes_and_release_lock
+			exit 0
 		fi
 	fi
 	sleep 0.2
