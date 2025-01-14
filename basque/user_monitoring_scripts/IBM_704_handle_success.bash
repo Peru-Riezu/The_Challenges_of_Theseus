@@ -91,6 +91,7 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 		move_to_suffix /home/IBM_704/aurkezpen_ontzia/konponketa _ezegokia
 		kill $DOTS_PID
 		tput clear
+		tput clear
 		printf "$COLOR_RED%s$COLOR_RESET\n" \
 			"froga (1/5): konponketa ezegokia."
 		stty -igncr

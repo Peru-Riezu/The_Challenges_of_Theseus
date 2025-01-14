@@ -4,7 +4,7 @@
 	ezberdinak balira bezala, bigarren lerroa lehenengoa amaitzean.[0m
 
 Adibideak: [93m
-$ ~/aurkezpen_ontzia/komponketa "echo kaixo Ludi" "cat <<< \"agur Ludi\""
+$ ~/aurkezpen_ontzia/konponketa "echo kaixo Ludi" "cat <<< \"agur Ludi\""
 [35mkaixo Ludi
 agur Ludi[0m
 
