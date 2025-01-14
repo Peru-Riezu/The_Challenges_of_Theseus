@@ -1,3 +1,5 @@
+source ../../common_functions/monitors_lock.bash
+
 PARENT_DIR="/home/git"
 TARGET_DIR="sarrailagile"
 KEY_FILE="aldaketa_fitxategia"
@@ -15,24 +17,9 @@ while true; do
 		FILE_CONTENT=$(cat "/tmp/jatorrizko_giltza")
 		rm /tmp/jatorrizko_giltza
 		if [[ "$FILE_CONTENT" == "$EXPECTED_CONTENT" ]]; then
-			exec 42>/root/lock
-			flock 42
-
+			get_root_lock
 			cat /root/basque/user_monitoring_scripts/git_handle_success.bash > /handle_sigint.bash
-
-			exec 200>/user_shell_files/lock
-			flock 200
-			pkill -SIGINT bash
-			while [ ! -f "/user_shell_files/shells_working" ]; do
-				sleep 0.01
-			done
-			flock -u 200
-			while [ -f "/user_shell_files/shells_working" ]; do
-				sleep 0.1
-			done
-			echo "" > /handle_sigint.bash
-			flock -u 42
-			exit 0
+			handle_succes_release_lock_and_exit
 		fi
 	fi
 	sleep 0.2

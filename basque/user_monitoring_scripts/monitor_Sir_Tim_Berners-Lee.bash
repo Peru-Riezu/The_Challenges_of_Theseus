@@ -1,3 +1,5 @@
+source ../../common_functions/monitors_lock.bash
+
 PARENT_DIR="/home/Sir_Tim_Berners-Lee"
 TARGET_DIR="sarraila"
 KEY_FILE="giltza"
@@ -9,24 +11,9 @@ while true; do
 	if [[ -f "$PARENT_DIR/$TARGET_DIR/$KEY_FILE" ]]; then
 		FILE_CONTENT=$(cat "$PARENT_DIR/$TARGET_DIR/$KEY_FILE")
 		if [[ "$FILE_CONTENT" == "$EXPECTED_CONTENT" ]]; then
-			exec 42>/root/lock
-			flock 42
-			exec 200>/user_shell_files/lock
-
+			get_root_lock
 			cat /root/basque/user_monitoring_scripts/Sir_Tim_Berners-Lee_handle_success.bash > /handle_sigint.bash
-
-			flock 200
-			pkill -SIGINT bash
-			while [ ! -f "/user_shell_files/shells_working" ]; do
-				sleep 0.01
-			done
-			flock -u 200
-			while [ -f "/user_shell_files/shells_working" ]; do
-				sleep 0.1
-			done
-			echo "" > /handle_sigint.bash
-			flock -u 42
-			exit 0
+			handle_succes_release_lock_and_exit
 		fi
 	fi
 	sleep 0.2
