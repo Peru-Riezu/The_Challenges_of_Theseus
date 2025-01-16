@@ -16,12 +16,12 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	/home/IBM_704/aurkezpen_ontzia/konponketa "echo kaixo Ludi" "cat <<< \"agur Ludi\"" &> /user_shell_files/output
 
 	FILE_CONTENT=$(cat /user_shell_files/output)
-	EXPECTED_CONTENT=$(echo kaixo Ludi ; cat <<< "agur Ludi")
+	EXPECTED_CONTENT=$(echo "kaixo Ludi" ; cat <<< "agur Ludi")
 	if [[ "$FILE_CONTENT" != "$EXPECTED_CONTENT" ]]; then
 		move_to_suffix /home/IBM_704/aurkezpen_ontzia/konponketa _ezegokia
 		cat <<< "$EXPECTED_CONTENT" > /home/IBM_704/aurkezpen_ontzia/esperozen_outputa
 		move_to_suffix /home/IBM_704/aurkezpen_ontzia/esperozen _outputa
-		mv /user_shell_files/output lortutako
+		mv /user_shell_files/output /home/IBM_704/aurkezpen_ontzia/lortutako
 		move_to_suffix /home/IBM_704/aurkezpen_ontzia/lortutako _outputa
 		sleep 3
 		kill $DOTS_PID
@@ -35,9 +35,11 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 		tput clear
 		tput cnorm
 	else
-		sleep 3
 		rm /user_shell_files/output
+		sleep 3
 		kill $DOTS_PID
+		tput clear
+		tput clear
 		printf "%s\n\n$COLOR_GREEN%s\n%s$COLOR_RESET\n" \
 			"asmakizun hau gainditu duzu" \
 			"erabiltzailea: " \
