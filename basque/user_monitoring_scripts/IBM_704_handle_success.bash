@@ -18,9 +18,12 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	FILE_CONTENT=$(cat /user_shell_files/output)
 	EXPECTED_CONTENT=$(echo kaixo Ludi ; cat <<< "agur Ludi")
 	if [[ "$FILE_CONTENT" != "$EXPECTED_CONTENT" ]]; then
-		rm /user_shell_files/output
-		sleep 3
 		move_to_suffix /home/IBM_704/aurkezpen_ontzia/konponketa _ezegokia
+		cat <<< "$EXPECTED_CONTENT" > /home/IBM_704/aurkezpen_ontzia/esperozen_outputa
+		move_to_suffix /home/IBM_704/aurkezpen_ontzia/esperozen _outputa
+		mv /user_shell_files/output lortutako
+		move_to_suffix /home/IBM_704/aurkezpen_ontzia/lortutako _outputa
+		sleep 3
 		kill $DOTS_PID
 		tput clear
 		tput clear
@@ -35,17 +38,17 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 		sleep 3
 		rm /user_shell_files/output
 		kill $DOTS_PID
-
 		printf "%s\n\n$COLOR_GREEN%s\n%s$COLOR_RESET\n" \
 			"asmakizun hau gainditu duzu" \
 			"erabiltzailea: " \
-			"pasahitza: " > /home/Bombe/sarraila/haria
-		cat /home/Bombe/sarraila/haria
+			"pasahitza: " > /home/IBM_704/aurkezpen_ontzia/haria
+		cat /home/IBM_704/aurkezpen_ontzia/haria
 		stty -igncr
 		read -s -r -n1
 		stty sane
-		mv /home/Bombe/sarraila /home/Bombe/ate_irekia
-		mv /home/Bombe/helburua /home/Bombe/helburu_lortua
+		mv /home/IBM_704/aurkezpen_ontzia/haria /home/Bombe/ate_irekia
+		mv /home/IBM_704/helburua /home/IBM_704/helburu_lortua
+		touch /user_shell_files/IBM_704_success
 		cd
 		tput clear
 		tput cnorm
