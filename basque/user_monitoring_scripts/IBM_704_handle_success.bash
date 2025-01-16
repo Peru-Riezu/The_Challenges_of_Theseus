@@ -22,11 +22,11 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 
 	if [[ "$FILE_CONTENT" != "$EXPECTED_CONTENT" ]]; then
 		move_to_suffix /home/IBM_704/aurkezpen_ontzia/konponketa _ezegokia
-		cat <<< "/home/IBM_704/aurkezpen_ontzia/konponketa " \
-			<<< "\"echo kaixo Ludi\" \"cat <<< \\\"agur Ludi\\\"\" &> output" \
-			> /home/IBM_704/aurkezpen_ontzia/inputa
+		printf "%s%s" "/home/IBM_704/aurkezpen_ontzia/konponketa " \
+			"\"echo kaixo Ludi\" \"cat <<< \\\"agur Ludi\\\"\" &> output" \
+			> /home/IBM_704/aurkezpen_ontzia/emandako
 		move_to_suffix /home/IBM_704/aurkezpen_ontzia/emandako _inputa
-		cat <<< "$EXPECTED_CONTENT" > /home/IBM_704/aurkezpen_ontzia/esperozen_outputa
+		cat <<< "$EXPECTED_CONTENT" > /home/IBM_704/aurkezpen_ontzia/esperozen
 		move_to_suffix /home/IBM_704/aurkezpen_ontzia/esperozen _outputa
 		mv /user_shell_files/output /home/IBM_704/aurkezpen_ontzia/lortutako
 		move_to_suffix /home/IBM_704/aurkezpen_ontzia/lortutako _outputa
@@ -58,11 +58,11 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 
 	if [[ "$FILE_CONTENT" != "$EXPECTED_CONTENT" ]]; then
 		move_to_suffix /home/IBM_704/aurkezpen_ontzia/konponketa _ezegokia
-		cat <<< "/home/IBM_704/aurkezpen_ontzia/konponketa " \
-			<<< "\"echo kaixo Ludi\" \"\" &> output" \
-			> /home/IBM_704/aurkezpen_ontzia/inputa
+		printf "%s%s" "/home/IBM_704/aurkezpen_ontzia/konponketa " \
+			"\"echo kaixo Ludi\" \"\" &> output"
+			> /home/IBM_704/aurkezpen_ontzia/emandako
 		move_to_suffix /home/IBM_704/aurkezpen_ontzia/emandako _inputa
-		cat <<< "$EXPECTED_CONTENT" > /home/IBM_704/aurkezpen_ontzia/esperozen_outputa
+		cat <<< "$EXPECTED_CONTENT" > /home/IBM_704/aurkezpen_ontzia/esperozen
 		move_to_suffix /home/IBM_704/aurkezpen_ontzia/esperozen _outputa
 		mv /user_shell_files/output /home/IBM_704/aurkezpen_ontzia/lortutako
 		move_to_suffix /home/IBM_704/aurkezpen_ontzia/lortutako _outputa
@@ -94,11 +94,11 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 
 	if [[ "$FILE_CONTENT" != "$EXPECTED_CONTENT" ]]; then
 		move_to_suffix /home/IBM_704/aurkezpen_ontzia/konponketa _ezegokia
-		cat <<< "/home/IBM_704/aurkezpen_ontzia/konponketa " \
-			<<< "\"\" \"echo kaixo Ludi\" \"\" &> output" \
-			> /home/IBM_704/aurkezpen_ontzia/inputa
+		printf "%s%s" "/home/IBM_704/aurkezpen_ontzia/konponketa " \
+			"\"\" \"echo kaixo Ludi\" \"\" &> output" \
+			> /home/IBM_704/aurkezpen_ontzia/emandako
 		move_to_suffix /home/IBM_704/aurkezpen_ontzia/emandako _inputa
-		cat <<< "$EXPECTED_CONTENT" > /home/IBM_704/aurkezpen_ontzia/esperozen_outputa
+		cat <<< "$EXPECTED_CONTENT" > /home/IBM_704/aurkezpen_ontzia/esperozen
 		move_to_suffix /home/IBM_704/aurkezpen_ontzia/esperozen _outputa
 		mv /user_shell_files/output /home/IBM_704/aurkezpen_ontzia/lortutako
 		move_to_suffix /home/IBM_704/aurkezpen_ontzia/lortutako _outputa
@@ -130,9 +130,9 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 
 	if [[ "$FILE_CONTENT" != "$EXPECTED_CONTENT" ]]; then
 		move_to_suffix /home/IBM_704/aurkezpen_ontzia/konponketa _ezegokia
-		cat <<< "/home/IBM_704/aurkezpen_ontzia/konponketa " > /home/IBM_704/aurkezpen_ontzia/inputa
+		printf "/home/IBM_704/aurkezpen_ontzia/konponketa " > /home/IBM_704/aurkezpen_ontzia/emandako
 		move_to_suffix /home/IBM_704/aurkezpen_ontzia/emandako _inputa
-		cat <<< "$EXPECTED_CONTENT" > /home/IBM_704/aurkezpen_ontzia/esperozen_outputa
+		cat <<< "$EXPECTED_CONTENT" > /home/IBM_704/aurkezpen_ontzia/esperozen
 		move_to_suffix /home/IBM_704/aurkezpen_ontzia/esperozen _outputa
 		mv /user_shell_files/output /home/IBM_704/aurkezpen_ontzia/lortutako
 		move_to_suffix /home/IBM_704/aurkezpen_ontzia/lortutako _outputa
