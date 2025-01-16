@@ -6,7 +6,9 @@ get_root_lock()
 
 handle_succes_and_release_lock()
 {
+	echo here 2 1
 	pkill -SIGINT bash
+	echo here 2 2
 	while [ ! -f "/user_shell_files/shells_working" ]; do
 		sleep 0.01
 	done
