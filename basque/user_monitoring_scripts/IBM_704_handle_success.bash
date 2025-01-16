@@ -44,6 +44,7 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	fi
 
 ############################################## test 2º ###################################################################
+	tput clear
 	printf "$COLOR_GREEN%s$COLOR_RESET\n" \
 		"frogatzen (2/5)"
 
@@ -80,6 +81,7 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	fi
 
 ############################################## test 3º ###################################################################
+	tput clear
 	printf "$COLOR_GREEN%s$COLOR_RESET\n" \
 		"frogatzen (3/5)"
 
@@ -116,6 +118,7 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	fi
 
 ############################################## test 4º ###################################################################
+	tput clear
 	printf "$COLOR_GREEN%s$COLOR_RESET\n" \
 		"frogatzen (4/5)"
 
@@ -150,6 +153,7 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	fi
 
 ############################################## success ###################################################################
+	tput clear
 	rm /user_shell_files/output
 	tput clear
 	tput clear
