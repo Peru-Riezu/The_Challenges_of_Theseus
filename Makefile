@@ -13,7 +13,7 @@ update:
 
 set_up:
 	sudo sh -c "apt update; \
-		sudo apt install xfsprogs -y; \
+		apt install xfsprogs -y; \
 		fallocate -l 20G /var/lib/docker.img; \
 		mkfs.xfs -m crc=1,finobt=1 /var/lib/docker.img; \
 		mkdir -p /var/lib/docker; \
