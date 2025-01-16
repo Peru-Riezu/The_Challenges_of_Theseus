@@ -31,9 +31,9 @@ get_success_lock_might_exit()
 	touch /user_shell_files/shells_working
 
 	echo here 1
-	exec 200>/user_shell_files/lock
+	exec 21>/user_shell_files/lock
 	echo here 2
-	flock 200
+	flock 21
 	echo here 3
 	FILE="/user_shell_files/user_shell_count"
 	if [ ! -f "$FILE" ]; then
@@ -43,7 +43,7 @@ get_success_lock_might_exit()
 	NEW_VALUE=$((CURRENT_VALUE + 1))
 	echo "$NEW_VALUE" > "$FILE"
 	echo here 4
-	flock -u 200
+	flock -u 21
 	echo here 5
 
 	my_pgid=$(ps -o pgid= -p $$)
@@ -53,7 +53,7 @@ get_success_lock_might_exit()
 
 	while [ "$my_pgid" -ne "$fg_pgid" ]; do
 		if [ ! -f "/user_shell_files/foreground_activated" ]; then
-			flock 200
+			flock 21
 			FILE="/user_shell_files/user_shell_count"
 			CURRENT_VALUE=$(cat "$FILE")
 			if [ "$CURRENT_VALUE" -eq 1 ]; then
@@ -64,7 +64,7 @@ get_success_lock_might_exit()
 				NEW_VALUE=$((CURRENT_VALUE - 1))
 				echo "$NEW_VALUE" > "$FILE"
 			fi
-			flock -u 200
+			flock -u 21
 			exit 0
 		fi
 
@@ -77,7 +77,7 @@ get_success_lock_might_exit()
 	done
 
 	echo here 6
-	flock 200
+	flock 21
 }	
 
 yield_success_lock()
@@ -92,6 +92,6 @@ yield_success_lock()
 		NEW_VALUE=$((CURRENT_VALUE - 1))
 		echo "$NEW_VALUE" > "$FILE"
 	fi
-	flock -u 200
+	flock -u 21
 }
 
