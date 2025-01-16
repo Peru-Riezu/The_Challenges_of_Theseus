@@ -15,10 +15,11 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 
 	/home/IBM_704/aurkezpen_ontzia/konponketa "echo kaixo Ludi" "cat <<< \"agur Ludi\"" &> /user_shell_files/output
 
+	FILE_CONTENT=$(cat /user_shell_files/output)
 	EXPECTED_CONTENT=$(echo kaixo Ludi ; cat <<< "agur Ludi")
 	if [[ "$FILE_CONTENT" != "$EXPECTED_CONTENT" ]]; then
-		sleep 3
 		rm /user_shell_files/output
+		sleep 3
 		move_to_suffix /home/IBM_704/aurkezpen_ontzia/konponketa _ezegokia
 		kill $DOTS_PID
 		tput clear
