@@ -26,7 +26,7 @@ move_to_suffix()
 	mv "$basename" "$target"
 }
 
-get_success_lock_might_exit()
+get_success_lock_might_return()
 {
 	touch /user_shell_files/shells_working
 
@@ -60,7 +60,7 @@ get_success_lock_might_exit()
 				echo "$NEW_VALUE" > "$FILE"
 			fi
 			flock -u 200
-			exit 0
+			return 0
 		fi
 
 		sleep 0.01

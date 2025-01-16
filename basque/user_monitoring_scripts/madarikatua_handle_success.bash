@@ -1,5 +1,5 @@
 # de facto there is a sources handle_success.bash here
-get_success_lock_might_exit
+get_success_lock_might_return
 
 if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	touch /user_shell_files/foreground_activated

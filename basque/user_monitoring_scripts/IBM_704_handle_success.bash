@@ -1,5 +1,5 @@
 # de facto there is a sources handle_success.bash here
-get_success_lock_might_exit
+get_success_lock_might_return
 
 if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	touch /user_shell_files/foreground_activated
@@ -40,7 +40,7 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 		tput clear
 		tput cnorm
 		yield_success_lock
-		exit 0
+		return 0
 	fi
 
 ############################################## test 2º ###################################################################
@@ -76,7 +76,7 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 		tput clear
 		tput cnorm
 		yield_success_lock
-		exit 0
+		return 0
 	fi
 
 ############################################## test 3º ###################################################################
@@ -112,7 +112,7 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 		tput clear
 		tput cnorm
 		yield_success_lock
-		exit 0
+		return 0
 	fi
 
 ############################################## test 4º ###################################################################
@@ -146,7 +146,7 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 		tput clear
 		tput cnorm
 		yield_success_lock
-		exit 0
+		return 0
 	fi
 
 ############################################## success ###################################################################
