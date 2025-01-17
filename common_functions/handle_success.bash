@@ -87,5 +87,6 @@ yield_success_lock()
 		echo "$NEW_VALUE" > "$FILE"
 	fi
 	flock -u 200
+	return 0
 }
 

@@ -166,12 +166,10 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 
 	ORIGINAL_PS_COUNT=$(ps u |  tail -n +2 | wc -l)
 	/home/IBM_704/aurkezpen_ontzia/konponketa "cat | sleep 3" &
-	BJ_PID=$!
 	GOTTEN_PS_COUNT=$(ps u | tail -n +2 | wc -l)
 	EXPECTED_COUNT=$(expr $ORIGINAL_PS_COUNT + 3)
 	sleep 3
 	kill $DOTS_PID
-	kill $BJ_PID
 
 	if [[ "$GOTTEN_PS_COUNT" != "$EXPECTED_COUNT" ]]; then
 		move_to_suffix /home/IBM_704/aurkezpen_ontzia/konponketa _ezegokia
