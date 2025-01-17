@@ -179,7 +179,7 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 		move_to_suffix /home/IBM_704/aurkezpen_ontzia/emandako _inputa
 		cat <<< "$EXPECTED_COUNT" > /home/IBM_704/aurkezpen_ontzia/esperozen
 		move_to_suffix /home/IBM_704/aurkezpen_ontzia/esperozen _outputa
-		printf "$GOTTEN_PS_COUNT\n" > /user_shell_files/output /home/IBM_704/aurkezpen_ontzia/lortutako
+		printf "$GOTTEN_PS_COUNT\n" > /home/IBM_704/aurkezpen_ontzia/lortutako
 		move_to_suffix /home/IBM_704/aurkezpen_ontzia/lortutako _outputa
 		tput clear
 		tput clear
