@@ -155,6 +155,43 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 		return 0
 	fi
 
+############################################## test 5º ###################################################################
+	tput clear
+	tput clear
+	printf "$COLOR_GREEN%s$COLOR_RESET\n" \
+		"frogatzen (5/5)"
+
+	animate_dots &
+	DOTS_PID=$!
+
+	ORIGINAL_PS_COUNT=$(ps u |  tail -n +2 | wc -l)
+	/home/IBM_704/aurkezpen_ontzia/konponketa "cat | sleep 3" &
+	GOTTEN_PS_COUNT=$(ps u | tail -n +2 | wc -l)
+	EXPECTED_COUNT=$(ORIGINAL_PS_COUNT + 3)
+	sleep 3
+	kill $DOTS_PID
+
+	if [[ "$GOTTEN_PS_COUNT" != "$EXPECTED_COUNT" ]]; then
+		move_to_suffix /home/IBM_704/aurkezpen_ontzia/konponketa _ezegokia
+		printf "ps u | tail -n + 2 | wc -l" > /home/IBM_704/aurkezpen_ontzia/emandako
+		move_to_suffix /home/IBM_704/aurkezpen_ontzia/emandako _inputa
+		cat <<< "$EXPECTED_COUNT" > /home/IBM_704/aurkezpen_ontzia/esperozen
+		move_to_suffix /home/IBM_704/aurkezpen_ontzia/esperozen _outputa
+		printf "$GOTTEN_PS_COUNT\n" > /user_shell_files/output /home/IBM_704/aurkezpen_ontzia/lortutako
+		move_to_suffix /home/IBM_704/aurkezpen_ontzia/lortutako _outputa
+		tput clear
+		tput clear
+		printf "$COLOR_RED%s$COLOR_RESET\n" \
+			"froga (5/5): konponketa ezegokia."
+		stty -igncr
+		read -s -r -n1
+		stty sane
+		tput clear
+		tput cnorm
+		yield_success_lock
+		return 0
+	fi
+
 ############################################## success ###################################################################
 	rm /user_shell_files/output
 	tput clear
