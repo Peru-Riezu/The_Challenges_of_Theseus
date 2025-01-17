@@ -23,7 +23,7 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	if [[ "$FILE_CONTENT" != "$EXPECTED_CONTENT" ]]; then
 		move_to_suffix /home/IBM_704/aurkezpen_ontzia/konponketa _ezegokia
 		printf "%s%s" "/home/IBM_704/aurkezpen_ontzia/konponketa " \
-			"\"echo kaixo Ludi\" \"cat <<< \\\"agur Ludi\\\"\" &> output" \
+			"\"echo kaixo Ludi\" \"cat <<< \\\"agur Ludi\\\"\"\n" \
 			> /home/IBM_704/aurkezpen_ontzia/emandako
 		move_to_suffix /home/IBM_704/aurkezpen_ontzia/emandako _inputa
 		cat <<< "$EXPECTED_CONTENT" > /home/IBM_704/aurkezpen_ontzia/esperozen
@@ -61,7 +61,7 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	if [[ "$FILE_CONTENT" != "$EXPECTED_CONTENT" ]]; then
 		move_to_suffix /home/IBM_704/aurkezpen_ontzia/konponketa _ezegokia
 		printf "%s%s" "/home/IBM_704/aurkezpen_ontzia/konponketa " \
-			"\"echo kaixo Ludi\" \"\" &> output"
+			"\"echo kaixo Ludi\" \"\"\n"
 			> /home/IBM_704/aurkezpen_ontzia/emandako
 		move_to_suffix /home/IBM_704/aurkezpen_ontzia/emandako _inputa
 		cat <<< "$EXPECTED_CONTENT" > /home/IBM_704/aurkezpen_ontzia/esperozen
@@ -99,7 +99,7 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	if [[ "$FILE_CONTENT" != "$EXPECTED_CONTENT" ]]; then
 		move_to_suffix /home/IBM_704/aurkezpen_ontzia/konponketa _ezegokia
 		printf "%s%s" "/home/IBM_704/aurkezpen_ontzia/konponketa " \
-			"\"\" \"echo kaixo Ludi\" \"\" &> output" \
+			"\"\" \"echo kaixo Ludi\" \"\"\n" \
 			> /home/IBM_704/aurkezpen_ontzia/emandako
 		move_to_suffix /home/IBM_704/aurkezpen_ontzia/emandako _inputa
 		cat <<< "$EXPECTED_CONTENT" > /home/IBM_704/aurkezpen_ontzia/esperozen
@@ -136,7 +136,7 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 
 	if [[ "$FILE_CONTENT" != "$EXPECTED_CONTENT" ]]; then
 		move_to_suffix /home/IBM_704/aurkezpen_ontzia/konponketa _ezegokia
-		printf "/home/IBM_704/aurkezpen_ontzia/konponketa " > /home/IBM_704/aurkezpen_ontzia/emandako
+		printf "/home/IBM_704/aurkezpen_ontzia/konponketa\n" > /home/IBM_704/aurkezpen_ontzia/emandako
 		move_to_suffix /home/IBM_704/aurkezpen_ontzia/emandako _inputa
 		cat <<< "$EXPECTED_CONTENT" > /home/IBM_704/aurkezpen_ontzia/esperozen
 		move_to_suffix /home/IBM_704/aurkezpen_ontzia/esperozen _outputa
@@ -166,14 +166,16 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 
 	ORIGINAL_PS_COUNT=$(ps u |  tail -n +2 | wc -l)
 	/home/IBM_704/aurkezpen_ontzia/konponketa "cat | sleep 3" &
+	BJ_PID=$!
 	GOTTEN_PS_COUNT=$(ps u | tail -n +2 | wc -l)
 	EXPECTED_COUNT=$(expr $ORIGINAL_PS_COUNT + 3)
 	sleep 3
 	kill $DOTS_PID
+	kill $BJ_PID
 
 	if [[ "$GOTTEN_PS_COUNT" != "$EXPECTED_COUNT" ]]; then
 		move_to_suffix /home/IBM_704/aurkezpen_ontzia/konponketa _ezegokia
-		printf "ps u | tail -n + 2 | wc -l" > /home/IBM_704/aurkezpen_ontzia/emandako
+		printf "ps u | tail -n + 2 | wc -l\n" > /home/IBM_704/aurkezpen_ontzia/emandako
 		move_to_suffix /home/IBM_704/aurkezpen_ontzia/emandako _inputa
 		cat <<< "$EXPECTED_COUNT" > /home/IBM_704/aurkezpen_ontzia/esperozen
 		move_to_suffix /home/IBM_704/aurkezpen_ontzia/esperozen _outputa
