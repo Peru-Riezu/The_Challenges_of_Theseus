@@ -14,7 +14,8 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	animate_dots &
 	DOTS_PID=$!
 
-	/home/IBM_704/aurkezpen_ontzia/konponketa "echo kaixo Ludi" "cat <<< \"agur Ludi\"" &> /user_shell_files/output
+	timeout 0.5 /home/IBM_704/aurkezpen_ontzia/konponketa "echo kaixo Ludi" "cat <<< \"agur Ludi\"" \
+		&> /user_shell_files/output
 	FILE_CONTENT=$(cat /user_shell_files/output)
 	EXPECTED_CONTENT=$(echo "kaixo Ludi" ; cat <<< "agur Ludi")
 	sleep 3
@@ -52,7 +53,7 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	animate_dots &
 	DOTS_PID=$!
 
-	/home/IBM_704/aurkezpen_ontzia/konponketa "echo kaixo Ludi" "" &> /user_shell_files/output
+	timeout 0.5 /home/IBM_704/aurkezpen_ontzia/konponketa "echo kaixo Ludi" "" &> /user_shell_files/output
 	FILE_CONTENT=$(cat /user_shell_files/output)
 	EXPECTED_CONTENT=$(echo "kaixo Ludi")
 	sleep 3
@@ -90,7 +91,7 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	animate_dots &
 	DOTS_PID=$!
 
-	/home/IBM_704/aurkezpen_ontzia/konponketa "" "echo kaixo Ludi" "" &> /user_shell_files/output
+	timeout 0.5 /home/IBM_704/aurkezpen_ontzia/konponketa "" "echo kaixo Ludi" "" &> /user_shell_files/output
 	FILE_CONTENT=$(cat /user_shell_files/output)
 	EXPECTED_CONTENT=$(echo "kaixo Ludi")
 	sleep 3
@@ -128,7 +129,7 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	animate_dots &
 	DOTS_PID=$!
 
-	/home/IBM_704/aurkezpen_ontzia/konponketa &> /user_shell_files/output
+	timeout 0.5 /home/IBM_704/aurkezpen_ontzia/konponketa &> /user_shell_files/output
 	FILE_CONTENT=$(cat /user_shell_files/output)
 	EXPECTED_CONTENT=$()
 	sleep 3
@@ -165,7 +166,7 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	DOTS_PID=$!
 
 	ORIGINAL_PS_COUNT=$(ps u |  tail -n +2 | wc -l)
-	GOTTEN_PS_COUNT=$(/home/IBM_704/aurkezpen_ontzia/konponketa "cat | sleep 2" | ps u | tail -n +2 | wc -l)
+	GOTTEN_PS_COUNT=$(timeout 3.5 /home/IBM_704/aurkezpen_ontzia/konponketa "sleep 3 | cat" \ | ps u | tail -n +2 | wc -l)
 	EXPECTED_COUNT=$(expr $ORIGINAL_PS_COUNT + 3)
 	kill $DOTS_PID
 
