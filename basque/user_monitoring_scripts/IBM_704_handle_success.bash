@@ -28,7 +28,6 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 			> /home/IBM_704/aurkezpen_ontzia/emandako
 		move_to_suffix /home/IBM_704/aurkezpen_ontzia/emandako _inputa
 		cat <<< "$EXPECTED_CONTENT" > /home/IBM_704/aurkezpen_ontzia/esperozen
-		echo >> /home/IBM_704/aurkezpen_ontzia/esperozen
 		move_to_suffix /home/IBM_704/aurkezpen_ontzia/esperozen _outputa
 		mv /user_shell_files/output /home/IBM_704/aurkezpen_ontzia/lortutako
 		move_to_suffix /home/IBM_704/aurkezpen_ontzia/lortutako _outputa
@@ -67,7 +66,6 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 			> /home/IBM_704/aurkezpen_ontzia/emandako
 		move_to_suffix /home/IBM_704/aurkezpen_ontzia/emandako _inputa
 		cat <<< "$EXPECTED_CONTENT" > /home/IBM_704/aurkezpen_ontzia/esperozen
-		echo >> /home/IBM_704/aurkezpen_ontzia/esperozen
 		move_to_suffix /home/IBM_704/aurkezpen_ontzia/esperozen _outputa
 		mv /user_shell_files/output /home/IBM_704/aurkezpen_ontzia/lortutako
 		move_to_suffix /home/IBM_704/aurkezpen_ontzia/lortutako _outputa
@@ -106,7 +104,6 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 			> /home/IBM_704/aurkezpen_ontzia/emandako
 		move_to_suffix /home/IBM_704/aurkezpen_ontzia/emandako _inputa
 		cat <<< "$EXPECTED_CONTENT" > /home/IBM_704/aurkezpen_ontzia/esperozen
-		echo >> /home/IBM_704/aurkezpen_ontzia/esperozen
 		move_to_suffix /home/IBM_704/aurkezpen_ontzia/esperozen _outputa
 		mv /user_shell_files/output /home/IBM_704/aurkezpen_ontzia/lortutako
 		move_to_suffix /home/IBM_704/aurkezpen_ontzia/lortutako _outputa
@@ -143,7 +140,6 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 		printf "/home/IBM_704/aurkezpen_ontzia/konponketa\n" > /home/IBM_704/aurkezpen_ontzia/emandako
 		move_to_suffix /home/IBM_704/aurkezpen_ontzia/emandako _inputa
 		cat <<< "$EXPECTED_CONTENT" > /home/IBM_704/aurkezpen_ontzia/esperozen
-		echo >> /home/IBM_704/aurkezpen_ontzia/esperozen
 		move_to_suffix /home/IBM_704/aurkezpen_ontzia/esperozen _outputa
 		mv /user_shell_files/output /home/IBM_704/aurkezpen_ontzia/lortutako
 		move_to_suffix /home/IBM_704/aurkezpen_ontzia/lortutako _outputa
@@ -173,7 +169,7 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	ORIGINAL_PS_COUNT=$(cat <<< "$PS_OUT" | tail -n +2 | wc -l)
 	PS_OUT=$(timeout 3.5 /home/IBM_704/aurkezpen_ontzia/konponketa "sleep 3 | cat" | (sleep .5 && ps u))
 	GOTTEN_PS_COUNT=$(cat <<< "$PS_OUT" | tail -n +2 | wc -l)
-	EXPECTED_COUNT=$(expr $ORIGINAL_PS_COUNT + 3)
+	EXPECTED_COUNT=$(expr $ORIGINAL_PS_COUNT + 4)
 	kill $DOTS_PID
 
 	if [[ "$GOTTEN_PS_COUNT" != "$EXPECTED_COUNT" ]]; then
@@ -181,7 +177,6 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 		printf "ps u | tail -n + 2 | wc -l\n" > /home/IBM_704/aurkezpen_ontzia/emandako
 		move_to_suffix /home/IBM_704/aurkezpen_ontzia/emandako _inputa
 		cat <<< "$EXPECTED_COUNT" > /home/IBM_704/aurkezpen_ontzia/esperozen
-		echo >> /home/IBM_704/aurkezpen_ontzia/esperozen
 		move_to_suffix /home/IBM_704/aurkezpen_ontzia/esperozen _outputa
 		printf "$GOTTEN_PS_COUNT\n" > /home/IBM_704/aurkezpen_ontzia/lortutako
 		move_to_suffix /home/IBM_704/aurkezpen_ontzia/lortutako _outputa
