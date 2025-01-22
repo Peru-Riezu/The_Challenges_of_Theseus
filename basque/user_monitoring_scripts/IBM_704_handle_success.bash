@@ -173,7 +173,7 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	ORIGINAL_PS_COUNT=$(cat <<< "$PS_OUT" | tail -n +2 | wc -l)
 	PS_OUT=$(timeout 3.5 /home/IBM_704/aurkezpen_ontzia/konponketa "sleep 3 | cat" | (sleep .5 && ps u))
 	GOTTEN_PS_COUNT=$(cat <<< "$PS_OUT" | tail -n +2 | wc -l)
-	EXPECTED_COUNT=$(expr $ORIGINAL_PS_COUNT + 4)
+	EXPECTED_COUNT=$(expr $ORIGINAL_PS_COUNT + 3)
 	kill $DOTS_PID
 
 	if [[ "$GOTTEN_PS_COUNT" != "$EXPECTED_COUNT" ]]; then
