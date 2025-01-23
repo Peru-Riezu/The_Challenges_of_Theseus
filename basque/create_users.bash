@@ -10,7 +10,7 @@ users["Z3"]="Konrad_Zuse"
 users["Bombe"]="Bombe_gailua_ez_zen_turing_osoa"
 users["Sir_Tim_Berners-Lee"]="www"
 users["IBM_704"]="GM-NAA_I/O"
-users["Lord_Kelvin-en_Gaiu_Itsasaldi-Aurreikustzailea"]="born_to_be_leet"
+users["Gaiu_Itsasaldi-Aurresatzailea"]="Lord_Kelvin"
 
 groupadd labirinto_gela
 
