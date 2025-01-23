@@ -199,8 +199,8 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	tput clear
 	printf "%s\n\n$COLOR_GREEN%s\n%s$COLOR_RESET\n" \
 		"asmakizun hau gainditu duzu" \
-		"erabiltzailea: " \
-		"pasahitza: " > /home/IBM_704/aurkezpen_ontzia/haria
+		"erabiltzailea: Lord_Kelvin-en_Gaiu_Itsasaldi-Aurreikustzailea" \
+		"pasahitza: born_to_be_leet" > /home/IBM_704/aurkezpen_ontzia/haria
 	cat /home/IBM_704/aurkezpen_ontzia/haria
 	stty -igncr
 	read -s -r -n1

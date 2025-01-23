@@ -1,8 +1,10 @@
 FROM debian:latest
 
-RUN	apt update && apt upgrade -y
-RUN	apt install sudo neofetch tree git vim nano man less emacs gosu procps ne ed jed gnupg wget iputils* file -y
-RUN	apt clean -y
+RUN	apt update \
+	&& apt upgrade -y \
+	&& apt install sudo neofetch tree git vim nano man less emacs gosu procps ne ed jed gnupg wget iputils* file \
+			 figlet cowsay -y \
+	&& apt clean -y
 
 RUN	mkdir /user_shell_files/
 RUN	chmod 777 /user_shell_files/
