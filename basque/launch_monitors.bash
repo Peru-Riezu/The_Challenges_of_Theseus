@@ -8,3 +8,4 @@ bash /root/basque/user_monitoring_scripts/monitor_Z3.bash &
 bash /root/basque/user_monitoring_scripts/monitor_Bombe.bash &
 bash /root/basque/user_monitoring_scripts/monitor_Sir_Tim_Berners-Lee.bash &
 bash /root/basque/user_monitoring_scripts/monitor_IBM_704.bash &
+bash /root/basque/user_monitoring_scripts/monitor_Gaiu_Itsasaldi-Aurresatzailea.bash &

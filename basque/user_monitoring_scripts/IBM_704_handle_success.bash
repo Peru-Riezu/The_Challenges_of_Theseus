@@ -24,7 +24,7 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	if [[ "$FILE_CONTENT" != "$EXPECTED_CONTENT" ]]; then
 		move_to_suffix /home/IBM_704/aurkezpen_ontzia/konponketa _ezegokia
 		printf "%s%s\n" "/home/IBM_704/aurkezpen_ontzia/konponketa " \
-			"\"echo kaixo Ludi\" \"cat <<< \\\"agur Ludi\\\"\"\n" \
+			"\"echo kaixo Ludi\" \"cat <<< \\\"agur Ludi\\\"\"" \
 			> /home/IBM_704/aurkezpen_ontzia/emandako
 		move_to_suffix /home/IBM_704/aurkezpen_ontzia/emandako _inputa
 		cat <<< "$EXPECTED_CONTENT" > /home/IBM_704/aurkezpen_ontzia/esperozen
@@ -62,7 +62,7 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	if [[ "$FILE_CONTENT" != "$EXPECTED_CONTENT" ]]; then
 		move_to_suffix /home/IBM_704/aurkezpen_ontzia/konponketa _ezegokia
 		printf "%s%s\n" "/home/IBM_704/aurkezpen_ontzia/konponketa " \
-			"\"echo kaixo Ludi\" \"\"\n"
+			"\"echo kaixo Ludi\" \"\""
 			> /home/IBM_704/aurkezpen_ontzia/emandako
 		move_to_suffix /home/IBM_704/aurkezpen_ontzia/emandako _inputa
 		cat <<< "$EXPECTED_CONTENT" > /home/IBM_704/aurkezpen_ontzia/esperozen
@@ -100,7 +100,7 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	if [[ "$FILE_CONTENT" != "$EXPECTED_CONTENT" ]]; then
 		move_to_suffix /home/IBM_704/aurkezpen_ontzia/konponketa _ezegokia
 		printf "%s%s\n" "/home/IBM_704/aurkezpen_ontzia/konponketa " \
-			"\"\" \"echo kaixo Ludi\" \"\"\n" \
+			"\"\" \"echo kaixo Ludi\" \"\"" \
 			> /home/IBM_704/aurkezpen_ontzia/emandako
 		move_to_suffix /home/IBM_704/aurkezpen_ontzia/emandako _inputa
 		cat <<< "$EXPECTED_CONTENT" > /home/IBM_704/aurkezpen_ontzia/esperozen
@@ -205,7 +205,7 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	stty -igncr
 	read -s -r -n1
 	stty sane
-	mv /home/IBM_704/aurkezpen_ontzia/haria /home/Bombe/ate_irekia
+	mv /home/IBM_704/aurkezpen_ontzia/ /home/IBM_704/ate_irekia
 	mv /home/IBM_704/helburua /home/IBM_704/helburu_lortua
 	cd
 	tput clear
