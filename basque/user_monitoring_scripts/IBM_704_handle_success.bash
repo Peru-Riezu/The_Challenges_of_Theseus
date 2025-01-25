@@ -14,7 +14,7 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	animate_dots &
 	DOTS_PID=$!
 
-	timeout 0.5 /home/IBM_704/aurkezpen_ontzia/konponketa "echo kaixo Ludi" "cat <<< \"agur Ludi\"" \
+	timeout 0.5 /home/IBM_704/aurkezpen_ontzia/erantzuna "echo kaixo Ludi" "cat <<< \"agur Ludi\"" \
 		&> /user_shell_files/output
 	FILE_CONTENT=$(cat /user_shell_files/output)
 	EXPECTED_CONTENT=$(echo "kaixo Ludi" ; cat <<< "agur Ludi")
@@ -22,8 +22,8 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	kill $DOTS_PID
 
 	if [[ "$FILE_CONTENT" != "$EXPECTED_CONTENT" ]]; then
-		move_to_suffix /home/IBM_704/aurkezpen_ontzia/konponketa _ezegokia
-		printf "%s%s\n" "/home/IBM_704/aurkezpen_ontzia/konponketa " \
+		move_to_suffix /home/IBM_704/aurkezpen_ontzia/erantzuna _ezegokia
+		printf "%s%s\n" "/home/IBM_704/aurkezpen_ontzia/erantzuna " \
 			"\"echo kaixo Ludi\" \"cat <<< \\\"agur Ludi\\\"\"" \
 			> /home/IBM_704/aurkezpen_ontzia/emandako
 		move_to_suffix /home/IBM_704/aurkezpen_ontzia/emandako _inputa
@@ -34,7 +34,7 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 		tput clear
 		tput clear
 		printf "$COLOR_RED%s$COLOR_RESET\n" \
-			"froga (1/5): konponketa ezegokia."
+			"froga (1/5): erantzun ezegokia."
 		stty -igncr
 		read -s -r -n1
 		stty sane
@@ -53,15 +53,15 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	animate_dots &
 	DOTS_PID=$!
 
-	timeout 0.5 /home/IBM_704/aurkezpen_ontzia/konponketa "echo kaixo Ludi" "" &> /user_shell_files/output
+	timeout 0.5 /home/IBM_704/aurkezpen_ontzia/erantzuna "echo kaixo Ludi" "" &> /user_shell_files/output
 	FILE_CONTENT=$(cat /user_shell_files/output)
 	EXPECTED_CONTENT=$(echo "kaixo Ludi")
 	sleep 3
 	kill $DOTS_PID
 
 	if [[ "$FILE_CONTENT" != "$EXPECTED_CONTENT" ]]; then
-		move_to_suffix /home/IBM_704/aurkezpen_ontzia/konponketa _ezegokia
-		printf "%s%s\n" "/home/IBM_704/aurkezpen_ontzia/konponketa " \
+		move_to_suffix /home/IBM_704/aurkezpen_ontzia/erantzuna _ezegokia
+		printf "%s%s\n" "/home/IBM_704/aurkezpen_ontzia/erantzuna " \
 			"\"echo kaixo Ludi\" \"\""
 			> /home/IBM_704/aurkezpen_ontzia/emandako
 		move_to_suffix /home/IBM_704/aurkezpen_ontzia/emandako _inputa
@@ -72,7 +72,7 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 		tput clear
 		tput clear
 		printf "$COLOR_RED%s$COLOR_RESET\n" \
-			"froga (2/5): konponketa ezegokia."
+			"froga (2/5): erantzun ezegokia."
 		stty -igncr
 		read -s -r -n1
 		stty sane
@@ -91,15 +91,15 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	animate_dots &
 	DOTS_PID=$!
 
-	timeout 0.5 /home/IBM_704/aurkezpen_ontzia/konponketa "" "echo kaixo Ludi" "" &> /user_shell_files/output
+	timeout 0.5 /home/IBM_704/aurkezpen_ontzia/erantzuna "" "echo kaixo Ludi" "" &> /user_shell_files/output
 	FILE_CONTENT=$(cat /user_shell_files/output)
 	EXPECTED_CONTENT=$(echo "kaixo Ludi")
 	sleep 3
 	kill $DOTS_PID
 
 	if [[ "$FILE_CONTENT" != "$EXPECTED_CONTENT" ]]; then
-		move_to_suffix /home/IBM_704/aurkezpen_ontzia/konponketa _ezegokia
-		printf "%s%s\n" "/home/IBM_704/aurkezpen_ontzia/konponketa " \
+		move_to_suffix /home/IBM_704/aurkezpen_ontzia/erantzuna _ezegokia
+		printf "%s%s\n" "/home/IBM_704/aurkezpen_ontzia/erantzuna " \
 			"\"\" \"echo kaixo Ludi\" \"\"" \
 			> /home/IBM_704/aurkezpen_ontzia/emandako
 		move_to_suffix /home/IBM_704/aurkezpen_ontzia/emandako _inputa
@@ -110,7 +110,7 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 		tput clear
 		tput clear
 		printf "$COLOR_RED%s$COLOR_RESET\n" \
-			"froga (3/5): konponketa ezegokia."
+			"froga (3/5): erantzun ezegokia."
 		stty -igncr
 		read -s -r -n1
 		stty sane
@@ -129,15 +129,15 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	animate_dots &
 	DOTS_PID=$!
 
-	timeout 0.5 /home/IBM_704/aurkezpen_ontzia/konponketa &> /user_shell_files/output
+	timeout 0.5 /home/IBM_704/aurkezpen_ontzia/erantzuna &> /user_shell_files/output
 	FILE_CONTENT=$(cat /user_shell_files/output)
 	EXPECTED_CONTENT=$()
 	sleep 3
 	kill $DOTS_PID
 
 	if [[ "$FILE_CONTENT" != "$EXPECTED_CONTENT" ]]; then
-		move_to_suffix /home/IBM_704/aurkezpen_ontzia/konponketa _ezegokia
-		printf "/home/IBM_704/aurkezpen_ontzia/konponketa\n" > /home/IBM_704/aurkezpen_ontzia/emandako
+		move_to_suffix /home/IBM_704/aurkezpen_ontzia/erantzuna _ezegokia
+		printf "/home/IBM_704/aurkezpen_ontzia/erantzuna\n" > /home/IBM_704/aurkezpen_ontzia/emandako
 		move_to_suffix /home/IBM_704/aurkezpen_ontzia/emandako _inputa
 		cat <<< "$EXPECTED_CONTENT" > /home/IBM_704/aurkezpen_ontzia/esperozen
 		move_to_suffix /home/IBM_704/aurkezpen_ontzia/esperozen _outputa
@@ -146,7 +146,7 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 		tput clear
 		tput clear
 		printf "$COLOR_RED%s$COLOR_RESET\n" \
-			"froga (4/5): konponketa ezegokia."
+			"froga (4/5): erantzun ezegokia."
 		stty -igncr
 		read -s -r -n1
 		stty sane
@@ -167,13 +167,13 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 
 	PS_OUT=$(ps u)
 	ORIGINAL_PS_COUNT=$(cat <<< "$PS_OUT" | tail -n +2 | wc -l)
-	PS_OUT=$(timeout 3.5 /home/IBM_704/aurkezpen_ontzia/konponketa "sleep 3 | cat" | (sleep .5 && ps u))
+	PS_OUT=$(timeout 3.5 /home/IBM_704/aurkezpen_ontzia/erantzuna "sleep 3 | cat" | (sleep .5 && ps u))
 	GOTTEN_PS_COUNT=$(cat <<< "$PS_OUT" | tail -n +2 | wc -l)
 	EXPECTED_COUNT=$(expr $ORIGINAL_PS_COUNT + 4)
 	kill $DOTS_PID
 
 	if [[ "$GOTTEN_PS_COUNT" != "$EXPECTED_COUNT" ]]; then
-		move_to_suffix /home/IBM_704/aurkezpen_ontzia/konponketa _ezegokia
+		move_to_suffix /home/IBM_704/aurkezpen_ontzia/erantzuna _ezegokia
 		printf "ps u | tail -n + 2 | wc -l\n" > /home/IBM_704/aurkezpen_ontzia/emandako
 		move_to_suffix /home/IBM_704/aurkezpen_ontzia/emandako _inputa
 		cat <<< "$EXPECTED_COUNT" > /home/IBM_704/aurkezpen_ontzia/esperozen
@@ -183,7 +183,7 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 		tput clear
 		tput clear
 		printf "$COLOR_RED%s$COLOR_RESET\n" \
-			"froga (5/5): konponketa ezegokia."
+			"froga (5/5): erantzun ezegokia."
 		stty -igncr
 		read -s -r -n1
 		stty sane

@@ -11,6 +11,8 @@ users["Bombe"]="Bombe_gailua_ez_zen_turing_osoa"
 users["Sir_Tim_Berners-Lee"]="www"
 users["IBM_704"]="GM-NAA_I/O"
 users["Gaiu_Itsasaldi-Aurresatzailea"]="Lord_Kelvin"
+users["Harrisonen_kronometroa"]="segundo_bat_gauerdirako"
+users["Antiziterako_mekanismoa"]="Machaneus"
 
 groupadd labirinto_gela
 

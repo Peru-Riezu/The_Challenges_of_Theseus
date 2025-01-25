@@ -1,10 +1,10 @@
 [32mHelburua:
-	'~/aurkezpen_ontzia/konponketa' skripta sortu, skript onek bi parametro
+	'~/aurkezpen_ontzia/erantzuna' skripta sortu, skript onek bi parametro
 	hartuko ditu, eta bash interpreteari emango dio parametro bakoitza lerro
 	ezberdinak balira bezala, bigarren lerroa lehenengoa amaitzean.[0m
 
 Adibideak: [93m
-$ ~/aurkezpen_ontzia/konponketa "echo kaixo Ludi" "cat <<< \"agur Ludi\""
+$ ~/aurkezpen_ontzia/erantzuna "echo kaixo Ludi" "cat <<< \"agur Ludi\""
 [35mkaixo Ludi
 agur Ludi[0m
 

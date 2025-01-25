@@ -44,7 +44,7 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 		tput clear
 		tput clear
 		printf "$COLOR_RED%s$COLOR_RESET\n" \
-			"froga (1/5): konponketa ezegokia."
+			"froga (1/5): erantzun ezegokia."
 		stty -igncr
 		read -s -r -n1
 		stty sane
@@ -81,7 +81,7 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 		tput clear
 		tput clear
 		printf "$COLOR_RED%s$COLOR_RESET\n" \
-			"froga (2/5): konponketa ezegokia."
+			"froga (2/5): erantzun ezegokia."
 		stty -igncr
 		read -s -r -n1
 		stty sane
@@ -118,7 +118,7 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 		tput clear
 		tput clear
 		printf "$COLOR_RED%s$COLOR_RESET\n" \
-			"froga (3/5): konponketa ezegokia."
+			"froga (3/5): erantzun ezegokia."
 		stty -igncr
 		read -s -r -n1
 		stty sane
@@ -155,7 +155,7 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 		tput clear
 		tput clear
 		printf "$COLOR_RED%s$COLOR_RESET\n" \
-			"froga (4/5): konponketa ezegokia."
+			"froga (4/5): erantzun ezegokia."
 		stty -igncr
 		read -s -r -n1
 		stty sane
@@ -192,7 +192,7 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 		tput clear
 		tput clear
 		printf "$COLOR_RED%s$COLOR_RESET\n" \
-			"froga (5/5): konponketa ezegokia."
+			"froga (5/5): erantzun ezegokia."
 		stty -igncr
 		read -s -r -n1
 		stty sane
@@ -208,8 +208,8 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	tput clear
 	printf "%s\n\n$COLOR_GREEN%s\n%s$COLOR_RESET\n" \
 		"asmakizun hau gainditu duzu" \
-		"erabiltzailea: " \
-		"pasahitza: " > /home/Gaiu_Itsasaldi-Aurresatzailea/aurkezpen_ontzia/haria
+		"erabiltzailea: Harrisonen_kronometroa" \
+		"pasahitza: segundo_bat_gauerdirako" > /home/Gaiu_Itsasaldi-Aurresatzailea/aurkezpen_ontzia/haria
 	cat /home/Gaiu_Itsasaldi-Aurresatzailea/aurkezpen_ontzia/haria
 	stty -igncr
 	read -s -r -n1
