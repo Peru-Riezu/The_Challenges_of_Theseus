@@ -4,6 +4,7 @@ get_success_lock_might_return
 proper_solution()
 {
 	if [ $# -ne 1 ]
+	then
 		printf "Error, 2_1337_f0r_y0u must be run whit exactly one parameter\n"
 		return 0
 	fi
