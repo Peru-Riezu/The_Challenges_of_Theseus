@@ -9,8 +9,8 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	tput clear
 	printf "%s\n\n$COLOR_GREEN%s\n%s$COLOR_RESET\n" \
 		"asmakizun hau gainditu duzu" \
-		"erabiltzailea: " \
-		"pasahitza: " > /home/Bombe/sarraila/haria
+		"erabiltzailea: Antiziterako_mekanismoa" \
+		"pasahitza: Machaneus" > /home/Bombe/sarraila/haria
 	cat /home/Bombe/sarraila/haria
 	stty -igncr
 	read -s -r -n1

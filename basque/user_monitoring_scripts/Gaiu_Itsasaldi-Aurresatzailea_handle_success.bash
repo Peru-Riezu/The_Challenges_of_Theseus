@@ -214,13 +214,14 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	stty -igncr
 	read -s -r -n1
 	stty sane
-	mv /home/Gaiu_Itsasaldi-Aurresatzailea/aurkezpen_ontzia//home/Gaiu_Itsasaldi-Aurresatzailea/ate_irekia
+	mv /home/Gaiu_Itsasaldi-Aurresatzailea/aurkezpen_ontzia/ /home/Gaiu_Itsasaldi-Aurresatzailea/ate_irekia
 	mv /home/Gaiu_Itsasaldi-Aurresatzailea/helburua /home/Gaiu_Itsasaldi-Aurresatzailea/helburu_lortua
 	cd
 	tput clear
 	tput cnorm
 
-	touch /user_shell_files/IBM_704_success
+	touch /user_shell_files/Gaiu_Itsasaldi-Aurresatzailea_success
 fi
 
 yield_success_lock
+
