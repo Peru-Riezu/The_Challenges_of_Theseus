@@ -6,6 +6,8 @@ RUN	apt update \
 			 figlet cowsay -y \
 	&& apt clean -y
 
+ENV PATH=$PATH:/usr/games
+
 RUN	mkdir /user_shell_files/
 RUN	chmod 777 /user_shell_files/
 RUN	touch /user_shell_files/lock
