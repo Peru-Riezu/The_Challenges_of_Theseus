@@ -5,7 +5,7 @@ proper_solution()
 {
 	if [ $# -ne 1 ]
 	then
-		printf "Error, 2_1337_f0r_y0u must be run whit exactly one argument\n"
+		printf "Error, 2_1337_f0r_y0u must be run whith exactly one argument\n"
 		return 1
 	fi
 
@@ -145,7 +145,7 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	timeout 0.5 /home/Gaiu_Itsasaldi-Aurresatzailea/aurkezpen_ontzia/2_1337_f0r_y0u "" \
 		&> /user_shell_files/output
 	FILE_CONTENT=$(cat /user_shell_files/output)
-	EXPECTED_CONTENT=$(timeout 0.05 proper_solution "" )
+	EXPECTED_CONTENT=$()
 	sleep 3
 	kill $DOTS_PID
 
