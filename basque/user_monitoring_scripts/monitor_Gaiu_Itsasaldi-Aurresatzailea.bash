@@ -1,7 +1,7 @@
 source /root/common_functions/monitors_lock.bash
 
 PARENT_DIR="/home/Gaiu_Itsasaldi-Aurresatzailea"
-TARGET_DIR="aurkezpe_ontzia"
+TARGET_DIR="aurkezpen_ontzia"
 KEY_FILE="2_1337_f0r_y0u"
 
 trap '' SIGINT
