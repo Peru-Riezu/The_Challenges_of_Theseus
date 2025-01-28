@@ -5,8 +5,8 @@ proper_solution()
 {
 	if [ $# -ne 1 ]
 	then
-		printf "Error, 2_1337_f0r_y0u must be run whit exactly one parameter\n"
-		return 0
+		printf "Error, 2_1337_f0r_y0u must be run whit exactly one argument\n"
+		return 1
 	fi
 
 	figlet $1 | cowsay -n
@@ -56,6 +56,8 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	fi
 
 ############################################### test 2º ##################################################################
+	tput clear
+	tput clear
 	printf "$COLOR_GREEN%s$COLOR_RESET\n" \
 		"frogatzen (2/5)"
 
@@ -93,6 +95,8 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	fi
 
 ############################################### test 3º ##################################################################
+	tput clear
+	tput clear
 	printf "$COLOR_GREEN%s$COLOR_RESET\n" \
 		"frogatzen (3/5)"
 
@@ -130,6 +134,8 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	fi
 
 ############################################### test 4º ##################################################################
+	tput clear
+	tput clear
 	printf "$COLOR_GREEN%s$COLOR_RESET\n" \
 		"frogatzen (4/5)"
 
@@ -139,7 +145,7 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	timeout 0.5 /home/Gaiu_Itsasaldi-Aurresatzailea/aurkezpen_ontzia/2_1337_f0r_y0u "" \
 		&> /user_shell_files/output
 	FILE_CONTENT=$(cat /user_shell_files/output)
-	EXPECTED_CONTENT=$(proper_solution "" )
+	EXPECTED_CONTENT=$(timeout 0.05 proper_solution "" )
 	sleep 3
 	kill $DOTS_PID
 
@@ -167,6 +173,8 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	fi
 
 ############################################### test 5º ##################################################################
+	tput clear
+	tput clear
 	printf "$COLOR_GREEN%s$COLOR_RESET\n" \
 		"frogatzen (5/5)"
 
