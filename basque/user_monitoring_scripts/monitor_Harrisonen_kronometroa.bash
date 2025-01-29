@@ -2,7 +2,7 @@ source /root/common_functions/monitors_lock.bash
 
 PARENT_DIR="/home/Harrisonen_kronometroa"
 TARGET_DIR="sarraila"
-KEY_FILE="\~\$\^\(\|\\\ \ gala\ \ \"\'\<\>"
+KEY_FILE="~$^(|\  gala  \"'<>"
 
 trap '' SIGINT
 
