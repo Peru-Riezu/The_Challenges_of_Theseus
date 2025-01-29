@@ -10,8 +10,8 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	printf "%s\n\n$COLOR_GREEN%s\n%s$COLOR_RESET\n" \
 		"asmakizun hau gainditu duzu" \
 		"erabiltzailea: Antiziterako_mekanismoa" \
-		"pasahitza: Machaneus" > /home/Bombe/sarraila/haria
-	cat /home/Bombe/sarraila/haria
+		"pasahitza: Machaneus" > /home/Harrisonen_kronometroa/sarraila/haria
+	cat /home/Harrisonen_kronometroa/sarraila/haria
 	stty -igncr
 	read -s -r -n1
 	stty sane
