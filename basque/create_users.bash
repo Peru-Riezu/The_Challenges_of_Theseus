@@ -27,6 +27,7 @@ for username in "${!users[@]}"; do
 	chsh -s /bin/bash "$username"
 done
 
+groupadd funtsesko_taldea
 useradd -M -N -r -g funtsesko_taldea -s /usr/sbin/nologin Fedra
 groupadd Aphroditaren_madarikazioa
 groupadd Semeordearen_eriotza
