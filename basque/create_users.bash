@@ -13,6 +13,7 @@ users["IBM_704"]="GM-NAA_I/O"
 users["Gaiu_Itsasaldi-Aurresatzailea"]="Lord_Kelvin"
 users["Harrisonen_kronometroa"]="segundo_bat_gauerdirako"
 users["Antiziterako_mekanismoa"]="Machaneus"
+users["abakoa"]="hautsetatik_hautsetara"
 
 groupadd labirinto_gela
 
@@ -25,3 +26,13 @@ for username in "${!users[@]}"; do
 #	echo "$username:root" | chpasswd # for debugging
 	chsh -s /bin/bash "$username"
 done
+
+useradd -M -N -r -s /usr/sbin/nologin Fedra
+groupadd Aphroditaren_madarikazioa
+groupadd Semeordearen_eriotza
+groupadd ahizparen_desagertzea
+groupadd heroiaren_emaztea
+groupadd erregin_ezkontidea
+usermod -aG Aphroditaren_madarikazioa,Semeordearen_eriotza,ahizparen_desagertzea,\
+heroiaren_emaztea,erregin_ezkontidea Fedra
+
