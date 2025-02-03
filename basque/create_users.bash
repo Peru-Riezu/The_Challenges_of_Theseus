@@ -27,7 +27,7 @@ for username in "${!users[@]}"; do
 	chsh -s /bin/bash "$username"
 done
 
-useradd -M -N -r -s /usr/sbin/nologin Fedra
+useradd -M -N -r -g nogroup -s /usr/sbin/nologin Fedra
 groupadd Aphroditaren_madarikazioa
 groupadd Semeordearen_eriotza
 groupadd ahizparen_desagertzea
