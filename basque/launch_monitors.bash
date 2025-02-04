@@ -11,3 +11,5 @@ bash /root/basque/user_monitoring_scripts/monitor_IBM_704.bash &
 bash /root/basque/user_monitoring_scripts/monitor_Gaiu_Itsasaldi-Aurresatzailea.bash &
 bash /root/basque/user_monitoring_scripts/monitor_Harrisonen_kronometroa.bash &
 bash /root/basque/user_monitoring_scripts/monitor_Antiziterako_mekanismoa.bash &
+bash /root/basque/user_monitoring_scripts/monitor_abakoa.bash &
+bash /root/basque/user_monitoring_scripts/monitor_hastapena.bash &

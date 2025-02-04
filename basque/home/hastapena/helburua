@@ -1,0 +1,17 @@
+[32mHelburua:
+	~/sarraila/giltza fitxategia sortu. Fitxategi honen edukia 'ezurra'
+	direktorioan dauden fitxategien zenbakia, gehi direktorio ortako fitxategien
+	izen guztien karakter kopurua, bi mila bederatzirekin zatituta eta zenbaki
+	oso hurbilenera biribildua, izango da edukia (gehiketa, zatiketa baino
+	lehen egin).[0m
+
+Komando interesgarriak:
+	expr
+	find
+	tail
+	wc
+	sed
+	tr
+
+Esteka interesgarriak:
+	https://www.gnu.org/software/bash/manual/bash.html#Command-Substitution

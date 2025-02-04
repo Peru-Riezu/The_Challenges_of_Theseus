@@ -14,6 +14,7 @@ users["Gaiu_Itsasaldi-Aurresatzailea"]="Lord_Kelvin"
 users["Harrisonen_kronometroa"]="segundo_bat_gauerdirako"
 users["Antiziterako_mekanismoa"]="Machaneus"
 users["abakoa"]="hautsetatik_hautsetara"
+users["hastapena"]="ilargiondorioa"
 
 groupadd labirinto_gela
 

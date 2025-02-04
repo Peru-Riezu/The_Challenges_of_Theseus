@@ -11,3 +11,7 @@ git config --global --add safe.directory /home/git/repo
 tar -xzf /home/eragile_analitikoa/sustraiak.tar.gz -C /home/eragile_analitikoa/
 rm -f /home/eragile_analitikoa/sustraiak.tar.gz
 chown -R eragile_analitikoa /home/eragile_analitikoa/sustraiak/
+
+tar -xzf /home/hastapena/ezurra.tar.gz -C /home/hastapena/
+rm -f /home/hastapena/ezurra.tar.gz
+chown -R hastapena /home/hastapena/ezurra/
