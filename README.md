@@ -1,10 +1,10 @@
 # The Challenges of Theseus
 
-A series of riddles that need be solved through terminal commands, to help people grok the command line interface of GNU/Linux.
+A series of riddles that need to be solved through terminal commands, designed to help people grok the command-line interface of GNU/Linux.
 
 ## Installation
 
-The Challenges of Theseus are made to be easily installable in any Debian-based GNU/Linux system (like Ubuntu for example). You only need to clone the repository and run `make set_up` and `make` (you will need to run these commands as root or as a sudoer, it may also prompt you for your password). After that, you will be ready to ssh into the first challenge.
+The Challenges of Theseus are designed to be easily installed on any Debian-based GNU/Linux system. The system requires **1GB of RAM** and **30GB of storage**, and it is optimized to run securely within the AWS Free Tier. To install, clone the repository and run `make set_up` followed by `make`. (You will need to run these commands as root or a sudoer, and you may be prompted for your password.) After installation, you can SSH into the first challenge.
 
 ```bash
 sudo apt install -y make git
@@ -21,6 +21,5 @@ To ssh into the first challenge you can use the following command:
 ssh labirintoaren_erdigunea@your-host <<< 'piraten_bizitza_hoberana_da'
 ```
 
-Remember to change 'your-host' with the actual hostname or IP (e.g., localhost).
-
+Replace your-host with the actual hostname or IP address (e.g., localhost, 192.168.122.2).
 
