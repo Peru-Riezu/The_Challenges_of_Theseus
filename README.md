@@ -1,6 +1,6 @@
 # The Challenges of Theseus
 
-A series of riddles that need to be solved through terminal commands, designed to help people grok the command-line interface of GNU/Linux.
+A series of riddles that need be solved through terminal commands, designed to help people grok the command-line interface of GNU/Linux.
 
 ## Installation
 
