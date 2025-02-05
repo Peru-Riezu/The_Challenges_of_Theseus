@@ -21,5 +21,5 @@ To ssh into the first challenge you can use the following command:
 ssh labirintoaren_erdigunea@your-host <<< 'piraten_bizitza_hoberana_da'
 ```
 
-Replace your-host with the actual hostname or IP address (e.g., localhost, 192.168.122.2).
+Replace your-host with the actual hostname or IP address (e.g., localhost, 192.168.122.157).
 
