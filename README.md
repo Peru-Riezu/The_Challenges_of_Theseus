@@ -13,6 +13,9 @@ cd The_Challenges_of_Theseus
 make set_up
 make
 ```
+
+The Challenges of Theseus will automatically reconfigure the SSHD and Nginx services, so make a copy of the previous configuration of these services if you want to preserve them.
+
 ## Usage
 
 To ssh into the first challenge you can use the following command:
