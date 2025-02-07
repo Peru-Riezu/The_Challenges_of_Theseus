@@ -3,10 +3,10 @@ get_success_lock_might_return
 
 check_dates()
 {
-	for PATH in "$@"
+	for FILEPATH in "$@"
 	do
-		MOD_TIME=$(stat -c %y "$PATH" 2> /dev/null)
-		ACCESS_TIME=$(stat -c %x "$PATH" 2> /dev/null)
+		MOD_TIME=$(stat -c %y "$FILEPATH" 2> /dev/null)
+		ACCESS_TIME=$(stat -c %x "$FILEPATH" 2> /dev/null)
 		TARGET_DATE="1970-01-01 00:00:00.000000000"
 
 		if [[ "$MOD_TIME" != "$TARGET_DATE" || "$ACCESS_TIME" != "$TARGET_DATE" ]]
