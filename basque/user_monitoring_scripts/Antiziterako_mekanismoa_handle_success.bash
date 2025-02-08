@@ -86,6 +86,8 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	rm -rf /tmp/dir1
 
 ############################################### test 2º ##################################################################
+	tput clear
+	tput clear
 	printf "$COLOR_GREEN%s$COLOR_RESET\n" \
 		"frogatzen (2/2)"
 
