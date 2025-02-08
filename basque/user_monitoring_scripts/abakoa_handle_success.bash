@@ -6,7 +6,7 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	stty igncr -isig -icanon -ixoff -echo
 	tput civis
 	tput clear
-	printf "%s\n%s\n$COLOR_GREEN%s$COLOR_RESET\n%s\n$COLOR_GREEN%s$COLOR_RESET\n%s\n" \
+	printf "%s\n\n$COLOR_GREEN%s\n%s$COLOR_RESET\n" \
 		"Asmakizun hau gainditu duzu" \
 		"erabiltzailea: hastapena" \
 		"pasahitza: ilargiondorioa" \

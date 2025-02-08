@@ -3,7 +3,7 @@ FROM debian:latest
 RUN	apt update \
 	&& apt upgrade -y \
 	&& apt install sudo neofetch tree git vim nano man less emacs gosu procps ne ed jed gnupg wget iputils* file \
-			 figlet cowsay -y \
+			 figlet cowsay bc -y \
 	&& apt clean -y
 
 ENV PATH=$PATH:/usr/games
