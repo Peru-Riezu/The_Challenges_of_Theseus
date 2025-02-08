@@ -3,20 +3,30 @@ get_success_lock_might_return
 
 check_dates()
 {
+	FAILURE=0
 	for FILEPATH in "$@"
 	do
 		MOD_TIME=$(stat -c %y "$FILEPATH" 2> /dev/null)
 		ACCESS_TIME=$(stat -c %x "$FILEPATH" 2> /dev/null)
 		TARGET_DATE="1970-01-01 00:00:00.000000000"
 
-		if [[ "$MOD_TIME" != "$TARGET_DATE" || "$ACCESS_TIME" != "$TARGET_DATE" ]]
+		if [[ "$MOD_TIME" != "$TARGET_DATE" ]]
 		then
-			return 0
+			echo Error: the modification time of $FILEPATH is $MOD_TIME.
+			FAILURE=1
+		fi
+		if [[ "$ACCESS_TIME" != "$TARGET_DATE" ]]
+		then
+			echo Error: the access time of $FILEPATH is $ACCESS_TIME.
+			FAILURE=1
 		fi
 	done
 
-	return 1
-}	
+	if [[ $FAILURE == 0 ]]
+	then
+		echo OK
+	fi
+}
 
 if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	touch /user_shell_files/foreground_activated
@@ -35,21 +45,26 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	touch /tmp/dir1/file1 /tmp/dir1/file2 /tmp/dir1/file4 /tmp/dir1/file5
 
 	timeout 0.5 /home/Antiziterako_mekanismoa/aurkezpen_ontzia/erantzuna /tmp/dir1/file1 /tmp/dir1/file2 /tmp/dir1/file3 \
-		/error/error /tmp/dir1/file4 /error/error2 /tmp/dir1/file5 /error7/error6 \
-		&> /user_shell_files/output
+		/error/error /tmp/dir1/file4 /error/error2 /tmp/dir1/file5 /error7/error6 &> /user_shell_files/output ; \
+		check_dates /home/Antiziterako_mekanismoa/aurkezpen_ontzia/erantzuna /tmp/dir1/file1 /tmp/dir1/file2 \
+		/tmp/dir1/file3 /tmp/dir1/file4 /tmp/dir1/file5 >> /user_shell_files/output
 	FILE_CONTENT=$(cat /user_shell_files/output)
-	EXPECTED_CONTENT=$(echo -n)
+	EXPECTED_CONTENT=$(echo OK)
 	sleep 3
 	kill $DOTS_PID
 
-	if [[ "$FILE_CONTENT" != "$EXPECTED_CONTENT" ]] || \
-			check_dates /tmp/dir1/file1 /tmp/dir1/file2 /tmp/dir1/file3 /tmp/dir1/file4 /tmp/dir1/file5 ; then
+	if [[ "$FILE_CONTENT" != "$EXPECTED_CONTENT" ]]
+	then
 		mv /home/Antiziterako_mekanismoa/aurkezpen_ontzia/erantzuna \
 			/home/Antiziterako_mekanismoa/aurkezpen_ontzia/erantzun
 		move_to_suffix /home/Antiziterako_mekanismoa/aurkezpen_ontzia/erantzun _ezegokia
-		printf "%s%s\n%s\n" "/home/Antiziterako_mekanismoa/aurkezpen_ontzia/erantzuna" \
-			"/tmp/dir1/file1 /tmp/dir1/file2 /tmp/dir1/file3 \\" \
-			"/error/error /tmp/dir1/file4 /error/error2 /tmp/dir1/file5 /error7/error6" \
+		printf "%s\n%s\n%s\n%s\n%s\n"
+			"timeout 0.5 /home/Antiziterako_mekanismoa/aurkezpen_ontzia/erantzuna \\"
+			"/tmp/dir1/file1 /tmp/dir1/file2 /tmp/dir1/file3 /error/error /tmp/dir1/file4 \\"
+			"/error/error2 /tmp/dir1/file5 /error7/error6 &> /user_shell_files/output; \\"
+			"check_dates /home/Antiziterako_mekanismoa/aurkezpen_ontzia/erantzuna \\"
+			"/tmp/dir1/file1 /tmp/dir1/file2 /tmp/dir1/file3 /tmp/dir1/file4 \\"
+			"/tmp/dir1/file5 >> /user_shell_files/output" \
 			> /home/Antiziterako_mekanismoa/aurkezpen_ontzia/emandako
 		move_to_suffix /home/Antiziterako_mekanismoa/aurkezpen_ontzia/emandako _inputa
 		cat <<< "$EXPECTED_CONTENT" > /home/Antiziterako_mekanismoa/aurkezpen_ontzia/esperozen
@@ -82,20 +97,23 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	touch /tmp/dir2/file1\ /dir2/file2
 
 	timeout 0.5 /home/Antiziterako_mekanismoa/aurkezpen_ontzia/erantzuna "/tmp/dir2/file1 /dir2/file2" \
-		/tmp/dir2/real_file1
-		&> /user_shell_files/output
+		/tmp/dir2/real_file1 &> /user_shell_files/output ; check_dates "/tmp/dir2/file1 /dir2/file2" \
+		/tmp/dir2/real_file1 >> /user_shell_files/output
 	FILE_CONTENT=$(cat /user_shell_files/output)
-	EXPECTED_CONTENT=$(echo -n)
+	EXPECTED_CONTENT=$(echo OK)
 	sleep 4
 	kill $DOTS_PID
 
-	if [[ "$FILE_CONTENT" != "$EXPECTED_CONTENT" ]] || \
-			check_dates "/tmp/dir2/file1  /dir2/file2" /tmp/dir2/real_file1 ; then
+	if [[ "$FILE_CONTENT" != "$EXPECTED_CONTENT" ]]
+	then
 		mv /home/Antiziterako_mekanismoa/aurkezpen_ontzia/erantzuna \
 			/home/Antiziterako_mekanismoa/aurkezpen_ontzia/erantzun
 		move_to_suffix /home/Antiziterako_mekanismoa/aurkezpen_ontzia/erantzun _ezegokia
-		printf "%s%s\n" "/home/Antiziterako_mekanismoa/aurkezpen_ontzia/erantzuna" \
-			"/tmp/dir2/file1  /dir2/file2 /tmp/dir2/real_file1" \
+		printf "%s\n%s\n%s\n%s\n"
+			"timeout 0.5 /home/Antiziterako_mekanismoa/aurkezpen_ontzia/erantzuna \\" \
+			"\"/tmp/dir2/file1 /dir2/file2\"  /tmp/dir2/real_file1 \\" \
+			"&> /user_shell_files/output ; check_dates "/tmp/dir2/file1 /dir2/file2" \\" \
+			"/tmp/dir2/real_file1 >> /user_shell_files/output"
 			> /home/Antiziterako_mekanismoa/aurkezpen_ontzia/emandako
 		move_to_suffix /home/Antiziterako_mekanismoa/aurkezpen_ontzia/emandako _inputa
 		cat <<< "$EXPECTED_CONTENT" > /home/Antiziterako_mekanismoa/aurkezpen_ontzia/esperozen
