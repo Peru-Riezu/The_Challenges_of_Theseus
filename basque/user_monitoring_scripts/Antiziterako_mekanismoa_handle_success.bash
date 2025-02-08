@@ -8,7 +8,7 @@ check_dates()
 	do
 		MOD_TIME=$(stat -c %y "$FILEPATH" 2> /dev/null)
 		ACCESS_TIME=$(stat -c %x "$FILEPATH" 2> /dev/null)
-		TARGET_DATE="1970-01-01 00:00:00.000000000"
+		TARGET_DATE="1970-01-01 00:00:00.000000000 +0000"
 
 		if [[ "$MOD_TIME" != "$TARGET_DATE" ]]
 		then
@@ -46,8 +46,8 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 
 	timeout 0.5 /home/Antiziterako_mekanismoa/aurkezpen_ontzia/erantzuna /tmp/dir1/file1 /tmp/dir1/file2 /tmp/dir1/file3 \
 		/error/error /tmp/dir1/file4 /error/error2 /tmp/dir1/file5 /error7/error6 &> /user_shell_files/output ; \
-		check_dates /home/Antiziterako_mekanismoa/aurkezpen_ontzia/erantzuna /tmp/dir1/file1 /tmp/dir1/file2 \
-		/tmp/dir1/file3 /tmp/dir1/file4 /tmp/dir1/file5 >> /user_shell_files/output
+		check_dates /tmp/dir1/file1 /tmp/dir1/file2  /tmp/dir1/file3 /tmp/dir1/file4 /tmp/dir1/file5 \
+		>> /user_shell_files/output
 	FILE_CONTENT=$(cat /user_shell_files/output)
 	EXPECTED_CONTENT=$(echo OK)
 	sleep 3
@@ -58,12 +58,11 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 		mv /home/Antiziterako_mekanismoa/aurkezpen_ontzia/erantzuna \
 			/home/Antiziterako_mekanismoa/aurkezpen_ontzia/erantzun
 		move_to_suffix /home/Antiziterako_mekanismoa/aurkezpen_ontzia/erantzun _ezegokia
-		printf "%s\n%s\n%s\n%s\n%s\n"
-			"timeout 0.5 /home/Antiziterako_mekanismoa/aurkezpen_ontzia/erantzuna \\"
-			"/tmp/dir1/file1 /tmp/dir1/file2 /tmp/dir1/file3 /error/error /tmp/dir1/file4 \\"
-			"/error/error2 /tmp/dir1/file5 /error7/error6 &> /user_shell_files/output; \\"
-			"check_dates /home/Antiziterako_mekanismoa/aurkezpen_ontzia/erantzuna \\"
-			"/tmp/dir1/file1 /tmp/dir1/file2 /tmp/dir1/file3 /tmp/dir1/file4 \\"
+		printf "%s\n%s\n%s\n%s\n%s\n" \
+			"timeout 0.5 /home/Antiziterako_mekanismoa/aurkezpen_ontzia/erantzuna \\" \
+			"/tmp/dir1/file1 /tmp/dir1/file2 /tmp/dir1/file3 /error/error /tmp/dir1/file4 \\" \
+			"/error/error2 /tmp/dir1/file5 /error7/error6 &> /user_shell_files/output; \\" \
+			"check_dates /tmp/dir1/file1 /tmp/dir1/file2 /tmp/dir1/file3 /tmp/dir1/file4 \\" \
 			"/tmp/dir1/file5 >> /user_shell_files/output" \
 			> /home/Antiziterako_mekanismoa/aurkezpen_ontzia/emandako
 		move_to_suffix /home/Antiziterako_mekanismoa/aurkezpen_ontzia/emandako _inputa
@@ -109,11 +108,11 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 		mv /home/Antiziterako_mekanismoa/aurkezpen_ontzia/erantzuna \
 			/home/Antiziterako_mekanismoa/aurkezpen_ontzia/erantzun
 		move_to_suffix /home/Antiziterako_mekanismoa/aurkezpen_ontzia/erantzun _ezegokia
-		printf "%s\n%s\n%s\n%s\n"
+		printf "%s\n%s\n%s\n%s\n" \
 			"timeout 0.5 /home/Antiziterako_mekanismoa/aurkezpen_ontzia/erantzuna \\" \
 			"\"/tmp/dir2/file1 /dir2/file2\"  /tmp/dir2/real_file1 \\" \
 			"&> /user_shell_files/output ; check_dates "/tmp/dir2/file1 /dir2/file2" \\" \
-			"/tmp/dir2/real_file1 >> /user_shell_files/output"
+			"/tmp/dir2/real_file1 >> /user_shell_files/output" \
 			> /home/Antiziterako_mekanismoa/aurkezpen_ontzia/emandako
 		move_to_suffix /home/Antiziterako_mekanismoa/aurkezpen_ontzia/emandako _inputa
 		cat <<< "$EXPECTED_CONTENT" > /home/Antiziterako_mekanismoa/aurkezpen_ontzia/esperozen
@@ -140,8 +139,8 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	tput clear
 	printf "%s\n\n$COLOR_GREEN%s\n%s$COLOR_RESET\n" \
 		"asmakizun hau gainditu duzu" \
-		"erabiltzailea: " \
-		"pasahitza: " > /home/Antiziterako_mekanismoa/aurkezpen_ontzia/haria
+		"erabiltzailea: abakoa" \
+		"pasahitza: hautsetatik_hautsetara" > /home/Antiziterako_mekanismoa/aurkezpen_ontzia/haria
 	cat /home/Antiziterako_mekanismoa/aurkezpen_ontzia/haria
 	stty -igncr
 	read -s -r -n1
