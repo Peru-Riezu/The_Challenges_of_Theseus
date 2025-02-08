@@ -3,7 +3,8 @@ source /root/common_functions/monitors_lock.bash
 PARENT_DIR="/home/hastapena"
 TARGET_DIR="sarraila"
 KEY_FILE="giltza"
-EXPECTED_CONTENT=$(echo "( $(ls ezurra/ | tr -d '\n' | wc -c) + $(ls ezurra/ | wc -l) ) /  2009" | bc > sarraila/giltza)
+EXPECTED_CONTENT=$(echo "($(ls $PARENT_DIR/ezurra/ | tr -d '\n' | wc -c) + $(ls $PARENT_DIR/ezurra/ | wc -l)) /  2009" \
+	| bc )
 
 trap '' SIGINT
 
