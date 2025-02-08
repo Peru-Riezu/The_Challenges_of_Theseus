@@ -16,7 +16,7 @@ make
 
 The Challenges of Theseus will automatically reconfigure the SSHD and Nginx services, so make a copy of the previous configuration of these services if you want to preserve them.
 
-Note as well that if you wish to host The Challenges of Theseus on an AWS instance and have chosen not to use Debian, you should check whether the 'check_network_quota.bash' script properly detects Docker's network interface (This script disables Docker's network interface if outbound data exceeds 100 GB, preventing charges under the free tier.), as Debian has been the only system where this script has been tested.
+Note as well that if you wish to host The Challenges of Theseus on an AWS instance and have chosen not to use Debian, you should check whether the 'check_network_quota.bash' script properly detects Docker's network interface (This script disables Docker's network interface if outbound data exceeds 100 GB, preventing charges under the free tier), as Debian has been the only system where this script has been tested.
 
 ## Usage
 
