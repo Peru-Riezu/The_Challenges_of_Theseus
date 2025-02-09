@@ -10,9 +10,11 @@ modification, are permitted provided that the following conditions are met:
    this list of conditions, and the following disclaimer in the documentation
    and/or other materials provided with the distribution.
 
-3. Redistributions in binary form must provide information on how to obtain the corresponding source code,  
-   either by including the source code itself or by providing a publicly accessible link to a repository  
-   where the source code is available.
+3. Redistributions in binary form must provide information on how to obtain the
+   corresponding source code, either by including the source code itself or by
+   providing a publicly accessible link to a repository where the source code
+   is available. This information must be included in the documentation and/or
+   other materials provided with the distribution.
 
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
 AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
