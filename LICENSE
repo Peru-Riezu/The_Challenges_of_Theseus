@@ -1,19 +1,18 @@
-BSD 2-Clause License
-
 Copyright (c) 2024, Peru Riezu Muñoz
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are met:
 
 1. Redistributions of source code must retain the above copyright notice, this
-   list of conditions and the following disclaimer.
+   list of conditions, and the following disclaimer.
 
 2. Redistributions in binary form must reproduce the above copyright notice,
-   this list of conditions and the following disclaimer in the documentation
+   this list of conditions, and the following disclaimer in the documentation
    and/or other materials provided with the distribution.
 
-3. Redistributions in binary form must include information on how to obtain the corresponding source code,  
-   such as a URL to the original source repository, a publicly accessible repository, or by including the source code itself.
+3. Redistributions in binary form must provide information on how to obtain the corresponding source code,  
+   either by including the source code itself or by providing a publicly accessible link to a repository  
+   where the source code is available.
 
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
 AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
