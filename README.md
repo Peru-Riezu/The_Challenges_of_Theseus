@@ -4,7 +4,7 @@ A series of riddles that need be solved through terminal commands, designed to h
 
 ## Installation
 
-The Challenges of Theseus are designed to be easily installed on any Debian-based GNU/Linux system. The system requires **22GB of free storage**, and it is optimized to run securely within the AWS Free Tier. To install, clone the repository and run `make set_up`, which will install all of the required packages via apt, followed by `make` (you will need to run these commands as root or a sudoer, and you may be prompted for your password). After installation, you can SSH into the first challenge.
+The Challenges of Theseus are designed to be easily installed on any Debian-based GNU/Linux system. The system requires **17GB of free storage**, and it is optimized to run securely within the AWS Free Tier. To install, clone the repository and run `make set_up`, which will install all of the required packages via apt, followed by `make` (you will need to run these commands as root or a sudoer, and you may be prompted for your password). After installation, you can SSH into the first challenge.
 
     sudo apt install -y make git
     git clone https://github.com/Peru-Riezu/The_Challenges_of_Theseus.git
