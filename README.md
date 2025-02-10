@@ -23,7 +23,7 @@ We include a script named `check_network_quota.bash` that keeps track of outboun
 - **Host Networking**: Since The Challenges of Theseus always launches containers with `--network=host`, the `docker0` interface is not used. The script looks for another interface (such as `enp1s0`, `eth0`, etc.) to monitor.  
 - **Multiple Interfaces**: If you have more than one interface, make sure the script is monitoring the one that actually handles outbound traffic.  
 - **Interface Down**: If the script disables the interface, you will lose the ability to ssh into the instance. You must then use the serial console to access the instance.  
-- **Tested on Debian**: Debian is the only system where this has been tested, so be sure to verify that it’s working as intended on other distributions.
+- **Tested on Debian**: Debian is the only system where this script has been tested, so be sure to verify that it’s working as intended on other distributions.
 
 ## Usage
 
