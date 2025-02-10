@@ -46,6 +46,7 @@ diff repo/giltza - <<< "$TARGET_CONTENT"  > sarrailagile/aldaketa_fitxategia
 #### 6º Challenge
 
 ```bash
+mkdir sarraila
 find sustraiak/ -perm 777 -name giltza | xargs mv -t sarraila/
 ```
 
