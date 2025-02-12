@@ -6,8 +6,17 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	stty igncr -isig -icanon -ixoff -echo
 	tput civis
 	tput clear
-	printf "%s\n\n$COLOR_GREEN%s\n%s$COLOR_RESET\n" \
-		"Asmakizun hau gainditu duzu" \
+	printf "%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n\n\n$COLOR_GREEN%s\n%s$COLOR_RESET\n" \
+		"Nire bihotza dardarka," \
+		"inork al daki zer duen niretzat etorkizunak?" \
+		"" \
+		"Ari, Ari... zertan ari gara?" \
+		"Ihes hau askatasuna al da," \
+		"edo hemen genuen heriotza" \
+		"ukatzeko beste aukera petral bat?" \
+		"" \
+		"Maitasuna eta poza aurkituko al dugu" \
+		"eramango gaituzten lurralde berrietan?" \
 		"erabiltzailea: hastapena" \
 		"pasahitza: ilargiondorioa" \
 		> /home/abakoa/sarraila/haria

@@ -139,8 +139,16 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	rm /user_shell_files/output
 	tput clear
 	tput clear
-	printf "%s\n\n$COLOR_GREEN%s\n%s$COLOR_RESET\n" \
-		"asmakizun hau gainditu duzu" \
+	printf "%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n\n\n$COLOR_GREEN%s\n%s$COLOR_RESET\n" \
+		"Irisek ekarri dit, ametsen erdian, poztasuna," \
+		"berri hobeagorik, ezin ekarri zezakeen." \
+		"" \
+		"Gure semeak badaude oraindik aurrera," \
+		"gure heroi ausartaren babespean." \
+		"" \
+		"Oh, jainkoak, nire esker betirakoa!" \
+		"Ez da hau gure semeen historioen," \
+		"azken atala izango." \
 		"erabiltzailea: abakoa" \
 		"pasahitza: hautsetatik_hautsetara" > /home/Antiziterako_mekanismoa/aurkezpen_ontzia/haria
 	cat /home/Antiziterako_mekanismoa/aurkezpen_ontzia/haria

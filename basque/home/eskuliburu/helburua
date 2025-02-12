@@ -9,9 +9,9 @@ laguntzeko bere eskua?
 "
 
 [32mHelburua:
-	'zaborra' direktorioan, 'giltz_zati'-rekin hasten diren, izena duten
-	fitxategi [4mguztiak[0m[32m kateatu, ordena alfabetikoan, eta
-	'~/sarraila/giltza' fitxategian gorde.[0m
+	'zaborra' direktorioan, izena 'giltz_zati'-rekin hasten zaien fitxategi
+	guztiak kateatu, ordena alfabetikoan, eta '~/sarraila/giltza' fitxategian
+	gorde.[0m
 
 Komando interesgarriak:
 	sort

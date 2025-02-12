@@ -6,9 +6,19 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	stty igncr -isig -icanon -ixoff -echo
 	tput civis
 	tput clear
-	printf "%s\n%s\n\n$COLOR_GREEN%s\n%s$COLOR_RESET\n" \
-		"asmakizun hau gainditu duzu" \
-		"hurrengo ariketa ez dago prest oraindik" \
+	printf "%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n\n\n$COLOR_GREEN%s\n%s$COLOR_RESET\n" \
+		"Isiltasunean, botatzen dut begirada atzera," \
+		"eta ikusten dut, lehoi-geruza hori." \
+		"" \
+		"Nire ausartasuna—" \
+		"hori deitu badezakegu" \
+		"egin nuen ergeltasun hori." \
+		"" \
+		"Baina oroitzen dudan bakoitzean, gogoratzen dut nik" \
+		"gizon sendo irribarretsu hori..." \
+		"" \
+		"Eta orduan, behera bezala izatea erabaki nuen," \
+		"duda bakar bat ere euki ezinik." \
 		"erabiltzailea: IBM_704" \
 		"pasahitza: GM-NAA_I/O" > /home/Sir_Tim_Berners-Lee/sarraila/haria
 	cat /home/Sir_Tim_Berners-Lee/sarraila/haria

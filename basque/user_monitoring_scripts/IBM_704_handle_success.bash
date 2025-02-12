@@ -197,8 +197,12 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	rm /user_shell_files/output
 	tput clear
 	tput clear
-	printf "%s\n\n$COLOR_GREEN%s\n%s$COLOR_RESET\n" \
-		"asmakizun hau gainditu duzu" \
+	printf "%s\n%s\n%s\n%s\n%s\n\n\n$COLOR_GREEN%s\n%s$COLOR_RESET\n" \
+		"Itsasontzi batean etorri," \
+		"zeharkatu itsasoa azkarrki." \
+		"" \
+		"Baina inoiz al da gizon bera," \
+		"egiten dena itzuli?" \
 		"erabiltzailea: Gaiu_Itsasaldi-Aurresatzailea" \
 		"pasahitza: Lord_Kelvin" > /home/IBM_704/aurkezpen_ontzia/haria
 	cat /home/IBM_704/aurkezpen_ontzia/haria

@@ -7,8 +7,13 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	stty igncr -isig -icanon -ixoff -echo
 	tput civis
 	tput clear
-	printf "%s\n\n$COLOR_GREEN%s\n%s$COLOR_RESET\n" \
-		"asmakizun hau gainditu duzu" \
+	printf "%s\n%s\n%s\n%s\n%s\n%s\n\n\n$COLOR_GREEN%s\n%s$COLOR_RESET\n" \
+		"Zein zuzen eta erraz" \
+		"infernura jaistea." \
+		"" \
+		"Baina igotzea berriz," \
+		"horren erraza balitz," \
+		"hari hau ez nukeen beharko." \
 		"erabiltzailea: Antiziterako_mekanismoa" \
 		"pasahitza: Machaneus" > /home/Harrisonen_kronometroa/sarraila/haria
 	cat /home/Harrisonen_kronometroa/sarraila/haria

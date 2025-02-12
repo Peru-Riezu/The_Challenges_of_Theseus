@@ -7,8 +7,15 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	stty igncr -isig -icanon -ixoff -echo
 	tput civis
 	tput clear
-	printf "%s\n\n$COLOR_GREEN%s\n%s$COLOR_RESET\n" \
-		"asmakizun hau gainditu duzu" \
+	printf "%s\n%s\n%s\n%s\n%s\n%s\n%s\n\n\n$COLOR_GREEN%s\n%s$COLOR_RESET\n" \
+
+		"Lurrak gorde du iragana," \
+		"isilean, harriaren pean." \
+		"Itzalean egon da, ezkutuan," \
+		"baina hazi dena iritsiko da harengana." \
+		"" \
+		"Ez da galdu, ez da ahaztu," \
+		"zure ondarea, zure patua." \
 		"erabiltzailea: eragile_analitikoa" \
 		"pasahitza: Charles_Babbage" > /home/git/ate_irekia/haria
 	cat /home/git/ate_irekia/haria

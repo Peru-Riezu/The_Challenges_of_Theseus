@@ -6,8 +6,20 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	stty igncr -isig -icanon -ixoff -echo
 	tput civis
 	tput clear
-	printf "%s\n\n$COLOR_GREEN%s\n%s$COLOR_RESET\n" \
-		"asmakizun hau gainditu duzu" \
+	printf "%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n\n\n$COLOR_GREEN%s\n%s$COLOR_RESET\n" \
+		"Oh, ene heroi distiratzailea," \
+		"eguzki pozkidatzailea," \
+		"inor ez dut ikusiko zure antzekorik." \
+		"" \
+		"Ez zaitut utziko labirintoaren aruka biluzik," \
+		"haria emango dizut," \
+		"eta beste muturrean aurkituko nauzu ni." \
+		"" \
+		"Ezpata emango dizut," \
+		"ene maitea," \
+		"piztia eta berarentzat dugun izua," \
+		"erbestuak izango dira" \
+		"huarte hontatik" \
 		"erabiltzailea: Bombe" \
 		"pasahitza: Bombe_gailua_ez_zen_turing_osoa" > /home/Z3/sarraila/haria
 	cat /home/Z3/sarraila/haria

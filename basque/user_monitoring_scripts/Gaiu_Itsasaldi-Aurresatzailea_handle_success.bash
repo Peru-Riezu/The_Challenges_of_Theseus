@@ -215,8 +215,13 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	rm /user_shell_files/output
 	tput clear
 	tput clear
-	printf "%s\n\n$COLOR_GREEN%s\n%s$COLOR_RESET\n" \
-		"asmakizun hau gainditu duzu" \
+	printf "%s\n%s\n%s\n%s\n%s\n%s\n\n\n$COLOR_GREEN%s\n%s$COLOR_RESET\n" \
+		"Ardo-larru irekia," \
+		"ulertutako profezia." \
+		"" \
+		"Jakitea eta ulertzea" \
+		"da bizitza honetako" \
+		"boterearen egia." \
 		"erabiltzailea: Harrisonen_kronometroa" \
 		"pasahitza: segundo_bat_gauerdirako" > /home/Gaiu_Itsasaldi-Aurresatzailea/aurkezpen_ontzia/haria
 	cat /home/Gaiu_Itsasaldi-Aurresatzailea/aurkezpen_ontzia/haria
