@@ -1,13 +1,15 @@
 [32mHelburua:
-	Sustraiak direktorioaren, subdirektorio batean, 'giltza' izeneko fitxategi
+	'sustraiak' direktorioaren, subdirektorio batean, 'giltza' izeneko fitxategi
 	bat dago. Fitxategi hau irakurri, idatzi eta egikaritzeko baimena dute
 	fitxategiaren jabeak, taldeak, eta beste erabiltzaile guztiek. Fitxategi hau
 	'~/sarraila'-ra mugitu, edo izen eta eduki berdineko berri bat sortu hor.
 [0m
 
 Komando interesgarriak:
-	man echo
-	cat -e
+	man find
+	man mv
+	man cp
+	man ln
 
 Esteka interesgarriak:
 	https://en.wikipedia.org/wiki/File-system_permissions
