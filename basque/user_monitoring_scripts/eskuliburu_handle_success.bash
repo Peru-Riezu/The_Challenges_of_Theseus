@@ -10,7 +10,7 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 		"ene seme maitea, maitatu baldinba dezaket nik" \
 		"hartu hegal hauek eta etorri nirekin;" \
 		"baino ez zaitez hurbildu eguzkira gehiegi" \
-		"ez baduzu nahi zerutik erortzen hil" \
+		"ez baduzu nahi, zerutik erortzen hil" \
 		"erabiltzailea: madarikatua" \
 		"pasahitza: gogoko_ditut_eskuliburuak" > /home/eskuliburu/sarraila/haria
 	cat /home/eskuliburu/sarraila/haria

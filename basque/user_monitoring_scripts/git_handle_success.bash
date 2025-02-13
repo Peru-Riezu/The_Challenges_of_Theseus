@@ -8,7 +8,6 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	tput civis
 	tput clear
 	printf "%s\n%s\n%s\n%s\n%s\n%s\n%s\n\n\n$COLOR_GREEN%s\n%s$COLOR_RESET\n" \
-
 		"Lurrak gorde du iragana," \
 		"isilean, harriaren pean." \
 		"Itzalean egon da, ezkutuan," \
