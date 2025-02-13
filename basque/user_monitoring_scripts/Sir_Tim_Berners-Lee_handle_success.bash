@@ -18,7 +18,7 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 		"gizon sendo irribarretsu hori..." \
 		"" \
 		"Eta orduan, behera bezala izatea erabaki nuen," \
-		"duda bakar bat ere euki ezinik." \
+		"zalantza bakar bat ere euki ezinik." \
 		"erabiltzailea: IBM_704" \
 		"pasahitza: GM-NAA_I/O" > /home/Sir_Tim_Berners-Lee/sarraila/haria
 	cat /home/Sir_Tim_Berners-Lee/sarraila/haria
