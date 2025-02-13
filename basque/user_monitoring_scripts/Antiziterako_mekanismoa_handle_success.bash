@@ -147,7 +147,7 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 		"gure heroi ausartaren babespean." \
 		"" \
 		"Oh, jainkoak, nire esker betirakoa!" \
-		"Ez da hau gure semeen historioen," \
+		"Ez da hau gure semeen istorioen," \
 		"azken atala izango." \
 		"erabiltzailea: abakoa" \
 		"pasahitza: hautsetatik_hautsetara" > /home/Antiziterako_mekanismoa/aurkezpen_ontzia/haria

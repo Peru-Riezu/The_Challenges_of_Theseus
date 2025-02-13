@@ -5,7 +5,7 @@ proper_solution()
 {
 	if [ $# -ne 1 ]
 	then
-		printf "Error, 2_1337_f0r_y0u must be run whith exactly one argument\n"
+		printf "Error, 2_1337_f0r_y0u must be run with exactly one argument\n"
 		return 1
 	fi
 
