@@ -106,10 +106,10 @@ cat > 2_1337_f0r_y0u << END
 #!/bin/bash
 if [ \$# -ne 1 ]
 then
-    echo Error, 2_1337_f0r_y0u must be run whith exactly one argument
+    echo Error, 2_1337_f0r_y0u must be run with exactly one argument
     exit 1
 fi
-figlet -- \$1 | cowsay -n
+figlet -- "\$1" | cowsay -n
 END
 chmod +x 2_1337_f0r_y0u
 mv 2_1337_f0r_y0u aurkezpen_ontzia
