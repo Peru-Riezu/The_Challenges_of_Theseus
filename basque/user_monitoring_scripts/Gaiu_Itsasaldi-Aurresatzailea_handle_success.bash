@@ -9,7 +9,7 @@ proper_solution()
 		return 1
 	fi
 
-	figlet $1 | cowsay -n
+	figlet -- "$1" | cowsay -n
 }
 
 if [ ! -f "/user_shell_files/foreground_activated" ]; then
