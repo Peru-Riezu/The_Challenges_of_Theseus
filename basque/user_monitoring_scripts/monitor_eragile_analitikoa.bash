@@ -13,7 +13,7 @@ while true; do
 		if [[ "$GOTTEN_CONTENT" == "$EXPECTED_OUTPUT" ]]; then
 			get_root_lock
 			cat /root/common_functions/handle_success.bash > /handle_sigint.bash
-			cat /root/basque/user_monitoring_scripts/eragile_analitikoa_handle_success.bash >> /handle_sigint.bash
+			cat /root/user_monitoring_scripts/eragile_analitikoa_handle_success.bash >> /handle_sigint.bash
 			handle_succes_and_release_lock
 			exit 0
 		fi

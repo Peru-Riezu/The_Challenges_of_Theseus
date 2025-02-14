@@ -15,7 +15,7 @@ while true; do
 			rm /tmp/Z3_content
 			get_root_lock
 			cat /root/common_functions/handle_success.bash > /handle_sigint.bash
-			cat /root/basque/user_monitoring_scripts/Z3_handle_success.bash >> /handle_sigint.bash
+			cat /root/user_monitoring_scripts/Z3_handle_success.bash >> /handle_sigint.bash
 			handle_succes_and_release_lock
 			exit 0
 		fi
