@@ -5,8 +5,9 @@
 	honetara '~/sarraila/giltza' esteka sinbolikoa sortu (soft link).[0m
 
 Komando interesgarriak:
-	man find
+	find
 	man ln
+	pwd
 
 Esteka interesgarriak:
 	https://en.wikipedia.org/wiki/File-system_permissions
