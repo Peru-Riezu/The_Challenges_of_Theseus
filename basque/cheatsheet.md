@@ -109,7 +109,7 @@ then
     echo Error, 2_1337_f0r_y0u must be run with exactly one argument
     exit 1
 fi
-figlet -- \$1 | cowsay -n
+figlet -- "\$1" | cowsay -n
 END
 chmod +x 2_1337_f0r_y0u
 mv 2_1337_f0r_y0u aurkezpen_ontzia
