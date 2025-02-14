@@ -1,15 +1,14 @@
 [32mHelburua:
 	'sustraiak' direktorioaren, subdirektorio batean, 'giltza' izeneko fitxategi
 	bat dago. Fitxategi hau irakurri, idatzi eta egikaritzeko baimena dute
-	fitxategiaren jabeak, taldeak, eta beste erabiltzaile guztiek. Fitxategi hau
-	'~/sarraila'-ra mugitu, edo izen eta eduki berdineko berri bat sortu hor.
-[0m
+	fitxategiaren jabeak, taldeak, eta beste erabiltzaile guztiek. Fitxategi
+	honetara '~/sarraila/giltza' esteka sinbolikoa sortu (soft link).[0m
 
 Komando interesgarriak:
 	man find
-	man mv
-	man cp
 	man ln
 
 Esteka interesgarriak:
 	https://en.wikipedia.org/wiki/File-system_permissions
+	https://www.gnu.org/software/libc/manual/html_node/Hard-Links.html
+	https://www.gnu.org/software/libc/manual/html_node/Symbolic-Links.html
