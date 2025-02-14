@@ -145,7 +145,7 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	timeout 0.5 /home/Gaiu_Itsasaldi-Aurresatzailea/aurkezpen_ontzia/2_1337_f0r_y0u "" \
 		&> /user_shell_files/output
 	FILE_CONTENT=$(cat /user_shell_files/output)
-	EXPECTED_CONTENT=$()
+	EXPECTED_CONTENT=$(proper_solution "")
 	sleep 3
 	kill $DOTS_PID
 
