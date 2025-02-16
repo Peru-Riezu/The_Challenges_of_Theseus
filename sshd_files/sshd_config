@@ -120,7 +120,7 @@ Subsystem	sftp	/usr/lib/openssh/sftp-server
 #	ForceCommand cvs server
 ClientAliveInterval 120
 
-Match User labirintoaren_erdigunea, irakurri, eskuliburu, madarikatua, git, eragile_analitikoa, Z3, Bombe, Sir_Tim_Berners-Lee, IBM_704, Gaiu_Itsasaldi-Aurresatzailea, Harrisonen_kronometroa, Antiziterako_mekanismoa, abakoa, hastapena
+Match Group labirinto_gela,labyrinth_room
   PasswordAuthentication yes
   AllowTcpForwarding no
   X11Forwarding no
