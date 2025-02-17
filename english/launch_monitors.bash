@@ -1,0 +1,15 @@
+bash /root/user_monitoring_scripts/monitor_labirintoaren_erdigunea.bash &
+bash /root/user_monitoring_scripts/monitor_irakurri.bash &
+bash /root/user_monitoring_scripts/monitor_eskuliburu.bash &
+bash /root/user_monitoring_scripts/monitor_madarikatua.bash &
+bash /root/user_monitoring_scripts/monitor_git.bash &
+bash /root/user_monitoring_scripts/monitor_eragile_analitikoa.bash &
+bash /root/user_monitoring_scripts/monitor_Z3.bash &
+bash /root/user_monitoring_scripts/monitor_Bombe.bash &
+bash /root/user_monitoring_scripts/monitor_Sir_Tim_Berners-Lee.bash &
+bash /root/user_monitoring_scripts/monitor_IBM_704.bash &
+bash /root/user_monitoring_scripts/monitor_Gaiu_Itsasaldi-Aurresatzailea.bash &
+bash /root/user_monitoring_scripts/monitor_Harrisonen_kronometroa.bash &
+bash /root/user_monitoring_scripts/monitor_Antiziterako_mekanismoa.bash &
+bash /root/user_monitoring_scripts/monitor_abakoa.bash &
+bash /root/user_monitoring_scripts/monitor_hastapena.bash &

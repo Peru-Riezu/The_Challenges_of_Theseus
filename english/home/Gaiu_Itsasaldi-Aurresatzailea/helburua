@@ -1,0 +1,31 @@
+[32mHelburua:
+	Sortu '~/aurkezpe_ontzia/2_1337_f0r_y0u' fitxategia, non
+	'~/aurkezpe_ontzia/2_1337_f0r_y0u "Hello World"'
+	komandoak,[35m
+ _________________________________________________________
+/  _   _      _ _         __        __         _     _ _  \
+| | | | | ___| | | ___    \ \      / /__  _ __| | __| | | |
+| | |_| |/ _ \ | |/ _ \    \ \ /\ / / _ \| '__| |/ _` | | |
+| |  _  |  __/ | | (_) |    \ V  V / (_) | |  | | (_| |_| |
+| |_| |_|\___|_|_|\___( )    \_/\_/ \___/|_|  |_|\__,_(_) |
+\                     |/                                  /
+ ---------------------------------------------------------
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+
+[32m	irtenarazten duela, eta '~/aurkezpen_ontzia/2_1337_f0r_y0u "Hello World" "extra argument"'[35m
+Error, 2_1337_f0r_y0u must be run with exactly one argument
+[32m	irtenarazten duela.[0m
+
+Komando interesgarriak:
+	man cowsay
+	man figlet
+	man test
+
+Esteka interesgarriak:
+	https://www.gnu.org/software/bash/manual/html_node/Pipelines.html
+	https://www.gnu.org/software/bash/manual/bash.html#Conditional-Constructs
+	https://crowdbotics.com/posts/blog/how-to-translate-unclear-client-demands-into-specific-product-requirements/

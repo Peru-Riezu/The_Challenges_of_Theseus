@@ -1,0 +1,15 @@
+[32mHelburua:
+	'~/sarraila/giltza' fitxategia sortu, fitxategi honen edukiak, 'Fedra'
+	erabiltzailea taldearen kide bat den, talde guztien izenak izango dira,
+	talde izenak alfabetikoki egongo dira ordenatuak, eta zuriune bat egongo da
+	izeneen artean, azken izenaren ondoren lerro-berri karakter bat egongo da.[0m
+
+Komando interesgarriak:
+	groups
+	tr
+	tail
+	sort
+	xargs
+
+Esteka interesgarriak:
+	https://en.wikipedia.org/wiki/Linux_user_group

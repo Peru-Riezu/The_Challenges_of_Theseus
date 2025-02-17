@@ -1,0 +1,20 @@
+[32mHelburua:
+	'~/aurkezpen_ontzia/erantzuna' skripta sortu, skript onek bi parametro
+	hartuko ditu, eta bash interpreteari emango dizkio parametro bakoitza lerro
+	ezberdinak balira bezala, bigarren lerroa lehenengoarekin amaitzean.[0m
+
+Adibideak: [93m
+$ ~/aurkezpen_ontzia/erantzuna "echo kaixo Ludi" "cat <<< \"agur Ludi\""
+[35mkaixo Ludi
+agur Ludi[0m
+
+Komando interesgarriak:
+	bash
+	bash -c
+	sh
+	eval
+	source
+
+Esteka interesgarriak:
+	https://www.gnu.org/software/bash/manual/bash.html#Shell-Scripts
+	https://bash.cyberciti.biz/bash-reference-manual/Shell-Expansions.html

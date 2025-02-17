@@ -1,0 +1,25 @@
+[32mHelburua:
+	'~/aurkezpen_ontzia/erantzuna' skripta sortu. Skriptak parametro kopuru
+	arbitrarioak hartuko ditu, parametroak fitxategi helbide bezala ulertuko
+	ditu. Fitxategi bat ez badago aurkigarri sisteman, fitxategia sortuko du.
+	Skriptak fitxategien Azken Sarbide (Access) eta Azken Eraldaketa (Modify)
+	datak '1970-01-01 00:00:00.000000000 +0000'ra jarriko ditu. Skriptak edozein
+	akats aurkitzen badu fitxategi bat sortzean edo eraldatzean (adibidez,
+	eraldaketa egiteko baimenik ez izateagatik), beste fitxategiekin jarraitu
+	behar du. Skriptak ez du inoiz ezer idazten irteera orokorrera (stdout)
+	ezta akats irteerara (stderr).
+[0m
+
+Komando interesgarriak:
+	man touch
+	set +e
+	echo ""Batzuetan horma batekin hitz egiten nagoela iruditzen zait" > /dev/null
+	ls -l
+	stat
+
+Esteka interesgarriak:
+	https://www.gnu.org/software/bash/manual/html_node/Looping-Constructs.html
+	https://www.gnu.org/software/bash/manual/html_node/Special-Parameters.html
+	https://en.wikipedia.org/wiki/Unix_time
+	https://en.wikipedia.org/wiki/Gregorian_calendar
+	https://en.wikipedia.org/wiki/Ext4

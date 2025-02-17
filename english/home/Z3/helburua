@@ -1,0 +1,16 @@
+[32mHelburua:
+	Sortu '~/sarraila/giltza' fitxategia, non 'cat -e ~/sarraila/giltza'
+	komandoak,[35m
+Z$
+Z$
+Z
+[32m	irtenarazten duela (outputs), testua kolore gabea izan behar du,
+	arroses dago adibidean esanahi literala duela adierazteko.[0m
+
+Komando interesgarriak:
+	cat -e
+	echo -e
+	echo -n
+
+Esteka interesgarriak:
+	https://en.wikipedia.org/wiki/Newline#In_programming_languages
