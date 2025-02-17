@@ -7,18 +7,18 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	tput civis
 	tput clear
 	printf "%s\n%s\n$COLOR_GREEN%s$COLOR_RESET\n%s\n$COLOR_GREEN%s$COLOR_RESET\n%s\n" \
-		"Asmakizun hau gainditu duzu" \
-		"hurrengo erronkara nahi baldinba duzu jarraitu" \
-		"erabiltzailea: read" \
-		"eta" \
-		"pasahitza: always" \
-		"erabili beharko dituzu" > /home/center_of_the_labyrinth/sarraila/haria
-	cat /home/center_of_the_labyrinth/sarraila/haria
+		"The riddle is solved, yet the path is not clear," \
+		"For another trial awaits so near." \
+		"Username: read" \
+		"and" \
+		"Password: always" \
+		"Are the keys to press on against fear." > /home/center_of_the_labyrinth/lock/thread
+	cat /home/center_of_the_labyrinth/lock/thread
 	stty -igncr
 	read -s -r -n1
 	stty sane
-	mv /home/center_of_the_labyrinth/sarraila /home/center_of_the_labyrinth/ate_irekia
-	mv /home/center_of_the_labyrinth/helburua /home/center_of_the_labyrinth/helburu_lortua
+	mv /home/center_of_the_labyrinth/lock /home/center_of_the_labyrinth/open_door
+	mv /home/center_of_the_labyrinth/objective /home/center_of_the_labyrinth/achieved_objective
 	cd
 	tput clear
 	tput cnorm

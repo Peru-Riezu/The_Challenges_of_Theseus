@@ -1,0 +1,23 @@
+[32mObjective:
+	Concatenate the contents of the five regular files in this directory, (files
+	whose names do not begin with '.'), in alphabetical order according to their
+	names. Then, store the result in a file called 'key' (remember, the
+	objective file is one of these five files).  Finally, place the 'key' file
+	into a directory called '/home/center_of_the_labyrinth/lock' (you must
+	create this directory).[0m
+
+Interesting Commands:
+	man man
+	man cat
+	man ls
+	man mkdir
+	cat *
+	cat < in > out
+	cat in > out
+
+Interesting Links:
+	https://www.gnu.org/software/bash/manual/bash.html#Redirections
+	https://www.gnu.org/software/bash/manual/bash.html#Pattern-Matching
+	https://www.gnu.org/software/bash/manual/bash.html
+	https://odysee.com/@Luke:7/bash-and-the-terminal-for-absolute-noobs:6
+			(https://www.youtube.com/watch?v=W4gE8k2RE_s&t=311s)

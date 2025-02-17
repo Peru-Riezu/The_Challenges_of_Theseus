@@ -1,8 +1,8 @@
 source /root/common_functions/monitors_lock.bash
 
 PARENT_DIR="/home/center_of_the_labyrinth"
-TARGET_DIR="sarraila"
-KEY_FILE="giltza"
+TARGET_DIR="lock"
+KEY_FILE="key"
 EXPECTED_CONTENT=$(cat /home/center_of_the_labyrinth/*)
 
 trap '' SIGINT
