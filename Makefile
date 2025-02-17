@@ -1,6 +1,8 @@
 SHELL = /bin/bash
 
-all: 
+all: basque
+
+basque:
 	sudo sh -c "docker build -t the_challenges_of_theseus_container .; \
 		bash basque/create_users.bash; \
 		for user in \$$(awk -F':' '{ print \$$1 }' /etc/passwd); do sudo usermod -aG docker \$$user; done; \

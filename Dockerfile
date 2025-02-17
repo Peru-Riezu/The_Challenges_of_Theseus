@@ -17,18 +17,20 @@ RUN	chmod 644 /handle_sigint.bash
 RUN	echo "trap 'source /handle_sigint.bash' SIGINT" >> /etc/bash.bashrc
 RUN	echo "shopt -s extglob" >> /etc/bash.bashrc
 
-COPY	basque/create_users.bash /root/create_users.bash
-COPY	basque/compilation_time_tasks.bash /root/compilation_time_tasks.bash
+ARG LANG=basque
+
+COPY	$LANG/create_users.bash /root/create_users.bash
+COPY	$LANG/compilation_time_tasks.bash /root/compilation_time_tasks.bash
 RUN		bash /root/create_users.bash
 
-COPY	basque/home/ /home/
+COPY	$LANG/home/ /home/
 
 RUN		for dir in /home/*; do sudo chown -R $(basename $dir):$(basename $dir) $dir; done
 RUN		yes root | passwd # backdor for debugin
 
-COPY	basque/user_monitoring_scripts/ /root/user_monitoring_scripts/
-COPY	basque/launch_monitors.bash /root/launch_monitors.bash
-COPY	basque/update_hosts.bash /root/update_hosts.bash
+COPY	$LANG/user_monitoring_scripts/ /root/user_monitoring_scripts/
+COPY	$LANG/launch_monitors.bash /root/launch_monitors.bash
+COPY	$LANG/update_hosts.bash /root/update_hosts.bash
 COPY	common_functions /root/common_functions
 
 RUN		bash /root/compilation_time_tasks.bash
