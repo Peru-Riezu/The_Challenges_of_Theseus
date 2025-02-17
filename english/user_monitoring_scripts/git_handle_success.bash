@@ -15,7 +15,7 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 		"" \
 		"Ez da galdu, ez da ahaztu," \
 		"zure ondarea, zure patua." \
-		"erabiltzailea: eragile_analitikoa" \
+		"erabiltzailea: analytical_engine" \
 		"pasahitza: Charles_Babbage" > /home/git/ate_irekia/haria
 	cat /home/git/ate_irekia/haria
 	stty -igncr

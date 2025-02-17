@@ -44,7 +44,7 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	mkdir /tmp/dir1
 	touch /tmp/dir1/file1 /tmp/dir1/file2 /tmp/dir1/file4 /tmp/dir1/file5
 
-	timeout 0.5 /home/Antiziterako_mekanismoa/aurkezpen_ontzia/erantzuna /tmp/dir1/file1 /tmp/dir1/file2 /tmp/dir1/file3 \
+	timeout 0.5 /home/Antikythera_mechanism/aurkezpen_ontzia/erantzuna /tmp/dir1/file1 /tmp/dir1/file2 /tmp/dir1/file3 \
 		/error/error /tmp/dir1/file4 /error/error2 /tmp/dir1/file5 /error7/error6 &> /user_shell_files/output ; \
 		check_dates /tmp/dir1/file1 /tmp/dir1/file2  /tmp/dir1/file3 /tmp/dir1/file4 /tmp/dir1/file5 \
 		>> /user_shell_files/output
@@ -55,21 +55,21 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 
 	if [[ "$FILE_CONTENT" != "$EXPECTED_CONTENT" ]]
 	then
-		mv /home/Antiziterako_mekanismoa/aurkezpen_ontzia/erantzuna \
-			/home/Antiziterako_mekanismoa/aurkezpen_ontzia/erantzun
-		move_to_suffix /home/Antiziterako_mekanismoa/aurkezpen_ontzia/erantzun _ezegokia
+		mv /home/Antikythera_mechanism/aurkezpen_ontzia/erantzuna \
+			/home/Antikythera_mechanism/aurkezpen_ontzia/erantzun
+		move_to_suffix /home/Antikythera_mechanism/aurkezpen_ontzia/erantzun _ezegokia
 		printf "%s\n%s\n%s\n%s\n%s\n" \
-			"timeout 0.5 /home/Antiziterako_mekanismoa/aurkezpen_ontzia/erantzuna \\" \
+			"timeout 0.5 /home/Antikythera_mechanism/aurkezpen_ontzia/erantzuna \\" \
 			"/tmp/dir1/file1 /tmp/dir1/file2 /tmp/dir1/file3 /error/error /tmp/dir1/file4 \\" \
 			"/error/error2 /tmp/dir1/file5 /error7/error6 &> /user_shell_files/output; \\" \
 			"check_dates /tmp/dir1/file1 /tmp/dir1/file2 /tmp/dir1/file3 /tmp/dir1/file4 \\" \
 			"/tmp/dir1/file5 >> /user_shell_files/output" \
-			> /home/Antiziterako_mekanismoa/aurkezpen_ontzia/emandako
-		move_to_suffix /home/Antiziterako_mekanismoa/aurkezpen_ontzia/emandako _inputa
-		cat <<< "$EXPECTED_CONTENT" > /home/Antiziterako_mekanismoa/aurkezpen_ontzia/esperozen
-		move_to_suffix /home/Antiziterako_mekanismoa/aurkezpen_ontzia/esperozen _outputa
-		mv /user_shell_files/output /home/Antiziterako_mekanismoa/aurkezpen_ontzia/lortutako
-		move_to_suffix /home/Antiziterako_mekanismoa/aurkezpen_ontzia/lortutako _outputa
+			> /home/Antikythera_mechanism/aurkezpen_ontzia/emandako
+		move_to_suffix /home/Antikythera_mechanism/aurkezpen_ontzia/emandako _inputa
+		cat <<< "$EXPECTED_CONTENT" > /home/Antikythera_mechanism/aurkezpen_ontzia/esperozen
+		move_to_suffix /home/Antikythera_mechanism/aurkezpen_ontzia/esperozen _outputa
+		mv /user_shell_files/output /home/Antikythera_mechanism/aurkezpen_ontzia/lortutako
+		move_to_suffix /home/Antikythera_mechanism/aurkezpen_ontzia/lortutako _outputa
 		tput clear
 		tput clear
 		printf "$COLOR_RED%s$COLOR_RESET\n" \
@@ -97,7 +97,7 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	mkdir -p /tmp/dir2/file1\ /dir2
 	touch /tmp/dir2/file1\ /dir2/file2
 
-	timeout 0.5 /home/Antiziterako_mekanismoa/aurkezpen_ontzia/erantzuna "/tmp/dir2/file1 /dir2/file2" \
+	timeout 0.5 /home/Antikythera_mechanism/aurkezpen_ontzia/erantzuna "/tmp/dir2/file1 /dir2/file2" \
 		/tmp/dir2/real_file1 &> /user_shell_files/output ; check_dates "/tmp/dir2/file1 /dir2/file2" \
 		/tmp/dir2/real_file1 >> /user_shell_files/output
 	FILE_CONTENT=$(cat /user_shell_files/output)
@@ -107,20 +107,20 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 
 	if [[ "$FILE_CONTENT" != "$EXPECTED_CONTENT" ]]
 	then
-		mv /home/Antiziterako_mekanismoa/aurkezpen_ontzia/erantzuna \
-			/home/Antiziterako_mekanismoa/aurkezpen_ontzia/erantzun
-		move_to_suffix /home/Antiziterako_mekanismoa/aurkezpen_ontzia/erantzun _ezegokia
+		mv /home/Antikythera_mechanism/aurkezpen_ontzia/erantzuna \
+			/home/Antikythera_mechanism/aurkezpen_ontzia/erantzun
+		move_to_suffix /home/Antikythera_mechanism/aurkezpen_ontzia/erantzun _ezegokia
 		printf "%s\n%s\n%s\n%s\n" \
-			"timeout 0.5 /home/Antiziterako_mekanismoa/aurkezpen_ontzia/erantzuna \\" \
+			"timeout 0.5 /home/Antikythera_mechanism/aurkezpen_ontzia/erantzuna \\" \
 			"\"/tmp/dir2/file1 /dir2/file2\"  /tmp/dir2/real_file1 \\" \
 			"&> /user_shell_files/output ; check_dates "/tmp/dir2/file1 /dir2/file2" \\" \
 			"/tmp/dir2/real_file1 >> /user_shell_files/output" \
-			> /home/Antiziterako_mekanismoa/aurkezpen_ontzia/emandako
-		move_to_suffix /home/Antiziterako_mekanismoa/aurkezpen_ontzia/emandako _inputa
-		cat <<< "$EXPECTED_CONTENT" > /home/Antiziterako_mekanismoa/aurkezpen_ontzia/esperozen
-		move_to_suffix /home/Antiziterako_mekanismoa/aurkezpen_ontzia/esperozen _outputa
-		mv /user_shell_files/output /home/Antiziterako_mekanismoa/aurkezpen_ontzia/lortutako
-		move_to_suffix /home/Antiziterako_mekanismoa/aurkezpen_ontzia/lortutako _outputa
+			> /home/Antikythera_mechanism/aurkezpen_ontzia/emandako
+		move_to_suffix /home/Antikythera_mechanism/aurkezpen_ontzia/emandako _inputa
+		cat <<< "$EXPECTED_CONTENT" > /home/Antikythera_mechanism/aurkezpen_ontzia/esperozen
+		move_to_suffix /home/Antikythera_mechanism/aurkezpen_ontzia/esperozen _outputa
+		mv /user_shell_files/output /home/Antikythera_mechanism/aurkezpen_ontzia/lortutako
+		move_to_suffix /home/Antikythera_mechanism/aurkezpen_ontzia/lortutako _outputa
 		tput clear
 		tput clear
 		printf "$COLOR_RED%s$COLOR_RESET\n" \
@@ -149,19 +149,19 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 		"Oh, jainkoak, nire esker betirakoa!" \
 		"Ez da hau gure semeen istorioen," \
 		"azken atala izango." \
-		"erabiltzailea: abakoa" \
-		"pasahitza: hautsetatik_hautsetara" > /home/Antiziterako_mekanismoa/aurkezpen_ontzia/haria
-	cat /home/Antiziterako_mekanismoa/aurkezpen_ontzia/haria
+		"erabiltzailea: abacus" \
+		"pasahitza: from_dust_to_dust" > /home/Antikythera_mechanism/aurkezpen_ontzia/haria
+	cat /home/Antikythera_mechanism/aurkezpen_ontzia/haria
 	stty -igncr
 	read -s -r -n1
 	stty sane
-	mv /home/Antiziterako_mekanismoa/aurkezpen_ontzia/ /home/Antiziterako_mekanismoa/ate_irekia
-	mv /home/Antiziterako_mekanismoa/helburua /home/Antiziterako_mekanismoa/helburu_lortua
+	mv /home/Antikythera_mechanism/aurkezpen_ontzia/ /home/Antikythera_mechanism/ate_irekia
+	mv /home/Antikythera_mechanism/helburua /home/Antikythera_mechanism/helburu_lortua
 	cd
 	tput clear
 	tput cnorm
 
-	touch /user_shell_files/Antiziterako_mekanismoa_success
+	touch /user_shell_files/Antikythera_mechanism_success
 fi
 
 yield_success_lock

@@ -21,7 +21,7 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 		"erbestuak izango dira" \
 		"huarte hontatik" \
 		"erabiltzailea: Bombe" \
-		"pasahitza: Bombe_gailua_ez_zen_turing_osoa" > /home/Z3/sarraila/haria
+		"pasahitza: Bombe_was_not_turing_complete" > /home/Z3/sarraila/haria
 	cat /home/Z3/sarraila/haria
 	stty -igncr
 	read -s -r -n1

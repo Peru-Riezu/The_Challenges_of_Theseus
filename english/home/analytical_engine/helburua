@@ -1,6 +1,6 @@
 [32mHelburua:
 	'sustraiak' direktorioaren, subdirektorio batean, 'giltza' izeneko fitxategi
-	bat dago. Fitxategi hau irakurri, idatzi eta egikaritzeko baimena dute
+	bat dago. Fitxategi hau read, idatzi eta egikaritzeko baimena dute
 	fitxategiaren jabeak, taldeak, eta beste erabiltzaile guztiek. Fitxategi
 	honetara '~/sarraila/giltza' esteka sinbolikoa sortu (soft link).[0m
 

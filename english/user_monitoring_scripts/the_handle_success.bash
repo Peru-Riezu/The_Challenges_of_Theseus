@@ -11,14 +11,14 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 		"hartu hegal hauek eta etorri nirekin;" \
 		"baino ez zaitez hurbildu eguzkira gehiegi" \
 		"ez baduzu nahi, zerutik erortzen hil" \
-		"erabiltzailea: madarikatua" \
-		"pasahitza: gogoko_ditut_eskuliburuak" > /home/eskuliburu/sarraila/haria
-	cat /home/eskuliburu/sarraila/haria
+		"erabiltzailea: manual" \
+		"pasahitza: I_like_manuals" > /home/the/sarraila/haria
+	cat /home/the/sarraila/haria
 	stty -igncr
 	read -s -r -n1
 	stty sane
-	mv /home/eskuliburu/sarraila /home/eskuliburu/ate_irekia
-	mv /home/eskuliburu/helburua /home/eskuliburu/helburu_lortua
+	mv /home/the/sarraila /home/the/ate_irekia
+	mv /home/the/helburua /home/the/helburu_lortua
 	cd
 	tput clear
 	tput cnorm

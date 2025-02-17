@@ -14,13 +14,13 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 		"Haizea egoaldetik ekartzen du itsasoak," \
 		"ze koloreko haize-ohial ekarriko du etorkizunak?"\
 		"erabiltzailea: Z3" \
-		"pasahitza: Konrad_Zuse" > /home/eragile_analitikoa/sarraila/haria
-	cat /home/eragile_analitikoa/sarraila/haria
+		"pasahitza: Konrad_Zuse" > /home/analytical_engine/sarraila/haria
+	cat /home/analytical_engine/sarraila/haria
 	stty -igncr
 	read -s -r -n1
 	stty sane
-	mv /home/eragile_analitikoa/sarraila /home/eragile_analitikoa/ate_irekia
-	mv /home/eragile_analitikoa/helburua /home/eragile_analitikoa/helburu_lortua
+	mv /home/analytical_engine/sarraila /home/analytical_engine/ate_irekia
+	mv /home/analytical_engine/helburua /home/analytical_engine/helburu_lortua
 	cd
 	tput clear
 	tput cnorm

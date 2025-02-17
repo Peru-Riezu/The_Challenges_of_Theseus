@@ -16,13 +16,13 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 		"eta ezagutu nahi baduzu nire aukera" \
 		"vi da armen artean nire maitea " \
 		"erabiltzailea: git" \
-		"pasahitza: gud" > /home/madarikatua/sarraila/haria
-	cat /home/madarikatua/sarraila/haria
+		"pasahitza: gud" > /home/manual/sarraila/haria
+	cat /home/manual/sarraila/haria
 	stty -igncr
 	read -s -r -n1
 	stty sane
-	mv /home/madarikatua/sarraila /home/madarikatua/ate_irekia
-	mv /home/madarikatua/helburua /home/madarikatua/helburu_lortua
+	mv /home/manual/sarraila /home/manual/ate_irekia
+	mv /home/manual/helburua /home/manual/helburu_lortua
 	cd
 	tput clear
 	tput cnorm

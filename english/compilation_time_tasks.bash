@@ -1,6 +1,6 @@
-tar -xzf /home/eskuliburu/zaborra.tar.gz -C /home/eskuliburu/
-rm -f /home/eskuliburu/zaborra.tar.gz
-chown -R eskuliburu /home/eskuliburu/zaborra
+tar -xzf /home/the/zaborra.tar.gz -C /home/the/
+rm -f /home/the/zaborra.tar.gz
+chown -R the /home/the/zaborra
 
 tar -xf /home/git/repo.tar -C /home/git/
 rm -f /home/git/repo.tar
@@ -8,10 +8,10 @@ chown -R git /home/git/repo
 
 git config --global --add safe.directory /home/git/repo
 
-tar -xzf /home/eragile_analitikoa/sustraiak.tar.gz -C /home/eragile_analitikoa/
-rm -f /home/eragile_analitikoa/sustraiak.tar.gz
-chown -R eragile_analitikoa /home/eragile_analitikoa/sustraiak/
+tar -xzf /home/analytical_engine/sustraiak.tar.gz -C /home/analytical_engine/
+rm -f /home/analytical_engine/sustraiak.tar.gz
+chown -R analytical_engine /home/analytical_engine/sustraiak/
 
-tar -xzf /home/hastapena/ezurra.tar.gz -C /home/hastapena/
-rm -f /home/hastapena/ezurra.tar.gz
-chown -R hastapena /home/hastapena/ezurra/
+tar -xzf /home/inception/ezurra.tar.gz -C /home/inception/
+rm -f /home/inception/ezurra.tar.gz
+chown -R inception /home/inception/ezurra/

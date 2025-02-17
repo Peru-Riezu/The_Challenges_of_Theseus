@@ -25,7 +25,7 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	animate_dots &
 	DOTS_PID=$!
 
-	timeout 0.5 /home/Gaiu_Itsasaldi-Aurresatzailea/aurkezpen_ontzia/2_1337_f0r_y0u "_________hello_________" \
+	timeout 0.5 /home/Tide-predicting_machine/aurkezpen_ontzia/2_1337_f0r_y0u "_________hello_________" \
 		&> /user_shell_files/output
 	FILE_CONTENT=$(cat /user_shell_files/output)
 	EXPECTED_CONTENT=$(proper_solution "_________hello_________")
@@ -33,15 +33,15 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	kill $DOTS_PID
 
 	if [[ "$FILE_CONTENT" != "$EXPECTED_CONTENT" ]]; then
-		move_to_suffix /home/Gaiu_Itsasaldi-Aurresatzailea/aurkezpen_ontzia/2_1337_f0r_y0u _ezegokia
-		printf "%s%s\n" "/home/Gaiu_Itsasaldi-Aurresatzailea/aurkezpen_ontzia/2_1337_f0r_y0u " \
+		move_to_suffix /home/Tide-predicting_machine/aurkezpen_ontzia/2_1337_f0r_y0u _ezegokia
+		printf "%s%s\n" "/home/Tide-predicting_machine/aurkezpen_ontzia/2_1337_f0r_y0u " \
 			"\"_________hello_________\"" \
-			> /home/Gaiu_Itsasaldi-Aurresatzailea/aurkezpen_ontzia/emandako
-		move_to_suffix /home/Gaiu_Itsasaldi-Aurresatzailea/aurkezpen_ontzia/emandako _inputa
-		cat <<< "$EXPECTED_CONTENT" > /home/Gaiu_Itsasaldi-Aurresatzailea/aurkezpen_ontzia/esperozen
-		move_to_suffix /home/Gaiu_Itsasaldi-Aurresatzailea/aurkezpen_ontzia/esperozen _outputa
-		mv /user_shell_files/output /home/Gaiu_Itsasaldi-Aurresatzailea/aurkezpen_ontzia/lortutako
-		move_to_suffix /home/Gaiu_Itsasaldi-Aurresatzailea/aurkezpen_ontzia/lortutako _outputa
+			> /home/Tide-predicting_machine/aurkezpen_ontzia/emandako
+		move_to_suffix /home/Tide-predicting_machine/aurkezpen_ontzia/emandako _inputa
+		cat <<< "$EXPECTED_CONTENT" > /home/Tide-predicting_machine/aurkezpen_ontzia/esperozen
+		move_to_suffix /home/Tide-predicting_machine/aurkezpen_ontzia/esperozen _outputa
+		mv /user_shell_files/output /home/Tide-predicting_machine/aurkezpen_ontzia/lortutako
+		move_to_suffix /home/Tide-predicting_machine/aurkezpen_ontzia/lortutako _outputa
 		tput clear
 		tput clear
 		printf "$COLOR_RED%s$COLOR_RESET\n" \
@@ -64,7 +64,7 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	animate_dots &
 	DOTS_PID=$!
 
-	timeout 0.5 /home/Gaiu_Itsasaldi-Aurresatzailea/aurkezpen_ontzia/2_1337_f0r_y0u "_________hello_________" "extra" \
+	timeout 0.5 /home/Tide-predicting_machine/aurkezpen_ontzia/2_1337_f0r_y0u "_________hello_________" "extra" \
 		&> /user_shell_files/output
 	FILE_CONTENT=$(cat /user_shell_files/output)
 	EXPECTED_CONTENT=$(proper_solution "_________hello_________" "extra")
@@ -72,15 +72,15 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	kill $DOTS_PID
 
 	if [[ "$FILE_CONTENT" != "$EXPECTED_CONTENT" ]]; then
-		move_to_suffix /home/Gaiu_Itsasaldi-Aurresatzailea/aurkezpen_ontzia/2_1337_f0r_y0u _ezegokia
-		printf "%s%s\n" "/home/Gaiu_Itsasaldi-Aurresatzailea/aurkezpen_ontzia/2_1337_f0r_y0u " \
+		move_to_suffix /home/Tide-predicting_machine/aurkezpen_ontzia/2_1337_f0r_y0u _ezegokia
+		printf "%s%s\n" "/home/Tide-predicting_machine/aurkezpen_ontzia/2_1337_f0r_y0u " \
 			"\"_________hello_________\" \"extra\"" \
-			> /home/Gaiu_Itsasaldi-Aurresatzailea/aurkezpen_ontzia/emandako
-		move_to_suffix /home/Gaiu_Itsasaldi-Aurresatzailea/aurkezpen_ontzia/emandako _inputa
-		cat <<< "$EXPECTED_CONTENT" > /home/Gaiu_Itsasaldi-Aurresatzailea/aurkezpen_ontzia/esperozen
-		move_to_suffix /home/Gaiu_Itsasaldi-Aurresatzailea/aurkezpen_ontzia/esperozen _outputa
-		mv /user_shell_files/output /home/Gaiu_Itsasaldi-Aurresatzailea/aurkezpen_ontzia/lortutako
-		move_to_suffix /home/Gaiu_Itsasaldi-Aurresatzailea/aurkezpen_ontzia/lortutako _outputa
+			> /home/Tide-predicting_machine/aurkezpen_ontzia/emandako
+		move_to_suffix /home/Tide-predicting_machine/aurkezpen_ontzia/emandako _inputa
+		cat <<< "$EXPECTED_CONTENT" > /home/Tide-predicting_machine/aurkezpen_ontzia/esperozen
+		move_to_suffix /home/Tide-predicting_machine/aurkezpen_ontzia/esperozen _outputa
+		mv /user_shell_files/output /home/Tide-predicting_machine/aurkezpen_ontzia/lortutako
+		move_to_suffix /home/Tide-predicting_machine/aurkezpen_ontzia/lortutako _outputa
 		tput clear
 		tput clear
 		printf "$COLOR_RED%s$COLOR_RESET\n" \
@@ -103,7 +103,7 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	animate_dots &
 	DOTS_PID=$!
 
-	timeout 0.5 /home/Gaiu_Itsasaldi-Aurresatzailea/aurkezpen_ontzia/2_1337_f0r_y0u "" "" \
+	timeout 0.5 /home/Tide-predicting_machine/aurkezpen_ontzia/2_1337_f0r_y0u "" "" \
 		&> /user_shell_files/output
 	FILE_CONTENT=$(cat /user_shell_files/output)
 	EXPECTED_CONTENT=$(proper_solution "" "")
@@ -111,15 +111,15 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	kill $DOTS_PID
 
 	if [[ "$FILE_CONTENT" != "$EXPECTED_CONTENT" ]]; then
-		move_to_suffix /home/Gaiu_Itsasaldi-Aurresatzailea/aurkezpen_ontzia/2_1337_f0r_y0u _ezegokia
-		printf "%s%s\n" "/home/Gaiu_Itsasaldi-Aurresatzailea/aurkezpen_ontzia/2_1337_f0r_y0u " \
+		move_to_suffix /home/Tide-predicting_machine/aurkezpen_ontzia/2_1337_f0r_y0u _ezegokia
+		printf "%s%s\n" "/home/Tide-predicting_machine/aurkezpen_ontzia/2_1337_f0r_y0u " \
 			"\"\" \"\"" \
-			> /home/Gaiu_Itsasaldi-Aurresatzailea/aurkezpen_ontzia/emandako
-		move_to_suffix /home/Gaiu_Itsasaldi-Aurresatzailea/aurkezpen_ontzia/emandako _inputa
-		cat <<< "$EXPECTED_CONTENT" > /home/Gaiu_Itsasaldi-Aurresatzailea/aurkezpen_ontzia/esperozen
-		move_to_suffix /home/Gaiu_Itsasaldi-Aurresatzailea/aurkezpen_ontzia/esperozen _outputa
-		mv /user_shell_files/output /home/Gaiu_Itsasaldi-Aurresatzailea/aurkezpen_ontzia/lortutako
-		move_to_suffix /home/Gaiu_Itsasaldi-Aurresatzailea/aurkezpen_ontzia/lortutako _outputa
+			> /home/Tide-predicting_machine/aurkezpen_ontzia/emandako
+		move_to_suffix /home/Tide-predicting_machine/aurkezpen_ontzia/emandako _inputa
+		cat <<< "$EXPECTED_CONTENT" > /home/Tide-predicting_machine/aurkezpen_ontzia/esperozen
+		move_to_suffix /home/Tide-predicting_machine/aurkezpen_ontzia/esperozen _outputa
+		mv /user_shell_files/output /home/Tide-predicting_machine/aurkezpen_ontzia/lortutako
+		move_to_suffix /home/Tide-predicting_machine/aurkezpen_ontzia/lortutako _outputa
 		tput clear
 		tput clear
 		printf "$COLOR_RED%s$COLOR_RESET\n" \
@@ -142,7 +142,7 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	animate_dots &
 	DOTS_PID=$!
 
-	timeout 0.5 /home/Gaiu_Itsasaldi-Aurresatzailea/aurkezpen_ontzia/2_1337_f0r_y0u "" \
+	timeout 0.5 /home/Tide-predicting_machine/aurkezpen_ontzia/2_1337_f0r_y0u "" \
 		&> /user_shell_files/output
 	FILE_CONTENT=$(cat /user_shell_files/output)
 	EXPECTED_CONTENT=$(proper_solution "")
@@ -150,15 +150,15 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	kill $DOTS_PID
 
 	if [[ "$FILE_CONTENT" != "$EXPECTED_CONTENT" ]]; then
-		move_to_suffix /home/Gaiu_Itsasaldi-Aurresatzailea/aurkezpen_ontzia/2_1337_f0r_y0u _ezegokia
-		printf "%s%s\n" "/home/Gaiu_Itsasaldi-Aurresatzailea/aurkezpen_ontzia/2_1337_f0r_y0u " \
+		move_to_suffix /home/Tide-predicting_machine/aurkezpen_ontzia/2_1337_f0r_y0u _ezegokia
+		printf "%s%s\n" "/home/Tide-predicting_machine/aurkezpen_ontzia/2_1337_f0r_y0u " \
 			"\"\"" \
-			> /home/Gaiu_Itsasaldi-Aurresatzailea/aurkezpen_ontzia/emandako
-		move_to_suffix /home/Gaiu_Itsasaldi-Aurresatzailea/aurkezpen_ontzia/emandako _inputa
-		cat <<< "$EXPECTED_CONTENT" > /home/Gaiu_Itsasaldi-Aurresatzailea/aurkezpen_ontzia/esperozen
-		move_to_suffix /home/Gaiu_Itsasaldi-Aurresatzailea/aurkezpen_ontzia/esperozen _outputa
-		mv /user_shell_files/output /home/Gaiu_Itsasaldi-Aurresatzailea/aurkezpen_ontzia/lortutako
-		move_to_suffix /home/Gaiu_Itsasaldi-Aurresatzailea/aurkezpen_ontzia/lortutako _outputa
+			> /home/Tide-predicting_machine/aurkezpen_ontzia/emandako
+		move_to_suffix /home/Tide-predicting_machine/aurkezpen_ontzia/emandako _inputa
+		cat <<< "$EXPECTED_CONTENT" > /home/Tide-predicting_machine/aurkezpen_ontzia/esperozen
+		move_to_suffix /home/Tide-predicting_machine/aurkezpen_ontzia/esperozen _outputa
+		mv /user_shell_files/output /home/Tide-predicting_machine/aurkezpen_ontzia/lortutako
+		move_to_suffix /home/Tide-predicting_machine/aurkezpen_ontzia/lortutako _outputa
 		tput clear
 		tput clear
 		printf "$COLOR_RED%s$COLOR_RESET\n" \
@@ -181,7 +181,7 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	animate_dots &
 	DOTS_PID=$!
 
-	timeout 0.5 /home/Gaiu_Itsasaldi-Aurresatzailea/aurkezpen_ontzia/2_1337_f0r_y0u \
+	timeout 0.5 /home/Tide-predicting_machine/aurkezpen_ontzia/2_1337_f0r_y0u \
 		&> /user_shell_files/output
 	FILE_CONTENT=$(cat /user_shell_files/output)
 	EXPECTED_CONTENT=$(proper_solution )
@@ -189,15 +189,15 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	kill $DOTS_PID
 
 	if [[ "$FILE_CONTENT" != "$EXPECTED_CONTENT" ]]; then
-		move_to_suffix /home/Gaiu_Itsasaldi-Aurresatzailea/aurkezpen_ontzia/2_1337_f0r_y0u _ezegokia
-		printf "%s%s\n" "/home/Gaiu_Itsasaldi-Aurresatzailea/aurkezpen_ontzia/2_1337_f0r_y0u " \
+		move_to_suffix /home/Tide-predicting_machine/aurkezpen_ontzia/2_1337_f0r_y0u _ezegokia
+		printf "%s%s\n" "/home/Tide-predicting_machine/aurkezpen_ontzia/2_1337_f0r_y0u " \
 			"" \
-			> /home/Gaiu_Itsasaldi-Aurresatzailea/aurkezpen_ontzia/emandako
-		move_to_suffix /home/Gaiu_Itsasaldi-Aurresatzailea/aurkezpen_ontzia/emandako _inputa
-		cat <<< "$EXPECTED_CONTENT" > /home/Gaiu_Itsasaldi-Aurresatzailea/aurkezpen_ontzia/esperozen
-		move_to_suffix /home/Gaiu_Itsasaldi-Aurresatzailea/aurkezpen_ontzia/esperozen _outputa
-		mv /user_shell_files/output /home/Gaiu_Itsasaldi-Aurresatzailea/aurkezpen_ontzia/lortutako
-		move_to_suffix /home/Gaiu_Itsasaldi-Aurresatzailea/aurkezpen_ontzia/lortutako _outputa
+			> /home/Tide-predicting_machine/aurkezpen_ontzia/emandako
+		move_to_suffix /home/Tide-predicting_machine/aurkezpen_ontzia/emandako _inputa
+		cat <<< "$EXPECTED_CONTENT" > /home/Tide-predicting_machine/aurkezpen_ontzia/esperozen
+		move_to_suffix /home/Tide-predicting_machine/aurkezpen_ontzia/esperozen _outputa
+		mv /user_shell_files/output /home/Tide-predicting_machine/aurkezpen_ontzia/lortutako
+		move_to_suffix /home/Tide-predicting_machine/aurkezpen_ontzia/lortutako _outputa
 		tput clear
 		tput clear
 		printf "$COLOR_RED%s$COLOR_RESET\n" \
@@ -222,19 +222,19 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 		"Jakitea eta ulertzea" \
 		"da bizitza honetako" \
 		"boterearen egia." \
-		"erabiltzailea: Harrisonen_kronometroa" \
-		"pasahitza: segundo_bat_gauerdirako" > /home/Gaiu_Itsasaldi-Aurresatzailea/aurkezpen_ontzia/haria
-	cat /home/Gaiu_Itsasaldi-Aurresatzailea/aurkezpen_ontzia/haria
+		"erabiltzailea: Harrison_s_Chronometer" \
+		"pasahitza: a_second_to_midnight" > /home/Tide-predicting_machine/aurkezpen_ontzia/haria
+	cat /home/Tide-predicting_machine/aurkezpen_ontzia/haria
 	stty -igncr
 	read -s -r -n1
 	stty sane
-	mv /home/Gaiu_Itsasaldi-Aurresatzailea/aurkezpen_ontzia/ /home/Gaiu_Itsasaldi-Aurresatzailea/ate_irekia
-	mv /home/Gaiu_Itsasaldi-Aurresatzailea/helburua /home/Gaiu_Itsasaldi-Aurresatzailea/helburu_lortua
+	mv /home/Tide-predicting_machine/aurkezpen_ontzia/ /home/Tide-predicting_machine/ate_irekia
+	mv /home/Tide-predicting_machine/helburua /home/Tide-predicting_machine/helburu_lortua
 	cd
 	tput clear
 	tput cnorm
 
-	touch /user_shell_files/Gaiu_Itsasaldi-Aurresatzailea_success
+	touch /user_shell_files/Tide-predicting_machine_success
 fi
 
 yield_success_lock

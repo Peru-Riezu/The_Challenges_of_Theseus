@@ -1,9 +1,9 @@
 source /root/common_functions/monitors_lock.bash
 
-PARENT_DIR="/home/eragile_analitikoa"
+PARENT_DIR="/home/analytical_engine"
 TARGET_DIR="sarraila"
 KEY_FILE="giltza"
-EXPECTED_OUTPUT=$(find /home/eragile_analitikoa/sustraiak -perm 777)
+EXPECTED_OUTPUT=$(find /home/analytical_engine/sustraiak -perm 777)
 
 trap '' SIGINT
 
@@ -13,7 +13,7 @@ while true; do
 		if [[ "$GOTTEN_CONTENT" == "$EXPECTED_OUTPUT" ]]; then
 			get_root_lock
 			cat /root/common_functions/handle_success.bash > /handle_sigint.bash
-			cat /root/user_monitoring_scripts/eragile_analitikoa_handle_success.bash >> /handle_sigint.bash
+			cat /root/user_monitoring_scripts/analytical_engine_handle_success.bash >> /handle_sigint.bash
 			handle_succes_and_release_lock
 			exit 0
 		fi

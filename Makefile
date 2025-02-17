@@ -12,6 +12,15 @@ basque:
 		bash ./concat_reroute_ips.bash > /root/reroute_all_ips.bash; \
 		/root/reroute_all_ips.bash"
 
+english:
+	sudo sh -c "docker build --build-arg LANG=english -t the_challenges_of_theseus_container .; \
+		bash basque/create_users.bash; \
+		for user in \$$(awk -F':' '{ print \$$1 }' /etc/passwd); do sudo usermod -aG docker \$$user; done; \
+		service ssh restart; \
+		service nginx restart; \
+		bash ./concat_reroute_ips.bash > /root/reroute_all_ips.bash; \
+		/root/reroute_all_ips.bash"
+
 update:
 	git pull
 

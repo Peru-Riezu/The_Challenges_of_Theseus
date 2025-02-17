@@ -203,7 +203,7 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 		"" \
 		"Baina inoiz al da gizon bera," \
 		"egiten dena itzuli?" \
-		"erabiltzailea: Gaiu_Itsasaldi-Aurresatzailea" \
+		"erabiltzailea: Tide-predicting_machine" \
 		"pasahitza: Lord_Kelvin" > /home/IBM_704/aurkezpen_ontzia/haria
 	cat /home/IBM_704/aurkezpen_ontzia/haria
 	stty -igncr

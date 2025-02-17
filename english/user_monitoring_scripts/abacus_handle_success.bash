@@ -17,15 +17,15 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 		"" \
 		"Maitasuna eta poza aurkituko al dugu" \
 		"eramango gaituzten lurralde berrietan?" \
-		"erabiltzailea: hastapena" \
-		"pasahitza: ilargiondorioa" \
-		> /home/abakoa/sarraila/haria
-	cat /home/abakoa/sarraila/haria
+		"erabiltzailea: inception" \
+		"pasahitza: lunar_effect" \
+		> /home/abacus/sarraila/haria
+	cat /home/abacus/sarraila/haria
 	stty -igncr
 	read -s -r -n1
 	stty sane
-	mv /home/abakoa/sarraila /home/abakoa/ate_irekia
-	mv /home/abakoa/helburua /home/abakoa/helburu_lortua
+	mv /home/abacus/sarraila /home/abacus/ate_irekia
+	mv /home/abacus/helburua /home/abacus/helburu_lortua
 	cd
 	tput clear
 	tput cnorm

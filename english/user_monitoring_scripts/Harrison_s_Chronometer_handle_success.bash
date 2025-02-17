@@ -14,14 +14,14 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 		"Baina igotzea berriz," \
 		"horren erraza balitz," \
 		"hari hau ez nukeen beharko." \
-		"erabiltzailea: Antiziterako_mekanismoa" \
-		"pasahitza: Machaneus" > /home/Harrisonen_kronometroa/sarraila/haria
-	cat /home/Harrisonen_kronometroa/sarraila/haria
+		"erabiltzailea: Antikythera_mechanism" \
+		"pasahitza: Machaneus" > /home/Harrison_s_Chronometer/sarraila/haria
+	cat /home/Harrison_s_Chronometer/sarraila/haria
 	stty -igncr
 	read -s -r -n1
 	stty sane
-	mv /home/Harrisonen_kronometroa/sarraila /home/Harrisonen_kronometroa/ate_irekia
-	mv /home/Harrisonen_kronometroa/helburua /home/Harrisonen_kronometroa/helburu_lortua
+	mv /home/Harrison_s_Chronometer/sarraila /home/Harrison_s_Chronometer/ate_irekia
+	mv /home/Harrison_s_Chronometer/helburua /home/Harrison_s_Chronometer/helburu_lortua
 	cd
 	tput clear
 	tput cnorm
