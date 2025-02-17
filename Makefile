@@ -1,5 +1,5 @@
 SHELL = /bin/bash
-.PHONY: basque
+.PHONY: basque english
 
 all: basque
 
