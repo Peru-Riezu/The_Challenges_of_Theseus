@@ -1,9 +1,9 @@
 source /root/common_functions/monitors_lock.bash
 
 PARENT_DIR="/home/the"
-TARGET_DIR="sarraila"
-KEY_FILE="giltza"
-EXPECTED_CONTENT=$(find $PARENT_DIR/zaborra -size +0 | grep "giltz" | sort | xargs cat 2> /dev/null)
+TARGET_DIR="lock"
+KEY_FILE="key"
+EXPECTED_CONTENT=$(find $PARENT_DIR/trash -size +0 | grep "key_fragment" | sort | xargs cat 2> /dev/null)
 
 trap '' SIGINT
 

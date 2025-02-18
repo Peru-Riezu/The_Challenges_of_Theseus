@@ -1,19 +1,16 @@
 "
-zaborrean giltza galdua
-kolpea ondoren
-mila zatitan banatua
-zati txiki bat
-zirrikitu batean ezkutatua
-luzatuko al dit inork
-laguntzeko bere eskua?
+Among the trash, the key lies still,
+A single strike, a thousand shards spilled.
+One lost piece, so close, yet out of hand—
+I cannot reach it...
+But will no hero take a stand?
 "
 
-[32mHelburua:
-	'zaborra' direktorioan, izena 'giltz_zati'-rekin hasten zaien fitxategi
-	guztiak kateatu, ordena alfabetikoan, eta '~/sarraila/giltza' fitxategian
-	gorde.[0m
+[32mObjective:
+	In the 'trash' directory, concatenate all files whose names begin with
+	'key_fragment' in alphabetical order, and store the result in '~/lock/key'.[0m
 
-Komando interesgarriak:
+Interesting Commands:
 	sort
 	cat
 	find
@@ -22,7 +19,7 @@ Komando interesgarriak:
 	find . | ls
 	ls -a
 
-Esteka interesgarriak:
+Interesting Links:
 	https://www.gnu.org/software/coreutils/faq/coreutils-faq.html#Argument-list-too-long
 	https://www.gnu.org/software/coreutils/manual/coreutils.html#Special-priority-in-GNU-Coreutils-version-sort
 	https://en.wikipedia.org/wiki/Hidden_file_and_hidden_directory#:~:text=In%20Unix%2Dlike%20operating%20systems,ls%20%2DA%20)%20are%20used.

@@ -1,5 +1,5 @@
-tar -xzf /home/the/zaborra.tar.gz -C /home/the/
-rm -f /home/the/zaborra.tar.gz
+tar -xzf /home/the/trash.tar.gz -C /home/the/
+rm -f /home/the/trash.tar.gz
 chown -R the /home/the/zaborra
 
 tar -xf /home/git/repo.tar -C /home/git/
