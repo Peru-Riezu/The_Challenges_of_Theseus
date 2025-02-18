@@ -2,7 +2,7 @@ source /root/common_functions/monitors_lock.bash
 
 PARENT_DIR="/home/read"
 TARGET_DIR="sarraila"
-KEY_FILE="giltz_gorri_txikia"
+KEY_FILE="small_red_key"
 
 trap '' SIGINT
 

@@ -1,17 +1,15 @@
 "
-kalang kalang giltzatakoak
-bilatzen egon da atearen ondoan
-begiratzen begiratzen
-baina ikusi ezin du
-giltz gorri txikia dela
-sarraila onen lagun
+Clang-clang; the keyring sways,
+dancing in hand in endless display.
+Among them all, one shines bright,
+a little red key that fits just right.
 "
 
-[32mHelburua:
-	'sarraila' direktorioan, 'giltz_gorri_txikia' ez diren fitxategi eta
-	direktorio guztiak ezabatu.[0m
+[32mObjective:
+	In the 'lock' directory, remove all files and directories except for
+	'small_red_key'.[0m
 
-Komando interesgarriak:
+Interesting Commands:
 	man rm
 	ls !(giltz_gorri_txikia)
 	rm *
@@ -23,7 +21,7 @@ Komando interesgarriak:
 	rm -rf --
 	man unlink
 
-Esteka interesgarriak:
+Interesting Links:
 	http://www.gnu.org/software/coreutils/faq/coreutils-faq.html#I-have-a-file-_0027_002df_0027-and-it-affects-rm_002e
 	https://www.gnu.org/software/bash/manual/html_node/Filename-Expansion.html
 	https://www.gnu.org/software/bash/manual/bash.html#Pattern-Matching

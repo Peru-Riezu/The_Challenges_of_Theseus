@@ -7,18 +7,18 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	tput civis
 	tput clear
 	printf "%s\n%s\n%s\n%s\n\n$COLOR_GREEN%s\n%s$COLOR_RESET\n" \
-		"oh ene heroi ausarta, heroien artetik" \
-		"bihotzez jakin dut, lehen ikusi nizunetik" \
-		"adimenean lehiatu dezakezula sortzailearekin" \
-		"labirinto hau menperatuko duzu, erraz errazki" \
-		"erabiltzailea: the" \
-		"pasahitza: whole_freaking" > /home/read/sarraila/haria
-	cat /home/read/sarraila/haria
+		"Oh, my brave hero, the finest of all," \
+		"From the moment I saw you, I knew you’d stand tall;" \
+		"That your mind could rival the architect’s design," \
+		"This labyrinth will be trumped; your skills refined." \
+		"Username: the" \
+		"Password: whole_freaking" > /home/read/lock/thread
+	cat /home/read/lock/thread
 	stty -igncr
 	read -s -r -n1
 	stty sane
-	mv /home/read/sarraila /home/read/ate_irekia
-	mv /home/read/helburua /home/read/helburu_lortua
+	mv /home/read/lock /home/read/open_door
+	mv /home/read/objective /home/read/achieved_objective
 	cd
 	tput clear
 	tput cnorm
