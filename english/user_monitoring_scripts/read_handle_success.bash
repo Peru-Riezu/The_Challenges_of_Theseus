@@ -6,11 +6,15 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	stty igncr -isig -icanon -ixoff -echo
 	tput civis
 	tput clear
-	printf "%s\n%s\n%s\n%s\n\n$COLOR_GREEN%s\n%s$COLOR_RESET\n" \
-		"Oh, my brave hero, the finest of all," \
-		"From the moment I saw you, I knew you’d stand tall;" \
-		"That your mind could rival the architect’s design," \
-		"This labyrinth will be trumped; your skills refined." \
+	printf "%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n\n$COLOR_GREEN%s\n%s$COLOR_RESET\n" \
+		"Oh, my brave hero," \
+		"finest among all," \
+		"the moment I saw you," \
+		"I knew you’d stand tall;" \
+		"that your cunning could rival" \
+		"the architect’s design," \
+		"This labyrinth will be trumped;" \
+		"your skills refined." \
 		"Username: the" \
 		"Password: whole_freaking" > /home/read/lock/thread
 	cat /home/read/lock/thread
