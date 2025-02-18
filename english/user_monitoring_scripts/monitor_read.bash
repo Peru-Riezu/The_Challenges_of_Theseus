@@ -1,7 +1,7 @@
 source /root/common_functions/monitors_lock.bash
 
 PARENT_DIR="/home/read"
-TARGET_DIR="sarraila"
+TARGET_DIR="lock"
 KEY_FILE="small_red_key"
 
 trap '' SIGINT
