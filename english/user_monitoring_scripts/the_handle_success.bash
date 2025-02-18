@@ -7,18 +7,18 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	tput civis
 	tput clear
 	printf "%s\n%s\n%s\n%s\n\n$COLOR_GREEN%s\n%s$COLOR_RESET\n" \
-		"ene seme maitea, maitatu baldinba dezaket nik" \
-		"hartu hegal hauek eta etorri nirekin;" \
-		"baino ez zaitez hurbildu eguzkira gehiegi" \
-		"ez baduzu nahi, zerutik erortzen hil" \
-		"erabiltzailea: manual" \
-		"pasahitza: I_like_manuals" > /home/the/sarraila/haria
-	cat /home/the/sarraila/haria
+		"My son, loved, with all the love I bear," \
+		"Take these wings and go be free in the sky." \
+		"But soar too close to the warm light," \
+		"And surely, my child, you’ll fall and die." \
+		"user: manual" \
+		"password: I_like_manuals" > /home/the/lock/key
+	cat /home/the/lock/key
 	stty -igncr
 	read -s -r -n1
 	stty sane
-	mv /home/the/sarraila /home/the/ate_irekia
-	mv /home/the/helburua /home/the/helburu_lortua
+	mv /home/the/lock /home/the/open_door
+	mv /home/the/objective /home/the/achieved_objective
 	cd
 	tput clear
 	tput cnorm
