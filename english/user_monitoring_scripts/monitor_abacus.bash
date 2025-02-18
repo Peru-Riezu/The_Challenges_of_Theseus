@@ -3,7 +3,7 @@ source /root/common_functions/monitors_lock.bash
 PARENT_DIR="/home/abacus"
 TARGET_DIR="sarraila"
 KEY_FILE="giltza"
-EXPECTED_CONTENT=$(groups Fedra | tr ' ' '\n' | tail -n +3 | sort | tr '\n' ' ' | xargs echo)
+EXPECTED_CONTENT=$(groups Phaedra | tr ' ' '\n' | tail -n +3 | sort | tr '\n' ' ' | xargs echo)
 
 trap '' SIGINT
 

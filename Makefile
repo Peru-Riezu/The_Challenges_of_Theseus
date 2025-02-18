@@ -1,7 +1,8 @@
 SHELL = /bin/bash
 .PHONY: basque english
 
-all: basque
+default:
+	@echo no language specified, cannot proceed
 
 basque:
 	sudo sh -c "docker build -t the_challenges_of_theseus_container .; \
