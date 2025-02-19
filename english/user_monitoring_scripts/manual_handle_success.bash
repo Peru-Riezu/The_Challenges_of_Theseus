@@ -6,23 +6,26 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	stty igncr -isig -icanon -ixoff -echo
 	tput civis
 	tput clear
-	printf "%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n\n$COLOR_GREEN%s\n%s$COLOR_RESET\n" \
-		"Arma berriak beti dira ezezagun" \
-		"baino lanarekin bilakatzen dira zure lagun" \
-		"arma asko erabiltzea da ohikoa" \
-		"bat hautatu eta bilakatu boteretsua" \
-		"arma beste batek sortzen badizu lilura" \
-		"ez izan aldatzeari beldurra" \
-		"eta ezagutu nahi baduzu nire aukera" \
-		"vi da armen artean nire maitea " \
+	printf "%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n\n\n$COLOR_GREEN%s\n%s$COLOR_RESET\n" \
+
+		"New weapons are always unknown," \
+		"But with work, they become your own." \
+		"Using many is common and wise," \
+		"But master one, and watch it rise." \
+		"" \
+		"If another weapon draws your eye," \
+		"Fear not change—just give it a try." \
+		"" \
+		"Yet if you wish to know my advice," \
+		"Go with vi—both swift and precise." \
 		"erabiltzailea: git" \
-		"pasahitza: gud" > /home/manual/sarraila/haria
-	cat /home/manual/sarraila/haria
+		"pasahitza: gud" > /home/manual/lock/thread
+	cat /home/manual/lock/thread
 	stty -igncr
 	read -s -r -n1
 	stty sane
-	mv /home/manual/sarraila /home/manual/ate_irekia
-	mv /home/manual/helburua /home/manual/helburu_lortua
+	mv /home/manual/lock /home/manual/open_door
+	mv /home/manual/objective /home/manual/achieved_objective
 	cd
 	tput clear
 	tput cnorm

@@ -12,8 +12,8 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 		"But soar too close to the warm light," \
 		"And surely, my child, you’ll fall and die." \
 		"user: manual" \
-		"password: I_like_manuals" > /home/the/lock/key
-	cat /home/the/lock/key
+		"password: I_like_manuals" > /home/the/lock/thread
+	cat /home/the/lock/thread
 	stty -igncr
 	read -s -r -n1
 	stty sane

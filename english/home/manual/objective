@@ -1,0 +1,26 @@
+"
+A thousand warriors clash and fight,
+Yet none will yield, none claim the right.
+For our choices keep the banners high,
+A war unending, beneath the sky.
+"
+
+[32mObjective:
+	In the 'lock/key' file, add the word 'placed' after every occurrence of the
+	word 'pin', with a space in between them. For this exercise, a word is
+	defined as a sequence of alphabetic characters bounded by non-alphabetic
+	characters.[0m
+
+Interesting Commands:
+	set -o vi
+	vim
+	ed
+	sed
+	jed
+	nano
+	emacs
+	ne
+
+Interesting Links:
+	https://www.gnu.org/software/sed/manual/sed.html
+	https://en.wikipedia.org/wiki/Editor_war

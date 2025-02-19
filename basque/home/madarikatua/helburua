@@ -8,8 +8,7 @@ amaiezina bilakatzen dutena
 [32mHelburua:
 	'sarraila/giltza' fitxategian, 'malguki' hitz guztien ondoren, 'kokatua'
 	hitza jarri, zuriune batekin hitzen artean, ariketa honetarako hitz bat,
-	karaktere ez-alfabetikoz mugatua dagoen karaktere alfabetikoen kate bat da.
-	[0m
+	karaktere ez-alfabetikoz mugatua dagoen karaktere alfabetikoen kate bat da.[0m
 
 Komando interesgarriak:
 	set -o vi
