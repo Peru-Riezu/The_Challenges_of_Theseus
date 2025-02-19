@@ -3,7 +3,7 @@ source /root/common_functions/monitors_lock.bash
 PARENT_DIR="/home/manual"
 TARGET_DIR="lock"
 KEY_FILE="key"
-EXPECTED_CONTENT=$(cat /home/manual/sarraila/giltza | \
+EXPECTED_CONTENT=$(cat /home/manual/lock/key | \
 	sed -E 's/([^a-zA-Z])pin([^a-zA-Z]{8})/\1pin placed/g')
 
 trap '' SIGINT
