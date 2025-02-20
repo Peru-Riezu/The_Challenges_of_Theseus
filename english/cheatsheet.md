@@ -22,7 +22,7 @@ The following may take a little time
 ```bash
 cd trash
 find . ! -readable | xargs chmod +r
-ls -aA | egrep "^\.?key_fagment" | sort | xargs cat > ../key
+ls -aA | egrep "^\.?key_fragment" | sort | xargs cat > ../key
 cd ..
 mkdir lock
 mv key lock
@@ -31,16 +31,16 @@ mv key lock
 #### 4º Challenge
 
 ```bash
-cd sarraila
-sed -E "s/([^a-zA-Z]malguki[^a-zA-Z])       /\1kokatua/g" -i giltza
+cd lock
+sed -E "s/([^a-zA-Z]pin[^a-zA-Z])      /\1placed/g" -i key
 ```
 
 #### 5º Challenge
 
 ```bash
-COMMIT_HASH=$(git -C repo log --grep='^prest!!$' --pretty=format:"%H" -1)
-TARGET_CONTENT=$(git -C repo show "$COMMIT_HASH":giltza)
-diff repo/giltza - <<< "$TARGET_CONTENT"  > sarrailagile/aldaketa_fitxategia
+COMMIT_HASH=$(git -C repo log --grep='^ready!!$' --pretty=format:"%H" -1)
+TARGET_CONTENT=$(git -C repo show "$COMMIT_HASH":key)
+diff repo/key - <<< "$TARGET_CONTENT"  > locksmith/change_file
 ```
 
 #### 6º Challenge
