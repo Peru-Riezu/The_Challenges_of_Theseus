@@ -7,7 +7,6 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	tput civis
 	tput clear
 	printf "%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n\n\n$COLOR_GREEN%s\n%s$COLOR_RESET\n" \
-
 		"New weapons are always unknown," \
 		"But with work, they become your own." \
 		"Using many is common and wise," \
