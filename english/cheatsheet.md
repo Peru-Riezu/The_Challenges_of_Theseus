@@ -3,9 +3,9 @@
 #### 1º Challenge
 
 ```bash
-cat * > giltza
-mkdir sarraila
-mv giltza sarraila
+cat * > key
+mkdir lock
+mv key lock
 ```
 
 #### 2º Challenge
