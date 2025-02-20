@@ -5,7 +5,7 @@ TARGET_DIR="locksmith"
 KEY_FILE="change_file"
 REPO_PATH="/home/git/repo"
 COMMIT_HASH=$(git -C "$REPO_PATH" log --grep='^ready!!$' --pretty=format:"%H" -1)
-EXPECTED_CONTENT=$(git -C "$REPO_PATH" show "$COMMIT_HASH":giltza)
+EXPECTED_CONTENT=$(git -C "$REPO_PATH" show "$COMMIT_HASH":key)
 ORIGINAL_CONTENT=$(cat "$REPO_PATH/key")
 
 trap '' SIGINT
