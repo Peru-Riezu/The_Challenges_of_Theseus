@@ -11,8 +11,8 @@ mv key lock
 #### 2º Challenge
 
 ```bash
-cd sarraila
-rm -rf -- !(giltz_gorri_txikia)
+cd lock
+rm -rf -- !(small_red_key)
 ```
 
 #### 3º Challenge
@@ -20,12 +20,12 @@ rm -rf -- !(giltz_gorri_txikia)
 The following may take a little time
 
 ```bash
-cd zaborra
+cd trash
 find . ! -readable | xargs chmod +r
-ls -aA | egrep "^\.?giltz_zati" | sort | xargs cat > ../giltza
+ls -aA | egrep "^\.?key_fagment" | sort | xargs cat > ../key
 cd ..
-mkdir sarraila
-mv giltza sarraila
+mkdir lock
+mv key lock
 ```
 
 #### 4º Challenge
