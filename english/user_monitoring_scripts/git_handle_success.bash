@@ -3,26 +3,27 @@ get_success_lock_might_return
 
 if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	touch /user_shell_files/foreground_activated
-	mkdir /home/git/ate_irekia
+	mkdir /home/git/open_door
 	stty igncr -isig -icanon -ixoff -echo
 	tput civis
 	tput clear
-	printf "%s\n%s\n%s\n%s\n%s\n%s\n%s\n\n\n$COLOR_GREEN%s\n%s$COLOR_RESET\n" \
-		"Lurrak gorde du iragana," \
-		"isilean, harriaren pean." \
-		"Itzalean egon da, ezkutuan," \
-		"baina hazi dena iritsiko da harengana." \
+	printf "%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n\n\n$COLOR_GREEN%s\n%s$COLOR_RESET\n" \
+		"The past lies buried beneath the stone," \
+		"Silent, hidden, yet never unknown." \
+		"Shrouded deep, concealed from sight," \
+		"Until you grow strong to lift it right." \
 		"" \
-		"Ez da galdu, ez da ahaztu," \
-		"zure ondarea, zure patua." \
+		"Neither lost, nor cast away," \
+		"Your birthright waits," \
+		"Your fate remains." \
 		"erabiltzailea: analytical_engine" \
-		"pasahitza: Charles_Babbage" > /home/git/ate_irekia/haria
-	cat /home/git/ate_irekia/haria
+		"pasahitza: Charles_Babbage" > /home/git/open_door/thread
+	cat /home/git/open_door/thread
 	stty -igncr
 	read -s -r -n1
 	chown -R git ate_irekia
 	stty sane
-	mv /home/git/helburua /home/git/helburu_lortua
+	mv /home/git/objective /home/git/achieved_objective
 	cd
 	tput clear
 	tput cnorm

@@ -1,0 +1,16 @@
+[32mObjective:
+	Using the diff command, create ~/locksmith/change_file, such that the
+	command 'patch ~/repo/key ~/locksmith/change_file' leaves the '~/repo/key'
+	file, with the exact same content it had after the commit, containing the
+	message "ready!!".[0m
+
+Interesting Commands:
+	man git
+	man diff
+	man patch
+	diff -u
+	git checkout
+	git log
+
+Interesting Links:
+	https://en.wikipedia.org/wiki/Version_control
