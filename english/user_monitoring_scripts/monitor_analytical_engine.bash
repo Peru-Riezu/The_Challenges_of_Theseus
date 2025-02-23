@@ -1,9 +1,9 @@
 source /root/common_functions/monitors_lock.bash
 
 PARENT_DIR="/home/analytical_engine"
-TARGET_DIR="sarraila"
-KEY_FILE="giltza"
-EXPECTED_OUTPUT=$(find /home/analytical_engine/sustraiak -perm 777)
+TARGET_DIR="lock"
+KEY_FILE="key"
+EXPECTED_OUTPUT=$(find /home/analytical_engine/roots -perm 777)
 
 trap '' SIGINT
 

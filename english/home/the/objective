@@ -7,8 +7,8 @@ But will no hero take a stand?
 "
 
 [32mObjective:
-	In the 'trash' directory, concatenate all files whose names begin with
-	'key_fragment' in alphabetical order, and store the result in '~/lock/key'.[0m
+	In the 'trash' directory, concatenate, in alphabetical order, all files whose names begin with
+	'key_fragment', and store the result in '~/lock/key'.[0m
 
 Interesting Commands:
 	sort

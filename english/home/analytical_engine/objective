@@ -1,0 +1,15 @@
+[32mObjective:
+	Inside a subdirectory of the 'roots' directory, there is a file named 'key'
+	that can be read, written, and executed by its owner, its group, and all
+	other users. Create a symbolic link to this file at ~/lock/key."[0m
+
+Interesting Commands:
+	find
+	man ln
+	pwd
+	tree
+
+Interesting Links:
+	https://en.wikipedia.org/wiki/File-system_permissions
+	https://www.gnu.org/software/libc/manual/html_node/Hard-Links.html
+	https://www.gnu.org/software/libc/manual/html_node/Symbolic-Links.html

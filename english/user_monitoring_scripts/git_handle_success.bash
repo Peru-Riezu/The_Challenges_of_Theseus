@@ -8,10 +8,10 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	tput civis
 	tput clear
 	printf "%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n\n\n$COLOR_GREEN%s\n%s$COLOR_RESET\n" \
-		"The past lies buried beneath the stone," \
+		"The past lies, buried beneath the stone," \
 		"Silent, hidden, yet never unknown." \
 		"Shrouded deep, concealed from sight," \
-		"Until you grow strong to lift it right." \
+		"Until you grow strong, to lift it right." \
 		"" \
 		"Neither lost, nor cast away," \
 		"Your birthright waits," \

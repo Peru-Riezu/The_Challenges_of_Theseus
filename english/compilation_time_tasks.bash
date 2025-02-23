@@ -8,9 +8,9 @@ chown -R git /home/git/repo
 
 git config --global --add safe.directory /home/git/repo
 
-tar -xzf /home/analytical_engine/sustraiak.tar.gz -C /home/analytical_engine/
-rm -f /home/analytical_engine/sustraiak.tar.gz
-chown -R analytical_engine /home/analytical_engine/sustraiak/
+tar -xzf /home/analytical_engine/roots.tar.gz -C /home/analytical_engine/
+rm -f /home/analytical_engine/roots.tar.gz
+chown -R analytical_engine /home/analytical_engine/roots/
 
 tar -xzf /home/inception/ezurra.tar.gz -C /home/inception/
 rm -f /home/inception/ezurra.tar.gz
