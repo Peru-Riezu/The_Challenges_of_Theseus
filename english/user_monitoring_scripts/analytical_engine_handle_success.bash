@@ -11,9 +11,9 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 		"That day I gave consent," \
 		"Yet now my heart is filled with regret..." \
 		"To that cursed isle you went!" \
-		""
+		"" \
 		"――――――――――――――――――――――――" \
-		""
+		"" \
 		"Southern winds now shape the tide,"
 		"For sails of white, on the gods I confide."
 		"user: Z3" \
