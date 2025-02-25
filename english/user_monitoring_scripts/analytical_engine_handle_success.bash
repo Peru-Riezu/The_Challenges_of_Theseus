@@ -14,8 +14,8 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 		"" \
 		"――――――――――――――――――――――――" \
 		"" \
-		"Southern winds now shape the tide,"
-		"For sails of white, on the gods I confide."
+		"Southern winds now shape the tide," \
+		"For sails of white, on the gods I confide." \
 		"user: Z3" \
 		"password: Konrad_Zuse" > /home/analytical_engine/lock/thread
 	cat /home/analytical_engine/lock/thread
