@@ -6,14 +6,16 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	stty igncr -isig -icanon -ixoff -echo
 	tput civis
 	tput clear
-	printf "%s\n%s\n%s\n%s\n%s\n%s\n%s\n\n\n$COLOR_GREEN%s\n%s$COLOR_RESET\n" \
+	printf "%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n\n\n$COLOR_GREEN%s\n%s$COLOR_RESET\n" \
 		"Oh, my dear son," \
-		"that day I gave consent," \
-		"to that cursed isle you went—" \
-		"now my heart holds deep regret." \
-		""\
-		"Southern winds across the sea—" \
-		"what sails will fate return to me?" \
+		"That day I gave consent," \
+		"Yet now my heart is filled with regret..." \
+		"To that cursed isle you went!" \
+		""
+		"――――――――――――――――――――――――" \
+		""
+		"Southern winds now shape the tide,"
+		"For sails of white, on the gods I confide."
 		"user: Z3" \
 		"password: Konrad_Zuse" > /home/analytical_engine/lock/thread
 	cat /home/analytical_engine/lock/thread
