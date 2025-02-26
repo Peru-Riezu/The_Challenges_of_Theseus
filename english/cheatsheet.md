@@ -45,6 +45,8 @@ diff repo/key - <<< "$TARGET_CONTENT"  > locksmith/change_file
 
 #### 6º Challenge
 
+The following may take a little time
+
 ```bash
 mkdir lock
 ln -s $(find $(pwd)/roots/ -perm 777 -name key) lock/key
@@ -53,8 +55,8 @@ ln -s $(find $(pwd)/roots/ -perm 777 -name key) lock/key
 #### 7º Challenge
 
 ```bash
-mkdir sarraila
-echo -ne 'Z\nZ\nZ' > sarraila/giltza
+mkdir lock
+echo -ne 'Z\nZ\nZ' > lock/key
 ```
 
 #### 8º Challenge
