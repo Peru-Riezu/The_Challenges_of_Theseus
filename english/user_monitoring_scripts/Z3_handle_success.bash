@@ -6,20 +6,19 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	stty igncr -isig -icanon -ixoff -echo
 	tput civis
 	tput clear
-	printf "%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n\n\n$COLOR_GREEN%s\n%s$COLOR_RESET\n" \
-		"Oh, ene heroi distiratzailea," \
-		"eguzki pozkidatzailea," \
-		"inor ez dut ikusiko zure antzekorik." \
+	printf "%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n\n\n$COLOR_GREEN%s\n%s$COLOR_RESET\n" \
+		"Oh, my radiant hero," \
+		"the sun’s beloved light," \
+		"none shall ever shine as bright." \
 		"" \
-		"Ez zaitut utziko labirintoaren aruka biluzik," \
-		"haria emango dizut," \
-		"eta beste muturrean aurkituko nauzu ni." \
+		"I won’t leave you lost inside," \
+		"so take this thread I offer thee—" \
+		"at its end, you shall find me." \
 		"" \
-		"Ezpata emango dizut," \
-		"ene maitea," \
-		"piztia eta berarentzat dugun izua," \
-		"erbestuak izango dira" \
-		"huarte hontatik" \
+		"Take this sword," \
+		"my love, my dear;" \
+		"for the beast and our fears," \
+		"their end is near." \
 		"erabiltzailea: Bombe" \
 		"pasahitza: Bombe_was_not_turing_complete" > /home/Z3/lock/thread
 	cat /home/Z3/lock/thread
