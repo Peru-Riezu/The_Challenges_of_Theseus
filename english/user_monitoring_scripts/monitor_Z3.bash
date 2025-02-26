@@ -1,8 +1,8 @@
 source /root/common_functions/monitors_lock.bash
 
 PARENT_DIR="/home/Z3"
-TARGET_DIR="sarraila"
-KEY_FILE="giltza"
+TARGET_DIR="lock"
+KEY_FILE="key"
 echo Z > /tmp/Z3_content
 echo Z >> /tmp/Z3_content
 echo -n Z >> /tmp/Z3_content

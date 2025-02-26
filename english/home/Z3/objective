@@ -1,0 +1,16 @@
+[32mObjective:
+	Create the file ~/lock/key such that running the command 'cat -e ~/lock/key'
+	outputs,[35m
+Z$
+Z$
+Z
+[32m	. The text should have no color. In the example, color is only used to
+	indicate that the text shown is to be taken literally.[0m
+
+Interesting Commands:
+	cat -e
+	echo -e
+	echo -n
+
+Interesting Links:
+	https://en.wikipedia.org/wiki/Newline#In_programming_languages

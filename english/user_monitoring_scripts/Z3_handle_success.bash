@@ -21,13 +21,13 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 		"erbestuak izango dira" \
 		"huarte hontatik" \
 		"erabiltzailea: Bombe" \
-		"pasahitza: Bombe_was_not_turing_complete" > /home/Z3/sarraila/haria
-	cat /home/Z3/sarraila/haria
+		"pasahitza: Bombe_was_not_turing_complete" > /home/Z3/lock/thread
+	cat /home/Z3/lock/thread
 	stty -igncr
 	read -s -r -n1
 	stty sane
-	mv /home/Z3/sarraila /home/Z3/ate_irekia
-	mv /home/Z3/helburua /home/Z3/helburu_lortua
+	mv /home/Z3/lock /home/Z3/open_door
+	mv /home/Z3/objective /home/Z3/objective
 	cd
 	tput clear
 	tput cnorm
