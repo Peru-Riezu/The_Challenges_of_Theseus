@@ -5,7 +5,7 @@ TARGET_DIR="lock"
 KEY_FILE="key.pem"
 TARGET_DIR2="box_of_secrets"
 KEY_FILE2="encrypted_message.bin"
-EXPECTED_CONTENT=$(cat /home/Bombe/jatorrizko_mezua)
+EXPECTED_CONTENT=$(cat /home/Bombe/original_message )
 
 trap '' SIGINT
 
