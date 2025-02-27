@@ -1,0 +1,16 @@
+[32mObjective:
+	In the '~/box_of_secrets' directory, create an encrypted file named
+	'encrypted_message.bin'. Create aswell a private key file at
+	'~/lock/key.pem', such that running the command 'openssl pkeyutl -decrypt \
+		-inkey ~/lock/key.pem -in ~/box_of_secrets/encrypted_message.bin' outputs
+	the original contents of the '~/original_message' file.[0m
+
+Interesting Commands:
+	man ssh-keygen
+	man openssl
+	openssl genpkey -algorithm RSA -out private_key.pem -pkeyopt rsa_keygen_bits:4096
+	openssl rsa -pubout -in private_key.pem -out public_key.pem
+	openssl pkeyutl -encrypt -pubin -inkey public_key.pem -in plaintext_file -out encrypted_file.bin
+
+Interesting Links:
+	https://en.wikipedia.org/wiki/Public-key_cryptography

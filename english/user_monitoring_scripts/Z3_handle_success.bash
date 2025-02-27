@@ -6,19 +6,18 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	stty igncr -isig -icanon -ixoff -echo
 	tput civis
 	tput clear
-	printf "%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n\n\n$COLOR_GREEN%s\n%s$COLOR_RESET\n" \
-		"You said:" \
+	printf "%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n\n\n$COLOR_GREEN%s\n%s$COLOR_RESET\n" \
 		"Oh, my radiant hero," \
 		"the sun’s beloved light," \
 		"none shall ever shine as bright." \
 		"" \
-		"How could I leave you, lost inside?" \
+		"How could I leave you lost inside?" \
 		"Take this thread," \
 		"follow its guide—" \
 		"when you reach me," \
-		"I’ll at last be by your side." \
+		"I’ll at last, be by your side." \
 		"" \
-		"Take this sword," \
+		"Carry this sword," \
 		"my love, my dear;" \
 		"for the beast and our fears," \
 		"the end is near." \

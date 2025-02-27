@@ -1,10 +1,10 @@
 source /root/common_functions/monitors_lock.bash
 
 PARENT_DIR="/home/Bombe"
-TARGET_DIR="sarraila"
-KEY_FILE="giltza.pem"
-TARGET_DIR2="sekretu_kutxa"
-KEY_FILE2="mezu_enkriptatua.bin"
+TARGET_DIR="lock"
+KEY_FILE="key.pem"
+TARGET_DIR2="box_of_secrets"
+KEY_FILE2="encrypted_message.bin"
 EXPECTED_CONTENT=$(cat /home/Bombe/jatorrizko_mezua)
 
 trap '' SIGINT

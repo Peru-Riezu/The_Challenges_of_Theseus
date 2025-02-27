@@ -14,7 +14,7 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 		"" \
 		"Eskatu nion han, itsaso boteretsuari:" \
 		"zu indartsu eta adimentsu haztea," \
-		"eta bizitzan edozer garaitzeko gai izatea." \
+		"eta bizitzan edozer gainditzeko gai izatea." \
 		"" \
 		"Horretarako, eman nion itsasoari" \
 		"emateko nituen guztien artetik," \
