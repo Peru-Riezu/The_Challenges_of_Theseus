@@ -27,13 +27,13 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 		"And that I managed to give you," \
 		"everything you need, to be happy." \
 		"erabiltzailea: Sir_Tim_Berners-Lee" \
-		"pasahitza: www" > /home/Bombe/sarraila/haria
-	cat /home/Bombe/sarraila/haria
+		"pasahitza: www" > /home/Bombe/lock/thread
+	cat /home/Bombe/lock/thread
 	stty -igncr
 	read -s -r -n1
 	stty sane
-	mv /home/Bombe/sarraila /home/Bombe/ate_irekia
-	mv /home/Bombe/helburua /home/Bombe/helburu_lortua
+	mv /home/Bombe/lock /home/Bombe/open_door
+	mv /home/Bombe/objective /home/Bombe/achieved_objective
 	cd
 	tput clear
 	tput cnorm
