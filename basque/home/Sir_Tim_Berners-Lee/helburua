@@ -1,8 +1,7 @@
 [32mHelburua:
 	'http://atenaseko-portua.net/trinkotua.tar' deskargatu eta destrinkotu
 	(decompress). Direktorio destrinkotuan, fitxategi trinkotu bat dago,
-	destrinkotu eta ~/sarraila/giltza direktoriora mugitu.
-[0m
+	destrinkotu eta ~/sarraila/giltza direktoriora mugitu.[0m
 
 Komando interesgarriak:
 	man file

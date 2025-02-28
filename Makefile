@@ -10,8 +10,9 @@ basque:
 		for user in \$$(awk -F':' '{ print \$$1 }' /etc/passwd); do sudo usermod -aG docker \$$user; done; \
 		service ssh restart; \
 		service nginx restart; \
-		bash ./concat_reroute_ips.bash > /root/reroute_all_ips.bash; \
-		/root/reroute_all_ips.bash"
+		cp ./reroute_ips.bash > /root/reroute_ips.bash; \
+		chmod +x /root/reroute_ips.bash; \
+		/root/reroute_ips.bash"
 
 english:
 	sudo sh -c "docker build --build-arg LANG=english -t the_challenges_of_theseus_container .; \
@@ -19,8 +20,9 @@ english:
 		for user in \$$(awk -F':' '{ print \$$1 }' /etc/passwd); do sudo usermod -aG docker \$$user; done; \
 		service ssh restart; \
 		service nginx restart; \
-		bash ./concat_reroute_ips.bash > /root/reroute_all_ips.bash; \
-		/root/reroute_all_ips.bash"
+		cp ./reroute_ips.bash > /root/reroute_ips.bash; \
+		chmod +x /root/reroute_ips.bash; \
+		/root/reroute_ips.bash"
 
 update:
 	git pull
@@ -40,15 +42,14 @@ set_up:
 		rm /etc/nginx/nginx.conf; \
 		rm -r /www-data; \
 		ln -s $$(pwd)/sshd_files/sshd_config /etc/ssh/sshd_config; \
-		ln -s $$(pwd)/reroute_all_ips.bash /etc/ssh/reroute_all_ips.bash; \
 		ln -s $$(pwd)/sshd_files/launch_container.bash /etc/ssh/launch_container.bash; \
 		ln -s $$(pwd)/nginx_files/nginx.conf /etc/nginx/nginx.conf; \
 		ln -s $$(pwd)/nginx_files/www-data /www-data; \
-		bash ./concat_reroute_ips.bash > /root/reroute_all_ips.bash; \
+		cp ./reroute_ips.bash > /root/reroute_ips.bash; \
 		cp ./check_network_quota.bash /root/check_network_quota.bash; \
 		cp ./reset_network_quota.bash /root/reset_network_quota.bash; \
-		chmod +x /root/reroute_all_ips.bash; \
-		/root/reroute_all_ips.bash; \
+		chmod +x /root/reroute_ips.bash; \
+		/root/reroute_ips.bash; \
 		chmod o+x ..; \
 		crontab -l 2>/dev/null | grep -Fq  '  * *  *   *   *     bash /root/check_network_quota.bash' || \
 			((crontab -l 2>/dev/null; echo '  * *  *   *   *     bash /root/check_network_quota.bash') \
@@ -56,8 +57,8 @@ set_up:
 		crontab -l 2>/dev/null | grep -Fq  '  0 0  1   *   *     bash /root/reset_network_quota.bash' || \
 			((crontab -l 2>/dev/null; echo '  0 0  1   *   *     bash /root/reset_network_quota.bash') \
 				| crontab -); \
-		crontab -l 2>/dev/null | grep -Fq  '@reboot sleep 2 && bash /root/reroute_all_ips.bash' || \
-			((crontab -l 2>/dev/null; echo '@reboot sleep 2 && bash /root/reroute_all_ips.bash') \
+		crontab -l 2>/dev/null | grep -Fq  '@reboot sleep 2 && bash /root/reroute_ips.bash' || \
+			((crontab -l 2>/dev/null; echo '@reboot sleep 2 && bash /root/reroute_ips.bash') \
 				| crontab -)"
 
 clean:
