@@ -1,7 +1,7 @@
 [32mObjective:
 		Download and decompress 'http://port-of-athens.net/compressed.tar'.
-		Inside the decompressed directory, there is a compressed file
-		decompress it and move it to the ~/lock/key directory.[0m
+		Inside the decompressed directory, there is a compressed file,
+		decompress it and move it to '~/lock/key'.[0m
 
 Interesting Commands:
 	man file

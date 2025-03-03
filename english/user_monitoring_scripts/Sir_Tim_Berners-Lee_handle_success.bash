@@ -7,18 +7,18 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	tput civis
 	tput clear
 	printf "%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n\n\n$COLOR_GREEN%s\n%s$COLOR_RESET\n" \
-		"Isiltasunean, botatzen dut begirada atzera," \
-		"eta ikusten dut, lehoi-geruza hori." \
+		"In silence, I cast my gaze behind," \
+		"And there it stands—the golden lion’s hide." \
 		"" \
-		"Nire ausartasuna—" \
-		"hori deitu badezakegu" \
-		"egin nuen ergeltasun hori." \
+		"My courage—" \
+		"if that is what I may call" \
+		"the folly that led me to it all." \
 		"" \
-		"Baina oroitzen dudan bakoitzean, gogoratzen dut nik" \
-		"gizon sendo irribarretsu hori..." \
-		"" \
-		"Eta orduan, behera bezala izatea erabaki nuen," \
-		"zalantza bakar bat ere euki ezinik." \
+		"Yet each time memory pulls me back," \
+		"I see that steadfast man who laughed…" \
+		"How bright he shined—" \
+		"I knew then what I wished to be," \
+		"since never has doubt taken hold of me." \
 		"erabiltzailea: IBM_704" \
 		"pasahitza: GM-NAA_I/O" > /home/Sir_Tim_Berners-Lee/sarraila/haria
 	cat /home/Sir_Tim_Berners-Lee/sarraila/haria

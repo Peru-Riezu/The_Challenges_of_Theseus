@@ -1,9 +1,9 @@
 source /root/common_functions/monitors_lock.bash
 
 PARENT_DIR="/home/Sir_Tim_Berners-Lee"
-TARGET_DIR="sarraila"
-KEY_FILE="giltza"
-EXPECTED_CONTENT=$(mkdir /tmp/www-exercice; cd /tmp/www-exercice; wget http://atenaseko-portua.net/trinkotua.tar 2> /dev/null; tar -xf trinkotua.tar; cd direktorio_destrinkotua; file * | grep "tar archive" | awk '{print $1}' | tr -d ':' | xargs tar -xf ; cat giltza; rm -r /tmp/www-exercice)
+TARGET_DIR="lock"
+KEY_FILE="key"
+EXPECTED_CONTENT=$(mkdir /tmp/www-exercice; cd /tmp/www-exercice; wget http://port-of-athens.net/compressed.tar 2> /dev/null; tar -xf compressed.tar; cd uncompressed_directory; file * | grep "tar archive" | awk '{print $1}' | tr -d ':' | xargs tar -xf ; cat key; rm -r /tmp/www-exercice)
 
 trap '' SIGINT
 
