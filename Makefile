@@ -45,7 +45,7 @@ set_up:
 		ln -s $$(pwd)/sshd_files/launch_container.bash /etc/ssh/launch_container.bash; \
 		ln -s $$(pwd)/nginx_files/nginx.conf /etc/nginx/nginx.conf; \
 		ln -s $$(pwd)/nginx_files/www-data /www-data; \
-		cp ./reroute_ips.bash > /root/reroute_ips.bash; \
+		cp ./reroute_ips.bash /root/reroute_ips.bash; \
 		cp ./check_network_quota.bash /root/check_network_quota.bash; \
 		cp ./reset_network_quota.bash /root/reset_network_quota.bash; \
 		chmod +x /root/reroute_ips.bash; \
