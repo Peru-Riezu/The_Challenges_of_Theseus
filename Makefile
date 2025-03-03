@@ -10,7 +10,7 @@ basque:
 		for user in \$$(awk -F':' '{ print \$$1 }' /etc/passwd); do sudo usermod -aG docker \$$user; done; \
 		service ssh restart; \
 		service nginx restart; \
-		cp ./reroute_ips.bash > /root/reroute_ips.bash; \
+		cp ./reroute_ips.bash /root/reroute_ips.bash; \
 		chmod +x /root/reroute_ips.bash; \
 		/root/reroute_ips.bash"
 
@@ -20,7 +20,7 @@ english:
 		for user in \$$(awk -F':' '{ print \$$1 }' /etc/passwd); do sudo usermod -aG docker \$$user; done; \
 		service ssh restart; \
 		service nginx restart; \
-		cp ./reroute_ips.bash > /root/reroute_ips.bash; \
+		cp ./reroute_ips.bash /root/reroute_ips.bash; \
 		chmod +x /root/reroute_ips.bash; \
 		/root/reroute_ips.bash"
 
