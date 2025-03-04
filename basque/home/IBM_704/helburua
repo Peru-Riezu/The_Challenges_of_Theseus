@@ -4,9 +4,9 @@
 	ezberdinak balira bezala, bigarren lerroa lehenengoarekin amaitzean.[0m
 
 Adibideak: [93m
-$ ~/aurkezpen_ontzia/erantzuna "echo kaixo Ludi" "cat <<< \"agur Ludi\""
-[35mkaixo Ludi
-agur Ludi[0m
+$ ~/aurkezpen_ontzia/erantzuna "echo Kaixo, Ludi" "cat <<< \"Agur, Ludi\""
+[35mKaixo, Ludi
+Agur, Ludi[0m
 
 Komando interesgarriak:
 	bash

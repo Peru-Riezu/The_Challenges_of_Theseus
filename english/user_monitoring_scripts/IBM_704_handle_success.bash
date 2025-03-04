@@ -9,32 +9,33 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 
 ############################################### test 1º ##################################################################
 	printf "$COLOR_GREEN%s$COLOR_RESET\n" \
-		"frogatzen (1/5)"
+		"testing (1/5)"
 
 	animate_dots &
 	DOTS_PID=$!
 
-	timeout 0.5 /home/IBM_704/aurkezpen_ontzia/erantzuna "echo kaixo Ludi" "cat <<< \"agur Ludi\"" \
+	timeout 0.5 /home/IBM_704/submission_box/solution "echo Hello, World" "cat <<< \"Goodby, World\"" \
 		&> /user_shell_files/output
 	FILE_CONTENT=$(cat /user_shell_files/output)
-	EXPECTED_CONTENT=$(echo "kaixo Ludi" ; cat <<< "agur Ludi")
+	EXPECTED_CONTENT=$(echo "Hello, World" ; cat <<< "Goodby, World")
 	sleep 3
 	kill $DOTS_PID
 
 	if [[ "$FILE_CONTENT" != "$EXPECTED_CONTENT" ]]; then
-		move_to_suffix /home/IBM_704/aurkezpen_ontzia/erantzuna _ezegokia
-		printf "%s%s\n" "/home/IBM_704/aurkezpen_ontzia/erantzuna " \
-			"\"echo kaixo Ludi\" \"cat <<< \\\"agur Ludi\\\"\"" \
-			> /home/IBM_704/aurkezpen_ontzia/emandako
-		move_to_suffix /home/IBM_704/aurkezpen_ontzia/emandako _inputa
-		cat <<< "$EXPECTED_CONTENT" > /home/IBM_704/aurkezpen_ontzia/esperozen
-		move_to_suffix /home/IBM_704/aurkezpen_ontzia/esperozen _outputa
-		mv /user_shell_files/output /home/IBM_704/aurkezpen_ontzia/lortutako
-		move_to_suffix /home/IBM_704/aurkezpen_ontzia/lortutako _outputa
+		mv /home/IBM_704/submission_box/solution /home/IBM_704/submission_box/incorrect
+		move_to_suffix /home/IBM_704/submission_box/incorrect _solution
+		printf "%s%s\n" "/home/IBM_704/submission_box/solution " \
+			"\"echo Hello, World\" \"cat <<< \\\"Goodby, World\\\"\"" \
+			> /home/IBM_704/submission_box/given
+		move_to_suffix /home/IBM_704/submission_box/given _input
+		cat <<< "$EXPECTED_CONTENT" > /home/IBM_704/submission_box/expected
+		move_to_suffix /home/IBM_704/submission_box/expected _output
+		mv /user_shell_files/output /home/IBM_704/submission_box/gotten
+		move_to_suffix /home/IBM_704/submission_box/gotten _output
 		tput clear
 		tput clear
 		printf "$COLOR_RED%s$COLOR_RESET\n" \
-			"froga (1/5): erantzun ezegokia."
+			"test (1/5): incorrect solution."
 		stty -igncr
 		read -s -r -n1
 		stty sane
@@ -48,31 +49,32 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	tput clear
 	tput clear
 	printf "$COLOR_GREEN%s$COLOR_RESET\n" \
-		"frogatzen (2/5)"
+		"testing (2/5)"
 
 	animate_dots &
 	DOTS_PID=$!
 
-	timeout 0.5 /home/IBM_704/aurkezpen_ontzia/erantzuna "echo kaixo Ludi" "" &> /user_shell_files/output
+	timeout 0.5 /home/IBM_704/submission_box/solution "echo kaixo Ludi" "" &> /user_shell_files/output
 	FILE_CONTENT=$(cat /user_shell_files/output)
 	EXPECTED_CONTENT=$(echo "kaixo Ludi")
 	sleep 3
 	kill $DOTS_PID
 
 	if [[ "$FILE_CONTENT" != "$EXPECTED_CONTENT" ]]; then
-		move_to_suffix /home/IBM_704/aurkezpen_ontzia/erantzuna _ezegokia
-		printf "%s%s\n" "/home/IBM_704/aurkezpen_ontzia/erantzuna " \
+		mv /home/IBM_704/submission_box/solution /home/IBM_704/submission_box/incorrect
+		move_to_suffix /home/IBM_704/submission_box/incorrect _solution
+		printf "%s%s\n" "/home/IBM_704/submission_box/solution " \
 			"\"echo kaixo Ludi\" \"\""
-			> /home/IBM_704/aurkezpen_ontzia/emandako
-		move_to_suffix /home/IBM_704/aurkezpen_ontzia/emandako _inputa
-		cat <<< "$EXPECTED_CONTENT" > /home/IBM_704/aurkezpen_ontzia/esperozen
-		move_to_suffix /home/IBM_704/aurkezpen_ontzia/esperozen _outputa
-		mv /user_shell_files/output /home/IBM_704/aurkezpen_ontzia/lortutako
-		move_to_suffix /home/IBM_704/aurkezpen_ontzia/lortutako _outputa
+			> /home/IBM_704/submission_box/given
+		move_to_suffix /home/IBM_704/submission_box/given _input
+		cat <<< "$EXPECTED_CONTENT" > /home/IBM_704/submission_box/expected
+		move_to_suffix /home/IBM_704/submission_box/expected _output
+		mv /user_shell_files/output /home/IBM_704/submission_box/gotten
+		move_to_suffix /home/IBM_704/submission_box/gotten _output
 		tput clear
 		tput clear
 		printf "$COLOR_RED%s$COLOR_RESET\n" \
-			"froga (2/5): erantzun ezegokia."
+			"test (2/5): incorrect solution."
 		stty -igncr
 		read -s -r -n1
 		stty sane
@@ -86,31 +88,32 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	tput clear
 	tput clear
 	printf "$COLOR_GREEN%s$COLOR_RESET\n" \
-		"frogatzen (3/5)"
+		"testing (3/5)"
 
 	animate_dots &
 	DOTS_PID=$!
 
-	timeout 0.5 /home/IBM_704/aurkezpen_ontzia/erantzuna "" "echo kaixo Ludi" "" &> /user_shell_files/output
+	timeout 0.5 /home/IBM_704/submission_box/solution "" "echo kaixo Ludi" "" &> /user_shell_files/output
 	FILE_CONTENT=$(cat /user_shell_files/output)
 	EXPECTED_CONTENT=$(echo "kaixo Ludi")
 	sleep 3
 	kill $DOTS_PID
 
 	if [[ "$FILE_CONTENT" != "$EXPECTED_CONTENT" ]]; then
-		move_to_suffix /home/IBM_704/aurkezpen_ontzia/erantzuna _ezegokia
-		printf "%s%s\n" "/home/IBM_704/aurkezpen_ontzia/erantzuna " \
+		mv /home/IBM_704/submission_box/solution /home/IBM_704/submission_box/incorrect
+		move_to_suffix /home/IBM_704/submission_box/incorrect _solution
+		printf "%s%s\n" "/home/IBM_704/submission_box/solution " \
 			"\"\" \"echo kaixo Ludi\" \"\"" \
-			> /home/IBM_704/aurkezpen_ontzia/emandako
-		move_to_suffix /home/IBM_704/aurkezpen_ontzia/emandako _inputa
-		cat <<< "$EXPECTED_CONTENT" > /home/IBM_704/aurkezpen_ontzia/esperozen
-		move_to_suffix /home/IBM_704/aurkezpen_ontzia/esperozen _outputa
-		mv /user_shell_files/output /home/IBM_704/aurkezpen_ontzia/lortutako
-		move_to_suffix /home/IBM_704/aurkezpen_ontzia/lortutako _outputa
+			> /home/IBM_704/submission_box/given
+		move_to_suffix /home/IBM_704/submission_box/given _input
+		cat <<< "$EXPECTED_CONTENT" > /home/IBM_704/submission_box/expected
+		move_to_suffix /home/IBM_704/submission_box/expected _output
+		mv /user_shell_files/output /home/IBM_704/submission_box/gotten
+		move_to_suffix /home/IBM_704/submission_box/gotten _output
 		tput clear
 		tput clear
 		printf "$COLOR_RED%s$COLOR_RESET\n" \
-			"froga (3/5): erantzun ezegokia."
+			"test (3/5): incorrect solution."
 		stty -igncr
 		read -s -r -n1
 		stty sane
@@ -124,29 +127,30 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	tput clear
 	tput clear
 	printf "$COLOR_GREEN%s$COLOR_RESET\n" \
-		"frogatzen (4/5)"
+		"testing (4/5)"
 
 	animate_dots &
 	DOTS_PID=$!
 
-	timeout 0.5 /home/IBM_704/aurkezpen_ontzia/erantzuna &> /user_shell_files/output
+	timeout 0.5 /home/IBM_704/submission_box/solution &> /user_shell_files/output
 	FILE_CONTENT=$(cat /user_shell_files/output)
 	EXPECTED_CONTENT=$()
 	sleep 3
 	kill $DOTS_PID
 
 	if [[ "$FILE_CONTENT" != "$EXPECTED_CONTENT" ]]; then
-		move_to_suffix /home/IBM_704/aurkezpen_ontzia/erantzuna _ezegokia
-		printf "/home/IBM_704/aurkezpen_ontzia/erantzuna\n" > /home/IBM_704/aurkezpen_ontzia/emandako
-		move_to_suffix /home/IBM_704/aurkezpen_ontzia/emandako _inputa
-		cat <<< "$EXPECTED_CONTENT" > /home/IBM_704/aurkezpen_ontzia/esperozen
-		move_to_suffix /home/IBM_704/aurkezpen_ontzia/esperozen _outputa
-		mv /user_shell_files/output /home/IBM_704/aurkezpen_ontzia/lortutako
-		move_to_suffix /home/IBM_704/aurkezpen_ontzia/lortutako _outputa
+		mv /home/IBM_704/submission_box/solution /home/IBM_704/submission_box/incorrect
+		move_to_suffix /home/IBM_704/submission_box/incorrect _solution
+		printf "/home/IBM_704/submission_box/solution\n" > /home/IBM_704/submission_box/given
+		move_to_suffix /home/IBM_704/submission_box/given _input
+		cat <<< "$EXPECTED_CONTENT" > /home/IBM_704/submission_box/expected
+		move_to_suffix /home/IBM_704/submission_box/expected _output
+		mv /user_shell_files/output /home/IBM_704/submission_box/gotten
+		move_to_suffix /home/IBM_704/submission_box/gotten _output
 		tput clear
 		tput clear
 		printf "$COLOR_RED%s$COLOR_RESET\n" \
-			"froga (4/5): erantzun ezegokia."
+			"test (4/5): incorrect solution."
 		stty -igncr
 		read -s -r -n1
 		stty sane
@@ -160,30 +164,31 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	tput clear
 	tput clear
 	printf "$COLOR_GREEN%s$COLOR_RESET\n" \
-		"frogatzen (5/5)"
+		"testing (5/5)"
 
 	animate_dots &
 	DOTS_PID=$!
 
 	PS_OUT=$(ps u)
 	ORIGINAL_PS_COUNT=$(cat <<< "$PS_OUT" | tail -n +2 | wc -l)
-	PS_OUT=$(timeout 3.5 /home/IBM_704/aurkezpen_ontzia/erantzuna "sleep 3 | cat" | (sleep .5 && ps u))
+	PS_OUT=$(timeout 3.5 /home/IBM_704/submission_box/solution "sleep 3 | cat" | (sleep .5 && ps u))
 	GOTTEN_PS_COUNT=$(cat <<< "$PS_OUT" | tail -n +2 | wc -l)
 	EXPECTED_COUNT=$(expr $ORIGINAL_PS_COUNT + 4)
 	kill $DOTS_PID
 
 	if [[ "$GOTTEN_PS_COUNT" != "$EXPECTED_COUNT" ]]; then
-		move_to_suffix /home/IBM_704/aurkezpen_ontzia/erantzuna _ezegokia
-		printf "ps u | tail -n + 2 | wc -l\n" > /home/IBM_704/aurkezpen_ontzia/emandako
-		move_to_suffix /home/IBM_704/aurkezpen_ontzia/emandako _inputa
-		cat <<< "$EXPECTED_COUNT" > /home/IBM_704/aurkezpen_ontzia/esperozen
-		move_to_suffix /home/IBM_704/aurkezpen_ontzia/esperozen _outputa
-		printf "$GOTTEN_PS_COUNT\n" > /home/IBM_704/aurkezpen_ontzia/lortutako
-		move_to_suffix /home/IBM_704/aurkezpen_ontzia/lortutako _outputa
+		mv /home/IBM_704/submission_box/solution /home/IBM_704/submission_box/incorrect
+		move_to_suffix /home/IBM_704/submission_box/incorrect _solution
+		printf "ps u | tail -n + 2 | wc -l\n" > /home/IBM_704/submission_box/given
+		move_to_suffix /home/IBM_704/submission_box/given _input
+		cat <<< "$EXPECTED_COUNT" > /home/IBM_704/submission_box/expected
+		move_to_suffix /home/IBM_704/submission_box/expected _output
+		printf "$GOTTEN_PS_COUNT\n" > /home/IBM_704/submission_box/gotten
+		move_to_suffix /home/IBM_704/submission_box/gotten _output
 		tput clear
 		tput clear
 		printf "$COLOR_RED%s$COLOR_RESET\n" \
-			"froga (5/5): erantzun ezegokia."
+			"test (5/5): incorrect solution."
 		stty -igncr
 		read -s -r -n1
 		stty sane
@@ -198,19 +203,19 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	tput clear
 	tput clear
 	printf "%s\n%s\n%s\n%s\n%s\n\n\n$COLOR_GREEN%s\n%s$COLOR_RESET\n" \
-		"Itsasontzi batean etorri," \
-		"zeharkatu itsasoa azkarrki." \
+		"He returned aboard the ship," \
+		"swiftly crossing the sea." \
 		"" \
-		"Baina inoiz al da gizon bera," \
-		"egiten dena itzuli?" \
-		"erabiltzailea: Tide-predicting_machine" \
-		"pasahitza: Lord_Kelvin" > /home/IBM_704/aurkezpen_ontzia/haria
-	cat /home/IBM_704/aurkezpen_ontzia/haria
+		"He'd grown so wise, so bold, so grand," \
+		"was he the same man we once saw depart?" \
+		"user: Tide-predicting_machine" \
+		"password: Lord_Kelvin" > /home/IBM_704/submission_box/thread
+	cat /home/IBM_704/submission_box/thread
 	stty -igncr
 	read -s -r -n1
 	stty sane
-	mv /home/IBM_704/aurkezpen_ontzia/ /home/IBM_704/ate_irekia
-	mv /home/IBM_704/helburua /home/IBM_704/helburu_lortua
+	mv /home/IBM_704/submission_box/ /home/IBM_704/open_door
+	mv /home/IBM_704/objective /home/IBM_704/achieved_objective
 	cd
 	tput clear
 	tput cnorm

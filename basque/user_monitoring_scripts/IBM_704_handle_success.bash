@@ -14,17 +14,17 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	animate_dots &
 	DOTS_PID=$!
 
-	timeout 0.5 /home/IBM_704/aurkezpen_ontzia/erantzuna "echo kaixo Ludi" "cat <<< \"agur Ludi\"" \
+	timeout 0.5 /home/IBM_704/aurkezpen_ontzia/erantzuna "echo Kaixo, Ludi" "cat <<< \"Agur, Ludi\"" \
 		&> /user_shell_files/output
 	FILE_CONTENT=$(cat /user_shell_files/output)
-	EXPECTED_CONTENT=$(echo "kaixo Ludi" ; cat <<< "agur Ludi")
+	EXPECTED_CONTENT=$(echo "Kaixo, Ludi" ; cat <<< "Agur, Ludi")
 	sleep 3
 	kill $DOTS_PID
 
 	if [[ "$FILE_CONTENT" != "$EXPECTED_CONTENT" ]]; then
 		move_to_suffix /home/IBM_704/aurkezpen_ontzia/erantzuna _ezegokia
 		printf "%s%s\n" "/home/IBM_704/aurkezpen_ontzia/erantzuna " \
-			"\"echo kaixo Ludi\" \"cat <<< \\\"agur Ludi\\\"\"" \
+			"\"echo Kaixo, Ludi\" \"cat <<< \\\"Agur, Ludi\\\"\"" \
 			> /home/IBM_704/aurkezpen_ontzia/emandako
 		move_to_suffix /home/IBM_704/aurkezpen_ontzia/emandako _inputa
 		cat <<< "$EXPECTED_CONTENT" > /home/IBM_704/aurkezpen_ontzia/esperozen
