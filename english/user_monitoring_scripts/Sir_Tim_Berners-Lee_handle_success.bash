@@ -20,13 +20,13 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 		"I knew then what I wished to be," \
 		"since never has doubt taken hold of me." \
 		"erabiltzailea: IBM_704" \
-		"pasahitza: GM-NAA_I/O" > /home/Sir_Tim_Berners-Lee/sarraila/haria
-	cat /home/Sir_Tim_Berners-Lee/sarraila/haria
+		"pasahitza: GM-NAA_I/O" > /home/Sir_Tim_Berners-Lee/lock/thread
+	cat /home/Sir_Tim_Berners-Lee/lock/thread
 	stty -igncr
 	read -s -r -n1
 	stty sane
-	mv /home/Sir_Tim_Berners-Lee/sarraila /home/Sir_Tim_Berners-Lee/ate_irekia
-	mv /home/Sir_Tim_Berners-Lee/helburua /home/Sir_Tim_Berners-Lee/helburu_lortua
+	mv /home/Sir_Tim_Berners-Lee/lock /home/Sir_Tim_Berners-Lee/open_door
+	mv /home/Sir_Tim_Berners-Lee/objective /home/Sir_Tim_Berners-Lee/achieved_objective
 	cd
 	tput clear
 	tput cnorm
