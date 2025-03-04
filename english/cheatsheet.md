@@ -76,15 +76,15 @@ mv mezu_enkriptatua.bin sekretu_kutxa/
 The following may take a little time
 
 ```bash
-mkdir sarraila
-wget http://atenaseko-portua.net/trinkotua.tar
-DIRNAME=$(tar tf trinkotua.tar | head -1)
-tar fx trinkotua.tar
-cd direktorio_destrinkotua/
+mkdir lock
+wget http://port-of-athens.net/compressed.tar
+DIRNAME=$(tar tf compressed.tar | head -1)
+tar fx compressed.tar
+cd uncompressed_directory/
 TARFILE_FILENAME=$(ls | xargs file -F ' ' | grep "POSIX tar archive" | tr ' ' '\n' | head -1)
 KEYFILE_FILENAME=$(tar tf $TARFILE_FILENAME)
 tar xf $TARFILE_FILENAME
-mv $KEYFILE_FILENAME ../sarraila
+mv $KEYFILE_FILENAME ../lock
 ```
 
 #### 10º Challenge
