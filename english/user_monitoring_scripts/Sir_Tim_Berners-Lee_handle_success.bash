@@ -6,19 +6,20 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	stty igncr -isig -icanon -ixoff -echo
 	tput civis
 	tput clear
-	printf "%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n\n\n$COLOR_GREEN%s\n%s$COLOR_RESET\n" \
+	printf "%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n\n\n$COLOR_GREEN%s\n%s$COLOR_RESET\n" \
 		"In silence, I cast my gaze behind," \
-		"And there it stands—the golden lion’s hide." \
+		"And there it stands;" \
+		"the golden, lion’s hide." \
 		"" \
-		"My courage—" \
-		"if that is what I may call" \
+		"Oh my courage!" \
+		"If that is what I may call," \
 		"the folly that led me to it all." \
 		"" \
-		"Yet each time memory pulls me back," \
-		"I see that steadfast man who laughed…" \
-		"How bright he shined—" \
+		"Yet each time that memory takes me back," \
+		"I see that steadfast man who laughed..." \
+		"How bright he shined..." \
 		"I knew then what I wished to be," \
-		"since never has doubt taken hold of me." \
+		"since never has doubt ever taken hold of me." \
 		"erabiltzailea: IBM_704" \
 		"pasahitza: GM-NAA_I/O" > /home/Sir_Tim_Berners-Lee/lock/thread
 	cat /home/Sir_Tim_Berners-Lee/lock/thread
