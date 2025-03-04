@@ -90,14 +90,14 @@ mv $KEYFILE_FILENAME ../lock
 #### 10º Challenge
 
 ```bash
-mkdir aurkezpen_ontzia
-cat > erantzuna << END
+mkdir submission_box
+cat > solution << END
 #!/bin/bash
 eval "\$1"
 eval "\$2"
 END
-chmod +x erantzuna
-mv erantzuna aurkezpen_ontzia
+chmod +x solution
+mv solution submission_box
 ```
 
 #### 11º Challenge
