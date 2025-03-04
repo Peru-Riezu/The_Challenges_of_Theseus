@@ -1,6 +1,6 @@
 tar -xzf /home/the/trash.tar.gz -C /home/the/
 rm -f /home/the/trash.tar.gz
-chown -R the /home/the/zaborra
+chown -R the /home/the/trash
 
 tar -xf /home/git/repo.tar -C /home/git/
 rm -f /home/git/repo.tar
