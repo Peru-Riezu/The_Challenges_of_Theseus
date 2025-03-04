@@ -1,0 +1,24 @@
+
+services:
+  theseus-shell:
+    container_name: theseus-shell
+    image: theseus-shell
+    build:
+      context: ..
+      dockerfile: Dockerfile
+      args:
+      - LANG=$THESEUSLANG
+    networks:
+      - theseus-network
+  theseus-nginx:
+    container_name: theseus-nginx
+    image: nginx 
+    networks:
+      - theseus-network
+    volumes:
+      - ../nginx_files/nginx.conf:/etc/nginx/nginx.conf
+networks:
+  theseus-network:
+    name: theseus-network
+    driver: bridge
+

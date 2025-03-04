@@ -1,5 +1,5 @@
 SHELL = /bin/bash
-.PHONY: basque english
+.PHONY: basque english play
 
 default:
 	@echo no language specified, cannot proceed
@@ -68,3 +68,21 @@ clean:
 	-test -n "$$(docker volume ls -q)" && docker volume rm $$(docker volume ls -q)
 	docker network prune -f
 	docker system prune -af
+
+play:
+	@docker compose -f ./play/docker-compose.yml build
+	@docker compose -f ./play/docker-compose.yml up -d
+	@source ./play/.env; case $${THESEUSLANG} in \
+		basque) \
+			SHELL_USER=labirintoaren_erdigunea \
+		;; \
+		english) \
+			SHELL_USER=center_of_the_labyrinth \
+		;; \
+		*) \
+			SHELL_USER=labirintoaren_erdigunea \
+		;; \
+	esac; \
+	clear; docker run -it --user $$SHELL_USER theseus-shell bash || touch .;
+	@docker compose -f ./play/docker-compose.yml down
+
