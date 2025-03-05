@@ -1,4 +1,4 @@
-## Cheat sheet for the basque version
+## Cheat sheet for the Basque version
 
 #### 1º Challenge
 
