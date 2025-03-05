@@ -7,18 +7,18 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	stty igncr -isig -icanon -ixoff -echo
 	tput civis
 	tput clear
-	printf "%s\n%s\n%s\n%s\n\n$COLOR_GREEN%s\n%s$COLOR_RESET\n" \
+	printf "%s\n%s\n%s\n\n$COLOR_GREEN%s\n%s$COLOR_RESET\n" \
 		"How straight and easy is the dive to the infernal low," \
 		"If going back upward were as effortless," \
 		"This thread would not be such a giver of hope." \
 		"user: Antikythera_mechanism" \
-		"password: Machaneus" > /home/Harrison_s_Chronometer/sarraila/haria
-	cat /home/Harrison_s_Chronometer/sarraila/haria
+		"password: Machaneus" > /home/Harrison_s_Chronometer/lock/thread
+	cat /home/Harrison_s_Chronometer/lock/thread
 	stty -igncr
 	read -s -r -n1
 	stty sane
-	mv /home/Harrison_s_Chronometer/sarraila /home/Harrison_s_Chronometer/ate_irekia
-	mv /home/Harrison_s_Chronometer/helburua /home/Harrison_s_Chronometer/helburu_lortua
+	mv /home/Harrison_s_Chronometer/lock /home/Harrison_s_Chronometer/open_door
+	mv /home/Harrison_s_Chronometer/objective /home/Harrison_s_Chronometer/objective
 	cd
 	tput clear
 	tput cnorm
