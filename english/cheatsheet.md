@@ -127,23 +127,23 @@ touch lock/~\$\^\(\|\\\ \ gala\ \ \"\'\<\>
 #### 13º Challenge
 
 ```bash
-mkdir aurkezpen_ontzia
-cat > erantzuna << END
+mkdir submission_box
+cat > solution << END
 #!/bin/bash
 for file in "\$@"
 do
 	touch -t 197001010000 "\$file" 2>/dev/null
 done
 END
-chmod +x erantzuna
-mv erantzuna aurkezpen_ontzia
+chmod +x solution
+mv solution submission_box
 ```
 
 #### 14º Challenge
 
 ```bash
-mkdir sarraila 
-groups Fedra | tr ' ' '\n' | tail -n +3 | sort | tr '\n' ' ' | sed 's/ $//' | xargs echo > sarraila/giltza
+mkdir lock 
+groups Phaedra | tr ' ' '\n' | tail -n +3 | sort | tr '\n' ' ' | sed 's/ $//' | xargs echo > lock/key
 ```
 
 #### 15º Challenge
