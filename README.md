@@ -1,18 +1,18 @@
 # The Challenges of Theseus
 
-A series of riddles that need be solved through terminal commands, designed to help people familiarize themselves with the command-line interface of GNU/Linux.
+A series of riddles that need be solved through terminal commands, designed to help people familiarize themselves with the command-line interface of GNU/Linux. The text of the riddles can be set to be in Basque or English.
 
 ## Installation
 
-The Challenges of Theseus are designed to be easily installed on any Debian-based GNU/Linux system. The system requires **17GB** of free storage and is optimized to run securely within the AWS Free Tier.
+The Challenges of Theseus is designed to be easily installed on any Debian-based GNU/Linux system. The system requires **17GB** of free storage and is optimized to run securely within the AWS Free Tier.
 
-To install, clone the repository, run `make set_up` (which, among other things, installs all required packages via apt), and then run `make`. You must execute these commands as root or as a sudoer, and you may be prompted for your password. After installation, you can ssh into the first challenge.
+To install, clone the repository, run `make set_up` (which, among other things, installs all required packages via apt), and then run either `make english` or `make basque`. You must execute these commands as root or as a sudoer, and you may be prompted for your password. After installation, you can ssh into the first challenge.
 
     sudo apt install -y make git
     git clone https://github.com/Peru-Riezu/The_Challenges_of_Theseus.git
     cd The_Challenges_of_Theseus
     make set_up
-    make
+    make basque # or make english
 
 The Challenges of Theseus will automatically reconfigure the SSHD and Nginx services, so make a copy of the previous configuration of these services if you want to preserve them.
 
