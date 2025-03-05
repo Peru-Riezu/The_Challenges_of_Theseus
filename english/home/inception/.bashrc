@@ -57,9 +57,9 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@ezur bat marra batzuekin\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@a bone with some markings\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 else
-    PS1='${debian_chroot:+($debian_chroot)}\u@ezur bat marra batzuekin:\w\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\u@a bone with some markings:\w\$ '
 fi
 unset color_prompt force_color_prompt
 
@@ -113,4 +113,4 @@ if ! shopt -oq posix; then
 fi
 
 cd
-cat helburua
+cat objective

@@ -1,9 +1,9 @@
 source /root/common_functions/monitors_lock.bash
 
 PARENT_DIR="/home/inception"
-TARGET_DIR="sarraila"
-KEY_FILE="giltza"
-EXPECTED_CONTENT=$(echo "($(ls $PARENT_DIR/ezurra/ | tr -d '\n' | wc -c) + $(ls $PARENT_DIR/ezurra/ | wc -l)) /  2009" \
+TARGET_DIR="lock"
+KEY_FILE="key"
+EXPECTED_CONTENT=$(echo "($(ls $PARENT_DIR/bone/ | tr -d '\n' | wc -c) + $(ls $PARENT_DIR/bone/ | wc -l)) /  2009" \
 	| bc )
 
 trap '' SIGINT

@@ -5,6 +5,7 @@
 	oso hurbilenera biribildua, izango da (gehiketa, zatiketa baino lehen egin).[0m
 
 Komando interesgarriak:
+	bc
 	expr
 	find
 	tail
@@ -14,3 +15,4 @@ Komando interesgarriak:
 
 Esteka interesgarriak:
 	https://www.gnu.org/software/bash/manual/bash.html#Command-Substitution
+	https://en.wikipedia.org/wiki/Bc_(programming_language)

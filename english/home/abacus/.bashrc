@@ -57,9 +57,9 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@Gailu garatu gabe hau eragiketa konplexuetarako erabiltzea zaila frogatu zen\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@his primitive device proved difficult to use for more complex calculations\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 else
-    PS1='${debian_chroot:+($debian_chroot)}\u@Gailu garatu gabe hau eragiketa konplexuetarako erabiltzea zaila frogatu zen:\w\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\u@his primitive device proved difficult to use for more complex calculations:\w\$ '
 fi
 unset color_prompt force_color_prompt
 

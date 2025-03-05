@@ -2,28 +2,27 @@
 
 print_success_prose()
 {
-	printf "Teseo; ene heroia, ene maitea.\n"
+	printf "Theseus, my hero, my love.\n"
 	printf "\n"
-	printf "Lortu duzu! Dedaloren labirintoa atzean utzi duzu, piztia makurra hilda dago,\n"
-	printf "eta haur guztiak salbu daude. Igaro duzu bizitza galdu gabe, besteek,\n"
-	printf "igarotzean, dena galdu zuten bidea, negar eta oihuz beteta zegoena. Orain,\n"
-	printf "bakea eta zure ospea bakarrik dira geratzen.\n"
+	printf "You have done it! You have left behind Daedalus' labyrinth; the vile beast is\n"
+	printf "dead, and all the children are safe.  You have walked without losing your life,\n"
+	printf "a path where others lost everything, in a place once filled with cries and\n"
+	printf "sorrow. Only peace and your legend remain.\n"
 	printf "\n"
-	printf "Eta orain, aurrez aurre gaude. Ni, haria eta ezpata eman dizuna, zure alde\n"
-	printf "otoitz egiten egon naiz, zuk ikusi ez arren.\n"
+	printf "And now, we stand face to face.  I, the one who gave you the thread and the\n"
+	printf "sword, have been praying for you all this time, even though you did not see me.\n"
 	printf "\n"
-	printf "Baina, ene Teseo, zein ankerra zaren!\n"
-	printf "Eman dizudan guztiaren ondoren,\n"
-	printf "lotxarik gabe nire bihotza lapurtzen.\n"
+	printf "But, oh, dear Theseus, how cruel you are!\n"
+	printf "After all I have given you,\n"
+	printf "without shame, you steal my heart.\n"
 	printf "\n"
-	printf "Oh, Teseo, guztiz naiz zurea.\n"
+	printf "Oh, Theseus! I am completely yours.\n"
 	printf "\n"
-	printf "Baina ezin dugu hemen ospatu. Kreta ez da jada leku segurua, ez niretzat,\n"
-	printf "ez nire arrebentzat. Minosen haserrea eguzkiarekin batera esnatuko da,\n"
-	printf "eta ordurako, gu joanak izan behar gara.\n"
+	printf "But we cannot celebrate here. Crete is no longer safe, neither for me nor for\n"
+	printf "my sister. Minos' wrath will awaken with the sun, and by then, we must be gone.\n"
 	printf "\n"
-	printf "Eraman nazazu, Teseo. Eraman nire arreba ere. Eraman gaitzazu\n"
-	printf "itsasoaren bestaldera, gure aitaren itzaletatik urrun.\n"
+	printf "Take me, Theseus. Take my sister too. Take us across the sea, far, far away,\n"
+	printf "until our father's shadow has faded away.\n"
 }
 
 print_message()
@@ -34,10 +33,10 @@ print_message()
 	    prefix+=' '
 	done
 	printf "\n\n\n\n\n\n%s%s\n%s%s\n%s%s\n%s%s\n" \
-		"$prefix" "lortu duzu!!" \
-		"$prefix" "labirinto gela guztiak gainditu dituzu, horain gnu/linux-en oinarrizko" \
-		"$prefix" "komandoak ezagutzen dituzu, prest zaude mundura ateratzeko, eta heroi ospetxu" \
-		"$prefix" "bat bilakatzeko!!"
+		"$prefix" "You did it!!" \
+		"$prefix" "You have overcome all the chambers of the labyrinth; now you have the gist of"
+		"$prefix" "the GNU/Linux CLI, and you are ready to face the world and turn yourself into a"
+		"$prefix" "famous hero."
 }
 
 print_banner()
@@ -47,7 +46,7 @@ print_banner()
 	for ((i=1; i<=indent; i++)) ; do
 	    prefix+=' '
 	done
-	prefix+="GARAIPENA!!"
+	prefix+="VICTORY!!"
 	clear ; figlet -t -f mono9 "$prefix"
 }
 

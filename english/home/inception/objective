@@ -1,0 +1,18 @@
+[32mObjective:
+	Create the file '~/lock/key'. The contents of this file must be, the number
+	of files in the 'bone' directory, plus the number of characters across all
+	filenames in that directory, divided by 2,009 and rounded to the nearest
+	whole number.[0m
+
+Komando interesgarriak:
+	bc
+	expr
+	find
+	tail
+	wc
+	sed
+	tr
+
+Esteka interesgarriak:
+	https://www.gnu.org/software/bash/manual/bash.html#Command-Substitution
+	https://en.wikipedia.org/wiki/Bc_(programming_language)

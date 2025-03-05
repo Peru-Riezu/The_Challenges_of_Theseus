@@ -16,7 +16,7 @@ print_success_prose()
 	printf "Eman dizudan guztiaren ondoren,\n"
 	printf "lotxarik gabe nire bihotza lapurtzen.\n"
 	printf "\n"
-	printf "Oh, Teseo, guztiz naiz zurea.\n"
+	printf "Oh, Teseo! guztiz naiz zurea.\n"
 	printf "\n"
 	printf "Baina ezin dugu hemen ospatu. Kreta ez da jada leku segurua, ez niretzat,\n"
 	printf "ez nire arrebentzat. Minosen haserrea eguzkiarekin batera esnatuko da,\n"
@@ -34,8 +34,8 @@ print_message()
 	    prefix+=' '
 	done
 	printf "\n\n\n\n\n\n%s%s\n%s%s\n%s%s\n%s%s\n" \
-		"$prefix" "lortu duzu!!" \
-		"$prefix" "labirinto gela guztiak gainditu dituzu, horain gnu/linux-en oinarrizko" \
+		"$prefix" "Lortu duzu!!" \
+		"$prefix" "Labirinto gela guztiak gainditu dituzu, horain gnu/linux-en oinarrizko" \
 		"$prefix" "komandoak ezagutzen dituzu, prest zaude mundura ateratzeko, eta heroi ospetxu" \
 		"$prefix" "bat bilakatzeko!!"
 }
