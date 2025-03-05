@@ -28,8 +28,13 @@ you must then use the serial console to access the instance.
 
 ## Usage
 
-To ssh into the first challenge you can use the following command:
+To ssh into the first challenge of the **Basque version**, you can use the following command:
 
     sshpass -p piraten_bizitza_hoberena_da ssh labirintoaren_erdigunea@your-host
+
+And to ssh into the first challenge of the **English version**, you can use the following command:
+
+    sshpass -p a_pirate_s_life_is_best ssh center_of_the_labyrinth@your-host
+
 
 Replace `your-host` with the actual hostname or IP address (e.g., `localhost`, `192.168.122.157`).
