@@ -222,7 +222,7 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	tput clear
 	printf "%s\n%s\n\n$COLOR_GREEN%s\n%s$COLOR_RESET\n" \
 		"An open wineskin, a prophecy seen clear,"\
-		"To know and understand makes life's true power appear."\
+		"To know and understand; makes life's true power, appear."\
 		"user: Harrison_s_Chronometer" \
 		"password: a_second_to_midnight" > /home/Tide-predicting_machine/submission_box/thread
 	cat /home/Tide-predicting_machine/submission_box/thread

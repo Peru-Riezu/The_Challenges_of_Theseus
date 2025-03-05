@@ -7,15 +7,12 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	stty igncr -isig -icanon -ixoff -echo
 	tput civis
 	tput clear
-	printf "%s\n%s\n%s\n%s\n%s\n%s\n\n\n$COLOR_GREEN%s\n%s$COLOR_RESET\n" \
-		"Zein zuzen eta erraz" \
-		"infernura jaistea." \
-		"" \
-		"Baina igotzea berriz," \
-		"horren erraza balitz," \
-		"hari hau ez nukeen beharko." \
-		"erabiltzailea: Antikythera_mechanism" \
-		"pasahitza: Machaneus" > /home/Harrison_s_Chronometer/sarraila/haria
+	printf "%s\n%s\n%s\n%s\n\n$COLOR_GREEN%s\n%s$COLOR_RESET\n" \
+		"How straight and easy is the dive to the infernal low," \
+		"If going back upward were as effortless," \
+		"This thread would not be such a giver of hope." \
+		"user: Antikythera_mechanism" \
+		"password: Machaneus" > /home/Harrison_s_Chronometer/sarraila/haria
 	cat /home/Harrison_s_Chronometer/sarraila/haria
 	stty -igncr
 	read -s -r -n1

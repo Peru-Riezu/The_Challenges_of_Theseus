@@ -1,7 +1,7 @@
 source /root/common_functions/monitors_lock.bash
 
 PARENT_DIR="/home/Harrison_s_Chronometer"
-TARGET_DIR="sarraila"
+TARGET_DIR="lock"
 KEY_FILE="~$^(|\  gala  \"'<>"
 
 trap '' SIGINT

@@ -1,0 +1,8 @@
+[32mObjective:
+	Create a file named [35m~$^(|\  gala  "'<>[32m in the '~/lock'
+	directory. Where the 'find . -name "*gala*"' command outputs:[35m
+./~$^(|\  gala  "'<>[32m
+.[0m
+
+Interesting Links:
+	https://www.gnu.org/software/bash/manual/bash.html#Escape-Character
