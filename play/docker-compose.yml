@@ -17,6 +17,7 @@ services:
       - theseus-network
     volumes:
       - ../nginx_files/nginx.conf:/etc/nginx/nginx.conf
+      - ../nginx_files/www-data/:/www-data
 networks:
   theseus-network:
     name: theseus-network
