@@ -1,4 +1,4 @@
-## Cheat sheet for the basque version
+## Cheat sheet for the english version
 
 #### 1º Challenge
 
@@ -103,7 +103,7 @@ mv solution submission_box
 #### 11º Challenge
 
 ```bash
-mkdir aurkezpen_ontzia
+mkdir submission_box
 cat > 2_1337_f0r_y0u << END
 #!/bin/bash
 if [ \$# -ne 1 ]
@@ -114,7 +114,7 @@ fi
 figlet -- "\$1" | cowsay -n
 END
 chmod +x 2_1337_f0r_y0u
-mv 2_1337_f0r_y0u aurkezpen_ontzia
+mv 2_1337_f0r_y0u submission_box
 ```
 
 #### 12º Challenge
