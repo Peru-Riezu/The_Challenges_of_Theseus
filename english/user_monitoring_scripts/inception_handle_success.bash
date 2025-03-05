@@ -36,7 +36,7 @@ print_message()
 		"$prefix" "You did it!!" \
 		"$prefix" "You have overcome all the chambers of the labyrinth; now you have the gist of" \
 		"$prefix" "the GNU/Linux CLI, and you are ready to face the world and turn yourself into a" \
-		"$prefix" "famous hero." \
+		"$prefix" "famous hero."
 }
 
 print_banner()
