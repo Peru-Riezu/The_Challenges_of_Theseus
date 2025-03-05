@@ -12,6 +12,6 @@ tar -xzf /home/analytical_engine/roots.tar.gz -C /home/analytical_engine/
 rm -f /home/analytical_engine/roots.tar.gz
 chown -R analytical_engine /home/analytical_engine/roots/
 
-tar -xzf /home/inception/bone.tar -C /home/inception/
-rm -f /home/inception/bone.tar
+tar -xzf /home/inception/bone.tar.gz -C /home/inception/
+rm -f /home/inception/bone.tar.gz
 chown -R inception /home/inception/bone/
