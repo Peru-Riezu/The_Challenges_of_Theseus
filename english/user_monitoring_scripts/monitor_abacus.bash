@@ -1,8 +1,8 @@
 source /root/common_functions/monitors_lock.bash
 
 PARENT_DIR="/home/abacus"
-TARGET_DIR="sarraila"
-KEY_FILE="giltza"
+TARGET_DIR="lock"
+KEY_FILE="key"
 EXPECTED_CONTENT=$(groups Phaedra | tr ' ' '\n' | tail -n +3 | sort | tr '\n' ' ' | xargs echo)
 
 trap '' SIGINT

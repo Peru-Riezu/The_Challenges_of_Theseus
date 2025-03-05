@@ -11,7 +11,7 @@
 Interesting Commands:
 	man touch
 	set +e
-	echo ""Batzuetan horma batekin hitz egiten nagoela iruditzen zait" > /dev/null
+	echo "Sometimes I feel like I'm talking to a wall" > /dev/null
 	ls -l
 	stat
 

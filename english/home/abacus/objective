@@ -1,0 +1,15 @@
+[32mObjective:
+	Create the file '~/lock/key', so that its contents consist of the names of
+	all groups to which, the user 'Phaedra' belongs. These group names must be
+	arranged in alphabetical order, separated by a single space, with a newline
+	character after the last group name.[0m
+
+Interesting Commands:
+	groups
+	tr
+	tail
+	sort
+	xargs
+
+Interesting Links:
+	https://en.wikipedia.org/wiki/Linux_user_group

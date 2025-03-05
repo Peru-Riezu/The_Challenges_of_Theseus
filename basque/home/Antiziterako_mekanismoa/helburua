@@ -12,7 +12,7 @@
 Komando interesgarriak:
 	man touch
 	set +e
-	echo ""Batzuetan horma batekin hitz egiten nagoela iruditzen zait" > /dev/null
+	echo "Batzuetan horma batekin hitz egiten nagoela iruditzen zait" > /dev/null
 	ls -l
 	stat
 

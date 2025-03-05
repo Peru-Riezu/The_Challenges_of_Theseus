@@ -139,9 +139,9 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	tput clear
 	printf "%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n\n\n$COLOR_GREEN%s\n%s$COLOR_RESET\n" \
 		"Iris brought me, amid dream’s embrace, great joy," \
-		"For no sweeter news could she have conveyed." \
+		"No sweeter news could she have conveyed." \
 		"" \
-		"Our children still press ever forth," \
+		"Our children still press forth," \
 		"Sheltered behind our hero’s blade." \
 		"" \
 		"Oh, gods above, to you my endless praise!" \
