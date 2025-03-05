@@ -1,4 +1,4 @@
-## Cheat sheet for the english version
+## Cheat sheet for the English version
 
 #### 1º Challenge
 
