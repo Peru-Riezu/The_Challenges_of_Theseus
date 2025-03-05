@@ -120,8 +120,8 @@ mv 2_1337_f0r_y0u submission_box
 #### 12º Challenge
 
 ```bash
-mkdir sarraila
-touch sarraila/~\$\^\(\|\\\ \ gala\ \ \"\'\<\>
+mkdir lock
+touch lock/~\$\^\(\|\\\ \ gala\ \ \"\'\<\>
 ```
 
 #### 13º Challenge
