@@ -79,9 +79,9 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 
 	kill -9 "$PID" &> /dev/null
 
-	print_success_prose >> /home/inception/sarraila/Ariadna
-	mv /home/inception/sarraila /home/inception/ate_irekia
-	mv /home/inception/helburua /home/inception/helburu_lortua
+	print_success_prose > /home/inception/lock/Ariadna
+	mv /home/inception/lock /home/inception/open_door
+	mv /home/inception/objective /home/inception/achieved_objective
 	cd
 	tput clear
 	tput clear
