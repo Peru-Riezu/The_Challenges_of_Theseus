@@ -38,6 +38,12 @@ Replace `your-host` with the actual hostname or IP address (e.g., `localhost`, `
 
 To play The Challenges of Theseus on your local machine without setting up the entire server, simply run `make play`, and the game will start.
 
+To select the language edit the `THESEUSLANG` env variable under `./local/.env`.
+Supported languages:
+
+- basque
+- english
+
 If you exit the The Challenges of Theseus's shell all progress wil be lost, so be mindful of that.
 
 The dependencies of the local enviroment are Docker version 26 or higher. You can find the installation documentation in here: `https://docs.docker.com/engine/install/`
