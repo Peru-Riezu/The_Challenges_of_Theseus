@@ -1,7 +1,6 @@
-[32mHelburua:
-	Sortu '~/aurkezpe_ontzia/2_1337_f0r_y0u' fitxategia, non
-	'~/aurkezpe_ontzia/2_1337_f0r_y0u "Hello World"'
-	komandoak,[35m
+[32mObjective:
+	Create the file ~/submission_box/2_1337_f0r_y0u, such that executing
+	'~/submission_box/2_1337_f0r_y0u "Hello World"', outputs:[35m
  _________________________________________________________
 /  _   _      _ _         __        __         _     _ _  \
 | | | | | ___| | | ___    \ \      / /__  _ __| | __| | | |
@@ -16,16 +15,16 @@
                 ||----w |
                 ||     ||
 
-[32m	irtenarazten duela, eta '~/aurkezpen_ontzia/2_1337_f0r_y0u "Hello World" "extra argument"'[35m
-Error, 2_1337_f0r_y0u must be run with exactly one argument
-[32m	irtenarazten duela.[0m
+[32m	and executing
+	'~/aurkezpen_ontzia/2_1337_f0r_y0u "Hello World" "extra argument"' outputs:[35m
+Error, 2_1337_f0r_y0u must be run with exactly one argument[0m
 
-Komando interesgarriak:
+Interesting Commands:
 	man cowsay
 	man figlet
 	man test
 
-Esteka interesgarriak:
+Interesting Links:
 	https://www.gnu.org/software/bash/manual/html_node/Pipelines.html
 	https://www.gnu.org/software/bash/manual/bash.html#Conditional-Constructs
 	https://crowdbotics.com/posts/blog/how-to-translate-unclear-client-demands-into-specific-product-requirements/

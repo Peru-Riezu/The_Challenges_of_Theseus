@@ -1,7 +1,7 @@
 source /root/common_functions/monitors_lock.bash
 
 PARENT_DIR="/home/Tide-predicting_machine"
-TARGET_DIR="aurkezpen_ontzia"
+TARGET_DIR="submission_box"
 KEY_FILE="2_1337_f0r_y0u"
 
 trap '' SIGINT

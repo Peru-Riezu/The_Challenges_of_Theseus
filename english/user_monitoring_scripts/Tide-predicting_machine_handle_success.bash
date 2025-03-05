@@ -20,12 +20,12 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 
 ############################################### test 1º ##################################################################
 	printf "$COLOR_GREEN%s$COLOR_RESET\n" \
-		"frogatzen (1/5)"
+		"testing (1/5)"
 
 	animate_dots &
 	DOTS_PID=$!
 
-	timeout 0.5 /home/Tide-predicting_machine/aurkezpen_ontzia/2_1337_f0r_y0u "_________hello_________" \
+	timeout 0.5 /home/Tide-predicting_machine/submission_box/2_1337_f0r_y0u "_________hello_________" \
 		&> /user_shell_files/output
 	FILE_CONTENT=$(cat /user_shell_files/output)
 	EXPECTED_CONTENT=$(proper_solution "_________hello_________")
@@ -33,19 +33,20 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	kill $DOTS_PID
 
 	if [[ "$FILE_CONTENT" != "$EXPECTED_CONTENT" ]]; then
-		move_to_suffix /home/Tide-predicting_machine/aurkezpen_ontzia/2_1337_f0r_y0u _ezegokia
-		printf "%s%s\n" "/home/Tide-predicting_machine/aurkezpen_ontzia/2_1337_f0r_y0u " \
+		mv /home/IBM_704/submission_box/solution /home/Tide-predicting_machine/submission_box/incorrect
+		move_to_suffix /home/Tide-predicting_machine/submission_box/incorrect _solution
+		printf "%s%s\n" "/home/Tide-predicting_machine/submission_box/2_1337_f0r_y0u " \
 			"\"_________hello_________\"" \
-			> /home/Tide-predicting_machine/aurkezpen_ontzia/emandako
-		move_to_suffix /home/Tide-predicting_machine/aurkezpen_ontzia/emandako _inputa
-		cat <<< "$EXPECTED_CONTENT" > /home/Tide-predicting_machine/aurkezpen_ontzia/esperozen
-		move_to_suffix /home/Tide-predicting_machine/aurkezpen_ontzia/esperozen _outputa
-		mv /user_shell_files/output /home/Tide-predicting_machine/aurkezpen_ontzia/lortutako
-		move_to_suffix /home/Tide-predicting_machine/aurkezpen_ontzia/lortutako _outputa
+			> /home/Tide-predicting_machine/submission_box/given
+		move_to_suffix /home/Tide-predicting_machine/submission_box/given _input
+		cat <<< "$EXPECTED_CONTENT" > /home/Tide-predicting_machine/submission_box/expected
+		move_to_suffix /home/Tide-predicting_machine/submission_box/expected _output
+		mv /user_shell_files/output /home/Tide-predicting_machine/submission_box/gotten
+		move_to_suffix /home/Tide-predicting_machine/submission_box/gotten _output
 		tput clear
 		tput clear
 		printf "$COLOR_RED%s$COLOR_RESET\n" \
-			"froga (1/5): erantzun ezegokia."
+			"test (1/5): incorrect solution."
 		stty -igncr
 		read -s -r -n1
 		stty sane
@@ -59,12 +60,12 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	tput clear
 	tput clear
 	printf "$COLOR_GREEN%s$COLOR_RESET\n" \
-		"frogatzen (2/5)"
+		"testing (2/5)"
 
 	animate_dots &
 	DOTS_PID=$!
 
-	timeout 0.5 /home/Tide-predicting_machine/aurkezpen_ontzia/2_1337_f0r_y0u "_________hello_________" "extra" \
+	timeout 0.5 /home/Tide-predicting_machine/submission_box/2_1337_f0r_y0u "_________hello_________" "extra" \
 		&> /user_shell_files/output
 	FILE_CONTENT=$(cat /user_shell_files/output)
 	EXPECTED_CONTENT=$(proper_solution "_________hello_________" "extra")
@@ -72,19 +73,20 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	kill $DOTS_PID
 
 	if [[ "$FILE_CONTENT" != "$EXPECTED_CONTENT" ]]; then
-		move_to_suffix /home/Tide-predicting_machine/aurkezpen_ontzia/2_1337_f0r_y0u _ezegokia
-		printf "%s%s\n" "/home/Tide-predicting_machine/aurkezpen_ontzia/2_1337_f0r_y0u " \
+		mv /home/IBM_704/submission_box/solution /home/Tide-predicting_machine/submission_box/incorrect
+		move_to_suffix /home/Tide-predicting_machine/submission_box/incorrect _solution
+		printf "%s%s\n" "/home/Tide-predicting_machine/submission_box/2_1337_f0r_y0u " \
 			"\"_________hello_________\" \"extra\"" \
-			> /home/Tide-predicting_machine/aurkezpen_ontzia/emandako
-		move_to_suffix /home/Tide-predicting_machine/aurkezpen_ontzia/emandako _inputa
-		cat <<< "$EXPECTED_CONTENT" > /home/Tide-predicting_machine/aurkezpen_ontzia/esperozen
-		move_to_suffix /home/Tide-predicting_machine/aurkezpen_ontzia/esperozen _outputa
-		mv /user_shell_files/output /home/Tide-predicting_machine/aurkezpen_ontzia/lortutako
-		move_to_suffix /home/Tide-predicting_machine/aurkezpen_ontzia/lortutako _outputa
+			> /home/Tide-predicting_machine/submission_box/given
+		move_to_suffix /home/Tide-predicting_machine/submission_box/given _input
+		cat <<< "$EXPECTED_CONTENT" > /home/Tide-predicting_machine/submission_box/expected
+		move_to_suffix /home/Tide-predicting_machine/submission_box/expected _output
+		mv /user_shell_files/output /home/Tide-predicting_machine/submission_box/gotten
+		move_to_suffix /home/Tide-predicting_machine/submission_box/gotten _output
 		tput clear
 		tput clear
 		printf "$COLOR_RED%s$COLOR_RESET\n" \
-			"froga (2/5): erantzun ezegokia."
+			"test (2/5): incorrect solution."
 		stty -igncr
 		read -s -r -n1
 		stty sane
@@ -98,12 +100,12 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	tput clear
 	tput clear
 	printf "$COLOR_GREEN%s$COLOR_RESET\n" \
-		"frogatzen (3/5)"
+		"testing (3/5)"
 
 	animate_dots &
 	DOTS_PID=$!
 
-	timeout 0.5 /home/Tide-predicting_machine/aurkezpen_ontzia/2_1337_f0r_y0u "" "" \
+	timeout 0.5 /home/Tide-predicting_machine/submission_box/2_1337_f0r_y0u "" "" \
 		&> /user_shell_files/output
 	FILE_CONTENT=$(cat /user_shell_files/output)
 	EXPECTED_CONTENT=$(proper_solution "" "")
@@ -111,19 +113,20 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	kill $DOTS_PID
 
 	if [[ "$FILE_CONTENT" != "$EXPECTED_CONTENT" ]]; then
-		move_to_suffix /home/Tide-predicting_machine/aurkezpen_ontzia/2_1337_f0r_y0u _ezegokia
-		printf "%s%s\n" "/home/Tide-predicting_machine/aurkezpen_ontzia/2_1337_f0r_y0u " \
+		mv /home/IBM_704/submission_box/solution /home/Tide-predicting_machine/submission_box/incorrect
+		move_to_suffix /home/Tide-predicting_machine/submission_box/incorrect _solution
+		printf "%s%s\n" "/home/Tide-predicting_machine/submission_box/2_1337_f0r_y0u " \
 			"\"\" \"\"" \
-			> /home/Tide-predicting_machine/aurkezpen_ontzia/emandako
-		move_to_suffix /home/Tide-predicting_machine/aurkezpen_ontzia/emandako _inputa
-		cat <<< "$EXPECTED_CONTENT" > /home/Tide-predicting_machine/aurkezpen_ontzia/esperozen
-		move_to_suffix /home/Tide-predicting_machine/aurkezpen_ontzia/esperozen _outputa
-		mv /user_shell_files/output /home/Tide-predicting_machine/aurkezpen_ontzia/lortutako
-		move_to_suffix /home/Tide-predicting_machine/aurkezpen_ontzia/lortutako _outputa
+			> /home/Tide-predicting_machine/submission_box/given
+		move_to_suffix /home/Tide-predicting_machine/submission_box/given _input
+		cat <<< "$EXPECTED_CONTENT" > /home/Tide-predicting_machine/submission_box/expected
+		move_to_suffix /home/Tide-predicting_machine/submission_box/expected _output
+		mv /user_shell_files/output /home/Tide-predicting_machine/submission_box/gotten
+		move_to_suffix /home/Tide-predicting_machine/submission_box/gotten _output
 		tput clear
 		tput clear
 		printf "$COLOR_RED%s$COLOR_RESET\n" \
-			"froga (3/5): erantzun ezegokia."
+			"test (3/5): incorrect solution."
 		stty -igncr
 		read -s -r -n1
 		stty sane
@@ -137,12 +140,12 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	tput clear
 	tput clear
 	printf "$COLOR_GREEN%s$COLOR_RESET\n" \
-		"frogatzen (4/5)"
+		"testing (4/5)"
 
 	animate_dots &
 	DOTS_PID=$!
 
-	timeout 0.5 /home/Tide-predicting_machine/aurkezpen_ontzia/2_1337_f0r_y0u "" \
+	timeout 0.5 /home/Tide-predicting_machine/submission_box/2_1337_f0r_y0u "" \
 		&> /user_shell_files/output
 	FILE_CONTENT=$(cat /user_shell_files/output)
 	EXPECTED_CONTENT=$(proper_solution "")
@@ -150,19 +153,20 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	kill $DOTS_PID
 
 	if [[ "$FILE_CONTENT" != "$EXPECTED_CONTENT" ]]; then
-		move_to_suffix /home/Tide-predicting_machine/aurkezpen_ontzia/2_1337_f0r_y0u _ezegokia
-		printf "%s%s\n" "/home/Tide-predicting_machine/aurkezpen_ontzia/2_1337_f0r_y0u " \
+		mv /home/IBM_704/submission_box/solution /home/Tide-predicting_machine/submission_box/incorrect
+		move_to_suffix /home/Tide-predicting_machine/submission_box/incorrect _solution
+		printf "%s%s\n" "/home/Tide-predicting_machine/submission_box/2_1337_f0r_y0u " \
 			"\"\"" \
-			> /home/Tide-predicting_machine/aurkezpen_ontzia/emandako
-		move_to_suffix /home/Tide-predicting_machine/aurkezpen_ontzia/emandako _inputa
-		cat <<< "$EXPECTED_CONTENT" > /home/Tide-predicting_machine/aurkezpen_ontzia/esperozen
-		move_to_suffix /home/Tide-predicting_machine/aurkezpen_ontzia/esperozen _outputa
-		mv /user_shell_files/output /home/Tide-predicting_machine/aurkezpen_ontzia/lortutako
-		move_to_suffix /home/Tide-predicting_machine/aurkezpen_ontzia/lortutako _outputa
+			> /home/Tide-predicting_machine/submission_box/given
+		move_to_suffix /home/Tide-predicting_machine/submission_box/given _input
+		cat <<< "$EXPECTED_CONTENT" > /home/Tide-predicting_machine/submission_box/expected
+		move_to_suffix /home/Tide-predicting_machine/submission_box/expected _output
+		mv /user_shell_files/output /home/Tide-predicting_machine/submission_box/gotten
+		move_to_suffix /home/Tide-predicting_machine/submission_box/gotten _output
 		tput clear
 		tput clear
 		printf "$COLOR_RED%s$COLOR_RESET\n" \
-			"froga (4/5): erantzun ezegokia."
+			"test (4/5): incorrect solution."
 		stty -igncr
 		read -s -r -n1
 		stty sane
@@ -176,12 +180,12 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	tput clear
 	tput clear
 	printf "$COLOR_GREEN%s$COLOR_RESET\n" \
-		"frogatzen (5/5)"
+		"testing (5/5)"
 
 	animate_dots &
 	DOTS_PID=$!
 
-	timeout 0.5 /home/Tide-predicting_machine/aurkezpen_ontzia/2_1337_f0r_y0u \
+	timeout 0.5 /home/Tide-predicting_machine/submission_box/2_1337_f0r_y0u \
 		&> /user_shell_files/output
 	FILE_CONTENT=$(cat /user_shell_files/output)
 	EXPECTED_CONTENT=$(proper_solution )
@@ -189,19 +193,20 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	kill $DOTS_PID
 
 	if [[ "$FILE_CONTENT" != "$EXPECTED_CONTENT" ]]; then
-		move_to_suffix /home/Tide-predicting_machine/aurkezpen_ontzia/2_1337_f0r_y0u _ezegokia
-		printf "%s%s\n" "/home/Tide-predicting_machine/aurkezpen_ontzia/2_1337_f0r_y0u " \
+		mv /home/IBM_704/submission_box/solution /home/Tide-predicting_machine/submission_box/incorrect
+		move_to_suffix /home/Tide-predicting_machine/submission_box/incorrect _solution
+		printf "%s%s\n" "/home/Tide-predicting_machine/submission_box/2_1337_f0r_y0u " \
 			"" \
-			> /home/Tide-predicting_machine/aurkezpen_ontzia/emandako
-		move_to_suffix /home/Tide-predicting_machine/aurkezpen_ontzia/emandako _inputa
-		cat <<< "$EXPECTED_CONTENT" > /home/Tide-predicting_machine/aurkezpen_ontzia/esperozen
-		move_to_suffix /home/Tide-predicting_machine/aurkezpen_ontzia/esperozen _outputa
-		mv /user_shell_files/output /home/Tide-predicting_machine/aurkezpen_ontzia/lortutako
-		move_to_suffix /home/Tide-predicting_machine/aurkezpen_ontzia/lortutako _outputa
+			> /home/Tide-predicting_machine/submission_box/given
+		move_to_suffix /home/Tide-predicting_machine/submission_box/given _input
+		cat <<< "$EXPECTED_CONTENT" > /home/Tide-predicting_machine/submission_box/expected
+		move_to_suffix /home/Tide-predicting_machine/submission_box/expected _output
+		mv /user_shell_files/output /home/Tide-predicting_machine/submission_box/gotten
+		move_to_suffix /home/Tide-predicting_machine/submission_box/gotten _output
 		tput clear
 		tput clear
 		printf "$COLOR_RED%s$COLOR_RESET\n" \
-			"froga (5/5): erantzun ezegokia."
+			"test (5/5): incorrect solution."
 		stty -igncr
 		read -s -r -n1
 		stty sane
@@ -215,21 +220,17 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	rm /user_shell_files/output
 	tput clear
 	tput clear
-	printf "%s\n%s\n%s\n%s\n%s\n%s\n\n\n$COLOR_GREEN%s\n%s$COLOR_RESET\n" \
-		"Ardo-larru irekia," \
-		"ulertutako profezia." \
-		"" \
-		"Jakitea eta ulertzea" \
-		"da bizitza honetako" \
-		"boterearen egia." \
-		"erabiltzailea: Harrison_s_Chronometer" \
-		"pasahitza: a_second_to_midnight" > /home/Tide-predicting_machine/aurkezpen_ontzia/haria
-	cat /home/Tide-predicting_machine/aurkezpen_ontzia/haria
+	printf "%s\n%s\n\n$COLOR_GREEN%s\n%s$COLOR_RESET\n" \
+		"An open wineskin, a prophecy seen clear,"\
+		"To know and understand makes life's true power appear."\
+		"user: Harrison_s_Chronometer" \
+		"password: a_second_to_midnight" > /home/Tide-predicting_machine/submission_box/thread
+	cat /home/Tide-predicting_machine/submission_box/thread
 	stty -igncr
 	read -s -r -n1
 	stty sane
-	mv /home/Tide-predicting_machine/aurkezpen_ontzia/ /home/Tide-predicting_machine/ate_irekia
-	mv /home/Tide-predicting_machine/helburua /home/Tide-predicting_machine/helburu_lortua
+	mv /home/Tide-predicting_machine/submission_box/ /home/Tide-predicting_machine/open_door
+	mv /home/Tide-predicting_machine/objective /home/Tide-predicting_machine/achieved_objective
 	cd
 	tput clear
 	tput cnorm
