@@ -1,8 +1,8 @@
 source /root/common_functions/monitors_lock.bash
 
 PARENT_DIR="/home/Antikythera_mechanism"
-TARGET_DIR="aurkezpen_ontzia"
-KEY_FILE="erantzuna"
+TARGET_DIR="submission_box"
+KEY_FILE="solution"
 
 trap '' SIGINT
 

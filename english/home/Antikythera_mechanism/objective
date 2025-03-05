@@ -1,0 +1,23 @@
+[32mObjective:
+	Create the '~/submission_box/solution' script. The script should accept an
+	arbitrary number of arguments, treating each as a file path. If a file does
+	not exist in the system, the script must create it. The script should set
+	both the Last Access and Last Modification timestamps of each file to
+	'1970-01-01 00:00:00.000000000 +0000'. If an error occurs while creating or
+	modifying a file (e.g., due to lack of permission), the script must continue
+	processing the remaining files. The script must never output anything to
+	the standard output (stdout), or standard error (stderr).[0m
+
+Interesting Commands:
+	man touch
+	set +e
+	echo ""Batzuetan horma batekin hitz egiten nagoela iruditzen zait" > /dev/null
+	ls -l
+	stat
+
+Interesting Links:
+	https://www.gnu.org/software/bash/manual/html_node/Looping-Constructs.html
+	https://www.gnu.org/software/bash/manual/html_node/Special-Parameters.html
+	https://en.wikipedia.org/wiki/Unix_time
+	https://en.wikipedia.org/wiki/Gregorian_calendar
+	https://en.wikipedia.org/wiki/Ext4

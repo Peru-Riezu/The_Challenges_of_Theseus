@@ -36,7 +36,7 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 
 ############################################### test 1º ##################################################################
 	printf "$COLOR_GREEN%s$COLOR_RESET\n" \
-		"frogatzen (1/2)"
+		"testing (1/2)"
 
 	animate_dots &
 	DOTS_PID=$!
@@ -44,7 +44,7 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	mkdir /tmp/dir1
 	touch /tmp/dir1/file1 /tmp/dir1/file2 /tmp/dir1/file4 /tmp/dir1/file5
 
-	timeout 0.5 /home/Antikythera_mechanism/aurkezpen_ontzia/erantzuna /tmp/dir1/file1 /tmp/dir1/file2 /tmp/dir1/file3 \
+	timeout 0.5 /home/Antikythera_mechanism/submission_box/solution /tmp/dir1/file1 /tmp/dir1/file2 /tmp/dir1/file3 \
 		/error/error /tmp/dir1/file4 /error/error2 /tmp/dir1/file5 /error7/error6 &> /user_shell_files/output ; \
 		check_dates /tmp/dir1/file1 /tmp/dir1/file2  /tmp/dir1/file3 /tmp/dir1/file4 /tmp/dir1/file5 \
 		>> /user_shell_files/output
@@ -55,25 +55,24 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 
 	if [[ "$FILE_CONTENT" != "$EXPECTED_CONTENT" ]]
 	then
-		mv /home/Antikythera_mechanism/aurkezpen_ontzia/erantzuna \
-			/home/Antikythera_mechanism/aurkezpen_ontzia/erantzun
-		move_to_suffix /home/Antikythera_mechanism/aurkezpen_ontzia/erantzun _ezegokia
+		mv /home/Tide-predicting_machine/submission_box/solution /home/Tide-predicting_machine/submission_box/incorrect
+		move_to_suffix /home/Tide-predicting_machine/submission_box/incorrect _solution
 		printf "%s\n%s\n%s\n%s\n%s\n" \
-			"timeout 0.5 /home/Antikythera_mechanism/aurkezpen_ontzia/erantzuna \\" \
+			"timeout 0.5 /home/Antikythera_mechanism/submission_box/solution \\" \
 			"/tmp/dir1/file1 /tmp/dir1/file2 /tmp/dir1/file3 /error/error /tmp/dir1/file4 \\" \
 			"/error/error2 /tmp/dir1/file5 /error7/error6 &> /user_shell_files/output; \\" \
 			"check_dates /tmp/dir1/file1 /tmp/dir1/file2 /tmp/dir1/file3 /tmp/dir1/file4 \\" \
 			"/tmp/dir1/file5 >> /user_shell_files/output" \
-			> /home/Antikythera_mechanism/aurkezpen_ontzia/emandako
-		move_to_suffix /home/Antikythera_mechanism/aurkezpen_ontzia/emandako _inputa
-		cat <<< "$EXPECTED_CONTENT" > /home/Antikythera_mechanism/aurkezpen_ontzia/esperozen
-		move_to_suffix /home/Antikythera_mechanism/aurkezpen_ontzia/esperozen _outputa
-		mv /user_shell_files/output /home/Antikythera_mechanism/aurkezpen_ontzia/lortutako
-		move_to_suffix /home/Antikythera_mechanism/aurkezpen_ontzia/lortutako _outputa
+			> /home/Antikythera_mechanism/submission_box/given
+		move_to_suffix /home/Antikythera_mechanism/submission_box/given _input
+		cat <<< "$EXPECTED_CONTENT" > /home/Antikythera_mechanism/submission_box/expected
+		move_to_suffix /home/Antikythera_mechanism/submission_box/expected _output
+		mv /user_shell_files/output /home/Antikythera_mechanism/submission_box/gotten
+		move_to_suffix /home/Antikythera_mechanism/submission_box/gotten _output
 		tput clear
 		tput clear
 		printf "$COLOR_RED%s$COLOR_RESET\n" \
-			"froga (1/2): erantzun ezegokia."
+			"test (1/2): incorrect solution."
 		stty -igncr
 		read -s -r -n1
 		stty sane
@@ -89,7 +88,7 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	tput clear
 	tput clear
 	printf "$COLOR_GREEN%s$COLOR_RESET\n" \
-		"frogatzen (2/2)"
+		"testing (2/2)"
 
 	animate_dots &
 	DOTS_PID=$!
@@ -97,7 +96,7 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	mkdir -p /tmp/dir2/file1\ /dir2
 	touch /tmp/dir2/file1\ /dir2/file2
 
-	timeout 0.5 /home/Antikythera_mechanism/aurkezpen_ontzia/erantzuna "/tmp/dir2/file1 /dir2/file2" \
+	timeout 0.5 /home/Antikythera_mechanism/submission_box/solution "/tmp/dir2/file1 /dir2/file2" \
 		/tmp/dir2/real_file1 &> /user_shell_files/output ; check_dates "/tmp/dir2/file1 /dir2/file2" \
 		/tmp/dir2/real_file1 >> /user_shell_files/output
 	FILE_CONTENT=$(cat /user_shell_files/output)
@@ -107,24 +106,23 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 
 	if [[ "$FILE_CONTENT" != "$EXPECTED_CONTENT" ]]
 	then
-		mv /home/Antikythera_mechanism/aurkezpen_ontzia/erantzuna \
-			/home/Antikythera_mechanism/aurkezpen_ontzia/erantzun
-		move_to_suffix /home/Antikythera_mechanism/aurkezpen_ontzia/erantzun _ezegokia
+		mv /home/Tide-predicting_machine/submission_box/solution /home/Tide-predicting_machine/submission_box/incorrect
+		move_to_suffix /home/Tide-predicting_machine/submission_box/incorrect _solution
 		printf "%s\n%s\n%s\n%s\n" \
-			"timeout 0.5 /home/Antikythera_mechanism/aurkezpen_ontzia/erantzuna \\" \
+			"timeout 0.5 /home/Antikythera_mechanism/submission_box/solution \\" \
 			"\"/tmp/dir2/file1 /dir2/file2\"  /tmp/dir2/real_file1 \\" \
 			"&> /user_shell_files/output ; check_dates "/tmp/dir2/file1 /dir2/file2" \\" \
 			"/tmp/dir2/real_file1 >> /user_shell_files/output" \
-			> /home/Antikythera_mechanism/aurkezpen_ontzia/emandako
-		move_to_suffix /home/Antikythera_mechanism/aurkezpen_ontzia/emandako _inputa
-		cat <<< "$EXPECTED_CONTENT" > /home/Antikythera_mechanism/aurkezpen_ontzia/esperozen
-		move_to_suffix /home/Antikythera_mechanism/aurkezpen_ontzia/esperozen _outputa
-		mv /user_shell_files/output /home/Antikythera_mechanism/aurkezpen_ontzia/lortutako
-		move_to_suffix /home/Antikythera_mechanism/aurkezpen_ontzia/lortutako _outputa
+			> /home/Antikythera_mechanism/submission_box/given
+		move_to_suffix /home/Antikythera_mechanism/submission_box/given _input
+		cat <<< "$EXPECTED_CONTENT" > /home/Antikythera_mechanism/submission_box/expected
+		move_to_suffix /home/Antikythera_mechanism/submission_box/expected _output
+		mv /user_shell_files/output /home/Antikythera_mechanism/submission_box/gotten
+		move_to_suffix /home/Antikythera_mechanism/submission_box/gotten _output
 		tput clear
 		tput clear
 		printf "$COLOR_RED%s$COLOR_RESET\n" \
-			"froga (2/2): erantzun ezegokia."
+			"test (2/2): incorrect solution."
 		stty -igncr
 		read -s -r -n1
 		stty sane
@@ -140,23 +138,23 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	tput clear
 	tput clear
 	printf "%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n\n\n$COLOR_GREEN%s\n%s$COLOR_RESET\n" \
-		"Irisek ekarri dit, ametsen erdian, poztasuna," \
-		"berri hobeagorik, ezin ekarri zezakeen." \
+		"Iris brought me, amid dream’s embrace, great joy," \
+		"For no sweeter news could she have conveyed." \
 		"" \
-		"Gure semeak badaude oraindik aurrera," \
-		"gure heroi ausartaren babespean." \
+		"Our children still press ever forth," \
+		"Sheltered behind our hero’s blade." \
 		"" \
-		"Oh, jainkoak, nire esker betirakoa!" \
-		"Ez da hau gure semeen istorioen," \
-		"azken atala izango." \
+		"Oh, gods above, to you my endless praise!" \
+		"This shall not be the final page" \
+		"Of our children's tale." \
 		"erabiltzailea: abacus" \
-		"pasahitza: from_dust_to_dust" > /home/Antikythera_mechanism/aurkezpen_ontzia/haria
-	cat /home/Antikythera_mechanism/aurkezpen_ontzia/haria
+		"pasahitza: from_dust_to_dust" > /home/Antikythera_mechanism/submission_box/thread
+	cat /home/Antikythera_mechanism/submission_box/thread
 	stty -igncr
 	read -s -r -n1
 	stty sane
-	mv /home/Antikythera_mechanism/aurkezpen_ontzia/ /home/Antikythera_mechanism/ate_irekia
-	mv /home/Antikythera_mechanism/helburua /home/Antikythera_mechanism/helburu_lortua
+	mv /home/Antikythera_mechanism/submission_box/ /home/Antikythera_mechanism/open_door
+	mv /home/Antikythera_mechanism/objective /home/Antikythera_mechanism/achieved_objective
 	cd
 	tput clear
 	tput cnorm

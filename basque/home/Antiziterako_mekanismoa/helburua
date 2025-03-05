@@ -7,8 +7,7 @@
 	akats aurkitzen badu fitxategi bat sortzean edo eraldatzean (adibidez,
 	eraldaketa egiteko baimenik ez izateagatik), beste fitxategiekin jarraitu
 	behar du. Skriptak ez du inoiz ezer idazten irteera orokorrera (stdout)
-	ezta akats irteerara (stderr).
-[0m
+	ezta akats irteerara (stderr).[0m
 
 Komando interesgarriak:
 	man touch

@@ -3,8 +3,7 @@
 	enkriptatua. Sortu ere '~/sarraila/giltza.pem' giltz pribatua, non
 	'openssl pkeyutl -decrypt -inkey ~/sarraila/giltza.pem -in \
 		 ~/sekretu_kutxa/mezu_enkriptatua.bin' komandoak, '~/jatorrizko_mezua'
-	 fitxategiaren jatorrizko edukiak, irtenarazten duela.
-[0m
+	 fitxategiaren jatorrizko edukiak, irtenarazten duela.[0m
 
 Komando interesgarriak:
 	man ssh-keygen
