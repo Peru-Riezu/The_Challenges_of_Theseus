@@ -149,7 +149,7 @@ groups Phaedra | tr ' ' '\n' | tail -n +3 | sort | tr '\n' ' ' | sed 's/ $//' | 
 #### 15º Challenge
 
 ```bash
-mkdir sarraila
-echo "( $(ls ezurra/ | tr -d '\n' | wc -c) + $(ls ezurra/ | wc -l) ) /  2009" | bc > sarraila/giltza
+mkdir lock
+echo "( $(ls bone/ | tr -d '\n' | wc -c) + $(ls bone/ | wc -l) ) /  2009" | bc > lock/key
 
 ```
