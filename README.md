@@ -2,6 +2,21 @@
 
 A series of riddles that need be solved through terminal commands, designed to help people familiarize themselves with the command-line interface of GNU/Linux. The text of the riddles can be set to be in Basque or English.
 
+## Quick Start
+
+You can start solving riddels instantly with the following commands:
+
+- For the **Basque version**:
+```bash
+    sshpass -p piraten_bizitza_hoberena_da ssh labirintoaren_erdigunea@theseus.ecclesiad.net
+```
+- For the **English version**:
+```bash
+    sshpass -p a_pirate_s_life_is_best ssh center_of_the_labyrinth@english.theseus.ecclesiad.net
+```
+
+Keep in mind that depending on your geographical location and you internet connections stability, you might experience high latency using this method. To avoid this we recommend installing The Challenges of Theseus, in a local virtual machine.
+
 ## Installation
 
 The Challenges of Theseus is designed to be easily installed on any Debian-based GNU/Linux system. The system requires **17GB** of free storage and is optimized to run securely within the AWS Free Tier.
