@@ -34,9 +34,9 @@ print_message()
 	done
 	printf "\n\n\n\n\n\n%s%s\n%s%s\n%s%s\n%s%s\n" \
 		"$prefix" "You did it!!" \
-		"$prefix" "You have overcome all the chambers of the labyrinth; now you have the gist of"
-		"$prefix" "the GNU/Linux CLI, and you are ready to face the world and turn yourself into a"
-		"$prefix" "famous hero."
+		"$prefix" "You have overcome all the chambers of the labyrinth; now you have the gist of" \
+		"$prefix" "the GNU/Linux CLI, and you are ready to face the world and turn yourself into a" \
+		"$prefix" "famous hero." \
 }
 
 print_banner()
