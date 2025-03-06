@@ -4,7 +4,7 @@ A series of riddles that need be solved through terminal commands, designed to h
 
 ## Quick Start
 
-You can start solving riddels instantly with the following commands:
+You can start facing riddels instantly with the following commands:
 
 - For the **Basque version**:
 ```bash
