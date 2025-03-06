@@ -54,7 +54,7 @@ And to ssh into the first challenge of the **English version**, you can use the 
 
 Replace `your-host` with the actual hostname or IP address (e.g., `localhost`, `192.168.122.157`).
 
-## Contact & Support
+## Contact
 
 If you have any questions, feel free to reach out via email at **[thechallengesoftheseus@gmail.com](mailto:thechallengesoftheseus@gmail.com)**.  
 
