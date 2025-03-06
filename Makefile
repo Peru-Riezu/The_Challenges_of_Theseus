@@ -1,5 +1,5 @@
 SHELL = /bin/bash
-.PHONY: basque english
+.PHONY: basque english play
 
 default:
 	@echo no language specified, cannot proceed
@@ -68,3 +68,22 @@ clean:
 	-test -n "$$(docker volume ls -q)" && docker volume rm $$(docker volume ls -q)
 	docker network prune -f
 	docker system prune -af
+
+play:
+	@DOCKER_VERSION=$$(docker -v |tr '.' ' ' | awk '{ print $$3 }'); if [[ $$DOCKER_VERSION < 26 ]]; then echo "Please update docker to version 26 or higher"; echo "Docs: https://docs.docker.com/engine/install/"; exit 2; fi;
+	@docker compose -f ./play/docker-compose.yml build
+	docker compose -f ./play/docker-compose.yml up theseus-nginx -d; clear;
+	source ./play/.env; case $${THESEUSLANG} in \
+		basque) \
+			SHELL_USER=labirintoaren_erdigunea \
+		;; \
+		english) \
+			SHELL_USER=center_of_the_labyrinth \
+		;; \
+		*) \
+			SHELL_USER=labirintoaren_erdigunea \
+		;; \
+	esac; \
+	clear ; docker run -it --user root --network theseus-network theseus-shell bash -c "MY_NEWHOST=\$$(ping -c1 -a theseus-nginx | head -n1 | awk '{ print \$$3 }' | tr -d \"()\") && sed -i \"s/9.0.0.1/\$$MY_NEWHOST/g\" /root/update_hosts.bash && bash /root/update_hosts.bash && bash /root/launch_monitors.bash && exec gosu $$SHELL_USER bash -i" || touch .;
+	@docker compose -f ./play/docker-compose.yml down
+
