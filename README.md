@@ -60,5 +60,5 @@ If you have any questions, feel free to reach out via email at **[thechallengeso
 
 You can also use [GitHub Issues](https://github.com/Peru-Riezu/The_Challenges_of_Theseus/issues) to report bugs or request improvements. However, please use common sense, avoid opening issues for non-issues or unproductive feature requests.  
 
-For inquiries, feedback, or suggestions, email is the preferred channel of communication.
+For questions or suggestions, email is the preferred channel of communication.
 
