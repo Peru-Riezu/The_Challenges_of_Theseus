@@ -13,7 +13,7 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 		"" \
 		"Baina igotzea berriz," \
 		"horren erraza balitz," \
-		"hari hau ez nukeen beharko." \
+		"hari hau ez nukeen horren beste eskertuko." \
 		"erabiltzailea: Antiziterako_mekanismoa" \
 		"pasahitza: Machaneus" > /home/Harrisonen_kronometroa/sarraila/haria
 	cat /home/Harrisonen_kronometroa/sarraila/haria

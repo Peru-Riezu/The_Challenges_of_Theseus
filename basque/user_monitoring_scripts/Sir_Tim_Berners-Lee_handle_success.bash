@@ -10,11 +10,11 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 		"Isiltasunean, botatzen dut begirada atzera," \
 		"eta ikusten dut, lehoi-geruza hori." \
 		"" \
-		"Nire ausartasuna—" \
-		"hori deitu badezakegu" \
+		"Nire ausartasuna..." \
+		"hori deitu badezakegu," \
 		"egin nuen ergeltasun hori." \
 		"" \
-		"Baina oroitzen dudan bakoitzean, gogoratzen dut nik" \
+		"Baina oroitzen dudan bakoitzean, gogoratzen dut nik," \
 		"gizon sendo irribarretsu hori..." \
 		"" \
 		"Eta orduan, behera bezala izatea erabaki nuen," \

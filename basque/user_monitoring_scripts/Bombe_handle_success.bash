@@ -12,17 +12,17 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 		"sabel barruan sortu zintudan ondoren," \
 		"itsasora joan nintzen, bakarrik." \
 		"" \
-		"Eskatu nion han, itsaso boteretsuari:" \
+		"Eskatu nion han, itsaso boteretsuari," \
 		"zu indartsu eta adimentsu haztea," \
 		"eta bizitzan edozer gainditzeko gai izatea." \
 		"" \
-		"Horretarako, eman nion itsasoari" \
+		"Horretarako, eman nion itsasoari," \
 		"emateko nituen guztien artetik," \
-		"hark onartu zuena, pozik." \
+		"hark onartu zezakena pozik." \
 		"" \
 		"Bihotza pozten dit," \
 		"ikusteak" \
-		"akordioa bete duela guztiz." \
+		"akordioa, bete duela." \
 		"erabiltzailea: Sir_Tim_Berners-Lee" \
 		"pasahitza: www" > /home/Bombe/sarraila/haria
 	cat /home/Bombe/sarraila/haria
