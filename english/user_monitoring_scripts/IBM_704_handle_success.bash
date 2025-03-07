@@ -206,8 +206,8 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 		"He returned aboard the ship," \
 		"swiftly crossing the sea." \
 		"" \
-		"He'd grown so wise, so bold, so grand," \
-		"was he the same man we once saw depart?" \
+		"He'd grown so wise, so bold, so grand." \
+		"Was he the same man we once saw depart?" \
 		"user: Tide-predicting_machine" \
 		"password: Lord_Kelvin" > /home/IBM_704/submission_box/thread
 	cat /home/IBM_704/submission_box/thread

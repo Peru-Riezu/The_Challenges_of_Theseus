@@ -12,8 +12,8 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 		"the moment I saw you," \
 		"I knew you’d stand tall;" \
 		"that your cunning could rival" \
-		"the architect’s design," \
-		"that this labyrinth will be trumped;" \
+		"the architect’s design." \
+		"This labyrinth will be trumped;" \
 		"your skills refined." \
 		"Username: the" \
 		"Password: whole_freaking" > /home/read/lock/thread

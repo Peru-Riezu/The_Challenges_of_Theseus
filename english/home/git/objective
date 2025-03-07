@@ -1,7 +1,7 @@
 [32mObjective:
 	Using the diff command, create ~/locksmith/change_file, such that the
 	command 'patch ~/repo/key ~/locksmith/change_file' leaves the '~/repo/key'
-	file, with the exact same content it had after the commit, containing the
+	file, with the exact same content it had after the commit containing the
 	message "ready!!".[0m
 
 Interesting Commands:

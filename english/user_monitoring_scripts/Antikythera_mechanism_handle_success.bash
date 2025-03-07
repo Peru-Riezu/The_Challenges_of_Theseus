@@ -138,7 +138,7 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	tput clear
 	tput clear
 	printf "%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n\n\n$COLOR_GREEN%s\n%s$COLOR_RESET\n" \
-		"Iris brought me, amid dream’s embrace, great joy," \
+		"Iris brought me, amid Dream’s embrace, great joy," \
 		"No sweeter news could she have conveyed." \
 		"" \
 		"Our children still press forth," \

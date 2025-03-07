@@ -6,7 +6,7 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	stty igncr -isig -icanon -ixoff -echo
 	tput civis
 	tput clear
-	printf "%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n\n\n$COLOR_GREEN%s\n%s$COLOR_RESET\n" \
+	printf "%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n\n\n$COLOR_GREEN%s\n%s$COLOR_RESET\n" \
 		"In the silence, I cast my gaze behind," \
 		"And there it stands" \
 		"the golden lion’s hide." \
@@ -17,11 +17,12 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 		"" \
 		"Yet each time that memory takes me back," \
 		"I see that steadfast man who laughed..." \
-		"How bright he shined;" \
+		"How bright he shined!" \
+		""
 		"I knew then what I wished to be," \
 		"since never has doubt ever taken hold of me." \
-		"erabiltzailea: IBM_704" \
-		"pasahitza: GM-NAA_I/O" > /home/Sir_Tim_Berners-Lee/lock/thread
+		"user: IBM_704" \
+		"password: GM-NAA_I/O" > /home/Sir_Tim_Berners-Lee/lock/thread
 	cat /home/Sir_Tim_Berners-Lee/lock/thread
 	stty -igncr
 	read -s -r -n1

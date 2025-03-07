@@ -5,8 +5,8 @@
 
 Example: [93m
 $ ~/submission_box/solution "echo Hello, World" "cat <<< \"Goodby, World\""
-[35mkaixo Ludi
-agur Ludi[0m
+[35mHello, World
+Goodby, World[0m
 
 Interesting Commands:
 	bash

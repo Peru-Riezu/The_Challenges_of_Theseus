@@ -8,17 +8,17 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	tput clear
 	printf "%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n\n\n$COLOR_GREEN%s\n%s$COLOR_RESET\n" \
 		"New weapons are always unknown," \
-		"But with work, they become your own." \
+		"Yet with work, they become your own." \
 		"Using many is common and wise," \
 		"But master one, and watch it rise." \
 		"" \
 		"If another weapon draws your eye," \
-		"Fear not change—just give it a try." \
+		"Fear not change, just give it a try." \
 		"" \
 		"Yet if you wish to know my advice," \
-		"Go with vi—both swift and precise." \
-		"erabiltzailea: git" \
-		"pasahitza: gud" > /home/manual/lock/thread
+		"Go with vi, both swift and precise." \
+		"user: git" \
+		"password: gud" > /home/manual/lock/thread
 	cat /home/manual/lock/thread
 	stty -igncr
 	read -s -r -n1

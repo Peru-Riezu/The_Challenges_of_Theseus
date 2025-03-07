@@ -9,7 +9,7 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	tput clear
 	printf "%s\n%s\n%s\n\n$COLOR_GREEN%s\n%s$COLOR_RESET\n" \
 		"How straight and easy is the dive to the infernal low," \
-		"If going back upward were as effortless," \
+		"If going back up were as effortless," \
 		"This thread would not be such a giver of hope." \
 		"user: Antikythera_mechanism" \
 		"password: Machaneus" > /home/Harrison_s_Chronometer/lock/thread

@@ -13,13 +13,13 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 		"" \
 		"How could I leave you lost inside?" \
 		"Take this thread," \
-		"follow its guide—" \
-		"when you reach me," \
+		"follow its guide." \
+		"When you reach me," \
 		"I’ll at last, be by your side." \
 		"" \
 		"Carry this sword," \
-		"my love, my dear;" \
-		"for the beast and our fears," \
+		"my love, my dear." \
+		"For the beast and our fears," \
 		"the end is near." \
 		"erabiltzailea: Bombe" \
 		"pasahitza: Bombe_was_not_turing_complete" > /home/Z3/lock/thread

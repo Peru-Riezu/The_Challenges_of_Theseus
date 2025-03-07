@@ -7,7 +7,7 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	tput civis
 	tput clear
 	printf "%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n\n$COLOR_GREEN%s\n%s$COLOR_RESET\n" \
-		"My heart trembles—can anyone say" \
+		"My heart trembles. Can anyone say," \
 		"What wyrd awaits me on this day?" \
 		"Ari, Ari... what will we be?" \
 		"Is this our flight to liberty," \

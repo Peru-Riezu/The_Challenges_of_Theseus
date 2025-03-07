@@ -23,9 +23,9 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 		"" \
 		"My heart rejoices now," \
 		"for I see," \
-		"that pact has been fulfilled," \
+		"that the pact has been fulfilled," \
 		"and that I managed to give you," \
-		"everything you need; to be happy." \
+		"everything you need to be happy." \
 		"erabiltzailea: Sir_Tim_Berners-Lee" \
 		"pasahitza: www" > /home/Bombe/lock/thread
 	cat /home/Bombe/lock/thread
