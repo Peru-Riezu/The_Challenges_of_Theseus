@@ -63,12 +63,12 @@ echo -ne 'Z\nZ\nZ' > lock/key
 
 ```bash
 openssl genpkey -algorithm RSA -out giltza.pem -pkeyopt rsa_keygen_bits:4096
-openssl rsa -pubout -in giltza.pem -out public_key.pem
-openssl pkeyutl -encrypt -pubin -inkey public_key.pem -in jatorrizko_mezua -out mezu_enkriptatua.bin
-mkdir sekretu_kutxa
-mkdir sarraila
-mv giltza.pem sarraila/
-mv mezu_enkriptatua.bin sekretu_kutxa/
+openssl rsa -pubout -in key.pem -out public_key.pem
+openssl pkeyutl -encrypt -pubin -inkey public_key.pem -in original_message -out encrypted_message.bin
+mkdir box_of_secrets
+mkdir lock
+mv key.pem lock/
+mv encrypted_message.bin box_of_secrets/
 ```
 
 #### 9º Challenge
