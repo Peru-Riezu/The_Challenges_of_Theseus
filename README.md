@@ -8,11 +8,11 @@ You can start facing riddels instantly with the following commands:
 
 - For the **Basque version**:
 ```bash
-    sshpass -p piraten_bizitza_hoberena_da ssh labirintoaren_erdigunea@theseus.ecclesiad.net
+sshpass -p piraten_bizitza_hoberena_da ssh labirintoaren_erdigunea@theseus.ecclesiad.net
 ```
 - For the **English version**:
 ```bash
-    sshpass -p a_pirate_s_life_is_best ssh center_of_the_labyrinth@english.theseus.ecclesiad.net
+sshpass -p a_pirate_s_life_is_best ssh center_of_the_labyrinth@english.theseus.ecclesiad.net
 ```
 
 Keep in mind that depending on your geographical location and you internet connections stability, you might experience high latency using this method. To avoid this we recommend installing The Challenges of Theseus, in a local virtual machine.
