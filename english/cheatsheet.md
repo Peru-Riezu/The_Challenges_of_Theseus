@@ -62,7 +62,7 @@ echo -ne 'Z\nZ\nZ' > lock/key
 #### 8º Challenge
 
 ```bash
-openssl genpkey -algorithm RSA -out giltza.pem -pkeyopt rsa_keygen_bits:4096
+openssl genpkey -algorithm RSA -out key.pem -pkeyopt rsa_keygen_bits:4096
 openssl rsa -pubout -in key.pem -out public_key.pem
 openssl pkeyutl -encrypt -pubin -inkey public_key.pem -in original_message -out encrypted_message.bin
 mkdir box_of_secrets
