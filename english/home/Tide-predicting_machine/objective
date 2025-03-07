@@ -1,6 +1,6 @@
 [32mObjective:
 	Create the file '~/submission_box/2_1337_f0r_y0u', such that executing
-	'~/submission_box/2_1337_f0r_y0u "Hello World"', outputs:[35m
+	'~/submission_box/2_1337_f0r_y0u "Hello, World"', outputs:[35m
  _________________________________________________________
 /  _   _      _ _         __        __         _     _ _  \
 | | | | | ___| | | ___    \ \      / /__  _ __| | __| | | |
@@ -16,7 +16,7 @@
                 ||     ||
 
 [32m	and executing
-	'~/aurkezpen_ontzia/2_1337_f0r_y0u "Hello World" "extra argument"' outputs:[35m
+	'~/submission_box/2_1337_f0r_y0u "Hello, World" "extra argument"' outputs:[35m
 Error, 2_1337_f0r_y0u must be run with exactly one argument[0m
 
 Interesting Commands:

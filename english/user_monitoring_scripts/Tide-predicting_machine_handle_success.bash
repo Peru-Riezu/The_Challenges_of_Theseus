@@ -33,7 +33,7 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	kill $DOTS_PID
 
 	if [[ "$FILE_CONTENT" != "$EXPECTED_CONTENT" ]]; then
-		mv /home/IBM_704/submission_box/solution /home/Tide-predicting_machine/submission_box/incorrect
+		mv /home/Tide-predicting_machine/submission_box/solution /home/Tide-predicting_machine/submission_box/incorrect
 		move_to_suffix /home/Tide-predicting_machine/submission_box/incorrect _solution
 		printf "%s%s\n" "/home/Tide-predicting_machine/submission_box/2_1337_f0r_y0u " \
 			"\"_________hello_________\"" \
@@ -73,7 +73,7 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	kill $DOTS_PID
 
 	if [[ "$FILE_CONTENT" != "$EXPECTED_CONTENT" ]]; then
-		mv /home/IBM_704/submission_box/solution /home/Tide-predicting_machine/submission_box/incorrect
+		mv /home/Tide-predicting_machine/submission_box/solution /home/Tide-predicting_machine/submission_box/incorrect
 		move_to_suffix /home/Tide-predicting_machine/submission_box/incorrect _solution
 		printf "%s%s\n" "/home/Tide-predicting_machine/submission_box/2_1337_f0r_y0u " \
 			"\"_________hello_________\" \"extra\"" \
@@ -113,7 +113,7 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	kill $DOTS_PID
 
 	if [[ "$FILE_CONTENT" != "$EXPECTED_CONTENT" ]]; then
-		mv /home/IBM_704/submission_box/solution /home/Tide-predicting_machine/submission_box/incorrect
+		mv /home/Tide-predicting_machine/submission_box/solution /home/Tide-predicting_machine/submission_box/incorrect
 		move_to_suffix /home/Tide-predicting_machine/submission_box/incorrect _solution
 		printf "%s%s\n" "/home/Tide-predicting_machine/submission_box/2_1337_f0r_y0u " \
 			"\"\" \"\"" \
@@ -153,7 +153,7 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	kill $DOTS_PID
 
 	if [[ "$FILE_CONTENT" != "$EXPECTED_CONTENT" ]]; then
-		mv /home/IBM_704/submission_box/solution /home/Tide-predicting_machine/submission_box/incorrect
+		mv /home/Tide-predicting_machine/submission_box/solution /home/Tide-predicting_machine/submission_box/incorrect
 		move_to_suffix /home/Tide-predicting_machine/submission_box/incorrect _solution
 		printf "%s%s\n" "/home/Tide-predicting_machine/submission_box/2_1337_f0r_y0u " \
 			"\"\"" \
@@ -193,7 +193,7 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	kill $DOTS_PID
 
 	if [[ "$FILE_CONTENT" != "$EXPECTED_CONTENT" ]]; then
-		mv /home/IBM_704/submission_box/solution /home/Tide-predicting_machine/submission_box/incorrect
+		mv /home/Tide-predicting_machine/submission_box/solution /home/Tide-predicting_machine/submission_box/incorrect
 		move_to_suffix /home/Tide-predicting_machine/submission_box/incorrect _solution
 		printf "%s%s\n" "/home/Tide-predicting_machine/submission_box/2_1337_f0r_y0u " \
 			"" \

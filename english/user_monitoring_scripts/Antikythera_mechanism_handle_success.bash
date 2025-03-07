@@ -55,8 +55,8 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 
 	if [[ "$FILE_CONTENT" != "$EXPECTED_CONTENT" ]]
 	then
-		mv /home/Tide-predicting_machine/submission_box/solution /home/Tide-predicting_machine/submission_box/incorrect
-		move_to_suffix /home/Tide-predicting_machine/submission_box/incorrect _solution
+		mv /home/Antikythera_mechanism/submission_box/solution /home/Antikythera_mechanism/submission_box/incorrect
+		move_to_suffix /home/Antikythera_mechanism/submission_box/incorrect _solution
 		printf "%s\n%s\n%s\n%s\n%s\n" \
 			"timeout 0.5 /home/Antikythera_mechanism/submission_box/solution \\" \
 			"/tmp/dir1/file1 /tmp/dir1/file2 /tmp/dir1/file3 /error/error /tmp/dir1/file4 \\" \
@@ -106,8 +106,8 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 
 	if [[ "$FILE_CONTENT" != "$EXPECTED_CONTENT" ]]
 	then
-		mv /home/Tide-predicting_machine/submission_box/solution /home/Tide-predicting_machine/submission_box/incorrect
-		move_to_suffix /home/Tide-predicting_machine/submission_box/incorrect _solution
+		mv /home/Antikythera_mechanism/submission_box/solution /home/Antikythera_mechanism/submission_box/incorrect
+		move_to_suffix /home/Antikythera_mechanism/submission_box/incorrect _solution
 		printf "%s\n%s\n%s\n%s\n" \
 			"timeout 0.5 /home/Antikythera_mechanism/submission_box/solution \\" \
 			"\"/tmp/dir2/file1 /dir2/file2\"  /tmp/dir2/real_file1 \\" \
