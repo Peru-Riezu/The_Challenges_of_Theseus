@@ -15,7 +15,7 @@ sshpass -p piraten_bizitza_hoberena_da ssh labirintoaren_erdigunea@theseus.eccle
 sshpass -p a_pirate_s_life_is_best ssh center_of_the_labyrinth@english.theseus.ecclesiad.net
 ```
 
-Keep in mind that depending on your geographical location and you internet connections stability, you might experience high latency using this method. To avoid this we recommend installing The Challenges of Theseus, in a local virtual machine.
+Keep in mind that, depending on your geographical location, the stability of your internet connection, and the number of connections the server is handling at that moment, you might experience high latency when using this method. To avoid this, we recommend installing The Challenges of Theseus on a local virtual machine.
 
 ## Installation
 
