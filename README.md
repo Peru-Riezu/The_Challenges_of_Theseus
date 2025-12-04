@@ -25,7 +25,7 @@ a_pirate_s_life_is_best
 
 Keep in mind that, depending on your geographical location, the stability of your internet connection, and the number of connections the server is handling at that moment, you might experience high latency when using this method. To avoid this, we recommend installing The Challenges of Theseus on a local virtual machine.
 
-You might also want to install sshpass in your local machine, to avoid having to type the password every time you log in to a challenge.
+You might also want to install sshpass on your local machine to avoid having to type the password every time you log in to a challenge.
 
 ## Installation
 
