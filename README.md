@@ -6,16 +6,26 @@ A series of riddles that need be solved through terminal commands, designed to h
 
 You can start facing riddels instantly with the following commands:
 
-- For the **Basque version**:
+- ~~For the **Basque version**~~ (the basque version is not currentlly available):
 ```bash
-sshpass -p piraten_bizitza_hoberena_da ssh labirintoaren_erdigunea@theseus.ecclesiad.net
+ssh labirintoaren_erdigunea@theseus.ecclesiad.net
+```
+using the password
+```bash
+piraten_bizitza_hoberena_da
 ```
 - For the **English version**:
 ```bash
-sshpass -p a_pirate_s_life_is_best ssh center_of_the_labyrinth@english.theseus.ecclesiad.net
+ssh center_of_the_labyrinth@english.theseus.ecclesiad.net
+```
+using the password
+```bash
+a_pirate_s_life_is_best
 ```
 
 Keep in mind that, depending on your geographical location, the stability of your internet connection, and the number of connections the server is handling at that moment, you might experience high latency when using this method. To avoid this, we recommend installing The Challenges of Theseus on a local virtual machine.
+
+You might want to install sshpass to avoid having to type the password every time you log in to a challenge.
 
 ## Installation
 
@@ -45,12 +55,22 @@ you must then use the serial console to access the instance.
 
 To ssh into the first challenge of the **Basque version**, you can use the following command:
 
-    sshpass -p piraten_bizitza_hoberena_da ssh labirintoaren_erdigunea@your-host
+```bash
+ssh labirintoaren_erdigunea@your-host
+```
+using the password
+```bash
+piraten_bizitza_hoberena_da
+```
 
 And to ssh into the first challenge of the **English version**, you can use the following command:
-
-    sshpass -p a_pirate_s_life_is_best ssh center_of_the_labyrinth@your-host
-
+```bash
+ssh center_of_the_labyrinth@your-host
+```
+using the password
+```bash
+a_pirate_s_life_is_best
+```
 
 Replace `your-host` with the actual hostname or IP address (e.g., `localhost`, `192.168.122.157`).
 
