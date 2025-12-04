@@ -6,7 +6,7 @@ A series of riddles that need be solved through terminal commands, designed to h
 
 You can start facing riddels instantly with the following commands:
 
-- ~~For the **Basque version**~~ (the basque version is not currentlly available):
+- ~~For the **Basque version**~~ (the basque version is not currently available):
 ```bash
 ssh labirintoaren_erdigunea@theseus.ecclesiad.net
 ```
