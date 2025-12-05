@@ -68,7 +68,7 @@ To ssh into the first challenge of the **Basque version**, you can use the follo
 ```bash
 ssh labirintoaren_erdigunea@your-host
 ```
-And the password
+And the password:
 ```bash
 piraten_bizitza_hoberena_da
 ```
@@ -79,7 +79,7 @@ And to ssh into the first challenge of the **English version**, you can use the 
 ```bash
 ssh center_of_the_labyrinth@your-host
 ```
-And the password
+And the password:
 ```bash
 a_pirate_s_life_is_best
 ```
