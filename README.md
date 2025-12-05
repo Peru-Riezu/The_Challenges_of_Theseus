@@ -4,28 +4,37 @@ A series of riddles that need be solved through terminal commands, designed to h
 
 ## Quick Start
 
-You can start facing riddels instantly with the following commands:
+You can start the challenges immediately by running one of the following commands, and passing the corresponding password:
 
-- ~~For the **Basque version**~~ (the basque version is not currently available):
+&nbsp;
+#### Basque Version *(currently unavailable)*
+
+Command:
 ```bash
 ssh labirintoaren_erdigunea@theseus.ecclesiad.net
 ```
-using the password
+
+Password:
 ```bash
 piraten_bizitza_hoberena_da
 ```
-- For the **English version**:
+&nbsp;
+#### English Version
+
+Command:
 ```bash
 ssh center_of_the_labyrinth@english.theseus.ecclesiad.net
 ```
-using the password
+
+Password:
 ```bash
 a_pirate_s_life_is_best
 ```
+&nbsp;
 
 Keep in mind that, depending on your geographical location, the stability of your internet connection, and the number of connections the server is handling at that moment, you might experience high latency when using this method. To avoid this, we recommend installing The Challenges of Theseus on a local virtual machine.
 
-You might also want to install sshpass on your local machine to avoid having to type the password every time you log in to a challenge.
+You might also want to install `sshpass` on your local machine to avoid having to type the password every time you log in to a challenge.
 
 ## Installation
 
@@ -53,24 +62,29 @@ you must then use the serial console to access the instance.
 
 ## Usage
 
-To ssh into the first challenge of the **Basque version**, you can use the following command:
+&nbsp;
 
+To ssh into the first challenge of the **Basque version**, you can use the following command:
 ```bash
 ssh labirintoaren_erdigunea@your-host
 ```
-using the password
+And the password
 ```bash
 piraten_bizitza_hoberena_da
 ```
+
+&nbsp;
 
 And to ssh into the first challenge of the **English version**, you can use the following command:
 ```bash
 ssh center_of_the_labyrinth@your-host
 ```
-using the password
+And the password
 ```bash
 a_pirate_s_life_is_best
 ```
+
+&nbsp;
 
 Replace `your-host` with the actual hostname or IP address (e.g., `localhost`, `192.168.122.157`).
 
