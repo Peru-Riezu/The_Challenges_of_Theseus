@@ -1,8 +1,8 @@
-FROM debian:latest
+FROM debian:13
 
 RUN	apt update \
 	&& apt upgrade -y \
-	&& apt install sudo fastfetch tree git vim nano groff man less emacs gosu procps ne ed jed gnupg wget iputils* file \
+	&& apt install sudo fastfetch tree git vim nano groff man less emacs gosu procps ne ed jed gnupg wget toilet-fonts iputils* file \
 			 figlet cowsay bc -y \
 	&& apt clean -y
 
