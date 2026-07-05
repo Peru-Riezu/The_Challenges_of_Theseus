@@ -18,7 +18,7 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 		"Yet each time that memory takes me back," \
 		"I see that steadfast man who laughed..." \
 		"How bright he shined!" \
-		""
+		"" \
 		"I knew then what I wished to be," \
 		"since never has doubt ever taken hold of me." \
 		"user: IBM_704" \
