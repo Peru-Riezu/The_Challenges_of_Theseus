@@ -169,21 +169,55 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	animate_dots &
 	DOTS_PID=$!
 
-	PS_OUT=$(timeout 3.5 ps u)
-	ORIGINAL_PS_COUNT=$(cat <<< "$PS_OUT" | tail -n +2 | wc -l)
-	PS_OUT=$(timeout 3.5 /home/IBM_704/submission_box/solution "sleep 3 | cat" | (sleep .5 && ps u))
-	GOTTEN_PS_COUNT=$(cat <<< "$PS_OUT" | tail -n +2 | wc -l)
-	EXPECTED_COUNT=$(expr $ORIGINAL_PS_COUNT + 4)
-	kill $DOTS_PID
+	measure_process_count bash -c 'eval "$1"; eval "$2"' _ "sleep 3 | cat" ":"
+	EXPECTED_COUNT=$PROCESS_COUNT
+	EXPECTED_PS_OUT=$PROCESS_LIST
+	REFERENCE_READY=$PROCESS_READY
+	REFERENCE_STATUS=$PROCESS_STATUS
+	if [[ "$REFERENCE_READY" != 1 || "$REFERENCE_STATUS" -ne 0 ]]; then
+		kill "$DOTS_PID"
+		wait "$DOTS_PID" 2>/dev/null || :
+		tput clear
+		printf "$COLOR_RED%s$COLOR_RESET\n" \
+			"test (5/5): could not measure the reference processes."
+		printf "exit status: %s\nPID PPID COMMAND\n%s\n" "$REFERENCE_STATUS" "$EXPECTED_PS_OUT"
+		cat /user_shell_files/output
+		stty -igncr
+		read -s -r -n1
+		stty sane
+		tput clear
+		tput cnorm
+		yield_success_lock
+		return 0
+	fi
 
-	if [[ "$GOTTEN_PS_COUNT" != "$EXPECTED_COUNT" ]]; then
+	measure_process_count /home/IBM_704/submission_box/solution "sleep 3 | cat" ":"
+	GOTTEN_PS_COUNT=$PROCESS_COUNT
+	GOTTEN_PS_OUT=$PROCESS_LIST
+	SUBMISSION_READY=$PROCESS_READY
+	SUBMISSION_STATUS=$PROCESS_STATUS
+	kill "$DOTS_PID"
+	wait "$DOTS_PID" 2>/dev/null || :
+
+	if [[ "$SUBMISSION_READY" != 1 || "$SUBMISSION_STATUS" -ne 0 || "$GOTTEN_PS_COUNT" != "$EXPECTED_COUNT" ]]; then
 		mv /home/IBM_704/submission_box/solution /home/IBM_704/submission_box/incorrect
 		move_to_suffix /home/IBM_704/submission_box/incorrect _solution
-		printf "ps u | tail -n + 2 | wc -l\n" > /home/IBM_704/submission_box/given
+		printf "%s\n" '/home/IBM_704/submission_box/solution "sleep 3 | cat" ":"' \
+			> /home/IBM_704/submission_box/given
 		move_to_suffix /home/IBM_704/submission_box/given _input
-		cat <<< "$EXPECTED_COUNT" > /home/IBM_704/submission_box/expected
+		{
+			printf "%s\nexit status: %s\n" "$EXPECTED_COUNT" "$REFERENCE_STATUS"
+			printf "sleep and cat observed: %s\n" "$REFERENCE_READY"
+			printf "PID PPID COMMAND\n%s\n" "$EXPECTED_PS_OUT"
+		} > /home/IBM_704/submission_box/expected
 		move_to_suffix /home/IBM_704/submission_box/expected _output
-		printf "$GOTTEN_PS_COUNT\n" > /home/IBM_704/submission_box/gotten
+		{
+			printf "%s\nexit status: %s\n" "$GOTTEN_PS_COUNT" "$SUBMISSION_STATUS"
+			printf "sleep and cat observed: %s\n" "$SUBMISSION_READY"
+			printf "PID PPID COMMAND\n%s\n" "$GOTTEN_PS_OUT"
+			printf "\nCommand output:\n"
+			cat /user_shell_files/output
+		} > /home/IBM_704/submission_box/gotten
 		move_to_suffix /home/IBM_704/submission_box/gotten _output
 		tput clear
 		tput clear

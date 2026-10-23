@@ -26,6 +26,74 @@ move_to_suffix()
 	mv "$basename" "$target"
 }
 
+measure_process_count()
+{
+	local timeout_pid deadline snapshot pid parent_pid command_name sleep_found cat_found
+	PROCESS_COUNT=0
+	PROCESS_LIST=''
+	PROCESS_READY=0
+	PROCESS_STATUS=0
+
+	timeout --kill-after=1 5 "$@" > /user_shell_files/output 2>&1 &
+	timeout_pid=$!
+	deadline=$((SECONDS + 7))
+
+	while (( SECONDS < deadline )); do
+		snapshot=$(ps -eo pid=,ppid=,comm=) || break
+		# Follow parent PIDs from one snapshot. The timeout itself is not counted.
+		PROCESS_LIST=$(awk -v root="$timeout_pid" '
+			{
+				parent[$1] = $2
+				order[NR] = $1
+				line[$1] = $0
+			}
+			END {
+				if (!(root in parent)) exit
+				selected[root] = 1
+				do {
+					changed = 0
+					for (pid in parent) {
+						if (!(pid in selected) && (parent[pid] in selected)) {
+							selected[pid] = 1
+							changed = 1
+						}
+					}
+				} while (changed)
+				for (i = 1; i <= NR; i++) {
+					if (order[i] != root && (order[i] in selected)) print line[order[i]]
+				}
+			}
+		' <<< "$snapshot")
+
+		PROCESS_COUNT=0
+		sleep_found=0
+		cat_found=0
+		while read -r pid parent_pid command_name; do
+			[[ -z $pid ]] && continue
+			((++PROCESS_COUNT))
+			[[ $command_name == sleep ]] && sleep_found=1
+			[[ $command_name == cat ]] && cat_found=1
+		done <<< "$PROCESS_LIST"
+
+		# Count only once both parts of the submitted pipeline have started.
+		if [[ $sleep_found == 1 && $cat_found == 1 ]]; then
+			PROCESS_READY=1
+			break
+		fi
+		kill -0 "$timeout_pid" 2>/dev/null || break
+		sleep 0.1
+	done
+
+	if [[ $PROCESS_READY != 1 ]]; then
+		kill -TERM "$timeout_pid" 2>/dev/null || :
+	fi
+	if wait "$timeout_pid"; then
+		PROCESS_STATUS=0
+	else
+		PROCESS_STATUS=$?
+	fi
+}
+
 get_success_lock_might_return()
 {
 	touch /user_shell_files/shells_working
