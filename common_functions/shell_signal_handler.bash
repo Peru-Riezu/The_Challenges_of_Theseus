@@ -1,7 +1,16 @@
 # Sourced by /etc/bash.bashrc in every interactive challenge shell.
+THESEUS_NORMAL_CURSOR=$(tput cnorm 2>/dev/null)
+
 theseus_handle_success()
 {
 	local command_status=$?
+	# Ctrl+C can redraw the prompt without running this hook again.
+	# Keep the cursor visible whenever the prompt is printed.
+	local cursor_prompt='\['"$THESEUS_NORMAL_CURSOR"'\]'
+	if [[ $PS1 != "$cursor_prompt"* ]]; then
+		PS1="$cursor_prompt$PS1"
+	fi
+
 	# Read event metadata without invoking another interactive read builtin.
 	# The monitor may remove a completed event while an interrupt is arriving.
 	local event_id='' finished_event=''
