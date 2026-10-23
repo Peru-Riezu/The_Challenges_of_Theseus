@@ -1,0 +1,706 @@
+diff --git a/.gitignore b/.gitignore
+index b933fe0..e459b60 100644
+--- a/.gitignore
++++ b/.gitignore
+@@ -1,2 +1,3 @@
+ .*.un~
+ *.un~
++__pycache__/
+diff --git a/Dockerfile b/Dockerfile
+index 1d4b505..aa4d82e 100644
+--- a/Dockerfile
++++ b/Dockerfile
+@@ -14,7 +14,8 @@ RUN	touch /user_shell_files/lock
+ RUN	chmod 777 /user_shell_files/lock
+ RUN	echo "" >> /handle_sigint.bash
+ RUN	chmod 644 /handle_sigint.bash
+-RUN	echo "trap 'source /handle_sigint.bash' SIGINT" >> /etc/bash.bashrc
++COPY	common_functions/shell_signal_handler.bash /shell_signal_handler.bash
++RUN	echo "source /shell_signal_handler.bash" >> /etc/bash.bashrc
+ RUN	echo "shopt -s extglob" >> /etc/bash.bashrc
+ 
+ ARG LANG=basque
+diff --git a/README.md b/README.md
+index c30aefd..d7e47e9 100644
+--- a/README.md
++++ b/README.md
+@@ -88,6 +88,20 @@ a_pirate_s_life_is_best
+ 
+ Replace `your-host` with the actual hostname or IP address (e.g., `localhost`, `192.168.122.157`).
+ 
++## Development checks
++
++Run the terminal regression tests on GNU/Linux with Python 3, Bash, and the usual
++terminal utilities installed:
++
++```bash
++python3 -m unittest discover -s tests -v
++```
++
++The tests use temporary challenge files and real pseudo-terminals. They cover
++both languages, Ctrl+C during success and failure screens, terminal restoration,
++nested shells, and delivery of subsequent challenge events. They do not require
++Docker or change system accounts, SSH configuration, or the installed game.
++
+ ## Contact
+ 
+ If you have any questions, feel free to reach out via email at **[thechallengesoftheseus@gmail.com](mailto:thechallengesoftheseus@gmail.com)**.  
+diff --git a/common_functions/handle_success.bash b/common_functions/handle_success.bash
+index 6bb55bb..b9348c3 100644
+--- a/common_functions/handle_success.bash
++++ b/common_functions/handle_success.bash
+@@ -39,6 +39,7 @@ get_success_lock_might_return()
+ 	CURRENT_VALUE=$(cat "$FILE")
+ 	NEW_VALUE=$((CURRENT_VALUE + 1))
+ 	echo "$NEW_VALUE" > "$FILE"
++	theseus_success_registered=1
+ 	flock -u 200
+ 
+ 	my_pgid=$(ps -o pgid= -p $$)
+@@ -76,6 +77,11 @@ get_success_lock_might_return()
+ 
+ yield_success_lock()
+ {
++	# The dispatcher also calls this after early returns from a sourced handler.
++	if [[ ${theseus_success_registered:-0} != 1 ]]; then
++		return 0
++	fi
++	theseus_success_registered=0
+ 	FILE="/user_shell_files/user_shell_count"
+ 	CURRENT_VALUE=$(cat "$FILE")
+ 	if [ "$CURRENT_VALUE" -eq 1 ]; then
+@@ -87,5 +93,6 @@ yield_success_lock()
+ 		echo "$NEW_VALUE" > "$FILE"
+ 	fi
+ 	flock -u 200
++	exec 200>&-
+ }
+ 
+diff --git a/common_functions/monitors_lock.bash b/common_functions/monitors_lock.bash
+index 6750b21..2c417c7 100644
+--- a/common_functions/monitors_lock.bash
++++ b/common_functions/monitors_lock.bash
+@@ -6,13 +6,28 @@ get_root_lock()
+ 
+ handle_succes_and_release_lock()
+ {
+-	pkill -SIGINT bash
+-	while [ ! -f "/user_shell_files/shells_working" ]; do
+-		sleep 0.01
+-	done
+-	while [ -f "/user_shell_files/shells_working" ]; do
++	# Publish only after both parts of /handle_sigint.bash have been written.
++	# A generation distinguishes retries of the same submitted-program test.
++	local event_id="${BASHPID}:$((++SUCCESS_EVENT_SEQUENCE))"
++	local finished_event
++	rm -f /user_shell_files/success_finished
++	printf '%s\n' "$event_id" > /user_shell_files/success_event
++	# A persistent acknowledgement cannot be missed if a screen closes quickly.
++	# It is written only after the shell can receive the next event's signal.
++	while true; do
++		finished_event=''
++		if [[ -r /user_shell_files/success_finished ]]; then
++			IFS= read -r finished_event < /user_shell_files/success_finished
++		fi
++		[[ $finished_event == "$event_id" ]] && break
++		# A signal arriving while PROMPT_COMMAND is finishing may not restart
++		# it. Retry until a shell has started the screen; do not interrupt it.
++		if [[ ! -e /user_shell_files/shells_working ]]; then
++			pkill -SIGINT bash
++		fi
+ 		sleep 0.1
+ 	done
++	rm -f /user_shell_files/success_event /user_shell_files/success_finished
+ 	echo "" > /handle_sigint.bash
+ 	flock -u 42
+ }
+diff --git a/common_functions/shell_signal_handler.bash b/common_functions/shell_signal_handler.bash
+new file mode 100644
+index 0000000..2087e46
+--- /dev/null
++++ b/common_functions/shell_signal_handler.bash
+@@ -0,0 +1,62 @@
++# Sourced by /etc/bash.bashrc in every interactive challenge shell.
++theseus_handle_success()
++{
++	local command_status=$?
++	# Read event metadata without invoking another interactive read builtin.
++	# The monitor may remove a completed event while an interrupt is arriving.
++	local event_id='' finished_event=''
++	{ event_id=$(< /user_shell_files/success_event); } 2>/dev/null || :
++	{ finished_event=$(< /user_shell_files/success_finished); } 2>/dev/null || :
++	if [[ -z $event_id || $event_id == "${THESEUS_LAST_SUCCESS_EVENT:-}" || $event_id == "$finished_event" ]]; then
++		trap : SIGINT
++		return "$command_status"
++	fi
++	THESEUS_LAST_SUCCESS_EVENT=$event_id
++
++	# Nested shells receive the same broadcast. Only the foreground shell may
++	# read keys or change the terminal; parents must not replay the event later.
++	local my_pgid fg_pgid
++	my_pgid=$(ps -o pgid= -p $$)
++	fg_pgid=$(ps -o tpgid= -p $$)
++	my_pgid=${my_pgid//[[:space:]]/}
++	fg_pgid=${fg_pgid//[[:space:]]/}
++	if [[ -z $my_pgid || $my_pgid != "$fg_pgid" || $fg_pgid == -1 ]]; then
++		trap : SIGINT
++		return "$command_status"
++	fi
++
++	# Run from PROMPT_COMMAND, outside Readline's SIGINT trap. Bash's read -n1
++	# enables ISIG even after stty -isig, so ignore INT for the whole screen.
++	# Keep the normal trap while checking for work so new events can wake Bash.
++	trap '' SIGINT
++	local saved_terminal
++	saved_terminal=$(stty -g < /dev/tty) || {
++		trap : SIGINT
++		return "$command_status"
++	}
++	local theseus_success_registered=0
++
++	# Source in this shell so the localized handler's `cd` still takes effect.
++	# A localized failure handler's `return` comes back here for cleanup.
++	source /handle_sigint.bash < /dev/tty > /dev/tty
++
++	if [[ $theseus_success_registered == 1 ]]; then
++		yield_success_lock
++	fi
++	stty "$saved_terminal" < /dev/tty
++	tput sgr0 > /dev/tty
++	tput cnorm > /dev/tty
++
++	# Ignore duplicate signals for this ID, but accept the next event before
++	# acknowledging completion and allowing another monitor to publish it.
++	trap : SIGINT
++	printf '%s\n' "$event_id" > /user_shell_files/success_finished
++	return "$command_status"
++}
++
++# SIGINT wakes an idle prompt; the hook displays the screen before Readline
++# starts again. Reading keys inside the signal trap itself can corrupt its input.
++trap : SIGINT
++if [[ " ${PROMPT_COMMAND[*]} " != *" theseus_handle_success "* ]]; then
++	PROMPT_COMMAND+=(theseus_handle_success)
++fi
+diff --git a/sshd_files/launch_container.bash b/sshd_files/launch_container.bash
+index b5a0d08..3c196c0 100644
+--- a/sshd_files/launch_container.bash
++++ b/sshd_files/launch_container.bash
+@@ -1,3 +1,3 @@
+-docker run --ulimit nofile=2048 --pids-limit=200 --net=host -h the-challenges-of-theseus --rm -it --storage-opt size=1G \
++docker run --ulimit nofile=2048 --pids-limit=200 --net=host -h the-challenges-of-theseus --add-host=the-challenges-of-theseus:127.0.0.1 --rm -it --storage-opt size=1G \
+ 	--cpus=0.25 --memory=200m --user root the_challenges_of_theseus_container bash -c \
+ 	"bash /root/launch_monitors.bash && bash /root/update_hosts.bash && exec gosu $USER bash -i"
+diff --git a/tests/test_monitor_protocol.py b/tests/test_monitor_protocol.py
+new file mode 100644
+index 0000000..1d2222d
+--- /dev/null
++++ b/tests/test_monitor_protocol.py
+@@ -0,0 +1,126 @@
++"""Check the monitor's acknowledgement protocol without broadcasting signals."""
++
++from pathlib import Path
++import shlex
++import subprocess
++import tempfile
++import unittest
++
++
++REPO = Path(__file__).resolve().parents[1]
++
++
++class MonitorProtocolTests(unittest.TestCase):
++    def test_retry_lost_notification_without_interrupting_active_screen(self):
++        with tempfile.TemporaryDirectory(prefix="theseus-monitor-") as directory:
++            root = Path(directory)
++            state = root / "state"
++            state.mkdir()
++            helper = root / "monitors_lock.bash"
++            helper.write_text(
++                (REPO / "common_functions/monitors_lock.bash").read_text()
++                .replace("/user_shell_files", str(state))
++                .replace("/root/lock", str(root / "monitor.lock"))
++                .replace("/handle_sigint.bash", str(root / "handler.bash"))
++            )
++            script = f"""
++set -e
++source {shlex.quote(str(helper))}
++state={shlex.quote(str(state))}
++notifications=0
++polls=0
++pkill()
++{{
++    [[ $1 == -SIGINT && $2 == bash ]]
++    [[ ! -e "$state/shells_working" ]]
++    notifications=$((notifications + 1))
++    case $notifications in
++        1) : ;; # The first notification arrived while the prompt hook ended.
++        2) touch "$state/shells_working" ;;
++        3)
++            [[ $polls == 3 ]]
++            cat "$state/success_event" > "$state/success_finished"
++            ;;
++        *) return 1 ;;
++    esac
++}}
++sleep()
++{{
++    [[ $1 == 0.1 ]]
++    polls=$((polls + 1))
++    # Leave the screen active for a complete poll, then finish cleanup.
++    if [[ $polls == 3 ]]; then rm "$state/shells_working"; fi
++    [[ $polls -le 4 ]]
++}}
++get_root_lock
++handle_succes_and_release_lock
++[[ $notifications == 3 && $polls == 4 ]]
++[[ ! -e "$state/success_event" && ! -e "$state/success_finished" ]]
++"""
++            result = subprocess.run(
++                ["bash", "-c", script], capture_output=True, text=True, timeout=5
++            )
++            self.assertEqual(result.returncode, 0, result.stderr)
++
++    def test_fast_completion_and_repeated_submission(self):
++        with tempfile.TemporaryDirectory(prefix="theseus-monitor-") as directory:
++            root = Path(directory)
++            state = root / "state"
++            state.mkdir()
++            lock = root / "monitor.lock"
++            handler = root / "handler.bash"
++            log = root / "events"
++            helper = root / "monitors_lock.bash"
++            helper.write_text(
++                (REPO / "common_functions/monitors_lock.bash").read_text()
++                .replace("/user_shell_files", str(state))
++                .replace("/root/lock", str(lock))
++                .replace("/handle_sigint.bash", str(handler))
++            )
++            script = f"""
++set -e
++source {shlex.quote(str(helper))}
++state={shlex.quote(str(state))}
++lock={shlex.quote(str(lock))}
++handler={shlex.quote(str(handler))}
++log={shlex.quote(str(log))}
++
++# Simulate a shell that closes the screen before pkill returns. There is no
++# transient shells_working marker for the monitor to observe in this case.
++pkill()
++{{
++    [[ $1 == -SIGINT && $2 == bash ]]
++    [[ $(cat "$handler") == 'complete handler' ]]
++    [[ ! -e "$state/success_finished" ]]
++    if flock -n "$lock" true; then
++        echo 'Monitor released its serialization lock too early' >&2
++        return 1
++    fi
++    local event
++    IFS= read -r event < "$state/success_event"
++    printf '%s\\n' "$event" >> "$log"
++    printf '%s\\n' "$event" > "$state/success_finished"
++}}
++
++for attempt in 1 2; do
++    get_root_lock
++    printf 'complete handler\\n' > "$handler"
++    printf 'stale acknowledgement\\n' > "$state/success_finished"
++    handle_succes_and_release_lock
++    [[ ! -e "$state/success_event" && ! -e "$state/success_finished" ]]
++    [[ -z $(cat "$handler") ]]
++    flock -n "$lock" true
++done
++"""
++            result = subprocess.run(
++                ["bash", "-c", script], capture_output=True, text=True, timeout=5
++            )
++            self.assertEqual(result.returncode, 0, result.stderr)
++            events = log.read_text().splitlines()
++            self.assertEqual(len(events), 2)
++            self.assertNotEqual(events[0], events[1], "Retries reused an event ID")
++            self.assertEqual(events[0].split(":")[0], events[1].split(":")[0])
++
++
++if __name__ == "__main__":
++    unittest.main()
+diff --git a/tests/test_success_signals.py b/tests/test_success_signals.py
+new file mode 100644
+index 0000000..206df85
+--- /dev/null
++++ b/tests/test_success_signals.py
+@@ -0,0 +1,375 @@
++#!/usr/bin/env python3
++"""Exercise success screens in real interactive Bash pseudo-terminals.
++
++Run with ``python3 -m unittest discover -s tests -v``. No Docker daemon,
++provisioning, real challenge accounts, or third-party Python packages are used.
++Only absolute challenge paths are relocated into a temporary directory.
++"""
++
++import errno
++import os
++from pathlib import Path
++import pty
++import re
++import select
++import shlex
++import signal
++import subprocess
++import tempfile
++import time
++import unittest
++
++
++REPO = Path(__file__).resolve().parents[1]
++PROMPT = b"theseus-test> "
++LANGUAGES = {
++    "english": {
++        "user": "center_of_the_labyrinth", "lock": "lock",
++        "objective": "objective", "door": "open_door",
++        "achieved": "achieved_objective", "thread": "thread",
++        "screen": "Are the keys to press on against fear.",
++        "submission": "submission_box", "solution": "solution",
++        "failure": "test (1/5): incorrect solution.",
++        "incorrect": "incorrect_solution", "next": "read",
++        "next_screen": "Password: whole_freaking",
++        "final": "inception", "victory": "famous hero.",
++    },
++    "basque": {
++        "user": "labirintoaren_erdigunea", "lock": "sarraila",
++        "objective": "helburua", "door": "ate_irekia",
++        "achieved": "helburu_lortua", "thread": "haria",
++        "screen": "erabili beharko dituzu",
++        "submission": "aurkezpen_ontzia", "solution": "erantzuna",
++        "failure": "froga (1/5): erantzun ezegokia.",
++        "incorrect": "erantzun_ezegokia", "next": "irakurri",
++        "next_screen": "pasahitza: osoa",
++        "final": "hastapena", "victory": "bat bilakatzeko!!",
++    },
++}
++
++
++class Terminal:
++    def __init__(self, rcfile, home):
++        self.pid, self.fd = pty.fork()
++        if self.pid == 0:
++            os.environ.update(TERM="xterm-256color", HOME=str(home), LC_ALL="C")
++            os.execv("/bin/bash", ["bash", "--noprofile", "--rcfile", str(rcfile), "-i"])
++        self.buffer = b""
++        self.transcript = b""
++        self.expect(PROMPT)
++
++    def send(self, data):
++        os.write(self.fd, data.encode() if isinstance(data, str) else data)
++
++    def read(self, timeout):
++        if not select.select([self.fd], [], [], timeout)[0]:
++            return b""
++        try:
++            data = os.read(self.fd, 65536)
++        except OSError as error:
++            if error.errno == errno.EIO:
++                raise AssertionError("Interactive Bash exited unexpectedly") from error
++            raise
++        if not data:
++            raise AssertionError("Interactive Bash closed its terminal")
++        self.buffer += data
++        self.transcript += data
++        return data
++
++    def expect(self, token, timeout=5):
++        token = token.encode() if isinstance(token, str) else token
++        end = time.monotonic() + timeout
++        while token not in self.buffer:
++            remaining = end - time.monotonic()
++            if remaining <= 0:
++                raise AssertionError(f"Missing {token!r}; terminal tail: {self.transcript[-2500:]!r}")
++            self.read(remaining)
++        before, self.buffer = self.buffer.split(token, 1)
++        return before + token
++
++    def command(self, command):
++        self.send(command + "\n")
++        return self.expect(PROMPT)
++
++    def terminal_mode(self):
++        output = self.command("stty -g")
++        match = re.search(rb"([0-9a-f]+(?::[0-9a-f]+){5,})\r\n", output)
++        if not match:
++            raise AssertionError(f"Could not read terminal mode: {output!r}")
++        return match.group(1)
++
++    def close(self):
++        try:
++            os.kill(self.pid, signal.SIGKILL)
++        except ProcessLookupError:
++            pass
++        os.waitpid(self.pid, 0)
++        os.close(self.fd)
++
++
++class Fixture:
++    def __init__(self, language):
++        self.language = language
++        self.names = LANGUAGES[language]
++        self.temporary = tempfile.TemporaryDirectory(prefix="theseus-signals-")
++        self.root = Path(self.temporary.name)
++        self.state = self.root / "user_shell_files"
++        self.state.mkdir()
++        self.home = self.root / "home" / self.names["user"]
++        self.make_challenge(self.names["user"])
++        self.handler = self.root / "handle_sigint.bash"
++        self.handler.write_text("")
++        self.rcfile = self.root / "bashrc"
++        self.shell_file = self.root / "shell.pid"
++        self.event_number = 0
++
++        # Some containers expose /proc from a different PID namespace. Provide
++        # the same two process-group queries using the live terminal and POSIX
++        # calls; all locking, read, stty, traps and game code remain real.
++        ps_helper = self.root / "ps_groups.py"
++        ps_helper.write_text(
++            "import os, sys\n"
++            "field = sys.argv[1]\n"
++            "print(os.getpgid(int(sys.argv[2])) if field == 'pgid=' else os.tcgetpgrp(0))\n"
++        )
++        startup = (
++            "PS1='theseus-test> '\n"
++            "PROMPT_COMMAND=\n"
++            f"printf '%s\\n' \"$$\" > {shlex.quote(str(self.shell_file))}\n"
++            "ps() {\n"
++            "  if [[ $1 == -o && ( $2 == pgid= || $2 == tpgid= ) && $3 == -p ]]; then\n"
++            f"    {shlex.quote(os.sys.executable)} {shlex.quote(str(ps_helper))} \"$2\" \"$4\"\n"
++            "  else command ps \"$@\"; fi\n"
++            "}\n"
++        )
++        wrapper = REPO / "common_functions" / "shell_signal_handler.bash"
++        if wrapper.exists():
++            local_wrapper = self.root / "shell_signal_handler.bash"
++            local_wrapper.write_text(self.relocate(wrapper.read_text()))
++            startup += f"source {shlex.quote(str(local_wrapper))}\n"
++        else:
++            # This also allows the tests to demonstrate the original regression.
++            startup += f"trap 'source {self.handler}' SIGINT\n"
++        self.rcfile.write_text(startup)
++        self.terminal = Terminal(self.rcfile, self.home)
++
++    def relocate(self, text):
++        return (text.replace("/user_shell_files", str(self.state))
++                .replace("/home/", str(self.root / "home") + "/")
++                .replace("/handle_sigint.bash", str(self.handler)))
++
++    def make_challenge(self, user):
++        home = self.root / "home" / user
++        (home / self.names["lock"]).mkdir(parents=True)
++        (home / self.names["objective"]).write_text("challenge\n")
++        return home
++
++    def activate(self, name, pid=None, at_prompt=True):
++        if at_prompt:
++            self.terminal.send("__event_interrupt_probe__")
++            self.terminal.expect(b"__event_interrupt_probe__")
++            # Even clean Bash can lose its prompt when synthetic Ctrl+C lands
++            # during immediate redisplay. Pace this like ordinary keyboard input.
++            time.sleep(0.005)
++        common = (REPO / "common_functions/handle_success.bash").read_text()
++        localized = (REPO / self.language / "user_monitoring_scripts" / f"{name}_handle_success.bash").read_text()
++        self.handler.write_text(self.relocate(common + "\n" + localized))
++        self.event_number += 1
++        (self.state / "success_event").write_text(f"{os.getpid()}:{self.event_number}\n")
++        os.kill(pid or self.terminal.pid, signal.SIGINT)
++
++    def assert_released(self, case):
++        for marker in ("foreground_activated", "shells_working", "user_shell_count"):
++            case.assertFalse((self.state / marker).exists(), f"Leaked success marker: {marker}")
++        lock = subprocess.run(["flock", "-n", str(self.state / "lock"), "true"], timeout=2)
++        case.assertEqual(lock.returncode, 0, "Success flock is still held")
++        output = self.terminal.command(
++            "if ( : >&200 ) 2>/dev/null; then echo descriptor_open; else echo descriptor_closed; fi"
++        )
++        case.assertRegex(output, rb"\rdescriptor_closed\r\n|\r\ndescriptor_closed\r\n")
++
++    def assert_terminal_works(self, case):
++        # Readline must echo new input after returning to the ordinary prompt.
++        self.terminal.send("__echo_probe__")
++        self.terminal.expect(b"__echo_probe__")
++        self.terminal.send(b"\x15\n")
++        self.terminal.expect(PROMPT)
++        response = self.terminal.command("stty -a")
++        case.assertNotIn(b"-isig", response)
++        case.assertNotIn(b"-icanon", response)
++        case.assertNotIn(b"-echo ", response)
++
++    def close(self):
++        self.terminal.close()
++        self.temporary.cleanup()
++
++
++class SuccessSignalTests(unittest.TestCase):
++    def fixture(self, language):
++        fixture = Fixture(language)
++        self.addCleanup(fixture.close)
++        return fixture
++
++    def dismiss_after_interrupts(self, fixture, screen, pid=None):
++        terminal = fixture.terminal
++        terminal.expect(screen)
++        # Let Bash enter read -n1, which changes termios after displaying text.
++        time.sleep(0.05)
++        terminal.send(b"\x03\x03\x03")
++        os.kill(pid or terminal.pid, signal.SIGINT)
++        terminal.read(0.15)
++        self.assertNotIn(PROMPT, terminal.buffer, "Ctrl+C escaped the success screen")
++        terminal.send(b" ")
++        output = terminal.expect(PROMPT)
++        self.assertIn(b"\x1b[?25h", output, "Cursor was not made visible again")
++        fixture.assert_released(self)
++        self.assertEqual((fixture.state / "success_finished").read_text().strip(),
++                         (fixture.state / "success_event").read_text().strip())
++        # The monitor may not have cleared its published event yet. Another
++        # signal must not replay the same handler or repeat its file moves.
++        # Synchronize on echoed input: prompt bytes can precede Readline's
++        # readiness to process keys. Ctrl+C must cancel this unfinished line.
++        terminal.send("__duplicate_interrupt_probe__")
++        terminal.expect(b"__duplicate_interrupt_probe__")
++        # Match the keyboard pacing above; interrupts inside the screen remain rapid.
++        time.sleep(0.005)
++        terminal.send(b"\x03")
++        terminal.expect(PROMPT)
++        terminal.send("printf '__duplicate_signal_returned__\\n'\n")
++        duplicate_output = terminal.expect(b"__duplicate_signal_returned__\r\n")
++        terminal.expect(PROMPT)
++        self.assertNotIn(b"No such file", duplicate_output)
++        fixture.assert_released(self)
++        fixture.handler.write_text("")  # The monitor clears the completed event.
++        (fixture.state / "success_event").unlink()
++        fixture.assert_terminal_works(self)
++
++    def check_success_and_next_event(self, language):
++        fixture = self.fixture(language)
++        names = fixture.names
++        fixture.terminal.command("stty -ixon -ixoff")
++        previous_mode = fixture.terminal.terminal_mode()
++        fixture.activate(names["user"])
++        self.dismiss_after_interrupts(fixture, names["screen"])
++        self.assertEqual(fixture.terminal.terminal_mode(), previous_mode)
++        self.assertTrue((fixture.home / names["door"] / names["thread"]).exists())
++        self.assertTrue((fixture.home / names["achieved"]).exists())
++        self.assertFalse((fixture.home / names["objective"]).exists())
++
++        # A subsequent challenge must still be delivered through the same trap.
++        next_home = fixture.make_challenge(names["next"])
++        fixture.activate(names["next"])
++        self.dismiss_after_interrupts(fixture, names["next_screen"])
++        self.assertTrue((next_home / names["door"] / names["thread"]).exists())
++
++    def test_english_ctrl_c_and_next_event(self):
++        self.check_success_and_next_event("english")
++
++    def test_basque_ctrl_c_and_next_event(self):
++        self.check_success_and_next_event("basque")
++
++    def check_failed_submission(self, language):
++        fixture = self.fixture(language)
++        names = fixture.names
++        submission = fixture.root / "home/IBM_704" / names["submission"]
++        submission.mkdir(parents=True)
++        solution = submission / names["solution"]
++        solution.write_text("#!/bin/bash\nprintf 'wrong answer\\n'\n")
++        solution.chmod(0o755)
++        fixture.activate("IBM_704")
++        self.dismiss_after_interrupts(fixture, names["failure"])
++        self.assertTrue((submission / names["incorrect"]).exists())
++        self.assertFalse(solution.exists())
++        self.assertFalse((fixture.state / "IBM_704_success").exists())
++        # Retry the same handler with a new event ID. Early `return` must not
++        # leave the trap disabled or make it mistake a new submission for replay.
++        solution.write_text("#!/bin/bash\nprintf 'another wrong answer\\n'\n")
++        solution.chmod(0o755)
++        fixture.activate("IBM_704")
++        self.dismiss_after_interrupts(fixture, names["failure"])
++        self.assertTrue((submission / (names["incorrect"] + "(1)")).exists())
++        self.assertFalse(solution.exists())
++
++    def test_english_failed_submission(self):
++        self.check_failed_submission("english")
++
++    def test_basque_failed_submission(self):
++        self.check_failed_submission("basque")
++
++    def check_nested_shell(self, language):
++        fixture = self.fixture(language)
++        terminal = fixture.terminal
++        terminal.command(f"bash --noprofile --rcfile {shlex.quote(str(fixture.rcfile))} -i")
++        nested_pid = int(fixture.shell_file.read_text())
++        self.addCleanup(lambda: self.kill_if_running(nested_pid))
++        self.assertNotEqual(nested_pid, terminal.pid)
++        fixture.activate(fixture.names["user"], nested_pid)
++        # Match the monitor's broadcast to both nested and waiting shells.
++        os.kill(terminal.pid, signal.SIGINT)
++        self.dismiss_after_interrupts(fixture, fixture.names["screen"], nested_pid)
++        terminal.command("exit")
++        fixture.assert_terminal_works(self)
++        fixture.assert_released(self)
++
++    @staticmethod
++    def kill_if_running(pid):
++        try:
++            os.kill(pid, signal.SIGKILL)
++        except ProcessLookupError:
++            pass
++
++    def test_english_nested_shell(self):
++        self.check_nested_shell("english")
++
++    def test_basque_nested_shell(self):
++        self.check_nested_shell("basque")
++
++    def check_victory(self, language):
++        fixture = self.fixture(language)
++        names = fixture.names
++        final_home = fixture.make_challenge(names["final"])
++        # The banner font is decorative; its external dependency is not needed
++        # to exercise the real victory handler, background job and terminal.
++        fixture.terminal.command("figlet() { printf '%s\\n' \"${@: -1}\"; }")
++        fixture.activate(names["final"])
++        self.dismiss_after_interrupts(fixture, names["victory"])
++        self.assertTrue((final_home / names["door"] / "Ariadna").exists())
++        self.assertTrue((final_home / names["achieved"]).exists())
++
++    def test_english_final_victory(self):
++        self.check_victory("english")
++
++    def test_basque_final_victory(self):
++        self.check_victory("basque")
++
++    def test_ctrl_c_without_a_pending_event(self):
++        fixture = self.fixture("english")
++        terminal = fixture.terminal
++        # At an ordinary prompt Ctrl+C still discards the unfinished command.
++        sentinel = fixture.root / "must-not-be-created"
++        terminal.send(f"touch {shlex.quote(str(sentinel))}")
++        terminal.expect(b"must-not-be-created")
++        terminal.send(b"\x03")
++        terminal.expect(PROMPT)
++        self.assertFalse(sentinel.exists())
++        # It must also interrupt a foreground command normally.
++        terminal.send("printf 'foreground_started\\n'; sleep 5\n")
++        terminal.expect(b"foreground_started\r\n")
++        time.sleep(0.05)
++        terminal.send(b"\x03")
++        terminal.expect(PROMPT, timeout=2)
++        fixture.assert_terminal_works(self)
++
++    def test_foreground_command_completes_before_success(self):
++        fixture = self.fixture("english")
++        terminal = fixture.terminal
++        terminal.send("printf 'foreground_started\\n'; sleep .2; printf 'foreground_finished\\n'\n")
++        terminal.expect(b"foreground_started\r\n")
++        fixture.activate(fixture.names["user"], at_prompt=False)
++        terminal.expect(b"foreground_finished\r\n", timeout=2)
++        self.dismiss_after_interrupts(fixture, fixture.names["screen"])
++        self.assertTrue((fixture.home / fixture.names["achieved"]).exists())
++
++
++if __name__ == "__main__":
++    unittest.main()
