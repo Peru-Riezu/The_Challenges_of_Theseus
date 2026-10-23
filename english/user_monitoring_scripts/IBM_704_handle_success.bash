@@ -169,7 +169,7 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	animate_dots &
 	DOTS_PID=$!
 
-	PS_OUT=$(ps u)
+	PS_OUT=$(timeout 3.5 ps u)
 	ORIGINAL_PS_COUNT=$(cat <<< "$PS_OUT" | tail -n +2 | wc -l)
 	PS_OUT=$(timeout 3.5 /home/IBM_704/submission_box/solution "sleep 3 | cat" | (sleep .5 && ps u))
 	GOTTEN_PS_COUNT=$(cat <<< "$PS_OUT" | tail -n +2 | wc -l)
@@ -224,3 +224,4 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 fi
 
 yield_success_lock
+
