@@ -39,6 +39,7 @@ get_success_lock_might_return()
 	CURRENT_VALUE=$(cat "$FILE")
 	NEW_VALUE=$((CURRENT_VALUE + 1))
 	echo "$NEW_VALUE" > "$FILE"
+	theseus_success_registered=1
 	flock -u 200
 
 	my_pgid=$(ps -o pgid= -p $$)
@@ -76,6 +77,11 @@ get_success_lock_might_return()
 
 yield_success_lock()
 {
+	# The dispatcher also calls this after early returns from a sourced handler.
+	if [[ ${theseus_success_registered:-0} != 1 ]]; then
+		return 0
+	fi
+	theseus_success_registered=0
 	FILE="/user_shell_files/user_shell_count"
 	CURRENT_VALUE=$(cat "$FILE")
 	if [ "$CURRENT_VALUE" -eq 1 ]; then
@@ -87,5 +93,6 @@ yield_success_lock()
 		echo "$NEW_VALUE" > "$FILE"
 	fi
 	flock -u 200
+	exec 200>&-
 }
 

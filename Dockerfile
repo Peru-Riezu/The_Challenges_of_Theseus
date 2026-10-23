@@ -2,8 +2,8 @@ FROM debian:13
 
 RUN	apt update \
 	&& apt upgrade -y \
-	&& apt install sudo fastfetch tree git vim nano groff man less emacs gosu procps ne ed jed gnupg wget toilet-fonts iputils* file \
-			 figlet cowsay bc -y \
+	&& apt install sudo fastfetch tree git vim nano groff man less emacs gosu procps ne ed jed gnupg wget toilet-fonts \
+			 iputils* file figlet cowsay bc -y \
 	&& apt clean -y
 
 ENV PATH=$PATH:/usr/games
@@ -14,7 +14,8 @@ RUN	touch /user_shell_files/lock
 RUN	chmod 777 /user_shell_files/lock
 RUN	echo "" >> /handle_sigint.bash
 RUN	chmod 644 /handle_sigint.bash
-RUN	echo "trap 'source /handle_sigint.bash' SIGINT" >> /etc/bash.bashrc
+COPY	common_functions/shell_signal_handler.bash /shell_signal_handler.bash
+RUN	echo "source /shell_signal_handler.bash" >> /etc/bash.bashrc
 RUN	echo "shopt -s extglob" >> /etc/bash.bashrc
 
 ARG LANG=basque
@@ -34,3 +35,4 @@ COPY	$LANG/update_hosts.bash /root/update_hosts.bash
 COPY	common_functions /root/common_functions
 
 RUN		bash /root/compilation_time_tasks.bash
+
