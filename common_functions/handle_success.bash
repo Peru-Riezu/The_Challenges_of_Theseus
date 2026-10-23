@@ -28,6 +28,9 @@ move_to_suffix()
 
 measure_process_count()
 {
+	# Keep job notices out of the progress display; restore options on return.
+	local -
+	set +m
 	local timeout_pid deadline snapshot pid parent_pid command_name sleep_found cat_found
 	PROCESS_COUNT=0
 	PROCESS_LIST=''
