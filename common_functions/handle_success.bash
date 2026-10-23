@@ -28,7 +28,6 @@ move_to_suffix()
 
 measure_process_count()
 {
-	# Keep job notices out of the progress display; restore options on return.
 	local -
 	set +m
 	local timeout_pid deadline snapshot pid parent_pid command_name sleep_found cat_found
@@ -43,7 +42,6 @@ measure_process_count()
 
 	while (( SECONDS < deadline )); do
 		snapshot=$(ps -eo pid=,ppid=,comm=) || break
-		# Follow parent PIDs from one snapshot. The timeout itself is not counted.
 		PROCESS_LIST=$(awk -v root="$timeout_pid" '
 			{
 				parent[$1] = $2
@@ -78,7 +76,6 @@ measure_process_count()
 			[[ $command_name == cat ]] && cat_found=1
 		done <<< "$PROCESS_LIST"
 
-		# Count only once both parts of the submitted pipeline have started.
 		if [[ $sleep_found == 1 && $cat_found == 1 ]]; then
 			PROCESS_READY=1
 			break
@@ -148,7 +145,6 @@ get_success_lock_might_return()
 
 yield_success_lock()
 {
-	# The dispatcher also calls this after early returns from a sourced handler.
 	if [[ ${theseus_success_registered:-0} != 1 ]]; then
 		return 0
 	fi
