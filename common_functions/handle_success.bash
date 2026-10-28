@@ -23,7 +23,7 @@ move_to_suffix()
 		target="${basename}${suffix}(${n})"
 		((n++))
 	done
-	mv "$basename" "$target"
+	mv "$basename" "$target" && MOVED_FILE=$target
 }
 
 measure_process_count()
@@ -36,7 +36,7 @@ measure_process_count()
 	PROCESS_READY=0
 	PROCESS_STATUS=0
 
-	timeout --kill-after=1 5 "$@" > /user_shell_files/output 2>&1 &
+	timeout --kill-after=1 5 "$@" > "${PROCESS_OUTPUT:-/user_shell_files/output}" 2>&1 &
 	timeout_pid=$!
 	deadline=$((SECONDS + 7))
 

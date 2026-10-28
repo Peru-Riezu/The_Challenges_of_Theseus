@@ -193,7 +193,6 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 
 	measure_process_count /home/IBM_704/aurkezpen_ontzia/erantzuna "sleep 3 | cat" ":"
 	GOTTEN_PS_COUNT=$PROCESS_COUNT
-	GOTTEN_PS_OUT=$PROCESS_LIST
 	SUBMISSION_READY=$PROCESS_READY
 	SUBMISSION_STATUS=$PROCESS_STATUS
 	kill "$DOTS_PID"
@@ -202,22 +201,16 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	if [[ "$SUBMISSION_READY" != 1 || "$SUBMISSION_STATUS" -ne 0 || "$GOTTEN_PS_COUNT" != "$EXPECTED_COUNT" ]]; then
 		mv /home/IBM_704/aurkezpen_ontzia/erantzuna /home/IBM_704/aurkezpen_ontzia/erantzun
 		move_to_suffix /home/IBM_704/aurkezpen_ontzia/erantzun _ezegokia
-		printf "%s\n" '/home/IBM_704/aurkezpen_ontzia/erantzuna "sleep 3 | cat" ":"' \
-			> /home/IBM_704/aurkezpen_ontzia/emandako
+		{
+			printf "(\n"
+			declare -f measure_process_count
+			printf 'PROCESS_OUTPUT=/dev/null measure_process_count %q "sleep 3 | cat" ":"\n' "$MOVED_FILE"
+			printf '%s\n' 'printf "%s\n" "$PROCESS_COUNT"' ')'
+		} > /home/IBM_704/aurkezpen_ontzia/emandako
 		move_to_suffix /home/IBM_704/aurkezpen_ontzia/emandako _inputa
-		{
-			printf "%s\nirteera kodea: %s\n" "$EXPECTED_COUNT" "$REFERENCE_STATUS"
-			printf "sleep eta cat ikusi dira: %s\n" "$REFERENCE_READY"
-			printf "PID PPID COMMAND\n%s\n" "$EXPECTED_PS_OUT"
-		} > /home/IBM_704/aurkezpen_ontzia/esperozen
+		printf "%s\n" "$EXPECTED_COUNT" > /home/IBM_704/aurkezpen_ontzia/esperozen
 		move_to_suffix /home/IBM_704/aurkezpen_ontzia/esperozen _outputa
-		{
-			printf "%s\nirteera kodea: %s\n" "$GOTTEN_PS_COUNT" "$SUBMISSION_STATUS"
-			printf "sleep eta cat ikusi dira: %s\n" "$SUBMISSION_READY"
-			printf "PID PPID COMMAND\n%s\n" "$GOTTEN_PS_OUT"
-			printf "\nKomandoaren irteera:\n"
-			cat /user_shell_files/output
-		} > /home/IBM_704/aurkezpen_ontzia/lortutako
+		printf "%s\n" "$GOTTEN_PS_COUNT" > /home/IBM_704/aurkezpen_ontzia/lortutako
 		move_to_suffix /home/IBM_704/aurkezpen_ontzia/lortutako _outputa
 		tput clear
 		tput clear
