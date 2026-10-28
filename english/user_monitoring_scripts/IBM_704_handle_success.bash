@@ -26,8 +26,8 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 		move_to_suffix /home/IBM_704/submission_box/incorrect _solution
 		printf "%s%s\n" "/home/IBM_704/submission_box/solution " \
 			"\"echo Hello, World\" \"cat <<< \\\"Goodby, World\\\"\"" \
-			> /home/IBM_704/submission_box/given
-		move_to_suffix /home/IBM_704/submission_box/given _input
+			> /home/IBM_704/submission_box/executed
+		move_to_suffix /home/IBM_704/submission_box/executed _command
 		cat <<< "$EXPECTED_CONTENT" > /home/IBM_704/submission_box/expected
 		move_to_suffix /home/IBM_704/submission_box/expected _output
 		mv /user_shell_files/output /home/IBM_704/submission_box/gotten
@@ -64,9 +64,9 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 		mv /home/IBM_704/submission_box/solution /home/IBM_704/submission_box/incorrect
 		move_to_suffix /home/IBM_704/submission_box/incorrect _solution
 		printf "%s%s\n" "/home/IBM_704/submission_box/solution " \
-			"\"echo kaixo Ludi\" \"\""
-			> /home/IBM_704/submission_box/given
-		move_to_suffix /home/IBM_704/submission_box/given _input
+			"\"echo kaixo Ludi\" \"\"" \
+			> /home/IBM_704/submission_box/executed
+		move_to_suffix /home/IBM_704/submission_box/executed _command
 		cat <<< "$EXPECTED_CONTENT" > /home/IBM_704/submission_box/expected
 		move_to_suffix /home/IBM_704/submission_box/expected _output
 		mv /user_shell_files/output /home/IBM_704/submission_box/gotten
@@ -104,8 +104,8 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 		move_to_suffix /home/IBM_704/submission_box/incorrect _solution
 		printf "%s%s\n" "/home/IBM_704/submission_box/solution " \
 			"\"\" \"echo kaixo Ludi\" \"\"" \
-			> /home/IBM_704/submission_box/given
-		move_to_suffix /home/IBM_704/submission_box/given _input
+			> /home/IBM_704/submission_box/executed
+		move_to_suffix /home/IBM_704/submission_box/executed _command
 		cat <<< "$EXPECTED_CONTENT" > /home/IBM_704/submission_box/expected
 		move_to_suffix /home/IBM_704/submission_box/expected _output
 		mv /user_shell_files/output /home/IBM_704/submission_box/gotten
@@ -141,8 +141,8 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	if [[ "$FILE_CONTENT" != "$EXPECTED_CONTENT" ]]; then
 		mv /home/IBM_704/submission_box/solution /home/IBM_704/submission_box/incorrect
 		move_to_suffix /home/IBM_704/submission_box/incorrect _solution
-		printf "/home/IBM_704/submission_box/solution\n" > /home/IBM_704/submission_box/given
-		move_to_suffix /home/IBM_704/submission_box/given _input
+		printf "/home/IBM_704/submission_box/solution\n" > /home/IBM_704/submission_box/executed
+		move_to_suffix /home/IBM_704/submission_box/executed _command
 		cat <<< "$EXPECTED_CONTENT" > /home/IBM_704/submission_box/expected
 		move_to_suffix /home/IBM_704/submission_box/expected _output
 		mv /user_shell_files/output /home/IBM_704/submission_box/gotten
@@ -198,8 +198,8 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	if [[ "$SUBMISSION_STATUS" -ne 0 || "$GOTTEN_PS_COUNT" != "$EXPECTED_COUNT" ]]; then
 		mv /home/IBM_704/submission_box/solution /home/IBM_704/submission_box/incorrect
 		move_to_suffix /home/IBM_704/submission_box/incorrect _solution
-		process_count_command "$MOVED_FILE" "sleep 3 | cat" ":" > /home/IBM_704/submission_box/given
-		move_to_suffix /home/IBM_704/submission_box/given _input
+		process_count_command "$MOVED_FILE" "sleep 3 | cat" ":" > /home/IBM_704/submission_box/executed
+		move_to_suffix /home/IBM_704/submission_box/executed _command
 		printf "%s\n" "$EXPECTED_COUNT" > /home/IBM_704/submission_box/expected
 		move_to_suffix /home/IBM_704/submission_box/expected _output
 		mv /user_shell_files/output /home/IBM_704/submission_box/gotten

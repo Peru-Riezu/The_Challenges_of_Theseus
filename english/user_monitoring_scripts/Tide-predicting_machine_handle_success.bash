@@ -38,8 +38,8 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 		move_to_suffix /home/Tide-predicting_machine/submission_box/incorrect _2_1337_f0r_y0u
 		printf "%s%s\n" "/home/Tide-predicting_machine/submission_box/2_1337_f0r_y0u " \
 			"\"_________hello_________\"" \
-			> /home/Tide-predicting_machine/submission_box/given
-		move_to_suffix /home/Tide-predicting_machine/submission_box/given _input
+			> /home/Tide-predicting_machine/submission_box/executed
+		move_to_suffix /home/Tide-predicting_machine/submission_box/executed _command
 		cat <<< "$EXPECTED_CONTENT" > /home/Tide-predicting_machine/submission_box/expected
 		move_to_suffix /home/Tide-predicting_machine/submission_box/expected _output
 		mv /user_shell_files/output /home/Tide-predicting_machine/submission_box/gotten
@@ -79,8 +79,8 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 		move_to_suffix /home/Tide-predicting_machine/submission_box/incorrect _2_1337_f0r_y0u
 		printf "%s%s\n" "/home/Tide-predicting_machine/submission_box/2_1337_f0r_y0u " \
 			"\"_________hello_________\" \"extra\"" \
-			> /home/Tide-predicting_machine/submission_box/given
-		move_to_suffix /home/Tide-predicting_machine/submission_box/given _input
+			> /home/Tide-predicting_machine/submission_box/executed
+		move_to_suffix /home/Tide-predicting_machine/submission_box/executed _command
 		cat <<< "$EXPECTED_CONTENT" > /home/Tide-predicting_machine/submission_box/expected
 		move_to_suffix /home/Tide-predicting_machine/submission_box/expected _output
 		mv /user_shell_files/output /home/Tide-predicting_machine/submission_box/gotten
@@ -120,8 +120,8 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 		move_to_suffix /home/Tide-predicting_machine/submission_box/incorrect _2_1337_f0r_y0u
 		printf "%s%s\n" "/home/Tide-predicting_machine/submission_box/2_1337_f0r_y0u " \
 			"\"\" \"\"" \
-			> /home/Tide-predicting_machine/submission_box/given
-		move_to_suffix /home/Tide-predicting_machine/submission_box/given _input
+			> /home/Tide-predicting_machine/submission_box/executed
+		move_to_suffix /home/Tide-predicting_machine/submission_box/executed _command
 		cat <<< "$EXPECTED_CONTENT" > /home/Tide-predicting_machine/submission_box/expected
 		move_to_suffix /home/Tide-predicting_machine/submission_box/expected _output
 		mv /user_shell_files/output /home/Tide-predicting_machine/submission_box/gotten
@@ -161,8 +161,8 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 		move_to_suffix /home/Tide-predicting_machine/submission_box/incorrect _2_1337_f0r_y0u
 		printf "%s%s\n" "/home/Tide-predicting_machine/submission_box/2_1337_f0r_y0u " \
 			"\"\"" \
-			> /home/Tide-predicting_machine/submission_box/given
-		move_to_suffix /home/Tide-predicting_machine/submission_box/given _input
+			> /home/Tide-predicting_machine/submission_box/executed
+		move_to_suffix /home/Tide-predicting_machine/submission_box/executed _command
 		cat <<< "$EXPECTED_CONTENT" > /home/Tide-predicting_machine/submission_box/expected
 		move_to_suffix /home/Tide-predicting_machine/submission_box/expected _output
 		mv /user_shell_files/output /home/Tide-predicting_machine/submission_box/gotten
@@ -202,8 +202,8 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 		move_to_suffix /home/Tide-predicting_machine/submission_box/incorrect _2_1337_f0r_y0u
 		printf "%s%s\n" "/home/Tide-predicting_machine/submission_box/2_1337_f0r_y0u " \
 			"" \
-			> /home/Tide-predicting_machine/submission_box/given
-		move_to_suffix /home/Tide-predicting_machine/submission_box/given _input
+			> /home/Tide-predicting_machine/submission_box/executed
+		move_to_suffix /home/Tide-predicting_machine/submission_box/executed _command
 		cat <<< "$EXPECTED_CONTENT" > /home/Tide-predicting_machine/submission_box/expected
 		move_to_suffix /home/Tide-predicting_machine/submission_box/expected _output
 		mv /user_shell_files/output /home/Tide-predicting_machine/submission_box/gotten

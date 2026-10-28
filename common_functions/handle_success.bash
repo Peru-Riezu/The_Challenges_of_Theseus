@@ -28,13 +28,15 @@ move_to_suffix()
 
 process_count_command()
 {
+	printf '%s\n' \
+		'# this script counts the submitted script and the processes it spawns,' \
+		'# to check whether it uses more processes than strictly necessary.'
 	printf 'bash -s --'
 	printf ' %q' "$@"
 	printf " <<'PROCESS_COUNT_COMMAND'\n"
 	cat <<'PROCESS_COUNT_COMMAND'
 	set +m
 	PROCESS_COUNT=0
-	PROCESS_LIST=''
 	PROCESS_READY=0
 	PROCESS_STATUS=0
 
@@ -44,39 +46,30 @@ process_count_command()
 
 	while (( SECONDS < deadline )); do
 		snapshot=$(ps -eo pid=,ppid=,comm= 2>/dev/null) || break
-		PROCESS_LIST=$(awk -v root="$timeout_pid" '
-			{
-				parent[$1] = $2
-				order[NR] = $1
-				line[$1] = $0
-			}
-			END {
-				if (!(root in parent)) exit
-				selected[root] = 1
-				do {
-					changed = 0
-					for (pid in parent) {
-						if (!(pid in selected) && (parent[pid] in selected)) {
-							selected[pid] = 1
-							changed = 1
-						}
-					}
-				} while (changed)
-				for (i = 1; i <= NR; i++) {
-					if (order[i] != root && (order[i] in selected)) print line[order[i]]
-				}
-			}
-		' <<< "$snapshot" 2>/dev/null)
+		processes=()
+		selected=()
+		while read -r pid parent_pid command_name; do
+			if [[ $pid == "$timeout_pid" ]]; then
+				processes=("$pid")
+				selected[$pid]=1
+				break
+			fi
+		done <<< "$snapshot"
 
 		PROCESS_COUNT=0
 		sleep_found=0
 		cat_found=0
-		while read -r pid parent_pid command_name; do
-			[[ -z $pid ]] && continue
-			((++PROCESS_COUNT))
-			[[ $command_name == sleep ]] && sleep_found=1
-			[[ $command_name == cat ]] && cat_found=1
-		done <<< "$PROCESS_LIST"
+		for ((i = 0; i < ${#processes[@]}; i++)); do
+			while read -r pid parent_pid command_name; do
+				[[ -z $pid || $parent_pid != "${processes[i]}" ]] && continue
+				[[ ${selected[$pid]:-0} == 1 ]] && continue
+				selected[$pid]=1
+				processes+=("$pid")
+				((++PROCESS_COUNT))
+				[[ $command_name == sleep ]] && sleep_found=1
+				[[ $command_name == cat ]] && cat_found=1
+			done <<< "$snapshot"
+		done
 
 		if [[ $sleep_found == 1 && $cat_found == 1 ]]; then
 			PROCESS_READY=1

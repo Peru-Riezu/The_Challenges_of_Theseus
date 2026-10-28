@@ -63,8 +63,8 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 			"/error/error2 /tmp/dir1/file5 /error7/error6 &> /user_shell_files/output; \\" \
 			"check_dates /tmp/dir1/file1 /tmp/dir1/file2 /tmp/dir1/file3 /tmp/dir1/file4 \\" \
 			"/tmp/dir1/file5 >> /user_shell_files/output" \
-			> /home/Antikythera_mechanism/submission_box/given
-		move_to_suffix /home/Antikythera_mechanism/submission_box/given _input
+			> /home/Antikythera_mechanism/submission_box/executed
+		move_to_suffix /home/Antikythera_mechanism/submission_box/executed _command
 		cat <<< "$EXPECTED_CONTENT" > /home/Antikythera_mechanism/submission_box/expected
 		move_to_suffix /home/Antikythera_mechanism/submission_box/expected _output
 		mv /user_shell_files/output /home/Antikythera_mechanism/submission_box/gotten
@@ -113,8 +113,8 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 			"\"/tmp/dir2/file1 /dir2/file2\"  /tmp/dir2/real_file1 \\" \
 			"&> /user_shell_files/output ; check_dates "/tmp/dir2/file1 /dir2/file2" \\" \
 			"/tmp/dir2/real_file1 >> /user_shell_files/output" \
-			> /home/Antikythera_mechanism/submission_box/given
-		move_to_suffix /home/Antikythera_mechanism/submission_box/given _input
+			> /home/Antikythera_mechanism/submission_box/executed
+		move_to_suffix /home/Antikythera_mechanism/submission_box/executed _command
 		cat <<< "$EXPECTED_CONTENT" > /home/Antikythera_mechanism/submission_box/expected
 		move_to_suffix /home/Antikythera_mechanism/submission_box/expected _output
 		mv /user_shell_files/output /home/Antikythera_mechanism/submission_box/gotten

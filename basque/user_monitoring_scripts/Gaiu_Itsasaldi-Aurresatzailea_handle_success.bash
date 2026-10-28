@@ -36,8 +36,8 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 		move_to_suffix /home/Gaiu_Itsasaldi-Aurresatzailea/aurkezpen_ontzia/2_1337_f0r_y0u _ezegokia
 		printf "%s%s\n" "/home/Gaiu_Itsasaldi-Aurresatzailea/aurkezpen_ontzia/2_1337_f0r_y0u " \
 			"\"_________hello_________\"" \
-			> /home/Gaiu_Itsasaldi-Aurresatzailea/aurkezpen_ontzia/emandako
-		move_to_suffix /home/Gaiu_Itsasaldi-Aurresatzailea/aurkezpen_ontzia/emandako _inputa
+			> /home/Gaiu_Itsasaldi-Aurresatzailea/aurkezpen_ontzia/exekutatutako
+		move_to_suffix /home/Gaiu_Itsasaldi-Aurresatzailea/aurkezpen_ontzia/exekutatutako _komandoa
 		cat <<< "$EXPECTED_CONTENT" > /home/Gaiu_Itsasaldi-Aurresatzailea/aurkezpen_ontzia/esperozen
 		move_to_suffix /home/Gaiu_Itsasaldi-Aurresatzailea/aurkezpen_ontzia/esperozen _outputa
 		mv /user_shell_files/output /home/Gaiu_Itsasaldi-Aurresatzailea/aurkezpen_ontzia/lortutako
@@ -75,8 +75,8 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 		move_to_suffix /home/Gaiu_Itsasaldi-Aurresatzailea/aurkezpen_ontzia/2_1337_f0r_y0u _ezegokia
 		printf "%s%s\n" "/home/Gaiu_Itsasaldi-Aurresatzailea/aurkezpen_ontzia/2_1337_f0r_y0u " \
 			"\"_________hello_________\" \"extra\"" \
-			> /home/Gaiu_Itsasaldi-Aurresatzailea/aurkezpen_ontzia/emandako
-		move_to_suffix /home/Gaiu_Itsasaldi-Aurresatzailea/aurkezpen_ontzia/emandako _inputa
+			> /home/Gaiu_Itsasaldi-Aurresatzailea/aurkezpen_ontzia/exekutatutako
+		move_to_suffix /home/Gaiu_Itsasaldi-Aurresatzailea/aurkezpen_ontzia/exekutatutako _komandoa
 		cat <<< "$EXPECTED_CONTENT" > /home/Gaiu_Itsasaldi-Aurresatzailea/aurkezpen_ontzia/esperozen
 		move_to_suffix /home/Gaiu_Itsasaldi-Aurresatzailea/aurkezpen_ontzia/esperozen _outputa
 		mv /user_shell_files/output /home/Gaiu_Itsasaldi-Aurresatzailea/aurkezpen_ontzia/lortutako
@@ -114,8 +114,8 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 		move_to_suffix /home/Gaiu_Itsasaldi-Aurresatzailea/aurkezpen_ontzia/2_1337_f0r_y0u _ezegokia
 		printf "%s%s\n" "/home/Gaiu_Itsasaldi-Aurresatzailea/aurkezpen_ontzia/2_1337_f0r_y0u " \
 			"\"\" \"\"" \
-			> /home/Gaiu_Itsasaldi-Aurresatzailea/aurkezpen_ontzia/emandako
-		move_to_suffix /home/Gaiu_Itsasaldi-Aurresatzailea/aurkezpen_ontzia/emandako _inputa
+			> /home/Gaiu_Itsasaldi-Aurresatzailea/aurkezpen_ontzia/exekutatutako
+		move_to_suffix /home/Gaiu_Itsasaldi-Aurresatzailea/aurkezpen_ontzia/exekutatutako _komandoa
 		cat <<< "$EXPECTED_CONTENT" > /home/Gaiu_Itsasaldi-Aurresatzailea/aurkezpen_ontzia/esperozen
 		move_to_suffix /home/Gaiu_Itsasaldi-Aurresatzailea/aurkezpen_ontzia/esperozen _outputa
 		mv /user_shell_files/output /home/Gaiu_Itsasaldi-Aurresatzailea/aurkezpen_ontzia/lortutako
@@ -153,8 +153,8 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 		move_to_suffix /home/Gaiu_Itsasaldi-Aurresatzailea/aurkezpen_ontzia/2_1337_f0r_y0u _ezegokia
 		printf "%s%s\n" "/home/Gaiu_Itsasaldi-Aurresatzailea/aurkezpen_ontzia/2_1337_f0r_y0u " \
 			"\"\"" \
-			> /home/Gaiu_Itsasaldi-Aurresatzailea/aurkezpen_ontzia/emandako
-		move_to_suffix /home/Gaiu_Itsasaldi-Aurresatzailea/aurkezpen_ontzia/emandako _inputa
+			> /home/Gaiu_Itsasaldi-Aurresatzailea/aurkezpen_ontzia/exekutatutako
+		move_to_suffix /home/Gaiu_Itsasaldi-Aurresatzailea/aurkezpen_ontzia/exekutatutako _komandoa
 		cat <<< "$EXPECTED_CONTENT" > /home/Gaiu_Itsasaldi-Aurresatzailea/aurkezpen_ontzia/esperozen
 		move_to_suffix /home/Gaiu_Itsasaldi-Aurresatzailea/aurkezpen_ontzia/esperozen _outputa
 		mv /user_shell_files/output /home/Gaiu_Itsasaldi-Aurresatzailea/aurkezpen_ontzia/lortutako
@@ -192,8 +192,8 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 		move_to_suffix /home/Gaiu_Itsasaldi-Aurresatzailea/aurkezpen_ontzia/2_1337_f0r_y0u _ezegokia
 		printf "%s%s\n" "/home/Gaiu_Itsasaldi-Aurresatzailea/aurkezpen_ontzia/2_1337_f0r_y0u " \
 			"" \
-			> /home/Gaiu_Itsasaldi-Aurresatzailea/aurkezpen_ontzia/emandako
-		move_to_suffix /home/Gaiu_Itsasaldi-Aurresatzailea/aurkezpen_ontzia/emandako _inputa
+			> /home/Gaiu_Itsasaldi-Aurresatzailea/aurkezpen_ontzia/exekutatutako
+		move_to_suffix /home/Gaiu_Itsasaldi-Aurresatzailea/aurkezpen_ontzia/exekutatutako _komandoa
 		cat <<< "$EXPECTED_CONTENT" > /home/Gaiu_Itsasaldi-Aurresatzailea/aurkezpen_ontzia/esperozen
 		move_to_suffix /home/Gaiu_Itsasaldi-Aurresatzailea/aurkezpen_ontzia/esperozen _outputa
 		mv /user_shell_files/output /home/Gaiu_Itsasaldi-Aurresatzailea/aurkezpen_ontzia/lortutako

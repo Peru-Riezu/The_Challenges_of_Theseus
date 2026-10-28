@@ -26,8 +26,8 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 		move_to_suffix /home/IBM_704/aurkezpen_ontzia/erantzun _ezegokia
 		printf "%s%s\n" "/home/IBM_704/aurkezpen_ontzia/erantzuna " \
 			"\"echo Kaixo, Ludi\" \"cat <<< \\\"Agur, Ludi\\\"\"" \
-			> /home/IBM_704/aurkezpen_ontzia/emandako
-		move_to_suffix /home/IBM_704/aurkezpen_ontzia/emandako _inputa
+			> /home/IBM_704/aurkezpen_ontzia/exekutatutako
+		move_to_suffix /home/IBM_704/aurkezpen_ontzia/exekutatutako _komandoa
 		cat <<< "$EXPECTED_CONTENT" > /home/IBM_704/aurkezpen_ontzia/esperozen
 		move_to_suffix /home/IBM_704/aurkezpen_ontzia/esperozen _outputa
 		mv /user_shell_files/output /home/IBM_704/aurkezpen_ontzia/lortutako
@@ -64,9 +64,9 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 		mv /home/IBM_704/aurkezpen_ontzia/erantzuna /home/IBM_704/aurkezpen_ontzia/erantzun
 		move_to_suffix /home/IBM_704/aurkezpen_ontzia/erantzun _ezegokia
 		printf "%s%s\n" "/home/IBM_704/aurkezpen_ontzia/erantzuna " \
-			"\"echo kaixo Ludi\" \"\""
-			> /home/IBM_704/aurkezpen_ontzia/emandako
-		move_to_suffix /home/IBM_704/aurkezpen_ontzia/emandako _inputa
+			"\"echo kaixo Ludi\" \"\"" \
+			> /home/IBM_704/aurkezpen_ontzia/exekutatutako
+		move_to_suffix /home/IBM_704/aurkezpen_ontzia/exekutatutako _komandoa
 		cat <<< "$EXPECTED_CONTENT" > /home/IBM_704/aurkezpen_ontzia/esperozen
 		move_to_suffix /home/IBM_704/aurkezpen_ontzia/esperozen _outputa
 		mv /user_shell_files/output /home/IBM_704/aurkezpen_ontzia/lortutako
@@ -104,8 +104,8 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 		move_to_suffix /home/IBM_704/aurkezpen_ontzia/erantzun _ezegokia
 		printf "%s%s\n" "/home/IBM_704/aurkezpen_ontzia/erantzuna " \
 			"\"\" \"echo kaixo Ludi\" \"\"" \
-			> /home/IBM_704/aurkezpen_ontzia/emandako
-		move_to_suffix /home/IBM_704/aurkezpen_ontzia/emandako _inputa
+			> /home/IBM_704/aurkezpen_ontzia/exekutatutako
+		move_to_suffix /home/IBM_704/aurkezpen_ontzia/exekutatutako _komandoa
 		cat <<< "$EXPECTED_CONTENT" > /home/IBM_704/aurkezpen_ontzia/esperozen
 		move_to_suffix /home/IBM_704/aurkezpen_ontzia/esperozen _outputa
 		mv /user_shell_files/output /home/IBM_704/aurkezpen_ontzia/lortutako
@@ -141,8 +141,8 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	if [[ "$FILE_CONTENT" != "$EXPECTED_CONTENT" ]]; then
 		mv /home/IBM_704/aurkezpen_ontzia/erantzuna /home/IBM_704/aurkezpen_ontzia/erantzun
 		move_to_suffix /home/IBM_704/aurkezpen_ontzia/erantzun _ezegokia
-		printf "/home/IBM_704/aurkezpen_ontzia/erantzuna\n" > /home/IBM_704/aurkezpen_ontzia/emandako
-		move_to_suffix /home/IBM_704/aurkezpen_ontzia/emandako _inputa
+		printf "/home/IBM_704/aurkezpen_ontzia/erantzuna\n" > /home/IBM_704/aurkezpen_ontzia/exekutatutako
+		move_to_suffix /home/IBM_704/aurkezpen_ontzia/exekutatutako _komandoa
 		cat <<< "$EXPECTED_CONTENT" > /home/IBM_704/aurkezpen_ontzia/esperozen
 		move_to_suffix /home/IBM_704/aurkezpen_ontzia/esperozen _outputa
 		mv /user_shell_files/output /home/IBM_704/aurkezpen_ontzia/lortutako
@@ -198,8 +198,8 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	if [[ "$SUBMISSION_STATUS" -ne 0 || "$GOTTEN_PS_COUNT" != "$EXPECTED_COUNT" ]]; then
 		mv /home/IBM_704/aurkezpen_ontzia/erantzuna /home/IBM_704/aurkezpen_ontzia/erantzun
 		move_to_suffix /home/IBM_704/aurkezpen_ontzia/erantzun _ezegokia
-		process_count_command "$MOVED_FILE" "sleep 3 | cat" ":" > /home/IBM_704/aurkezpen_ontzia/emandako
-		move_to_suffix /home/IBM_704/aurkezpen_ontzia/emandako _inputa
+		process_count_command "$MOVED_FILE" "sleep 3 | cat" ":" > /home/IBM_704/aurkezpen_ontzia/exekutatutako
+		move_to_suffix /home/IBM_704/aurkezpen_ontzia/exekutatutako _komandoa
 		printf "%s\n" "$EXPECTED_COUNT" > /home/IBM_704/aurkezpen_ontzia/esperozen
 		move_to_suffix /home/IBM_704/aurkezpen_ontzia/esperozen _outputa
 		mv /user_shell_files/output /home/IBM_704/aurkezpen_ontzia/lortutako

@@ -64,8 +64,8 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 			"/error/error2 /tmp/dir1/file5 /error7/error6 &> /user_shell_files/output; \\" \
 			"check_dates /tmp/dir1/file1 /tmp/dir1/file2 /tmp/dir1/file3 /tmp/dir1/file4 \\" \
 			"/tmp/dir1/file5 >> /user_shell_files/output" \
-			> /home/Antiziterako_mekanismoa/aurkezpen_ontzia/emandako
-		move_to_suffix /home/Antiziterako_mekanismoa/aurkezpen_ontzia/emandako _inputa
+			> /home/Antiziterako_mekanismoa/aurkezpen_ontzia/exekutatutako
+		move_to_suffix /home/Antiziterako_mekanismoa/aurkezpen_ontzia/exekutatutako _komandoa
 		cat <<< "$EXPECTED_CONTENT" > /home/Antiziterako_mekanismoa/aurkezpen_ontzia/esperozen
 		move_to_suffix /home/Antiziterako_mekanismoa/aurkezpen_ontzia/esperozen _outputa
 		mv /user_shell_files/output /home/Antiziterako_mekanismoa/aurkezpen_ontzia/lortutako
@@ -115,8 +115,8 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 			"\"/tmp/dir2/file1 /dir2/file2\"  /tmp/dir2/real_file1 \\" \
 			"&> /user_shell_files/output ; check_dates "/tmp/dir2/file1 /dir2/file2" \\" \
 			"/tmp/dir2/real_file1 >> /user_shell_files/output" \
-			> /home/Antiziterako_mekanismoa/aurkezpen_ontzia/emandako
-		move_to_suffix /home/Antiziterako_mekanismoa/aurkezpen_ontzia/emandako _inputa
+			> /home/Antiziterako_mekanismoa/aurkezpen_ontzia/exekutatutako
+		move_to_suffix /home/Antiziterako_mekanismoa/aurkezpen_ontzia/exekutatutako _komandoa
 		cat <<< "$EXPECTED_CONTENT" > /home/Antiziterako_mekanismoa/aurkezpen_ontzia/esperozen
 		move_to_suffix /home/Antiziterako_mekanismoa/aurkezpen_ontzia/esperozen _outputa
 		mv /user_shell_files/output /home/Antiziterako_mekanismoa/aurkezpen_ontzia/lortutako
