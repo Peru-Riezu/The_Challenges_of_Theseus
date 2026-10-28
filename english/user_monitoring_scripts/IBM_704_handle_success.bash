@@ -169,19 +169,13 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	animate_dots &
 	DOTS_PID=$!
 
-	measure_process_count bash -c 'eval "$1"; eval "$2"' _ "sleep 3 | cat" ":"
-	EXPECTED_COUNT=$PROCESS_COUNT
-	EXPECTED_PS_OUT=$PROCESS_LIST
-	REFERENCE_READY=$PROCESS_READY
-	REFERENCE_STATUS=$PROCESS_STATUS
-	if [[ "$REFERENCE_READY" != 1 || "$REFERENCE_STATUS" -ne 0 ]]; then
+	COUNT_COMMAND=$(process_count_command bash -c 'eval "$1"; eval "$2"' _ "sleep 3 | cat" ":")
+	if ! EXPECTED_COUNT=$(bash -c "$COUNT_COMMAND"); then
 		kill "$DOTS_PID"
 		wait "$DOTS_PID" 2>/dev/null || :
 		tput clear
 		printf "$COLOR_RED%s$COLOR_RESET\n" \
 			"test (5/5): could not measure the reference processes."
-		printf "exit status: %s\nPID PPID COMMAND\n%s\n" "$REFERENCE_STATUS" "$EXPECTED_PS_OUT"
-		cat /user_shell_files/output
 		stty -igncr
 		read -s -r -n1
 		stty sane
@@ -191,26 +185,24 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 		return 0
 	fi
 
-	measure_process_count /home/IBM_704/submission_box/solution "sleep 3 | cat" ":"
-	GOTTEN_PS_COUNT=$PROCESS_COUNT
-	SUBMISSION_READY=$PROCESS_READY
-	SUBMISSION_STATUS=$PROCESS_STATUS
+	COUNT_COMMAND=$(process_count_command /home/IBM_704/submission_box/solution "sleep 3 | cat" ":")
+	if bash -c "$COUNT_COMMAND" > /user_shell_files/output; then
+		SUBMISSION_STATUS=0
+	else
+		SUBMISSION_STATUS=$?
+	fi
+	GOTTEN_PS_COUNT=$(cat /user_shell_files/output)
 	kill "$DOTS_PID"
 	wait "$DOTS_PID" 2>/dev/null || :
 
-	if [[ "$SUBMISSION_READY" != 1 || "$SUBMISSION_STATUS" -ne 0 || "$GOTTEN_PS_COUNT" != "$EXPECTED_COUNT" ]]; then
+	if [[ "$SUBMISSION_STATUS" -ne 0 || "$GOTTEN_PS_COUNT" != "$EXPECTED_COUNT" ]]; then
 		mv /home/IBM_704/submission_box/solution /home/IBM_704/submission_box/incorrect
 		move_to_suffix /home/IBM_704/submission_box/incorrect _solution
-		{
-			printf "(\n"
-			declare -f measure_process_count
-			printf 'PROCESS_OUTPUT=/dev/null measure_process_count %q "sleep 3 | cat" ":"\n' "$MOVED_FILE"
-			printf '%s\n' 'printf "%s\n" "$PROCESS_COUNT"' ')'
-		} > /home/IBM_704/submission_box/given
+		process_count_command "$MOVED_FILE" "sleep 3 | cat" ":" > /home/IBM_704/submission_box/given
 		move_to_suffix /home/IBM_704/submission_box/given _input
 		printf "%s\n" "$EXPECTED_COUNT" > /home/IBM_704/submission_box/expected
 		move_to_suffix /home/IBM_704/submission_box/expected _output
-		printf "%s\n" "$GOTTEN_PS_COUNT" > /home/IBM_704/submission_box/gotten
+		mv /user_shell_files/output /home/IBM_704/submission_box/gotten
 		move_to_suffix /home/IBM_704/submission_box/gotten _output
 		tput clear
 		tput clear

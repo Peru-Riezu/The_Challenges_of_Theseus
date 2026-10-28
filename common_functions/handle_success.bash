@@ -26,22 +26,24 @@ move_to_suffix()
 	mv "$basename" "$target" && MOVED_FILE=$target
 }
 
-measure_process_count()
+process_count_command()
 {
-	local -
+	printf 'bash -s --'
+	printf ' %q' "$@"
+	printf " <<'PROCESS_COUNT_COMMAND'\n"
+	cat <<'PROCESS_COUNT_COMMAND'
 	set +m
-	local timeout_pid deadline snapshot pid parent_pid command_name sleep_found cat_found
 	PROCESS_COUNT=0
 	PROCESS_LIST=''
 	PROCESS_READY=0
 	PROCESS_STATUS=0
 
-	timeout --kill-after=1 5 "$@" > "${PROCESS_OUTPUT:-/user_shell_files/output}" 2>&1 &
+	timeout --kill-after=1 5 "$@" > /dev/null 2>&1 &
 	timeout_pid=$!
 	deadline=$((SECONDS + 7))
 
 	while (( SECONDS < deadline )); do
-		snapshot=$(ps -eo pid=,ppid=,comm=) || break
+		snapshot=$(ps -eo pid=,ppid=,comm= 2>/dev/null) || break
 		PROCESS_LIST=$(awk -v root="$timeout_pid" '
 			{
 				parent[$1] = $2
@@ -64,7 +66,7 @@ measure_process_count()
 					if (order[i] != root && (order[i] in selected)) print line[order[i]]
 				}
 			}
-		' <<< "$snapshot")
+		' <<< "$snapshot" 2>/dev/null)
 
 		PROCESS_COUNT=0
 		sleep_found=0
@@ -87,11 +89,15 @@ measure_process_count()
 	if [[ $PROCESS_READY != 1 ]]; then
 		kill -TERM "$timeout_pid" 2>/dev/null || :
 	fi
-	if wait "$timeout_pid"; then
+	if wait "$timeout_pid" 2>/dev/null; then
 		PROCESS_STATUS=0
 	else
 		PROCESS_STATUS=$?
 	fi
+	printf "%s\n" "$PROCESS_COUNT"
+	[[ $PROCESS_READY == 1 && $PROCESS_STATUS -eq 0 ]]
+PROCESS_COUNT_COMMAND
+	printf 'PROCESS_COUNT_COMMAND\n'
 }
 
 get_success_lock_might_return()
