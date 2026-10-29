@@ -29,18 +29,17 @@ move_to_suffix()
 process_count_command()
 {
 	printf '%s\n' \
-		'# this script counts the submitted script and the processes it spawns,' \
-		'# to check whether it uses more processes than strictly necessary.'
-	printf 'bash -s --'
+		'# this script counts the processes the submitted script spawns,' \
+		'# to check whether it spawns more processes than strictly necessary.'
+	printf 'bash -s'
 	printf ' %q' "$@"
 	printf " <<'PROCESS_COUNT_COMMAND'\n"
 	cat <<'PROCESS_COUNT_COMMAND'
-	set +m
 	PROCESS_COUNT=0
 	PROCESS_READY=0
 	PROCESS_STATUS=0
 
-	timeout --kill-after=1 5 "$@" > /dev/null 2>&1 &
+	timeout 5 "$@" > /dev/null 2>&1 &
 	timeout_pid=$!
 	deadline=$((SECONDS + 7))
 

@@ -169,7 +169,7 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	animate_dots &
 	DOTS_PID=$!
 
-	COUNT_COMMAND=$(process_count_command bash -c 'eval "$1"; eval "$2"' _ "sleep 3 | cat" ":")
+	COUNT_COMMAND=$(process_count_command bash -c 'eval "$1"; eval "$2"' 'sleep 3 | echo')
 	if ! EXPECTED_COUNT=$(bash -c "$COUNT_COMMAND"); then
 		kill "$DOTS_PID"
 		wait "$DOTS_PID" 2>/dev/null || :
