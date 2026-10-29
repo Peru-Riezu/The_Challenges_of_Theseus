@@ -171,11 +171,8 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 
 	EXPECTED_COUNT=$(count_processes bash -c 'eval "$1"; eval "$2"' _ "sleep 5" "")
 
-	if count_processes /home/IBM_704/aurkezpen_ontzia/erantzuna "sleep 5" "" > /user_shell_files/output; then
-		SUBMISSION_STATUS=0
-	else
-		SUBMISSION_STATUS=$?
-	fi
+	count_processes /home/IBM_704/aurkezpen_ontzia/erantzuna "sleep 5" "" > /user_shell_files/output
+	SUBMISSION_STATUS=$?
 	GOTTEN_PS_COUNT=$(cat /user_shell_files/output)
 	kill "$DOTS_PID"
 	wait "$DOTS_PID" 2>/dev/null || :
