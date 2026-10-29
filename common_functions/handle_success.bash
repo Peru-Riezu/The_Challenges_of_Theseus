@@ -29,14 +29,13 @@ move_to_suffix()
 count_processes()
 {
 	local timeout_pid snapshot pid parent_pid i
-	local snapshot_status=0
 	local processes=()
 
 	timeout 10 "$@" > /dev/null 2>&1 &
 	timeout_pid=$!
 	sleep 2
 
-	snapshot=$(ps -eo pid=,ppid= 2>/dev/null) || snapshot_status=$?
+	snapshot=$(ps -eo pid=,ppid= 2>/dev/null)
 	processes=("$timeout_pid")
 	for ((i = 0; i < ${#processes[@]}; i++)); do
 		while read -r pid parent_pid; do
@@ -47,8 +46,7 @@ count_processes()
 	done
 
 	printf "%s\n" "$((${#processes[@]} - 1))"
-	wait "$timeout_pid" 2>/dev/null || return $?
-	return "$snapshot_status"
+	wait "$timeout_pid" 2>/dev/null
 }
 
 get_success_lock_might_return()
