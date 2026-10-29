@@ -15,7 +15,7 @@ theseus_handle_success()
 		trap : SIGINT
 		return "$command_status"
 	fi
-	THESEUS_LAST_SUCCESS_EVENT=$event_id
+	trap '' SIGINT
 
 	local my_pgid fg_pgid
 	my_pgid=$(ps -o pgid= -p $$)
@@ -34,6 +34,7 @@ theseus_handle_success()
 	}
 	local theseus_success_registered=0
 
+	THESEUS_LAST_SUCCESS_EVENT=$event_id
 	source /handle_sigint.bash < /dev/tty > /dev/tty
 
 	if [[ $theseus_success_registered == 1 ]]; then
