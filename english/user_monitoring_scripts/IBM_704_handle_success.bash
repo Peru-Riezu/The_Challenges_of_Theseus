@@ -169,20 +169,7 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	animate_dots &
 	DOTS_PID=$!
 
-	if ! EXPECTED_COUNT=$(count_processes bash -c 'eval "$0"; eval "$1"' "sleep 5" ""); then
-		kill "$DOTS_PID"
-		wait "$DOTS_PID" 2>/dev/null || :
-		tput clear
-		printf "$COLOR_RED%s$COLOR_RESET\n" \
-			"test (5/5): could not measure the reference processes."
-		stty -igncr
-		read -s -r -n1
-		stty sane
-		tput clear
-		tput cnorm
-		yield_success_lock
-		return 0
-	fi
+	EXPECTED_COUNT=$(count_processes bash -c 'eval "$0"; eval "$1"' "sleep 5" "")
 
 	if count_processes /home/IBM_704/submission_box/solution "sleep 5" "" > /user_shell_files/output; then
 		SUBMISSION_STATUS=0
