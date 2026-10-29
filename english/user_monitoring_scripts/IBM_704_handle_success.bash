@@ -169,9 +169,9 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	animate_dots &
 	DOTS_PID=$!
 
-	EXPECTED_COUNT=$(count_processes bash -c 'eval "$0"; eval "$1"' "sleep 5" "")
+	EXPECTED_COUNT=$(count_processes bash -c 'eval "$0"; eval "$1"' "sleep 5; true" "")
 
-	count_processes /home/IBM_704/submission_box/solution "sleep 5" "" > /user_shell_files/output
+	count_processes /home/IBM_704/submission_box/solution "sleep 5; true" "" > /user_shell_files/output
 	SUBMISSION_STATUS=$?
 	GOTTEN_PS_COUNT=$(cat /user_shell_files/output)
 	kill "$DOTS_PID"
@@ -185,7 +185,7 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 				"# this script counts the processes the submitted script spawns," \
 				"# to check whether it spawns more processes than strictly necessary."
 			declare -f count_processes
-			printf '\n%s\n\n' 'count_processes /home/IBM_704/submission_box/solution "sleep 5" ""'
+			printf '\n%s\n\n' 'count_processes /home/IBM_704/submission_box/solution "sleep 5; true" ""'
 		} > /home/IBM_704/submission_box/executed
 		move_to_suffix /home/IBM_704/submission_box/executed _script
 		printf "%s\n" "$EXPECTED_COUNT" > /home/IBM_704/submission_box/expected
