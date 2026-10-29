@@ -23,73 +23,32 @@ move_to_suffix()
 		target="${basename}${suffix}(${n})"
 		((n++))
 	done
-	mv "$basename" "$target" && MOVED_FILE=$target
+	mv "$basename" "$target"
 }
 
-process_count_command()
+count_processes()
 {
-	printf '%s\n' \
-		'# this script counts the processes the submitted script spawns,' \
-		'# to check whether it spawns more processes than strictly necessary.'
-	printf 'bash -s'
-	printf ' %q' "$@"
-	printf " <<'PROCESS_COUNT_COMMAND'\n"
-	cat <<'PROCESS_COUNT_COMMAND'
-	PROCESS_COUNT=0
-	PROCESS_READY=0
-	PROCESS_STATUS=0
+	local timeout_pid snapshot pid parent_pid i
+	local snapshot_status=0
+	local processes=()
 
-	timeout 5 "$@" > /dev/null 2>&1 &
+	timeout 10 "$@" > /dev/null 2>&1 &
 	timeout_pid=$!
-	deadline=$((SECONDS + 7))
+	sleep 2
 
-	while (( SECONDS < deadline )); do
-		snapshot=$(ps -eo pid=,ppid=,comm= 2>/dev/null) || break
-		processes=()
-		selected=()
-		while read -r pid parent_pid command_name; do
-			if [[ $pid == "$timeout_pid" ]]; then
-				processes=("$pid")
-				selected[$pid]=1
-				break
+	snapshot=$(ps -eo pid=,ppid= 2>/dev/null) || snapshot_status=$?
+	processes=("$timeout_pid")
+	for ((i = 0; i < ${#processes[@]}; i++)); do
+		while read -r pid parent_pid; do
+			if [[ $parent_pid == "${processes[i]}" ]]; then
+				processes+=("$pid")
 			fi
 		done <<< "$snapshot"
-
-		PROCESS_COUNT=0
-		sleep_found=0
-		cat_found=0
-		for ((i = 0; i < ${#processes[@]}; i++)); do
-			while read -r pid parent_pid command_name; do
-				[[ -z $pid || $parent_pid != "${processes[i]}" ]] && continue
-				[[ ${selected[$pid]:-0} == 1 ]] && continue
-				selected[$pid]=1
-				processes+=("$pid")
-				((++PROCESS_COUNT))
-				[[ $command_name == sleep ]] && sleep_found=1
-				[[ $command_name == cat ]] && cat_found=1
-			done <<< "$snapshot"
-		done
-
-		if [[ $sleep_found == 1 && $cat_found == 1 ]]; then
-			PROCESS_READY=1
-			break
-		fi
-		kill -0 "$timeout_pid" 2>/dev/null || break
-		sleep 0.1
 	done
 
-	if [[ $PROCESS_READY != 1 ]]; then
-		kill -TERM "$timeout_pid" 2>/dev/null || :
-	fi
-	if wait "$timeout_pid" 2>/dev/null; then
-		PROCESS_STATUS=0
-	else
-		PROCESS_STATUS=$?
-	fi
-	printf "%s\n" "$PROCESS_COUNT"
-	[[ $PROCESS_READY == 1 && $PROCESS_STATUS -eq 0 ]]
-PROCESS_COUNT_COMMAND
-	printf 'PROCESS_COUNT_COMMAND\n'
+	printf "%s\n" "$((${#processes[@]} - 1))"
+	wait "$timeout_pid" 2>/dev/null || return $?
+	return "$snapshot_status"
 }
 
 get_success_lock_might_return()

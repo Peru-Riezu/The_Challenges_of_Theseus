@@ -27,7 +27,7 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 		printf "%s%s\n" "/home/IBM_704/aurkezpen_ontzia/erantzuna " \
 			"\"echo Kaixo, Ludi\" \"cat <<< \\\"Agur, Ludi\\\"\"" \
 			> /home/IBM_704/aurkezpen_ontzia/exekutatutako
-		move_to_suffix /home/IBM_704/aurkezpen_ontzia/exekutatutako _komandoa
+		move_to_suffix /home/IBM_704/aurkezpen_ontzia/exekutatutako _skripta
 		cat <<< "$EXPECTED_CONTENT" > /home/IBM_704/aurkezpen_ontzia/esperozen
 		move_to_suffix /home/IBM_704/aurkezpen_ontzia/esperozen _outputa
 		mv /user_shell_files/output /home/IBM_704/aurkezpen_ontzia/lortutako
@@ -66,7 +66,7 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 		printf "%s%s\n" "/home/IBM_704/aurkezpen_ontzia/erantzuna " \
 			"\"echo kaixo Ludi\" \"\"" \
 			> /home/IBM_704/aurkezpen_ontzia/exekutatutako
-		move_to_suffix /home/IBM_704/aurkezpen_ontzia/exekutatutako _komandoa
+		move_to_suffix /home/IBM_704/aurkezpen_ontzia/exekutatutako _skripta
 		cat <<< "$EXPECTED_CONTENT" > /home/IBM_704/aurkezpen_ontzia/esperozen
 		move_to_suffix /home/IBM_704/aurkezpen_ontzia/esperozen _outputa
 		mv /user_shell_files/output /home/IBM_704/aurkezpen_ontzia/lortutako
@@ -105,7 +105,7 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 		printf "%s%s\n" "/home/IBM_704/aurkezpen_ontzia/erantzuna " \
 			"\"\" \"echo kaixo Ludi\" \"\"" \
 			> /home/IBM_704/aurkezpen_ontzia/exekutatutako
-		move_to_suffix /home/IBM_704/aurkezpen_ontzia/exekutatutako _komandoa
+		move_to_suffix /home/IBM_704/aurkezpen_ontzia/exekutatutako _skripta
 		cat <<< "$EXPECTED_CONTENT" > /home/IBM_704/aurkezpen_ontzia/esperozen
 		move_to_suffix /home/IBM_704/aurkezpen_ontzia/esperozen _outputa
 		mv /user_shell_files/output /home/IBM_704/aurkezpen_ontzia/lortutako
@@ -142,7 +142,7 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 		mv /home/IBM_704/aurkezpen_ontzia/erantzuna /home/IBM_704/aurkezpen_ontzia/erantzun
 		move_to_suffix /home/IBM_704/aurkezpen_ontzia/erantzun _ezegokia
 		printf "/home/IBM_704/aurkezpen_ontzia/erantzuna\n" > /home/IBM_704/aurkezpen_ontzia/exekutatutako
-		move_to_suffix /home/IBM_704/aurkezpen_ontzia/exekutatutako _komandoa
+		move_to_suffix /home/IBM_704/aurkezpen_ontzia/exekutatutako _skripta
 		cat <<< "$EXPECTED_CONTENT" > /home/IBM_704/aurkezpen_ontzia/esperozen
 		move_to_suffix /home/IBM_704/aurkezpen_ontzia/esperozen _outputa
 		mv /user_shell_files/output /home/IBM_704/aurkezpen_ontzia/lortutako
@@ -169,8 +169,7 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	animate_dots &
 	DOTS_PID=$!
 
-	COUNT_COMMAND=$(process_count_command bash -c 'eval "$1"; eval "$2"' _ "sleep 3 | cat" ":")
-	if ! EXPECTED_COUNT=$(bash -c "$COUNT_COMMAND"); then
+	if ! EXPECTED_COUNT=$(count_processes bash -c 'eval "$1"; eval "$2"' _ "sleep 5" ""); then
 		kill "$DOTS_PID"
 		wait "$DOTS_PID" 2>/dev/null || :
 		tput clear
@@ -185,8 +184,7 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 		return 0
 	fi
 
-	COUNT_COMMAND=$(process_count_command /home/IBM_704/aurkezpen_ontzia/erantzuna "sleep 3 | cat" ":")
-	if bash -c "$COUNT_COMMAND" > /user_shell_files/output; then
+	if count_processes /home/IBM_704/aurkezpen_ontzia/erantzuna "sleep 5" "" > /user_shell_files/output; then
 		SUBMISSION_STATUS=0
 	else
 		SUBMISSION_STATUS=$?
@@ -198,8 +196,14 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	if [[ "$SUBMISSION_STATUS" -ne 0 || "$GOTTEN_PS_COUNT" != "$EXPECTED_COUNT" ]]; then
 		mv /home/IBM_704/aurkezpen_ontzia/erantzuna /home/IBM_704/aurkezpen_ontzia/erantzun
 		move_to_suffix /home/IBM_704/aurkezpen_ontzia/erantzun _ezegokia
-		process_count_command "$MOVED_FILE" "sleep 3 | cat" ":" > /home/IBM_704/aurkezpen_ontzia/exekutatutako
-		move_to_suffix /home/IBM_704/aurkezpen_ontzia/exekutatutako _komandoa
+		{
+			printf "%s\n" \
+				"# this script counts the processes the submitted script spawns," \
+				"# to check whether it spawns more processes than strictly necessary."
+			declare -f count_processes
+			printf '\n%s\n\n' 'count_processes /home/IBM_704/aurkezpen_ontzia/erantzuna "sleep 5" ""'
+		} > /home/IBM_704/aurkezpen_ontzia/exekutatutako
+		move_to_suffix /home/IBM_704/aurkezpen_ontzia/exekutatutako _skripta
 		printf "%s\n" "$EXPECTED_COUNT" > /home/IBM_704/aurkezpen_ontzia/esperozen
 		move_to_suffix /home/IBM_704/aurkezpen_ontzia/esperozen _outputa
 		mv /user_shell_files/output /home/IBM_704/aurkezpen_ontzia/lortutako
