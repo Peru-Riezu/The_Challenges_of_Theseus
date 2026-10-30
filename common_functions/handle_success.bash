@@ -28,25 +28,28 @@ move_to_suffix()
 
 count_processes()
 {
-	local timeout_pid snapshot pid parent_pid i
-	local processes=()
-
-	timeout 10 "$@" > /dev/null 2>&1 &
-	timeout_pid=$!
+	timeout 10 "$@" > /dev/null &
+	local timeout_pid=$!
 	sleep 2
 
-	snapshot=$(ps -eo pid=,ppid= 2>/dev/null)
-	processes=("$timeout_pid")
-	for ((i = 0; i < ${#processes[@]}; i++)); do
-		while read -r pid parent_pid; do
-			if [[ $parent_pid == "${processes[i]}" ]]; then
-				processes+=("$pid")
+	local full_pid_list
+	full_pid_list=$(ps -eo pid=,ppid=)
+	local root_and_children_pids=("$timeout_pid")
+	local i
+	for ((i = 0; i < ${#root_and_children_pids[@]}; i++))
+	do
+		local pid parent_pid
+		while read -r pid parent_pid
+		do
+			if [[ $parent_pid == "${root_and_children_pids[i]}" ]]
+			then
+				root_and_children_pids+=("$pid")
 			fi
-		done <<< "$snapshot"
+		done <<< "$full_pid_list"
 	done
 
-	printf "%s\n" "$((${#processes[@]} - 1))"
-	wait "$timeout_pid" 2>/dev/null
+	printf "%s\n" "$((${#root_and_children_pids[@]} - 1))"
+	wait "$timeout_pid"
 }
 
 get_success_lock_might_return()

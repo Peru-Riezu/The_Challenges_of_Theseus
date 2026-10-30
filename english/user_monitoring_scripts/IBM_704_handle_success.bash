@@ -184,7 +184,7 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 			printf "%s\n" \
 				"# this script counts the processes the submitted script spawns," \
 				"# to check whether it spawns more processes than strictly necessary."
-			declare -f count_processes
+			sed -n '/^count_processes()/,/^}/p' /handle_sigint.bash
 			printf '\n%s\n\n' 'count_processes /home/IBM_704/submission_box/solution "sleep 5; true" ""'
 		} > /home/IBM_704/submission_box/executed
 		move_to_suffix /home/IBM_704/submission_box/executed _script
