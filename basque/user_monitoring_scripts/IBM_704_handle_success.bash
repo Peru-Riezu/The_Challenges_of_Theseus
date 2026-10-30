@@ -27,7 +27,7 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 		printf "%s%s\n" "/home/IBM_704/aurkezpen_ontzia/erantzuna " \
 			"\"echo Kaixo, Ludi\" \"cat <<< \\\"Agur, Ludi\\\"\"" \
 			> /home/IBM_704/aurkezpen_ontzia/exekutatutako
-		move_to_suffix /home/IBM_704/aurkezpen_ontzia/exekutatutako _skripta
+		move_to_suffix /home/IBM_704/aurkezpen_ontzia/exekutatutako _komandoa
 		cat <<< "$EXPECTED_CONTENT" > /home/IBM_704/aurkezpen_ontzia/esperozen
 		move_to_suffix /home/IBM_704/aurkezpen_ontzia/esperozen _outputa
 		mv /user_shell_files/output /home/IBM_704/aurkezpen_ontzia/lortutako
@@ -66,7 +66,7 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 		printf "%s%s\n" "/home/IBM_704/aurkezpen_ontzia/erantzuna " \
 			"\"echo kaixo Ludi\" \"\"" \
 			> /home/IBM_704/aurkezpen_ontzia/exekutatutako
-		move_to_suffix /home/IBM_704/aurkezpen_ontzia/exekutatutako _skripta
+		move_to_suffix /home/IBM_704/aurkezpen_ontzia/exekutatutako _komandoa
 		cat <<< "$EXPECTED_CONTENT" > /home/IBM_704/aurkezpen_ontzia/esperozen
 		move_to_suffix /home/IBM_704/aurkezpen_ontzia/esperozen _outputa
 		mv /user_shell_files/output /home/IBM_704/aurkezpen_ontzia/lortutako
@@ -105,7 +105,7 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 		printf "%s%s\n" "/home/IBM_704/aurkezpen_ontzia/erantzuna " \
 			"\"\" \"echo kaixo Ludi\" \"\"" \
 			> /home/IBM_704/aurkezpen_ontzia/exekutatutako
-		move_to_suffix /home/IBM_704/aurkezpen_ontzia/exekutatutako _skripta
+		move_to_suffix /home/IBM_704/aurkezpen_ontzia/exekutatutako _komandoa
 		cat <<< "$EXPECTED_CONTENT" > /home/IBM_704/aurkezpen_ontzia/esperozen
 		move_to_suffix /home/IBM_704/aurkezpen_ontzia/esperozen _outputa
 		mv /user_shell_files/output /home/IBM_704/aurkezpen_ontzia/lortutako
@@ -142,7 +142,7 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 		mv /home/IBM_704/aurkezpen_ontzia/erantzuna /home/IBM_704/aurkezpen_ontzia/erantzun
 		move_to_suffix /home/IBM_704/aurkezpen_ontzia/erantzun _ezegokia
 		printf "/home/IBM_704/aurkezpen_ontzia/erantzuna\n" > /home/IBM_704/aurkezpen_ontzia/exekutatutako
-		move_to_suffix /home/IBM_704/aurkezpen_ontzia/exekutatutako _skripta
+		move_to_suffix /home/IBM_704/aurkezpen_ontzia/exekutatutako _komandoa
 		cat <<< "$EXPECTED_CONTENT" > /home/IBM_704/aurkezpen_ontzia/esperozen
 		move_to_suffix /home/IBM_704/aurkezpen_ontzia/esperozen _outputa
 		mv /user_shell_files/output /home/IBM_704/aurkezpen_ontzia/lortutako
@@ -182,7 +182,7 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 		move_to_suffix /home/IBM_704/aurkezpen_ontzia/erantzun _ezegokia
 		{
 			printf "%s\n" \
-				"# this script counts the processes the submitted script spawns," \
+				"# this script counts the processes the submitted script spawns" \
 				"# to check whether it spawns more processes than strictly necessary."
 			sed -n '/^count_processes()/,/^}/p' /handle_sigint.bash
 			printf '\n%s\n\n' 'count_processes /home/IBM_704/aurkezpen_ontzia/erantzuna "sleep 5; true" ""'

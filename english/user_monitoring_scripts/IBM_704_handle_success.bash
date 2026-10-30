@@ -27,7 +27,7 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 		printf "%s%s\n" "/home/IBM_704/submission_box/solution " \
 			"\"echo Hello, World\" \"cat <<< \\\"Goodby, World\\\"\"" \
 			> /home/IBM_704/submission_box/executed
-		move_to_suffix /home/IBM_704/submission_box/executed _script
+		move_to_suffix /home/IBM_704/submission_box/executed _command
 		cat <<< "$EXPECTED_CONTENT" > /home/IBM_704/submission_box/expected
 		move_to_suffix /home/IBM_704/submission_box/expected _output
 		mv /user_shell_files/output /home/IBM_704/submission_box/gotten
@@ -66,7 +66,7 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 		printf "%s%s\n" "/home/IBM_704/submission_box/solution " \
 			"\"echo kaixo Ludi\" \"\"" \
 			> /home/IBM_704/submission_box/executed
-		move_to_suffix /home/IBM_704/submission_box/executed _script
+		move_to_suffix /home/IBM_704/submission_box/executed _command
 		cat <<< "$EXPECTED_CONTENT" > /home/IBM_704/submission_box/expected
 		move_to_suffix /home/IBM_704/submission_box/expected _output
 		mv /user_shell_files/output /home/IBM_704/submission_box/gotten
@@ -105,7 +105,7 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 		printf "%s%s\n" "/home/IBM_704/submission_box/solution " \
 			"\"\" \"echo kaixo Ludi\" \"\"" \
 			> /home/IBM_704/submission_box/executed
-		move_to_suffix /home/IBM_704/submission_box/executed _script
+		move_to_suffix /home/IBM_704/submission_box/executed _command
 		cat <<< "$EXPECTED_CONTENT" > /home/IBM_704/submission_box/expected
 		move_to_suffix /home/IBM_704/submission_box/expected _output
 		mv /user_shell_files/output /home/IBM_704/submission_box/gotten
@@ -142,7 +142,7 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 		mv /home/IBM_704/submission_box/solution /home/IBM_704/submission_box/incorrect
 		move_to_suffix /home/IBM_704/submission_box/incorrect _solution
 		printf "/home/IBM_704/submission_box/solution\n" > /home/IBM_704/submission_box/executed
-		move_to_suffix /home/IBM_704/submission_box/executed _script
+		move_to_suffix /home/IBM_704/submission_box/executed _command
 		cat <<< "$EXPECTED_CONTENT" > /home/IBM_704/submission_box/expected
 		move_to_suffix /home/IBM_704/submission_box/expected _output
 		mv /user_shell_files/output /home/IBM_704/submission_box/gotten
@@ -182,7 +182,7 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 		move_to_suffix /home/IBM_704/submission_box/incorrect _solution
 		{
 			printf "%s\n" \
-				"# this script counts the processes the submitted script spawns," \
+				"# this script counts the processes the submitted script spawns" \
 				"# to check whether it spawns more processes than strictly necessary."
 			sed -n '/^count_processes()/,/^}/p' /handle_sigint.bash
 			printf '\n%s\n\n' 'count_processes /home/IBM_704/submission_box/solution "sleep 5; true" ""'
