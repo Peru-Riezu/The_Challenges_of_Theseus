@@ -6,6 +6,7 @@ RUN	apt update \
 			 iputils* file figlet cowsay bc -y \
 	&& apt clean -y
 
+ENV LC_ALL=C.UTF-8
 ENV PATH=$PATH:/usr/games
 
 RUN	mkdir /user_shell_files/
