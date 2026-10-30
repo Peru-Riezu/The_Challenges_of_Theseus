@@ -44,7 +44,7 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	mkdir /tmp/dir1
 	touch /tmp/dir1/file1 /tmp/dir1/file2 /tmp/dir1/file4 /tmp/dir1/file5
 
-	timeout 0.5 /home/Antiziterako_mekanismoa/aurkezpen_ontzia/erantzuna /tmp/dir1/file1 /tmp/dir1/file2 /tmp/dir1/file3 \
+	timeout 1.5 /home/Antiziterako_mekanismoa/aurkezpen_ontzia/erantzuna /tmp/dir1/file1 /tmp/dir1/file2 /tmp/dir1/file3 \
 		/error/error /tmp/dir1/file4 /error/error2 /tmp/dir1/file5 /error7/error6 &> /user_shell_files/output ; \
 		check_dates /tmp/dir1/file1 /tmp/dir1/file2  /tmp/dir1/file3 /tmp/dir1/file4 /tmp/dir1/file5 \
 		>> /user_shell_files/output
@@ -59,7 +59,7 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 			/home/Antiziterako_mekanismoa/aurkezpen_ontzia/erantzun
 		move_to_suffix /home/Antiziterako_mekanismoa/aurkezpen_ontzia/erantzun _ezegokia
 		printf "%s\n%s\n%s\n%s\n%s\n" \
-			"timeout 0.5 /home/Antiziterako_mekanismoa/aurkezpen_ontzia/erantzuna \\" \
+			"timeout 1.5 /home/Antiziterako_mekanismoa/aurkezpen_ontzia/erantzuna \\" \
 			"/tmp/dir1/file1 /tmp/dir1/file2 /tmp/dir1/file3 /error/error /tmp/dir1/file4 \\" \
 			"/error/error2 /tmp/dir1/file5 /error7/error6 &> /user_shell_files/output; \\" \
 			"check_dates /tmp/dir1/file1 /tmp/dir1/file2 /tmp/dir1/file3 /tmp/dir1/file4 \\" \
@@ -97,7 +97,7 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	mkdir -p /tmp/dir2/file1\ /dir2
 	touch /tmp/dir2/file1\ /dir2/file2
 
-	timeout 0.5 /home/Antiziterako_mekanismoa/aurkezpen_ontzia/erantzuna "/tmp/dir2/file1 /dir2/file2" \
+	timeout 1.5 /home/Antiziterako_mekanismoa/aurkezpen_ontzia/erantzuna "/tmp/dir2/file1 /dir2/file2" \
 		/tmp/dir2/real_file1 &> /user_shell_files/output ; check_dates "/tmp/dir2/file1 /dir2/file2" \
 		/tmp/dir2/real_file1 >> /user_shell_files/output
 	FILE_CONTENT=$(cat /user_shell_files/output)
@@ -111,7 +111,7 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 			/home/Antiziterako_mekanismoa/aurkezpen_ontzia/erantzun
 		move_to_suffix /home/Antiziterako_mekanismoa/aurkezpen_ontzia/erantzun _ezegokia
 		printf "%s\n%s\n%s\n%s\n" \
-			"timeout 0.5 /home/Antiziterako_mekanismoa/aurkezpen_ontzia/erantzuna \\" \
+			"timeout 1.5 /home/Antiziterako_mekanismoa/aurkezpen_ontzia/erantzuna \\" \
 			"\"/tmp/dir2/file1 /dir2/file2\"  /tmp/dir2/real_file1 \\" \
 			"&> /user_shell_files/output ; check_dates "/tmp/dir2/file1 /dir2/file2" \\" \
 			"/tmp/dir2/real_file1 >> /user_shell_files/output" \

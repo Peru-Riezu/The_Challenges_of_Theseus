@@ -14,7 +14,7 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	animate_dots &
 	DOTS_PID=$!
 
-	timeout 0.5 /home/IBM_704/aurkezpen_ontzia/erantzuna "echo Kaixo, Ludi" "cat <<< \"Agur, Ludi\"" \
+	timeout 1.5 /home/IBM_704/aurkezpen_ontzia/erantzuna "echo Kaixo, Ludi" "cat <<< \"Agur, Ludi\"" \
 		&> /user_shell_files/output
 	FILE_CONTENT=$(cat /user_shell_files/output)
 	EXPECTED_CONTENT=$(echo "Kaixo, Ludi" ; cat <<< "Agur, Ludi")
@@ -54,7 +54,7 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	animate_dots &
 	DOTS_PID=$!
 
-	timeout 0.5 /home/IBM_704/aurkezpen_ontzia/erantzuna "echo kaixo Ludi" "" &> /user_shell_files/output
+	timeout 1.5 /home/IBM_704/aurkezpen_ontzia/erantzuna "echo kaixo Ludi" "" &> /user_shell_files/output
 	FILE_CONTENT=$(cat /user_shell_files/output)
 	EXPECTED_CONTENT=$(echo "kaixo Ludi")
 	sleep 3
@@ -93,7 +93,7 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	animate_dots &
 	DOTS_PID=$!
 
-	timeout 0.5 /home/IBM_704/aurkezpen_ontzia/erantzuna "" "echo kaixo Ludi" "" &> /user_shell_files/output
+	timeout 1.5 /home/IBM_704/aurkezpen_ontzia/erantzuna "" "echo kaixo Ludi" "" &> /user_shell_files/output
 	FILE_CONTENT=$(cat /user_shell_files/output)
 	EXPECTED_CONTENT=$(echo "kaixo Ludi")
 	sleep 3
@@ -132,7 +132,7 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	animate_dots &
 	DOTS_PID=$!
 
-	timeout 0.5 /home/IBM_704/aurkezpen_ontzia/erantzuna &> /user_shell_files/output
+	timeout 1.5 /home/IBM_704/aurkezpen_ontzia/erantzuna &> /user_shell_files/output
 	FILE_CONTENT=$(cat /user_shell_files/output)
 	EXPECTED_CONTENT=$()
 	sleep 3

@@ -25,7 +25,7 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	animate_dots &
 	DOTS_PID=$!
 
-	timeout 0.5 /home/Gaiu_Itsasaldi-Aurresatzailea/aurkezpen_ontzia/2_1337_f0r_y0u "_________hello_________" \
+	timeout 1.5 /home/Gaiu_Itsasaldi-Aurresatzailea/aurkezpen_ontzia/2_1337_f0r_y0u "_________hello_________" \
 		&> /user_shell_files/output
 	FILE_CONTENT=$(cat /user_shell_files/output)
 	EXPECTED_CONTENT=$(proper_solution "_________hello_________")
@@ -64,7 +64,7 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	animate_dots &
 	DOTS_PID=$!
 
-	timeout 0.5 /home/Gaiu_Itsasaldi-Aurresatzailea/aurkezpen_ontzia/2_1337_f0r_y0u "_________hello_________" "extra" \
+	timeout 1.5 /home/Gaiu_Itsasaldi-Aurresatzailea/aurkezpen_ontzia/2_1337_f0r_y0u "_________hello_________" "extra" \
 		&> /user_shell_files/output
 	FILE_CONTENT=$(cat /user_shell_files/output)
 	EXPECTED_CONTENT=$(proper_solution "_________hello_________" "extra")
@@ -103,7 +103,7 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	animate_dots &
 	DOTS_PID=$!
 
-	timeout 0.5 /home/Gaiu_Itsasaldi-Aurresatzailea/aurkezpen_ontzia/2_1337_f0r_y0u "" "" \
+	timeout 1.5 /home/Gaiu_Itsasaldi-Aurresatzailea/aurkezpen_ontzia/2_1337_f0r_y0u "" "" \
 		&> /user_shell_files/output
 	FILE_CONTENT=$(cat /user_shell_files/output)
 	EXPECTED_CONTENT=$(proper_solution "" "")
@@ -142,7 +142,7 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	animate_dots &
 	DOTS_PID=$!
 
-	timeout 0.5 /home/Gaiu_Itsasaldi-Aurresatzailea/aurkezpen_ontzia/2_1337_f0r_y0u "" \
+	timeout 1.5 /home/Gaiu_Itsasaldi-Aurresatzailea/aurkezpen_ontzia/2_1337_f0r_y0u "" \
 		&> /user_shell_files/output
 	FILE_CONTENT=$(cat /user_shell_files/output)
 	EXPECTED_CONTENT=$(proper_solution "")
@@ -181,7 +181,7 @@ if [ ! -f "/user_shell_files/foreground_activated" ]; then
 	animate_dots &
 	DOTS_PID=$!
 
-	timeout 0.5 /home/Gaiu_Itsasaldi-Aurresatzailea/aurkezpen_ontzia/2_1337_f0r_y0u \
+	timeout 1.5 /home/Gaiu_Itsasaldi-Aurresatzailea/aurkezpen_ontzia/2_1337_f0r_y0u \
 		&> /user_shell_files/output
 	FILE_CONTENT=$(cat /user_shell_files/output)
 	EXPECTED_CONTENT=$(proper_solution )

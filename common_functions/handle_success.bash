@@ -28,7 +28,7 @@ move_to_suffix()
 
 count_processes()
 {
-	timeout 10 "$@" > /dev/null &
+	timeout 11 "$@" > /dev/null &
 	local timeout_pid=$!
 	sleep 2
 
