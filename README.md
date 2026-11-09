@@ -7,23 +7,11 @@ A series of riddles that need be solved through terminal commands, designed to h
 You can start the challenges immediately by running one of the following commands, and passing the corresponding password:
 
 &nbsp;
-#### Basque Version *(currently unavailable)*
-
-Command:
-```bash
-ssh labirintoaren_erdigunea@theseus.ecclesiad.net
-```
-
-Password:
-```bash
-piraten_bizitza_hoberena_da
-```
-&nbsp;
 #### English Version
 
 Command:
 ```bash
-ssh center_of_the_labyrinth@english.theseus.ecclesiad.net
+ssh center_of_the_labyrinth@english.theseus.ecclesiad.net # fingerprint: SHA256:v7FE/mPvxn3cf39CsLmOXT4/0OclZohkoGab/30XByo
 ```
 
 Password:
