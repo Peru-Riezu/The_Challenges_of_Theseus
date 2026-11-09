@@ -78,7 +78,7 @@ Replace `your-host` with the actual hostname or IP address (e.g., `localhost`, `
 
 ## Contact
 
-If you have any questions, feel free to reach out via email at **[thechallengesoftheseus@gmail.com](mailto:thechallengesoftheseus@gmail.com)**.  
+If you have any questions, feel free to reach out via email at **[riezumunozperu@gmail.com](mailto:riezumunozperu@gmail.com)**.  
 
 You can also use [GitHub Issues](https://github.com/Peru-Riezu/The_Challenges_of_Theseus/issues) to report bugs or request improvements. However, please use common sense, avoid opening issues for non-issues or unproductive feature requests.  
 
