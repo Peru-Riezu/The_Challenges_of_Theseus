@@ -6,7 +6,6 @@ A series of riddles that need be solved through terminal commands, designed to h
 
 You can start the challenges immediately by running one of the following commands, and passing the corresponding password:
 
-&nbsp;
 #### English Version
 
 Command:
