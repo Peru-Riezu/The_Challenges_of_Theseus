@@ -2,7 +2,7 @@
 	Concatenate the contents of the five regular files in this directory, (files
 	whose names do not begin with '.'), in alphabetical order according to their
 	names. Then, store the result in a file called 'key' (remember, the
-	objective file is one of these five files).  Finally, place the 'key' file
+	objective file is one of these five files). Finally, place the 'key' file
 	into a directory called '/home/center_of_the_labyrinth/lock' (you must
 	create this directory).[0m
 
